@@ -1,0 +1,98 @@
+body {
+    background-color: #0b3333;
+    color: antiquewhite;
+}
+
+.botonEleccion {
+    height: 200px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.izquierda {
+    transform: rotate(90deg);
+}
+
+.derecha {
+    transform: rotate(-90deg);
+}
+
+.derecha,
+.izquierda {
+    width: 300px;
+}
+
+.contenedor-imagenes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contenedor-imagenes img {
+    width: 100px;
+}
+
+.imagenManos {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+
+.contenedor-principal {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Toma toda la pantalla */
+}
+
+.puntos {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 5px solid #f5a503;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: #2a8c97;
+}
+
+.mascota {
+  position: absolute;
+  top: -5px;
+  right: 185px;
+  width: 450px; /* ajustá el tamaño si querés */
+}
+
+.mano {
+  position: absolute;
+  bottom: -60px;
+  left: 200px;
+  width: 350px;
+  transform: rotate(15deg);
+}
+
+.botones {
+  position: absolute;
+  bottom: 15px;
+  right: 100px;
+  display: flex;
+  gap: 10px;
+}
+
+.botones button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.botones img {
+  width: 200px; /* ajustá el tamaño si querés */
+}

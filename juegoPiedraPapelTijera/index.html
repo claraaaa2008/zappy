@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <div class="puntos">
+            <p id="contUsr">Tus puntos: 0/3</p>
+            <p id="contSist">Puntos de Zappy: 0/3</p>
+            <p id="mensaje"></p>
+        </div>
+
+        <img src="img/ZappyConCara.png" id="zappy" alt="Zappy" class="mascota">
+
+        <img src="img/manoPiedra.png" id="mano" alt="Mano" class="mano">
+
+        <div class="botones">
+            <button onclick="partida(0)" class="imagenManos">
+                <img src="img/btnPiedra.png" alt="boton piedra" id="0">
+            </button>
+            <button onclick="partida(1)" class="imagenManos">
+                <img src="img/btnPapel.png" alt="boton papel" id="1">
+            </button>
+            <button onclick="partida(2)" class="imagenManos">
+                <img src="img/btnTijera.png" alt="boton tijera" id="2">
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var usr = [0, 0, 0];
+        var sist = [0, 0, 0];
+        var cantPartidas = 1;
+        var ganadas = 0;
+        var perdidas = 0;
+
+        function asignacionSist() { // devuelve arrat con eleccion del sistema
+            var sist = [1, 0, 0]; // definir el array con la eleccion
+            sist.sort(function (a, b) { return 0.5 - Math.random() }); // mezcla los valores, dando una eleccion al azar
+            return sist;
+        }
+
+        function partida(eleccion) {
+            if (ganadas < 3 || perdidas < 3) {
+                usr = [0, 0, 0];
+                sist = asignacionSist();
+                var eleccionUsr = eleccion; // eleccion del usr: 0, 1 o 2
+                usr[eleccionUsr] = 1; // le asigna 1 a el lugar del array de la eleccion
+                var ganador = quienGana();
+                cambiarMano(sist, "sist");
+                cambiarMano(usr, "usr");
+                var mensaje = "";
+                switch (ganador) {
+                    case "empate":
+                        mensaje = "Ha sido un empate, se repite la ronda";
+                        break;
+                    case "usr":
+                        mensaje = "Ganaste la ronda";
+                        cantPartidas++;
+                        ganadas++;
+                        break;
+                    case "sist":
+                        mensaje = "Perdiste la ronda";
+                        cantPartidas++;
+                        perdidas++;
+                        break;
+                }
+                document.getElementById("contUsr").textContent = "Tus puntos: " + ganadas + "/3";
+                document.getElementById("contSist").textContent = "Puntos de Zappy: " + perdidas + "/3";
+                document.getElementById("mensaje").textContent = mensaje;
+            };
+            if (ganadas > 3) {
+                document.getElementById("mensaje").textContent = "Felicitaciones ganaste el juego!!!";
+            }
+            if (perdidas > 3) {
+                document.getElementById("mensaje").textContent = "Perdiste el juego ";
+            }
+        }
+
+        function quienGana() {
+            var numUsr, numSist; // numUsr y numSist son la posicion en la que hay 1
+            var ganador = "";
+            for (var i = 0; i < 3; i++) {
+                if (usr[i] == 1) {
+                    numUsr = i;
+                }
+                if (sist[i] == 1) {
+                    numSist = i;
+                }
+            }
+            if (numSist == numUsr) {
+                ganador = "empate";
+            }
+            if (numUsr == 0 && numSist == 1 ||
+                numUsr == 1 && numSist == 2 ||
+                numUsr == 2 && numSist == 0) {
+                ganador = "sist";
+            }
+            if (numUsr == 0 && numSist == 2 ||
+                numUsr == 1 && numSist == 0 ||
+                numUsr == 2 && numSist == 1) {
+                ganador = "usr";
+            }
+            return ganador;
+        }
+
+        function cambiarMano(aCambiar, queCambiar) {
+            var valor = "";
+            if (queCambiar == "sist") {
+                switch (aCambiar.toString()) {
+                    case "1,0,0":
+                        valor = "img/ZappyConPiedra.png";
+                        break;
+                    case "0,1,0":
+                        valor = "img/ZappyConPapel.png";
+                        break;
+                    case "0,0,1":
+                        valor = "img/ZappyConTijera.png";
+                        break;
+                }
+                document.getElementById("zappy").src = valor;
+            } else {
+                switch (aCambiar.toString()) {
+                    case "1,0,0":
+                        valor = "img/manoPiedra.png";
+                        break;
+                    case "0,1,0":
+                        valor = "img/manoPapel.png";
+                        break;
+                    case "0,0,1":
+                        valor = "img/manoTijera.png";
+                        break;
+                }
+                document.getElementById("mano").src = valor;
+            }
+        }
+
+        function finJuego(quienGano) {
+
+        }
+    </script>
+</body>
+
+</html>
