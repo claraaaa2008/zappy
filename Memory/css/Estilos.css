@@ -1,8 +1,9 @@
 body {
     margin: 0;
-    background: #f5a503;
     overflow: hidden;
+    background: #f5a503;
     font-family: sans-serif;
+    background: #2E2E2E;
 }
 
 #wrapper {
@@ -32,7 +33,7 @@ body {
     cursor: pointer;
     border-radius: 1rem; 
     box-shadow: 0 0 12px 3px rgba(31, 164, 159, 0.6);
-
+    
 }
 
 .card.active {
@@ -50,7 +51,7 @@ body {
     position: absolute;
     backface-visibility: hidden;
     pointer-events: none;
-;
+    ;
 }
 
 .card .face {
@@ -66,7 +67,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
-
+    
 }
 
 #stats {
