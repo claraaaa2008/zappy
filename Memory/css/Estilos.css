@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #000000;
+    background: #f5a503;
     overflow: hidden;
     font-family: sans-serif;
 }
@@ -50,6 +50,7 @@ body {
     position: absolute;
     backface-visibility: hidden;
     pointer-events: none;
+;
 }
 
 .card .face {
@@ -60,11 +61,12 @@ body {
 }
 
 .card .back {
-    background-image: url(../imagenes/CartaZappy2.png);
+    background-image: url(../imagenes/fondoCarta.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
+
 }
 
 #stats {
