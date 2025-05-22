@@ -73,7 +73,7 @@ body {
 
 .mano {
   position: absolute;
-  bottom: -60px;
+  bottom: -80px;
   left: 200px;
   width: 350px;
   transform: rotate(15deg);
@@ -95,4 +95,18 @@ body {
 
 .botones img {
   width: 200px; /* ajustá el tamaño si querés */
+}
+
+/* Animacion*/
+@keyframes agitarMano {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(30deg); }
+    40% { transform: rotate(0deg); }
+    60% { transform: rotate(30deg); }
+    80% { transform: rotate(0deg); }
+    100% { transform: rotate(30deg); }
+}
+
+.mano-animada {
+    animation: agitarMano 1s ease;
 }

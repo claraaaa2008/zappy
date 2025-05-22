@@ -38,136 +38,28 @@
         </div>
     </div>
 
-    <div class="modal" tabindex="-1">
+    <div class="modal" tabindex="-1" id="modalResumen">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h3 class="modal-title" id="modal-titulo">Modal title</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    <h4>Resumen de la partida</h4>
+                    <h5>Resultado final:</h5>
+                    <p id="resultado"></p>
+                    <p id="jugadas"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inicio</button>
+                    <button type="button" class="btn btn-primary">Volver a jugar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        var usr = [0, 0, 0];
-        var sist = [0, 0, 0];
-        var cantPartidas = 1;
-        var ganadas = 0;
-        var perdidas = 0;
-
-        function asignacionSist() { // devuelve arrat con eleccion del sistema
-            var sist = [1, 0, 0]; // definir el array con la eleccion
-            sist.sort(function (a, b) { return 0.5 - Math.random() }); // mezcla los valores, dando una eleccion al azar
-            return sist;
-        }
-
-        function partida(eleccion) {
-            if (ganadas < 3 || perdidas < 3) {
-                usr = [0, 0, 0];
-                sist = asignacionSist();
-                var eleccionUsr = eleccion; // eleccion del usr: 0, 1 o 2
-                usr[eleccionUsr] = 1; // le asigna 1 a el lugar del array de la eleccion
-                var ganador = quienGana();
-                cambiarMano(sist, "sist");
-                cambiarMano(usr, "usr");
-                var mensaje = "";
-                switch (ganador) {
-                    case "empate":
-                        mensaje = "Ha sido un empate, se repite la ronda";
-                        break;
-                    case "usr":
-                        mensaje = "Ganaste la ronda";
-                        cantPartidas++;
-                        ganadas++;
-                        break;
-                    case "sist":
-                        mensaje = "Perdiste la ronda";
-                        cantPartidas++;
-                        perdidas++;
-                        break;
-                }
-                document.getElementById("contUsr").textContent = "Tus puntos: " + ganadas + "/3";
-                document.getElementById("contSist").textContent = "Puntos de Zappy: " + perdidas + "/3";
-                document.getElementById("mensaje").textContent = mensaje;
-            };
-            if (ganadas > 3) {
-                document.getElementById("mensaje").textContent = "Felicitaciones ganaste el juego!!!";
-            }
-            if (perdidas > 3) {
-                document.getElementById("mensaje").textContent = "Perdiste el juego ";
-            }
-        }
-
-        function quienGana() {
-            var numUsr, numSist; // numUsr y numSist son la posicion en la que hay 1
-            var ganador = "";
-            for (var i = 0; i < 3; i++) {
-                if (usr[i] == 1) {
-                    numUsr = i;
-                }
-                if (sist[i] == 1) {
-                    numSist = i;
-                }
-            }
-            if (numSist == numUsr) {
-                ganador = "empate";
-            }
-            if (numUsr == 0 && numSist == 1 ||
-                numUsr == 1 && numSist == 2 ||
-                numUsr == 2 && numSist == 0) {
-                ganador = "sist";
-            }
-            if (numUsr == 0 && numSist == 2 ||
-                numUsr == 1 && numSist == 0 ||
-                numUsr == 2 && numSist == 1) {
-                ganador = "usr";
-            }
-            return ganador;
-        }
-
-        function cambiarMano(aCambiar, queCambiar) {
-            var valor = "";
-            if (queCambiar == "sist") {
-                switch (aCambiar.toString()) {
-                    case "1,0,0":
-                        valor = "img/ZappyConPiedra.png";
-                        break;
-                    case "0,1,0":
-                        valor = "img/ZappyConPapel.png";
-                        break;
-                    case "0,0,1":
-                        valor = "img/ZappyConTijera.png";
-                        break;
-                }
-                document.getElementById("zappy").src = valor;
-            } else {
-                switch (aCambiar.toString()) {
-                    case "1,0,0":
-                        valor = "img/manoPiedra.png";
-                        break;
-                    case "0,1,0":
-                        valor = "img/manoPapel.png";
-                        break;
-                    case "0,0,1":
-                        valor = "img/manoTijera.png";
-                        break;
-                }
-                document.getElementById("mano").src = valor;
-            }
-        }
-
-        function finJuego(quienGano) {
-
-        }
-    </script>
+    <script src="script/script.js"></script>
 </body>
 
 </html>
