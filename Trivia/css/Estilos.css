@@ -1,0 +1,61 @@
+body{
+    background: #0b3333;
+}
+
+.opciones{
+   color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 2px solid #1fa49f;
+    border-radius: 1rem; 
+    box-shadow: 0 0 12px 3px rgba(31, 164, 159, 0.6);  
+}
+.zappy{
+     width: 75vh;
+    height: 75vh;
+   
+
+}
+    .tooltip {
+        /* tail dimension */
+        --b: 2em; /* base */
+        --h: 1.5em; /* height */
+
+        --p: 20%; /* main position (0%:left 100%:right) */
+        --x: -12%; /* tail position (relative to the main position). Can be percentage */
+        --r: 1.2em; /* the radius */
+
+        --_e: max(0%, -1*var(--x) - var(--p), var(--x) + var(--p) - 100%);
+        
+        padding: 1em;
+        border-radius: 1.5rem;
+
+        background:
+            50% calc(100% + var(--h))
+            repeating-linear-gradient(
+                90deg,
+                #4ECDC4 0 calc(100% - 20px)
+            );
+            
+        position: relative;
+    }
+
+    .tooltip:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0 calc(-1*var(--_e)) calc(-1*var(--h));
+        background-image: inherit;
+        clip-path: polygon(
+                clamp(var(--b), var(--p) + var(--b)/2, 100%) calc(100% - var(--h)),
+                calc(var(--p) + var(--x)) 100%,
+                clamp(0%, var(--p) - var(--b)/2, 100% - var(--b)) calc(100% - var(--h))) content-box;
+    }
+
+    .tooltip {
+        padding: 1em;
+        max-width: 25ch;
+    }
