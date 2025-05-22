@@ -1,8 +1,9 @@
 body {
     margin: 0;
-    background: #f5a503;
     overflow: hidden;
+    background: #f5a503;
     font-family: sans-serif;
+    background: #2E2E2E;
 }
 
 #wrapper {
@@ -30,9 +31,9 @@ body {
     transition: transform 0.5s;
     transform-style: preserve-3d;
     cursor: pointer;
-    border-radius: 1rem; 
+    border-radius: 1rem;
     box-shadow: 0 0 12px 3px rgba(31, 164, 159, 0.6);
-
+    
 }
 
 .card.active {
@@ -50,13 +51,15 @@ body {
     position: absolute;
     backface-visibility: hidden;
     pointer-events: none;
-;
+    ;
 }
 
 .card .face {
-    background: #1fa49f;
+    background: #f5a503;
     transform: rotateY(180deg);
-    color: white;
+    color: #146069;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
     font-size: 2rem;
 }
 
@@ -65,8 +68,8 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: transparent;
-
+    background-color: #f5a503;
+    
 }
 
 #stats {

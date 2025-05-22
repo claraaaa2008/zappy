@@ -4,11 +4,11 @@ let selectedCards = [];
 let valuesUsed = [];
 let currentMove = 0;
 let currentAttempts = 0;
- // Activa la música si fue bloqueada por el navegador
- document.getElementById('play-music').addEventListener('click', () => {
+// Activa la música si fue bloqueada por el navegador
+document.getElementById('play-music').addEventListener('click', () => {
     const music = document.getElementById('bg-music');
     music.play();
-  });
+});
 
 let cardTemplate = '<div class="card"><div class="back"></div><div class="face"></div></div>';
 
