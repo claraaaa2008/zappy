@@ -1,0 +1,76 @@
+/************************* Importar fuentes ***************************/
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+
+@font-face /*Estilo normal*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+} @font-face /*Estilo negrita*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../fonts/cutta/Cutta-Black.otf') format('truetype');
+    font-style: normal;
+    font-weight: bolder;
+}
+
+/**************************** Estilos *********************************/
+
+body {
+    background: #2e2e2e;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote {
+        /* tail dimension */
+        --b: 2em; /* base */
+        --h: 1.5em; /* height */
+
+        --p: 75%; /* main position (0%:left 100%:right) */
+        --x: 12%; /* 0% es el medio */
+        --r: 1.2em; /* the radius */
+
+        --_e: max(0%, -1*var(--x) - var(--p), var(--x) + var(--p) - 100%);
+        
+        padding: 1em;
+        border-radius: 1.5rem;
+
+        background:
+            50% calc(100% + var(--h))
+            repeating-linear-gradient(
+                90deg,
+                #4ECDC4 0 calc(100% - 20px)
+            );
+            
+        position: relative;
+
+    } .quote:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0 calc(-1*var(--_e)) calc(-1*var(--h));
+        background-image: inherit;
+        clip-path: polygon(
+                clamp(var(--b), var(--p) + var(--b)/2, 100%) calc(100% - var(--h)),
+                calc(var(--p) + var(--x)) 100%,
+                clamp(0%, var(--p) - var(--b)/2, 100% - var(--b)) calc(100% - var(--h))) content-box;
+
+    } .quote {
+        padding: 1em;
+        max-width: 25ch;
+    }
+
+    img {
+        width: 40vw;
+        margin: 0;
+        padding: 0;
+    }

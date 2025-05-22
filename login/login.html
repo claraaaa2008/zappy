@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <div class="datos">
         <h1>Iniciar Sesión</h1>
         <form action="login.php" method="POST">
-            <label for="usuario">Usuario:</label>
+            <label for="usuario">Usuario:</label><br>
             <input type="text" id="usuario" name="usuario" required>
             <br>
-            <label for="contrasena">Contraseña:</label>
+            <label for="contrasena">Contraseña:</label><br>
             <input type="password" id="contrasena" name="contrasena" required>
             <br>
             <button type="submit">Iniciar Sesión</button>
@@ -20,7 +21,9 @@
         <p>¿No tienes una cuenta? <a href="../registro/registro.html">Regístrate aquí</a></p>
     </div>
     <div class="bienvenida">
-        
+        <div class="quote">¡Bienvenido! Soy Zappy</div>
+        <img src="../img/ZappyConCara.png" alt="Imagen de zappy">
+
     </div>
 </body>
 </html>
