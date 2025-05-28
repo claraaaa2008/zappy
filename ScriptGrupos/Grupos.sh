@@ -9,26 +9,15 @@ echo -e "\e[95m5) \e[97mSalir"
 read -p "Opción: " opcion
 case $opcion in
   1)
-    read -p "Nombre del grupo: " nombreGrupo
-    groupadd $nombreGrupo
-    echo "Grupo $nombreGrupo creado"
-    ;;
+ crearGrupo ;;
   2)
-    read -p "Nombre del grupo: " nombreGrupo
-    groupdel $nombreGrupo
-    echo "Grupo $nombreGrupo eliminado"
+   eliminarGrupo
     ;;
   3)
-    read -p "Nombre del grupo: " nombreGrupo
-    read -p "Nombre del usuario: " nombreUsuario
-    usermod -aG $nombreGrupo $nombreUsuario
-    echo "Usuario $nombreUsuario agregado al grupo $nombreGrupo"
+    agregarUsuarioGrupo
     ;;
   4)
-    read -p "Nombre del grupo: " nombreGrupo
-    read -p "Nombre del usuario: " nombreUsuario
-    gpasswd -d $nombreUsuario $nombreGrupo
-    echo "Usuario $nombreUsuario eliminado del grupo $nombreGrupo"
+    eliminarUsuarioGrupo
     ;;
   5)
     sh menu.sh
@@ -37,3 +26,37 @@ case $opcion in
     echo "Opción no válida"
     ;;
 esac
+
+def crearGrupo(){
+ read -p "Nombre del grupo: " nombreGrupo
+  if grep -q "^$nombreGrupo:" /etc/group; then
+    echo "El grupo $nombreGrupo ya existe."
+    else
+    groupadd $nombreGrupo
+    echo "Grupo $nombreGrupo creado"
+    fi
+}
+def eliminarGrupo(){
+ read -p "Nombre del grupo: " nombreGrupo
+    if grep -q "^$nombreGrupo:" /etc/group; then
+    groupdel $nombreGrupo
+    echo "Grupo $nombreGrupo eliminado" 
+   else
+    echo "El grupo $nombreGrupo no existe."
+   fi
+}
+
+def agregarUsuarioGrupo(){
+read -p "Nombre del grupo: " nombreGrupo
+    read -p "Nombre del usuario: " nombreUsuario
+    usermod -aG $nombreGrupo $nombreUsuario
+    echo "Usuario $nombreUsuario agregado al grupo $nombreGrupo"
+}
+
+def eliminarUsuarioGrupo(){
+  read -p "Nombre del grupo: " nombreGrupo
+    read -p "Nombre del usuario: " nombreUsuario
+    gpasswd -d $nombreUsuario $nombreGrupo
+    echo "Usuario $nombreUsuario eliminado del grupo $nombreGrupo"
+    ;;
+}
