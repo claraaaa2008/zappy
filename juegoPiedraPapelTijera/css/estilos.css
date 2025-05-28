@@ -64,6 +64,8 @@ body {
   background-color: #2a8c97;
 }
 
+
+
 .mascota {
   position: absolute;
   top: -5px;
@@ -73,7 +75,7 @@ body {
 
 .mano {
   position: absolute;
-  bottom: -80px;
+  bottom: 80px;
   left: 200px;
   width: 350px;
   transform: rotate(15deg);
