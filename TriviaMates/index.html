@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Trivia de Matematicas</h1>
+
+<button onclick="preguntaFacil()" id="Facil">Facil</button>
+<button onclick="preguntaMedio()" id="Medio">Medio</button>
+<button onclick="preguntaDificil()" id="Dificil">Dificil</button>
+
+<p id="txtPregunta"></p>
+
+     <p1>Respuesta</p1><br>
+        <input type="text" name="txtRespuesta" id="txtRespuesta" required autofocus><br>
+        <button onclick="respuesta()" id="respuesta">Enviar</button>
+
+<p id="txtCorrectas"></p>
+<p id="txtIncorrectas"></p>
+        <script>
+
+ let resultado = 0;
+ let contadorCorrectas =0;
+ let contadorIncorrectas =0;
+function respuesta(){
+      let respuesta = document.getElementById("txtRespuesta").value;
+    if (resultado == respuesta) {
+        alert("Respuesta Correcta");
+        contadorCorrectas++;
+    } else {
+        alert("Respuesta Incorrecta");
+        contadorIncorrectas++;
+    }
+     document.getElementById("txtCorrectas").innerHTML = contadorCorrectas + " Respuestas Correctas";
+    document.getElementById("txtIncorrectas").innerHTML = contadorIncorrectas + " Respuestas Incorrectas";
+    
+}
+
+function preguntaFacil() {
+    let min = 1;
+    let max = 9;
+    let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    let operacion = Math.floor(Math.random() * 4) + 1;
+  
+    let pregunta = "";
+
+    switch (operacion) {
+        case 1:
+            pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
+            resultado = numero1 + numero2;
+            break;
+        case 2:
+            pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
+            resultado = numero1 - numero2;
+            break;
+        case 3:
+            pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
+            resultado = numero1 * numero2;
+            break;
+        case 4:
+            pregunta = `¿Cuánto es ${numero1} / ${numero2}?`;
+            resultado = numero1 / numero2;
+            break;
+    }
+    document.getElementById("txtPregunta").innerHTML = pregunta;
+}
+
+function preguntaMedio(){
+   let min = 10;
+    let max = 99;
+    let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    let operacion = Math.floor(Math.random() * 4) + 1;
+    let resultado = 0;
+    let pregunta = "";
+
+    switch (operacion) {
+        case 1:
+            pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
+            resultado = numero1 + numero2;
+            break;
+        case 2:
+            pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
+            resultado = numero1 - numero2;
+            break;
+        case 3:
+            pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
+            resultado = numero1 * numero2;
+            break;
+        case 4:
+            pregunta = `¿Cuánto es ${numero1} / ${numero2}?`;
+            resultado = numero1 / numero2;
+            break;
+    }
+    document.getElementById("txtPregunta").innerHTML = pregunta;
+}
+
+function preguntaDificil(){
+    let min = 100;
+    let max = 999;
+    let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    let operacion = Math.floor(Math.random() * 4) + 1;
+    let resultado = 0;
+    let pregunta = "";
+
+    switch (operacion) {
+        case 1:
+            pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
+            resultado = numero1 + numero2;
+            break;
+        case 2:
+            pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
+            resultado = numero1 - numero2;
+            break;
+        case 3:
+            pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
+            resultado = numero1 * numero2;
+            break;
+        case 4:
+            pregunta = `¿Cuánto es ${numero1} / ${numero2}?`;
+            resultado = numero1 / numero2;
+            break;
+    }
+    document.getElementById("txtPregunta").innerHTML = pregunta;
+}
+
+        </script>
+</body>
+</html>
