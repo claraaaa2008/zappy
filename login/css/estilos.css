@@ -184,6 +184,26 @@ a {
         padding: 1em;
     }
 
+.zappyTV {
+    animation-name: jump;
+    animation-duration: 0.55s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    margin-bottom: 0;
+} @keyframes jump {
+    0% {
+        transform: translateY(-1vh);
+    }
+    50% {
+        transform: translateY(-3vh);
+        transform: scaleY(1.1em);
+        rotate: -3deg;
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
 @media screen and (max-width: 768px) {
     body {
         flex-direction: column-reverse;
@@ -220,24 +240,6 @@ a {
         justify-content: space-evenly;
         align-items: center;
         width: 100%;
-    } .zappyTV {
-        animation-name: jump;
-        animation-duration: 0.55s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-out;
-        margin-bottom: 0;
-    } @keyframes jump {
-        0% {
-            transform: translateY(-1vh);
-        }
-        50% {
-            transform: translateY(-3vh);
-            transform: scaleY(1.1em);
-            rotate: -3deg;
-        }
-        100% {
-            transform: translateY(0vh);
-        }
     }
 
     .quote {
