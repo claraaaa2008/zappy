@@ -26,31 +26,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Trivia</title>
-    <link rel="stylesheet" href="css/Estilos.css"/>
+    <title>Cuestionario De Html</title>
+    <link rel="stylesheet" href="css/">
 </head>
 <body>
-    <h1>Cuestionario de HTML</h1>
-    <form method="POST">
-        <img src="imagenes/ZappyConCara.png"  class="zappy">
-        
+    <h1 class="titulo">Cuestionario De Html</h1>
 
-<div class="tooltip">
-    <?php foreach ($preguntas as $id => $datos): ?>
-        <div class="pregunta">
-            <h3><?= htmlspecialchars($datos['pregunta']) ?></h3>
+    <form method="POST" class="contenedor">
+        <div class="tv">
+            <img src="imagenes/ZappyConCara.png" alt="TV personaje" class="zappy">
+            <div class="globo">
+                <?php foreach ($preguntas as $id => $datos): ?>
+                    <div class="pregunta">
+                        <p><?= htmlspecialchars($datos['pregunta']) ?></p>
+                        <?php foreach ($datos['opciones'] as $opcion): ?>
+                            <label class="opcion">
+                                <input type="radio" name="respuesta_<?= $id ?>" value="<?= $opcion['id'] ?>">
+                                <?= htmlspecialchars($opcion['texto']) ?>
+                            </label><br>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+                <br>
+                <button type="submit" class="boton">Enviar Respuestas</button>
+            </div>
         </div>
-        <div class="opciones">
-            <?php foreach ($datos['opciones'] as $opcion): ?>
-                <label>
-                    <input type="radio" name="respuesta_<?= $id ?>" value="<?= $opcion['id'] ?>">
-                    <?= htmlspecialchars($opcion['texto']) ?>
-                </label><br>
-            <?php endforeach; ?>
-        </div>
-        <br>
-    <?php endforeach; ?>
-</div>
-
+    </form>
 </body>
 </html>
