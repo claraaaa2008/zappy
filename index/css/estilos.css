@@ -60,7 +60,7 @@ body {
     font-size: 80px;
     color: #2e2e2e;
     text-shadow:#9cffff 0px 0px 10px;
-}.pantalla h1 {
+} .pantalla h1 {
     font-size: 100px;
     color: #4ad9d9;
     text-shadow:#9cffff 0px 0px 10px;
@@ -270,14 +270,14 @@ body {
 /* Ajuste de pantalla para menos de 572px de ANCHO */
 @media screen and (max-width: 572px) {
     body {
-        padding: 0;
         height: 100vh;
+        margin-block: 16%;
     }
 
     .pantalla {
+        margin: 6vw;
         width: 80%;
         height: 40vh;
-        margin: 6vw;
     } .pantalla__contenido h1 {
         font-size: 50px;
     } .ojos {
@@ -288,13 +288,30 @@ body {
     }
     
     .botonesContainer {
-        width: 100%;
-        padding-inline: 0vw;
-        margin-inline: 6vw;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
     } .botonesContainer button {
         width: fit-content;
     } .iconoJuego {
         display: block;
         width: 3vw;
+    }
+
+    .botonesContainer {
+        flex-direction: column;
+        width: 100vh;
+    }
+    
+    .botonesContainer button {
+        width: 100%;
+        font-size: 2vh;
+    } .juego img {
+        display: none;
+    } .botones {
+        flex-direction: column;
+    } .opcionesCuenta {
+        display: block;
     }
 }
