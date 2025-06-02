@@ -125,6 +125,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+} .iconoJuego {
+    display: none;
 }
 
 .usuario {
@@ -147,13 +149,19 @@ body {
     width: 40%;
 }
 
-@media screen and (max-width: 920px) {
+/* Ajuste de pantalla para menos de 1024px de ANCHO */
+@media screen and (max-width: 1024px) {
     body {
         flex-wrap: wrap;
+        padding: 0;
+        height: 100vh;
+        align-content: center;
     }
+
     .pantalla {
-        width: 90%;
-        height: 60vh;
+        width: 80%;
+        height: 50vh;
+        margin: 6vw;
     } .pantalla__contenido {
         display: flex;
         flex-direction: column;
@@ -163,6 +171,7 @@ body {
     } .pantalla__contenido h1 {
         margin: 0;
         font-size: 15vw;
+        max-block-size: 130px;
     } .ojos {
         margin-top: 0;
     } .ojo {
@@ -180,13 +189,23 @@ body {
         padding-inline: 10vw;
     } .botonesContainer button {
         width: 11vw;
-        height: 7vw;
+        height: fit-content;
         font-size: 0;
     } .botones {
         flex-direction: row;
         justify-content: flex-end;
     } .opcionesCuenta {
         display: none;
+    } .iconoJuego {
+        display: block;
+        width: 5vw;
+    } .juego {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15vw;
+        padding: 2.5vh;
+        border-radius: 5vw;
     }
 
     .usuario {
@@ -196,19 +215,69 @@ body {
         gap: 1rem;
         margin: 0;
     } .usuario img {
-        width: 5rem;
+        width: 17vw;
     } .usuario h2 {
         display: none;
     }
 }
 
+/* Ajuste de pantalla para menos de 600px de ALTURA */
+@media screen and (max-height: 600px) {
+    body {
+        padding: 0;
+        flex-wrap: nowrap;
+        height: 100vh;
+        align-content: center;
+    }
+
+    .pantalla {
+        margin: 5vh;
+        width: 60%;
+        height: 75vh;
+    }
+    .pantalla__contenido{
+        justify-content: center;
+    }
+    .pantalla__contenido h1 {
+        margin: 0;
+        font-size: 9vh;
+        max-block-size: 130px;
+    } .ojo {
+        height: 25vh;
+        margin-top: 5vh;
+    }
+
+    .botonesContainer {
+        margin-right: 5vh;
+        padding-left: inherit;
+        padding-right: 0;
+
+        flex-direction: column;
+
+        width: 100vh;
+        height: 80vh;
+    }
+    .botonesContainer button {
+        width: 100%;
+        font-size: 19px;
+    } .juego img {
+        display: none;
+    } .botones {
+        flex-direction: column;
+    }
+}
+
+/* Ajuste de pantalla para menos de 572px de ANCHO */
 @media screen and (max-width: 572px) {
     body {
-        padding: 20px;
+        padding: 0;
+        height: 100vh;
     }
+
     .pantalla {
         width: 80%;
-        height: 50vh;
+        height: 40vh;
+        margin: 6vw;
     } .pantalla__contenido h1 {
         font-size: 50px;
     } .ojos {
@@ -220,7 +289,12 @@ body {
     
     .botonesContainer {
         width: 100%;
+        padding-inline: 0vw;
+        margin-inline: 6vw;
     } .botonesContainer button {
-        width: 90%;
+        width: fit-content;
+    } .iconoJuego {
+        display: block;
+        width: 3vw;
     }
 }
