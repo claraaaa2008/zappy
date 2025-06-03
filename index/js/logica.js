@@ -1,5 +1,5 @@
 var modal = document.getElementById("modal01");
-function abrirModal() {
+function abrir() {
     modal.style.display = "block";
 }
 function cerrar() {

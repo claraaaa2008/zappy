@@ -28,22 +28,33 @@
             </div>
         </a>
         <div class="botones">
+
             <button class="juego">
                 <span>Piedra papel o tijera</span>
                 <img src="../img/piedraPapelTijera/ZappyConPiedra.png" class="iconoJuego">
             </button>
+
             <button class="juego">
                 <span>Memory</span>
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
-            <button class="juego">
+
+            <button class="juego" onclick="abrir()">
                 <span>Trivia</span>
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
+            <div id="modal01" class="modal">
+                <div class="modal-contenido">
+                    <button class="cerrarBoton" onclick="cerrar()">&times;</button>
+                    <p>Contenido del Modal</p>
+                </div>
+            </div>
+
             <button class="juego">
                 <span>Adivina la puerta</span>
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
+
             <!-- Cuando se loguee, al tocar el icono de usuario, pasa a la página de Opciones de cuenta-->
             <button class="opcionesCuenta">
                 Opciones de cuenta
@@ -53,3 +64,4 @@
 </body>
 
 </html>
+<script src="js/logica.js"></script>
