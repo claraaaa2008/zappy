@@ -18,3 +18,6 @@ CREATE TABLE usuario (
   contraseña varchar(20) NOT NULL,
   permisos enum('Administrador','Jugador') NOT NULL
 );
+
+USE zappyMenuDeJuegos;
+SELECT * FROM usuario;
