@@ -93,7 +93,7 @@ body {
     padding-left: inherit;
     
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -233,7 +233,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #2e2e2e;
     font-size: 30px;
-    margin: 2rem;
+    margin-bottom: 0;
     
 } .usuario img {
     width: 40%;
