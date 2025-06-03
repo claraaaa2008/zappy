@@ -99,7 +99,7 @@ body {
     height: 80vh;
     gap: 10px;
 
-} .botonesContainer button {
+} .juego, .opcionesCuenta {
     cursor: pointer;
 
     width: 100%;
@@ -114,7 +114,7 @@ body {
 
     font-family: 'Cutta', sans-serif;
     font-size: 19px;
-} .botonesContainer button:hover {
+} .juego:hover, .opcionesCuenta:hover {
     background-color: #25858F;
     color: white;
     box-shadow: 0px 0px 10px #3fb5b5;
