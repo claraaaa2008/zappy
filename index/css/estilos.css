@@ -245,73 +245,23 @@ body {
 
 @media screen and (max-width: 1024px) {
     body {
-        padding: 0;
-        height: 100vh;
-
-        flex-wrap: wrap;
-        align-content: center;
-    }
-    
-    .pantalla {
-        width: 80%;
-        height: 50vh;
-        margin: 6vw;
-    } .pantalla__contenido {
-        display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-wrap: nowrap;
+    }
+
+    .pantalla {
+        width: 90%;
+        height: 60vh;
+        margin: 5vh auto;
     } .pantalla__contenido h1 {
-        margin: 0;
-        font-size: 15vw;
-        max-block-size: 130px;
-    } .ojos {
-        margin-top: 0;
+        font-size: 60px;
     } .ojo {
         width: 10vw;
         height: 20vw;
     }
-    
+
     .botonesContainer {
-        padding-left: 0%;
-        margin-top: 2rem;
-        height: fit-content;
-        width: -webkit-fill-available;
-
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding-inline: 10vw;
-    } .juego, .opcionesCuenta {
-        width: 15vw;
-        padding: 2.5vh;
-        border-radius: 5vw;
-
-        font-size: 0;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } .botones {
-        flex-direction: row;
-        justify-content: flex-end;
-    } .opcionesCuenta {
-        display: none;
-    } .iconoJuego {
-        width: 5vw;
-        display: block;
-    }
-    
-    .usuario {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 1rem;
-        margin: 0;
-    } .usuario img {
-        width: 17vw;
-    } .usuario h2 {
-        display: none;
+        padding: 0;
+        width: 100%;
     }
 }
 
@@ -369,39 +319,15 @@ body {
 /************************************************************************/
 
 @media screen and (max-width: 572px) {
-    body {
-        height: 100vh;
-        margin-block: 16%;
-    }
-    
     .pantalla {
         width: 80%;
         height: 40vh;
         margin: 6vw;
     } .pantalla__contenido h1 {
         font-size: 50px;
-    } .ojos {
-        margin-top: 0;
     } .ojo {
         width: 13vw;
         height: 15vh;
-    }
-    
-    .botonesContainer {
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-    } .botonesContainer button {
-        width: fit-content;
-    } .iconoJuego {
-        display: block;
-        width: 3vw;
-    }
-
-    .botonesContainer {
-        flex-direction: column;
-        width: 100vh;
     }
     
     .botonesContainer button {
