@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION['usuario'])) {
-    header("Location: dashboard.php");
-    exit();
+// Conexión a la base de datos
+$conexion = new mysqli("localhost", "root", "", "zappyMenuDeJuegos");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
 }
 ?>
 
@@ -21,7 +22,17 @@ if (isset($_SESSION['usuario'])) {
         echo "<p style='color:red;'>Usuario o contraseña incorrectos.</p>";
     }
     ?>
+    <?php
+    // Obtener datos del formulario
+    // $usuario = $_POST['usuario']; $contrasena = $_POST['contrasena'];
+
+    if (isset($_SESSION['usuario'])) {
+        header("Location: dashboard.php");
+        exit();
+    }
+    ?>
     <form action="auth.php" method="post">
+
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required>
         <br>

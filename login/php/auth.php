@@ -1,17 +1,39 @@
 <?php
 session_start();
 
-$usuario_valido = "admin";
-$contrasena_valida = "1234";
+// Verifica que los datos del formulario existen
+if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
+    $usuario = $_POST['usuario'];
+    $contrasena = $_POST['contrasena'];
 
-$usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];
+    // Conexión a la base de datos
+    $conexion = new mysqli("localhost", "root", "", "zappyMenuDeJuegos");
+    if ($conexion->connect_error) {
+        die("Error de conexión: " . $conexion->connect_error);
+    }
 
-if ($usuario === $usuario_valido && $contrasena === $contrasena_valida) {
-    $_SESSION['usuario'] = $usuario;
-    header("Location: dashboard.php");
-    exit();
+    // Consulta segura usando prepared statements
+    $stmt = $conexion->prepare("SELECT * FROM usuario WHERE nombre_usuario = ? AND contraseña = ?");
+    $stmt->bind_param("ss", $usuario, $contrasena);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows > 0) {
+        // Usuario válido, guardar en sesión y redirigir
+        $_SESSION['usuario'] = $usuario;
+        $stmt->close();
+        $conexion->close();
+        header("Location: ../../index/index.html.php");
+        exit();
+    } else {
+        // Usuario no válido, redirigir con error
+        $stmt->close();
+        $conexion->close();
+        header("Location: ../login.html.php?error=1");
+        exit();
+    }
 } else {
-    header("Location: ../loginprueba.php?error=1");
+    // Si no llegan datos, redirigir al login
+    header("Location: ../login.html.php");
     exit();
 }

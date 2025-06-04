@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    // Si ya hay una sesión iniciada, redirigir al index
+    header("Location: index.html.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,10 +29,19 @@
         </div>
     </div>
     <div class="botonesContainer">
-        <a href="../login/login.html" style="text-decoration: none;">
+        
+        <a href="../login/login.html.php" style="text-decoration: none;">
             <div class="usuario">
                 <img src="../img/login/loginUser.png"></img>
-                <h2>Iniciar Sesión</h2>
+                <h2>
+                    <?php
+                    if (isset($_SESSION['usuario'])) {
+                        echo $_SESSION['usuario'];
+                    } else {
+                        echo "Iniciar Sesión";
+                    }
+                    ?>
+                </h2>
             </div>
         </a>
         <div class="botones">
