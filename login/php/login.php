@@ -1,9 +1,4 @@
 <?php
-/*
-echo $_POST["usuario"];
-echo $_POST["contrasena"];*/
-
-
 session_start();
 
 // Conexión a la base de datos
