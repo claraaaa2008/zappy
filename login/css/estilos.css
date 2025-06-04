@@ -52,16 +52,11 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0.5em;
 } .iconUser {
-    cursor: pointer;
     background-image: url('../../img/login/addUserblanco.png');
     width: 9vw;
     height: 16vw;
     background-size:contain;
     transition: ease-in-out 0.1s;
-} .iconUser:hover {
-    background-image: url('../../img/login/addPhotoblanco.png');
-    width: 9vw;
-    height: 16vw;
 }
 
 form {
@@ -274,10 +269,6 @@ a {
         width: 20vw;
         height: 32vw;
         background-size: contain;
-    } .iconUser:hover {
-        background-image: url('../../img/login/addPhotoblanco.png');
-        width: 18vw;
-        height: 32vw;
     }
 
     form {

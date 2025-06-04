@@ -13,7 +13,7 @@ if (isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Regístrate</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -34,10 +34,10 @@ if (isset($_SESSION['usuario'])) {
         }
         ?>
         <button type="submit">Iniciar Sesión <a href="../index/index.html"></a></button>
-        <p class="registro" style="width: fit-content; align-self: center;">¿No tienes una cuenta? <a href="../registro/registro.html">Regístrate aquí</a></p>
+        <p class="registro" style="width: fit-content; align-self: center;">¿No tienes una cuenta? <a href="../signup/signup.html">Regístrate aquí</a></p>
     </form>
     <div class="bienvenida">
-        <div class="quote">¡Bienvenido! Soy <b>ZAPPY</b>. Inicia sesión para jugar</div>
+        <div class="quote">¡Hola de nuevo! Soy <b>ZAPPY</b>. Inicia sesión para jugar</div>
         <div class="zappyContainer">
             <h2>ZAPPY</h2>
             <img src="../img/ZappyConCara.png" alt="Imagen de zappy" class="zappyTV" style="width: 25vw;">
