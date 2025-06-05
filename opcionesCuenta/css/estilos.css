@@ -66,21 +66,25 @@ section {
 }
 
 h1 {
+    margin-bottom: 0;
+    font-family: 'Cutta', sans-serif;
     font-size: 2.5rem;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 0;
-    font-family: 'Cutta', sans-serif;
+    color: #f5a503;
 } h2 {
     margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    font-family: 'Cutta', sans-serif;
     font-size: 1.2rem;
     text-align: center;
-    font-family: 'Cutta', sans-serif;
+    text-transform: uppercase;
     font-weight: normal;
-    margin-bottom: 1.5rem;
+    color: #f5a503;
 } h3 {
-    font-size: 1.5rem;
     font-family: 'Cutta', sans-serif;
+    font-size: 1.5rem;
 } h4 {
     font-size: 1.2rem;
     text-align: center;

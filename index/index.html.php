@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="botonesContainer">
-        
+
         <a href="../login/login.html.php" style="text-decoration: none;">
             <div class="usuario">
                 <img src="../img/login/loginUser.png"></img>
@@ -37,7 +37,6 @@
             </div>
         </a>
         <div class="botones">
-
             <button class="juego">
                 <span>Piedra papel o tijera</span>
                 <img src="../img/piedraPapelTijera/ZappyConPiedra.png" class="iconoJuego">
@@ -52,10 +51,11 @@
                 <span>Trivia</span>
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
+
             <div id="modal01" class="modal">
                 <div class="modal-contenido">
                     <h3 class="tituloModal">Elija un tipo de trivia</h3>
-                    <div class="opcionesTrivia">
+                    <div class="opcionesTrivia" style="display: flex; flex-direction: column; padding: 2vh 0;background-color: #2e2e2e;">
                         <!-- Cuando se haga hover, que se muestre una imagen dentro del div de cada opción-->
                         <a href=""><button class="opcionTrivia">Matemática</button></a>
                         <a href=""><button class="opcionTrivia">Cultura General</button></a>
@@ -68,13 +68,16 @@
                 <span>Adivina la puerta</span>
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
+
             <button class="juego">
                 <span>Juego de la mosqueta</span>
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
-
-            <!-- Cuando se loguee, al tocar el icono de usuario, pasa a la página de Configuración-->
-            <button class="opcionesCuenta"><a href="../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none;">Configuración</a></button>
+            
+            <!-- Botón de configuración igual que los demás -->
+            <a href="../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none; width: 100%;">
+                <button class="juego opcionesCuenta">Configuración</button>
+            </a>
         </div>
     </div>
 </body>
