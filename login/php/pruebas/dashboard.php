@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['usuario'])) {
     // Si ya hay una sesión iniciada, redirigir al index
-    header("Location: index.html.php");
+    header("Location: ../../index/index.html.php");
     exit();
 }
 ?>

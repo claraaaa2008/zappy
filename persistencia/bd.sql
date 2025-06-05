@@ -16,8 +16,12 @@ CREATE TABLE usuario (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre_usuario varchar(20) NOT NULL,
   contraseña varchar(20) NOT NULL,
+  nombre varchar(30) NOT NULL,
+  fecha_nacimiento date NOT NULL,
+  email varchar(50) NOT NULL,
+  sexo enum('Masculino','Femenino','Otro') NOT NULL,
   permisos enum('Administrador','Jugador') NOT NULL
 );
 
 USE zappyMenuDeJuegos;
-SELECT * FROM usuario;
+DELETE TABLE IF EXISTS usuario;

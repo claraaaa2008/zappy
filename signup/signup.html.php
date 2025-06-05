@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+    header("Location: ../index/index.html.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,7 +64,7 @@
             </div>
     
             <div class="dato">
-                <label for="email">Correo:</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="usuario@gmail.com" required>
             </div>
         </div>
