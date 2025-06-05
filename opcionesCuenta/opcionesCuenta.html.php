@@ -28,12 +28,19 @@
                     <label for="usuario">Nuevo usuario</label>
                     <input type="text">
                     <button type="submit">Cambiar Usuario</button>
+                    <?php
+                    if (isset($_GET['error'])) {
+                        echo "<p style='color:red;'>El usuario ya existe. Por favor, elige otro.</p>";
+                    } elseif (isset($_GET['success'])) {
+                        echo "<p style='color:green;'>Usuario cambiado exitosamente.</p>";
+                    }
+                    ?>
                 </form>
 
                 <hr style="width: 100%; border: none; border-top: 1px solid #4ad9d9; margin: 10px 0;">
                 
                 <!------------------------------------------------>
-                <form class="cambiar" action="php/cambiarConf.php" method="post">
+                <form class="cambiar" action="php/cambiarContraseña.php" method="post">
                     <h3>Cambiar Contraseña</h3>
                     <label for="contrasena">Contraseña actual</label>
                     <input type="password" name="contrasena" id="contrasena"
@@ -45,6 +52,14 @@
                     <input type="password" name="confirmarContrasena" id="confirmarContrasena"
                     placeholder="Confirma tu nueva contraseña">
                     <button type="submit">Cambiar Contraseña</button>
+
+                    <?php
+                    if (isset($_GET['error'])) {
+                        echo "<p style='color:red;'>Las contraseñas no coinciden o la contraseña actual es incorrecta.</p>";
+                    } elseif (isset($_GET['success'])) {
+                        echo "<p style='color:green;'>Contraseña cambiada exitosamente.</p>";
+                    }
+                    ?>
                 </form>
                 
                 <hr style="width: 100%; border: none; border-top: 1px solid #d94a4a; margin: 10px 0;">
