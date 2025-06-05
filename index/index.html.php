@@ -74,7 +74,7 @@
             </button>
 
             <!-- Cuando se loguee, al tocar el icono de usuario, pasa a la página de Configuración-->
-            <button class="opcionesCuenta"><a href="" style="color: inherit; text-decoration: none;">Configuración</a></button>
+            <button class="opcionesCuenta"><a href="../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none;">Configuración</a></button>
         </div>
     </div>
 </body>
