@@ -73,10 +73,8 @@
                 <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
 
-            <!-- Cuando se loguee, al tocar el icono de usuario, pasa a la página de Opciones de cuenta-->
-            <button class="opcionesCuenta">
-                Opciones de cuenta
-            </button>
+            <!-- Cuando se loguee, al tocar el icono de usuario, pasa a la página de Configuración-->
+            <button class="opcionesCuenta"><a href="" style="color: inherit; text-decoration: none;">Configuración</a></button>
         </div>
     </div>
 </body>
