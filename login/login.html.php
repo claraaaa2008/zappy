@@ -34,7 +34,7 @@ if (isset($_SESSION['usuario'])) {
         }
         ?>
         <button type="submit">Iniciar Sesión <a href="../index/index.html"></a></button>
-        <p class="registro" style="width: fit-content; align-self: center;">¿No tienes una cuenta? <a href="../signup/signup.html">Regístrate aquí</a></p>
+        <p class="registro" style="width: fit-content; align-self: center;">¿No tienes una cuenta? <a href="../signup/signup.html.php">Regístrate aquí</a></p>
     </form>
     <div class="bienvenida">
         <div class="quote">¡Hola de nuevo! Soy <b>ZAPPY</b>. Inicia sesión para jugar</div>
