@@ -57,8 +57,8 @@
                     <h3 class="tituloModal">Elija un tipo de trivia</h3>
                     <div class="opcionesTrivia" style="display: flex; flex-direction: column; padding: 2vh 0;background-color: #2e2e2e;">
                         <!-- Cuando se haga hover, que se muestre una imagen dentro del div de cada opción-->
-                        <a href=""><button class="opcionTrivia">Matemática</button></a>
-                        <a href=""><button class="opcionTrivia">Cultura General</button></a>
+                        <a href="../TriviaMates/index.html"><button class="opcionTrivia">Matemática</button></a>
+                        <a href="../Trivia/index.html.php"><button class="opcionTrivia">Cultura General</button></a>
                         <button class="cerrarBoton" onclick="volver()">← Volver</button>
                     </div>
                 </div>
