@@ -8,22 +8,31 @@
 </head>
 
 <body>
-    <h1>Trivia de Matematicas</h1>
+    <div class="centradoGOD"></div>
+        <div class="marcoAfuera">
+            <div class="marcoDentro">
+                <div class="principio">
+                    <button onclick="preguntaFacil()" id="Facil" class="botoncito">Facil</button>
+                    <button onclick="preguntaMedio()" id="Medio" class="botoncito">Medio</button>
+                    <button onclick="preguntaDificil()" id="Dificil" class="botoncito">Dificil</button>
+                </div>
+                <div class="preguntitas">
+                    <p id="txtPregunta" class="LaPregunta"></p>
+                </div>
+                
+                    <input type="text" name="txtRespuesta" id="txtRespuesta" required autofocus><br>
+                    <button onclick="respuesta()" id="respuesta">Enviar</button>
 
-    <button onclick="preguntaFacil()" id="Facil">Facil</button>
-    <button onclick="preguntaMedio()" id="Medio">Medio</button>
-    <button onclick="preguntaDificil()" id="Dificil">Dificil</button>
-
-    <p id="txtPregunta"></p>
-
-    <p1>Respuesta</p1><br>
-    <input type="text" name="txtRespuesta" id="txtRespuesta" required autofocus><br>
-    <button onclick="respuesta()" id="respuesta">Enviar</button>
-
-    <p id="txtCorrectas"></p>
-    <p id="txtIncorrectas"></p>
+                <div class="resultados">
+                    <p class="correctas">Correctas:</p>
+                    <p id="txtCorrectas" class="correctas">0</p>
+                    <p class="correctas">Incorrectas:</p>
+                    <p id="txtIncorrectas" class="correctas">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-
         let resultado = 0;
         let contadorCorrectas = 0;
         let contadorIncorrectas = 0;
