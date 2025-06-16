@@ -1,9 +1,10 @@
-html, body{
+html, body{ 
     background-color: #f5a503;
     height: 100%;
     margin: 0px;
     padding: 0px;
 }
+/* Elimina el margen y padding por defecto y pone fondo naranja a toda la página */
 
 body {
     background-color: #f5a503;
@@ -13,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+/* Centra todo el contenido del body vertical y horizontalmente */
 
 .centradoGOD{
     height: 100%;
@@ -20,6 +22,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+/* Contenedor auxiliar para centrar contenido si es necesario */
 
 .marcoAfuera {
     border-radius: 30px;
@@ -30,6 +33,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+/* Marco exterior con bordes redondeados y fondo azul oscuro */
 
 .marcoDentro {
     border-radius: 30px;
@@ -42,6 +46,7 @@ body {
     align-items: center;
     position: relative;
 }
+/* Marco interior, fondo gris oscuro, bordes redondeados, y contenido en columna */
 
 .principio {
   display: flex;
@@ -54,6 +59,7 @@ body {
   gap: 15px;
   z-index: 10;
 }
+/* Barra de botones de dificultad, centrada arriba y con separación entre botones */
 
 .botoncito {
   padding: 10px 20px;
@@ -66,6 +72,7 @@ body {
   cursor: pointer;
   transition: background-color 0.6s;
 }
+/* Estilo base de los botones de dificultad */
 
 .botoncito:hover {
   background-color: #4ad9d9;
@@ -74,6 +81,7 @@ body {
   font-size: 22px;
   transition: background-color 0.6s, box-shadow 0.3s, filter 0.3s, font-size 0.3s;
 }
+/* Efecto de brillo y agrandado al pasar el mouse sobre los botones */
 
 .resultados {
     display: flex;
@@ -86,6 +94,7 @@ body {
     gap: 15px;
     z-index: 10;
 }
+/* Contenedor de resultados, fijo abajo del marco, con separación entre textos */
 
 .correctas {
     display: flex;
@@ -99,6 +108,7 @@ body {
       0 0 2px #4ad9d9,
       0 0 3px #4ad9d9;
 }
+/* Estilo de los textos de resultados (correctas/incorrectas) con brillo */
 
 .preguntitas {
     display: flex;
@@ -113,6 +123,7 @@ body {
     margin-bottom: 20px;
     padding: 10px 0;
 }
+/* Bloque de la pregunta, fondo celeste, brillo arriba y abajo, y centrado */
 
 .LaPregunta {
     color: #2e2e2e;
@@ -121,3 +132,19 @@ body {
     text-align: center;
     width: 100%;
 }
+/* Estilo del texto de la pregunta, grande y centrado */
+
+.inputchulo {
+    margin: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+    font-family: monospace;
+    font-size: 20px;
+    width: 300px;
+    box-shadow: 0 0 5px 0 #4ad9d9;
+    outline: none;
+}
+/* Estilo del input de respuesta, fondo celeste, bordes redondeados y sombra */
