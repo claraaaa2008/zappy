@@ -39,17 +39,14 @@
         <div class="botones">
             <button class="juego">
                 <span>Piedra papel o tijera</span>
-                <img src="../img/piedraPapelTijera/ZappyConPiedra.png" class="iconoJuego">
             </button>
 
             <button class="juego">
                 <span>Memory</span>
-                <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
 
             <button class="juego" onclick="abrir()">
                 <span>Trivia</span>
-                <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
 
             <div id="modal01" class="modal">
@@ -66,12 +63,10 @@
 
             <button class="juego">
                 <span>Adivina la puerta</span>
-                <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
 
             <button class="juego">
                 <span>Juego de la mosqueta</span>
-                <img src="../img/memory/CartaZappy2.png" class="iconoJuego">
             </button>
             
             <!-- Botón de configuración igual que los demás -->
