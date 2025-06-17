@@ -1,0 +1,109 @@
+/* Estilo para el fondo y el color de texto general del body */
+body {
+  background-color: #0b3333; /* Fondo azul oscuro */
+  color: rgb(117, 160, 177); /* Color de texto azul claro */
+}
+
+/* Contenedor principal que ocupa toda la pantalla */
+.contenedor-principal {
+  position: relative; /* Para posicionar hijos con position absolute dentro */
+  width: 100%;       /* Ancho completo del viewport */
+  height: 100vh;     /* Alto completo del viewport */
+}
+
+/* Estilos del contenedor que muestra los puntos */
+.puntos {
+  position: relative; /* Para controlar posicionamiento interno */
+  color: #4AD9D9;     /* Color de texto cian brillante */
+  font-weight: bold;  /* Texto en negrita */
+  text-shadow:        /* Sombra de texto para efecto luminoso */
+    0 0 2px #4AD9D9,
+    0 0 4px #4AD9D9,
+    0 0 6px #4AD9D9;
+  background-color: #000; /* Fondo negro para resaltar texto */
+  font-size: 40px;        /* Tamaño grande de letra */
+  font-family: 'Segoe UI', sans-serif; /* Fuente legible y moderna */
+  text-align: center;     /* Centrar texto horizontalmente */
+  height: 0px;            /* Altura mínima, para evitar espacio extra */
+  /* Puedes ajustar esta altura para dar un tamaño fijo */
+}
+
+/* Puntos del usuario ubicados de forma absoluta en la pantalla */
+.usuarioPuntos {
+  position: absolute;
+  top: 50px;  /* Separado 50px desde arriba */
+  left: 100px; /* Separado 100px desde la izquierda */
+}
+
+/* Puntos de Zappy (la máquina) también posicionados */
+.zappyPuntos {
+  position: absolute;
+  top: 50px;   /* Mismo top que usuario */
+  right: 100px; /* Separado 100px desde la derecha */
+}
+
+/* Imagen mascota posicionada en la parte superior derecha */
+.mascota {
+  position: absolute;
+  top: -5px;    /* Muy ligeramente arriba del contenedor */
+  right: 250px; /* Separado del borde derecho */
+  width: 450px; /* Ancho fijo de la imagen */
+}
+
+/* Imagen de la mano del jugador */
+.mano {
+  position: absolute;
+  bottom: 80px; /* Separado desde abajo */
+  left: 150px;   /* Separado desde izquierda */
+  width: 350px;  /* Tamaño fijo de la mano */
+  transform: rotate(15deg); /* Rota ligeramente para dar efecto dinámico */
+}
+
+/* Contenedor de los botones con las opciones piedra, papel, tijera */
+.botones {
+  position: absolute;
+  bottom: 15px;  /* Pegado abajo */
+  right: 150px;  /* Separado desde la derecha */
+  display: flex; /* Para que los botones estén en fila */
+  gap: 10px;     /* Espacio entre cada botón */
+}
+
+/* Estilo para los botones: sin fondo ni borde, con cursor pointer */
+.botones button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Las imágenes dentro de los botones con tamaño fijo */
+.botones img {
+  width: 200px;
+}
+
+/* Definición de la animación para agitar la mano */
+@keyframes agitarMano {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(30deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+/* Clase para aplicar la animación de agitar mano con duración 1s */
+.mano-animada {
+  animation: agitarMano 1s ease;
+}
+
