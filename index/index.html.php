@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- Indica que el contenido está en español -->
 
 <head>
     <meta charset="UTF-8"> <!-- Configura la codificación de caracteres como UTF-8 -->
@@ -32,9 +32,7 @@
         </div>
     </div>
 
-    <div class="botonesContainer">
-
-        <!-- Contenedor de botones de la interfaz principal -->
+    <!-- Contenedor de botones de la interfaz principal -->
     <div class="botonesContainer">
 
         <!-- Botón de usuario / login, que cambia según si el usuario está logueado -->
@@ -105,4 +103,6 @@
 </body>
 
 </html>
+
+<!-- Enlace al archivo JavaScript con la lógica de interacciones -->
 <script src="js/logica.js"></script>
