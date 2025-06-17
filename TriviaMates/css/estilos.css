@@ -1,0 +1,150 @@
+html, body{ 
+    background-color: #f5a503;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+/* Elimina el margen y padding por defecto y pone fondo naranja a toda la página */
+
+body {
+    background-color: #f5a503;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Centra todo el contenido del body vertical y horizontalmente */
+
+.centradoGOD{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Contenedor auxiliar para centrar contenido si es necesario */
+
+.marcoAfuera {
+    border-radius: 30px;
+    background-color: #093b41;
+    height: 600px;
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Marco exterior con bordes redondeados y fondo azul oscuro */
+
+.marcoDentro {
+    border-radius: 30px;
+    background-color: #2e2e2e;
+    height: 560px;
+    width: 1250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+/* Marco interior, fondo gris oscuro, bordes redondeados, y contenido en columna */
+
+.principio {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+    z-index: 10;
+}
+/* Barra de botones de dificultad, centrada arriba y con separación entre botones */
+
+.botoncito {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #36b1bf;
+    color: #2e2e2e;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.6s;
+}
+/* Estilo base de los botones de dificultad */
+
+.botoncito:hover {
+    background-color: #4ad9d9;
+    box-shadow: 0 0 3px 3px #4ad9d9, 0 2px 2px rgba(0,0,0,0.1);
+    filter: brightness(1);
+    font-size: 22px;
+    transition: background-color 0.6s, box-shadow 0.3s, filter 0.3s, font-size 0.3s;
+}
+/* Efecto de brillo y agrandado al pasar el mouse sobre los botones */
+
+.resultados {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+    z-index: 10;
+}
+/* Contenedor de resultados, fijo abajo del marco, con separación entre textos */
+
+.correctas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 30px;
+    color: #4ad9d9;
+    text-shadow:
+    0 0 8px #4ad9d9,
+    0 0 2px #4ad9d9,
+    0 0 3px #4ad9d9;
+}
+/* Estilo de los textos de resultados (correctas/incorrectas) con brillo */
+
+.preguntitas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 30px;
+    width: 100%;
+    background-color: #4ad9d9;
+    box-shadow: 0 -2px 4px 0 #4ad9d9, 0 1px 4px 0 #4ad9d9 ;
+    margin-top: 130px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+/* Bloque de la pregunta, fondo celeste, brillo arriba y abajo, y centrado */
+
+.LaPregunta {
+    color: #2e2e2e;
+    font-family: monospace;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+}
+/* Estilo del texto de la pregunta, grande y centrado */
+
+.inputchulo {
+    margin: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+    font-family: monospace;
+    font-size: 20px;
+    width: 300px;
+    box-shadow: 0 0 5px 0 #4ad9d9;
+    outline: none;
+}
+/* Estilo del input de respuesta, fondo celeste, bordes redondeados y sombra */
