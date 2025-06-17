@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+
+@font-face /*Estilo normal*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+} @font-face /*Estilo negrita*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../fonts/cutta/Cutta-Black.otf') format('truetype');
+    font-style: normal;
+    font-weight: bolder;
+}
+
+/************************************************************************/
+body {
+    padding: 0; /* Elimina el padding para centrar correctamente */
+    margin: 0;
+    padding: 40px;
+    
+    
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    
+    background-color: #f5a503;
+    
+    font-family: 'Cutta', sans-serif;
+    
+}
+
+/************************************************************************/
+
+.pantalla {
+    width: 80%;
+    height: 80vh;
+    
+    padding: 2rem;
+    border: 8px solid #25858F;
+    border-radius: 40px;
+    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+    background-color: #2e2e2e;
+    
+} .pantalla__contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+} .pantalla__contenido h1 {
+    font-family: 'Cutta', sans-serif;
+    font-size: 80px;
+    color: #2e2e2e;
+    text-shadow:#9cffff 0px 0px 10px;
+} .pantalla h1 {
+    font-size: 100px;
+    color: #4ad9d9;
+    text-shadow:#9cffff 0px 0px 10px;
+    margin: 0;
+    
+} .ojos {
+    width: 100%;
+    margin-top: 20%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 20%;
+    
+} .ojo {
+    width: 8vw;
+    height: 17vw;
+    border-radius: 50vh;
+    
+    background-color: #4ad9d9;
+    box-shadow: 0px 0px 10px #9cffff;
+}
+
+/************************************************************************/
+
+.botonesContainer {
+    padding-left: inherit;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+    width: 100vh;
+    height: 80vh;
+    gap: 10px;
+
+} .juego, .opcionesCuenta {
+    cursor: pointer;
+    
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    
+    padding: 15px 20px;
+    margin: 5px;
+    
+    background-color: #2e2e2e;
+    color: white;
+
+    font-family: 'Cutta', sans-serif;
+    font-size: 19px;
+} .juego:hover, .opcionesCuenta:hover {
+    background-color: #25858F;
+    color: white;
+    box-shadow: 0px 0px 10px #3fb5b5;
+    transition: 0.3s;
+} .botones {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} .iconoJuego {
+    display: none;
+}
+
+/************************************************************************/
+
+.modal {
+    width: 100%;
+    height: 100%;
+    display: none; /*Por defecto oculto*/
+    position: fixed;
+    z-index: 1; /*Para quedar por encima de otros elementos*/
+    left: 0;
+    top: 0;
+    background-color: #2e2e2e;
+    overflow: auto;
+} .modal-contenido {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloModal {
+    margin-block: 4vh;
+    
+    color: #f5a503;
+    font-family: 'Cutta', sans-serif;
+    font-size: 4vw;
+    max-width: 100%;
+    min-width: 321px;
+    min-height: 40px;
+    word-break: break-word;
+
+    text-align: center;
+} .textoModal {
+    color: #ffffff;
+    font-family: 'Cutta', sans-serif;
+    font-size: 2vw;
+    
+    text-align: center;
+}
+
+/* Botones de trivia del mismo tamaño y centrados */
+.opcionTrivia {
+    margin: 2vh 0;
+    border: none;
+    padding: 1vh 0;
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+    font-family: 'Cutta', sans-serif;
+    font-size: 1.5vw;
+    border-radius: 50vw;
+    transition: ease-in-out 0.3s;
+    text-align: center;
+} .opcionTrivia:hover {
+    cursor: pointer;
+    
+    color: white;
+    background-color: #25858F;
+    box-shadow: 0px 0px 10px #3fb5b5;
+}
+
+.cerrarBoton {
+    border: none;
+    padding: 0;
+    margin-top: 3vh;
+    background-color: transparent;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+
+    display: block;
+    transition: ease-in-out 0.175s;
+
+    padding: 1vh; /* Aumenta el padding horizontal */
+} .cerrarBoton:hover {
+    cursor: pointer;
+    color: #3fb5b5;
+}
+
+/************************************************************************/
+
+.usuario {
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    margin-bottom: 0;
+    
+} .usuario h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #2e2e2e;
+    font-size: 30px;
+    margin-bottom: 0;
+    
+} .usuario img {
+    width: 40%;
+}
+
+/************************************************************************/
+/* Ajuste de pantalla para menos de 1024px de ANCHO */
+/************************************************************************/
+
+@media screen and (max-width: 1024px) {
+    body {
+        flex-direction: column;
+    }
+
+    .pantalla {
+        width: 90%;
+        height: 60vh;
+        margin: 5vh auto;
+    } .pantalla__contenido h1 {
+        font-size: 60px;
+    } .ojo {
+        width: 10vw;
+        height: 20vw;
+    }
+
+    .botonesContainer {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+/************************************************************************/
+/* Ajuste de pantalla para menos de 600px de ALTURA */
+/************************************************************************/
+@media screen and (max-height: 600px) {
+    body {
+        padding: 0;
+        height: 100vh;
+
+        flex-wrap: nowrap;
+        align-content: center;
+    }
+    
+    .pantalla {
+        width: 60%;
+        height: 75vh;
+        margin: 5vh;
+    }
+    .pantalla__contenido{
+        justify-content: center;
+    }
+    .pantalla__contenido h1 {
+        margin: 0;
+        font-size: 9vh;
+        max-block-size: 130px;
+    } .ojo {
+        height: 25vh;
+        margin-top: 5vh;
+    }
+
+    .botonesContainer {
+        margin-right: 5vh;
+        padding-left: inherit;
+        padding-right: 0;
+        
+        flex-direction: column;
+        
+        width: 100vh;
+        height: 80vh;
+    }
+    .botonesContainer button {
+        width: 100%;
+        font-size: 19px;
+    } .juego img {
+        display: none;
+    } .botones {
+        flex-direction: column;
+    }
+}
+
+/************************************************************************/
+/* Ajuste de pantalla para menos de 572px de ANCHO */
+/************************************************************************/
+
+@media screen and (max-width: 572px) {
+    .pantalla {
+        width: 80%;
+        height: 40vh;
+        margin: 6vw;
+    } .pantalla__contenido h1 {
+        font-size: 50px;
+    } .ojo {
+        width: 13vw;
+        height: 15vh;
+    }
+    
+    .botonesContainer button {
+        width: 100%;
+        font-size: 2vh;
+    } .juego img {
+        display: none;
+    } .botones {
+        flex-direction: column;
+    } .opcionesCuenta {
+        display: block;
+    }
+}
