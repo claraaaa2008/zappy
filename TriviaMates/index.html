@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+</head>
+
+<body>
+  
+    <h1>Trivia de Matematicas</h1>
+
+    <!-- Botones para seleccionar el nivel de dificultad -->
+    <button onclick="preguntaFacil()" id="Facil">Facil</button>
+    <button onclick="preguntaMedio()" id="Medio">Medio</button>
+    <button onclick="preguntaDificil()" id="Dificil">Dificil</button>
+
+    <!-- Lugar donde se muestra la pregunta generada -->
+    <p id="txtPregunta"></p>
+
+    <!-- Etiqueta para indicar donde poner la respuesta -->
+    <p1>Respuesta</p1><br>
+    <!-- Campo de texto para ingresar la respuesta -->
+    <input type="text" name="txtRespuesta" id="txtRespuesta" required autofocus><br>
+    <!-- Botón para enviar la respuesta -->
+    <button onclick="respuesta()" id="respuesta">Enviar</button>
+
+    <!-- Lugar para mostrar cantidad de respuestas correctas -->
+    <p id="txtCorrectas"></p>
+    <!-- Lugar para mostrar cantidad de respuestas incorrectas -->
+    <p id="txtIncorrectas"></p>
+
+    <script>
+        // Variable global para almacenar la respuesta correcta actual
+        let resultado = 0;
+        // Contador de respuestas correctas
+        let contadorCorrectas = 0;
+        // Contador de respuestas incorrectas
+        let contadorIncorrectas = 0;
+
+        // Función que se ejecuta cuando el usuario envía su respuesta
+        function respuesta() {
+            // Obtener el valor ingresado por el usuario
+            let respuesta = document.getElementById("txtRespuesta").value;
+            // Comparar la respuesta con la correcta (resultado)
+            if (resultado == respuesta) {
+                alert("Respuesta Correcta"); // Mensaje de acierto
+                contadorCorrectas++; // Incrementar contador de aciertos
+            } else {
+                alert("Respuesta Incorrecta"); // Mensaje de error
+                contadorIncorrectas++; // Incrementar contador de errores
+            }
+            // Mostrar los contadores actualizados en pantalla
+            document.getElementById("txtCorrectas").innerHTML = contadorCorrectas + " Respuestas Correctas";
+            document.getElementById("txtIncorrectas").innerHTML = contadorIncorrectas + " Respuestas Incorrectas";
+        }
+
+        // Función para generar una pregunta fácil (números entre 1 y 9)
+        function preguntaFacil() {
+            let min = 1;
+            let max = 9;
+            // Generar dos números aleatorios entre min y max
+            let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+            let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            // Elegir aleatoriamente la operación: 1=suma, 2=resta, 3=multiplicación
+            let operacion = Math.floor(Math.random() * 3) + 1;
+
+            let pregunta = "";
+
+            // Crear la pregunta y calcular el resultado según la operación
+            switch (operacion) {
+                case 1:
+                    pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
+                    resultado = numero1 + numero2;
+                    break;
+                case 2:
+                    pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
+                    resultado = numero1 - numero2;
+                    break;
+                case 3:
+                    pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
+                    resultado = numero1 * numero2;
+                    break;
+            }
+            // Mostrar la pregunta en el elemento con id "txtPregunta"
+            document.getElementById("txtPregunta").innerHTML = pregunta;
+        }
+
+        // Función para generar una pregunta de dificultad media (números entre 10 y 99)
+        function preguntaMedio() {
+            let min = 10;
+            let max = 99;
+            let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+            let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            let operacion = Math.floor(Math.random() * 3) + 1;
+            // Nota: Aquí la variable resultado está declarada localmente, debería ser global para que la función respuesta() funcione correctamente
+            resultado = 0;
+            let pregunta = "";
+
+            switch (operacion) {
+                case 1:
+                    pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
+                    resultado = numero1 + numero2;
+                    break;
+                case 2:
+                    pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
+                    resultado = numero1 - numero2;
+                    break;
+                case 3:
+                    pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
+                    resultado = numero1 * numero2;
+                    break;
+            }
+            document.getElementById("txtPregunta").innerHTML = pregunta;
+        }
+
+        // Función para generar una pregunta difícil (números entre 100 y 999)
+        function preguntaDificil() {
+            let min = 100;
+            let max = 999;
+            let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
+            let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            let operacion = Math.floor(Math.random() * 3) + 1;
+            resultado = 0;
+            let pregunta = "";
+
+            switch (operacion) {
+                case 1:
+                    pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
+                    resultado = numero1 + numero2;
+                    break;
+                case 2:
+                    pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
+                    resultado = numero1 - numero2;
+                    break;
+                case 3:
+                    pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
+                    resultado = numero1 * numero2;
+                    break;
+            }
+            document.getElementById("txtPregunta").innerHTML = pregunta;
+        }
+
+    </script>
+</body>
+
+</html>
