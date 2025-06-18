@@ -1,0 +1,295 @@
+/************************* Importar fuentes ***************************/
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+
+@font-face /*Estilo normal*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+} @font-face /*Estilo negrita*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../fonts/cutta/Cutta-Black.otf') format('truetype');
+    font-style: normal;
+    font-weight: bolder;
+}
+
+/**************************** Estilos *********************************/
+
+body {
+    background: #2e2e2e;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+    
+    margin: 0;
+    
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    margin-bottom: 1em;
+
+    align-items: center;
+} h1 {
+    font-family: 'Cutta', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+} .iconUser {
+    background-image: url('../../img/login/addUserblanco.png');
+    width: 9vw;
+    height: 16vw;
+    background-size:contain;
+    transition: ease-in-out 0.1s;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    max-width: 40vw;
+    min-width: 20vw;
+}
+
+label {
+    font-family: 'Cutta', sans-serif;
+    font-weight: bold;
+    font-size: 3vh;
+    margin-bottom: 2vh;
+    color: #f5a503;
+}
+
+input {
+    background-color: white;
+    color: #2e2e2e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+
+    border: none;
+    margin-bottom: 4vh;
+    
+    transition: 0.1s ease-in-out;
+} input:focus {
+    outline: #4ad9d9 solid 2px;
+    background-color: white;
+    color: #2e2e2e;
+    box-shadow: 0px 0px 10px #9cffff;
+}
+
+button {
+    background-color: #9cffff;
+    color: #2e2e2e;
+    font-family: 'Cutta', sans-serif;
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+
+    border: none;
+    cursor: pointer;
+
+    transition: 0.15s ease-in-out;
+} button:hover {
+    background-color: #36a9a9;
+    color: white;
+    box-shadow: 0px 0px 10px #9cffff;
+}
+
+a {
+    color: #f5a503;
+    text-decoration: none;
+    transition: ease-in-out 0.1s;
+} a:hover {
+    color: #9cffff;
+    text-decoration: underline;
+}
+
+.bienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} h2 {
+    display: none;
+}
+
+.quote {
+        /* tail dimension */
+        --b: 2em; /* base */
+        --h: 1.5em; /* height */
+
+        --p: 20%; /* main position (0%:left 100%:right) */
+        --x: 12%; /* 0% es el medio */
+        --r: 1.2em; /* the radius */
+
+        --_e: max(0%, -1*var(--x) - var(--p), var(--x) + var(--p) - 100%);
+        
+        padding: 1em;
+        border-radius: 1.5rem;
+
+        background:
+            50% calc(100% + var(--h))
+            repeating-linear-gradient(
+                90deg,
+                #4ECDC4
+            );
+            
+        position: relative;
+        
+    } .quote:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0 calc(-1*var(--_e)) calc(-1*var(--h));
+        background-image: inherit;
+        clip-path: polygon(
+            clamp(var(--b), var(--p) + var(--b)/2, 100%) calc(100% - var(--h)),
+            calc(var(--p) + var(--x)) 100%,
+            clamp(0%, var(--p) - var(--b)/2, 100% - var(--b)) calc(100% - var(--h))) content-box;
+            
+    } .quote {
+        font-family: 'Cutta', sans-serif;
+        font-size: larger;
+        max-width: 30vw;
+        text-wrap: balance;
+        color: #2e2e2e;
+        text-align: center;
+        padding: 1em;
+    }
+
+.zappyTV {
+    animation-name: jump;
+    animation-duration: 0.55s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    margin-bottom: 0;
+} @keyframes jump {
+    0% {
+        transform: translateY(-1vh);
+    }
+    50% {
+        transform: translateY(-3vh);
+        transform: scaleY(1.1em);
+        rotate: -3deg;
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .bienvenida {
+        width: 100%;
+        max-width: 80vw;
+        margin-block: 2vh;
+        margin-top: 6vh;
+        flex-direction: column-reverse;
+    } h2 {
+        font-family: 'Cutta', sans-serif;
+        font-weight: bold;
+        font-size: 2.5rem;
+        margin-bottom: 0.5em;
+        display: block;
+        
+        color: #9cffff;
+        text-shadow: 0px 0px 10px #9cffff;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 16vw;
+        max-height: 18vw;
+    }
+    .zappyContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    .quote {
+        /* tail dimension */
+        --b: 2em; /* base */
+        --h: 1em; /* height */
+
+        --p: 50%; /* main position (0%:left 100%:right) */
+        --x: 0%; /* 0% es el medio */
+        --r: 1.2em; /* the radius */
+    }
+    
+    .header {
+        align-items: center;
+        margin-block: 2em;
+    }
+
+    .quote {
+        max-width: 60vw;
+        font-size: 1.5rem;
+    }
+
+    
+    .iconUser {
+        width: 18vw;
+        height: 30vw;
+    } .iconUser:hover {
+        width: 16vw;
+        height: 30vw;
+    }
+    .iconUser {
+        width: 20vw;
+        height: 32vw;
+        background-size: contain;
+    }
+
+    form {
+        width: 90%;
+        max-width: 80vw;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    label {
+        font-size: 2.5vh;
+    }
+
+    input, button {
+        font-size: 1rem;
+    }
+    .registro {
+        margin-bottom: 10vh;
+    }
+
+}
