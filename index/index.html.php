@@ -85,7 +85,7 @@
                         <!-- Botón para cerrar el modal y volver al menú -->
                         <button class="cerrarBoton" onclick="volver()">← Volver</button>
                     </div>
-                </div>jhjkhjjh
+                </div>
             </div>
 
             <!-- Botón para el juego "Adivina la puerta" -->
