@@ -114,6 +114,9 @@ body {
     color: white;
     font-family: 'Cutta', sans-serif;
     font-size: 19px;
+} .juego a {
+    text-decoration: none;
+    color: white;
 }
 /* Efecto hover para los botones */
 .juego:hover, .opcionesCuenta:hover {
