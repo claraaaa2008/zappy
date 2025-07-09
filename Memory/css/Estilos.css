@@ -81,7 +81,8 @@ body {
 
 #play-music {
     position: absolute; /* Posición fija respecto a la ventana */
-    top: 20px; /* A 20px desde arriba */
+    top: 10px; /* A 20px desde arriba */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
     right: 20px; /* A 20px desde la derecha */
     background-color: transparent; /* Fondo transparente */
     color: #1fa49f; /* Texto cyan */
@@ -99,4 +100,9 @@ body {
     background-color: #1fa49f; /* Cambia fondo a cyan al pasar el mouse */
     color: black; /* Cambia texto a negro */
     box-shadow: 0 0 20px rgba(31, 164, 159, 0.9); /* Sombra más intensa */
+}
+
+#play-music img {
+    width: 24px;
+    height: 24px;
 }
