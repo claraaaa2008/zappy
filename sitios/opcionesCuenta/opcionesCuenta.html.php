@@ -43,14 +43,14 @@
                 <form class="cambiar" action="php/cambiarContraseña.php" method="post">
                     <h3>Cambiar Contraseña</h3>
                     <label for="contrasena">Contraseña actual</label>
-                    <input type="password" name="contrasena" id="contrasena"
-                    placeholder="Introduce tu contraseña actual">
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Introduce tu contraseña actual">
+
                     <label for="nuevaContrasena">Nueva contraseña</label>
-                    <input type="password" name="nuevaContrasena" id="nuevaContrasena"
-                    placeholder="Introduce tu nueva contraseña">
+                    <input type="password" name="nuevaContrasena" id="nuevaContrasena" placeholder="Introduce tu nueva contraseña">
+
                     <label for="confirmarContrasena">Confirmar nueva contraseña</label>
-                    <input type="password" name="confirmarContrasena" id="confirmarContrasena"
-                    placeholder="Confirma tu nueva contraseña">
+                    <input type="password" name="confirmarContrasena" id="confirmarContrasena" placeholder="Confirma tu nueva contraseña">
+                    
                     <button type="submit">Cambiar Contraseña</button>
 
                     <?php

@@ -7,7 +7,7 @@
     <title>Inicio - Zappy</title> <!-- Título de la pestaña del navegador -->
 
     <!-- Ícono de la página que aparece en la pestaña del navegador -->
-    <link rel="website icon" href="../img/ZappyConCara.png">
+    <link rel="website icon" href="../../img/ZappyConCara.png">
     </link>
 
     <!-- Enlace al archivo de estilos CSS con un parámetro dinámico para evitar que el navegador use una versión en caché -->
@@ -38,7 +38,7 @@
         <!-- Botón de usuario / login, que cambia según si el usuario está logueado -->
         <a href="../login/login.html.php" style="text-decoration: none;">
             <div class="usuario">
-                <img src="../img/login/loginUser.png"></img> <!-- Imagen del icono de usuario -->
+                <img src="../../img/login/loginUser.png"></img> <!-- Imagen del icono de usuario -->
                 <h2>
                     <?php
                     // Si el usuario está logueado, se muestra su nombre, si no, se muestra "Iniciar Sesión"
@@ -56,14 +56,14 @@
         <div class="botones">
             <!-- Botón para el juego "Piedra, papel o tijera" -->
             <button class="juego">
-                <a href="../juegoPiedraPapelTijera/piedraPapelaTijera.html">
+                <a href="../../juegoPiedraPapelTijera/piedraPapelaTijera.html">
                     <span>Piedra papel o tijera</span>
                 </a>
             </button>
 
             <!-- Botón para el juego "Memory" -->
             <button class="juego">
-                <a href="../Memory/memory.html">
+                <a href="../../Memory/memory.html">
                     <span>Memory</span>
                 </a>
             </button>
@@ -78,8 +78,8 @@
                     <h3 class="tituloModal">Elija un tipo de trivia</h3>
                     <div class="opcionesTrivia">
                         <!-- Opciones de trivia con enlaces -->
-                        <a class="opcionTrivia" href="../trivias/TriviaMates/triviaMates.html">Matemática</a>
-                        <a class="opcionTrivia" href="../trivias/TriviaHTML/triviaHTML.html.php">HTML</a>
+                        <a class="opcionTrivia" href="../../trivias/TriviaMates/triviaMates.html">Matemática</a>
+                        <a class="opcionTrivia" href="../../trivias/TriviaHTML/triviaHTML.html.php">HTML</a>
 
                         <!-- Botón para cerrar el modal y volver al menú -->
                         <button class="cerrarBoton" onclick="volver()">← Volver</button>
@@ -89,20 +89,20 @@
 
             <!-- Botón para el juego "Adivina la puerta" -->
             <button class="juego">
-                <a href="../juegoPuertas/juegoPuertas.html">
+                <a href="../../juegoPuertas/juegoPuertas.html">
                     <span>Adivina la puerta</span>
                 </a>
             </button>
 
             <!-- Botón para el juego "Juego de la mosqueta" -->
             <button class="juego">
-                <a href="../juegoMosqueta/juegoMosqueta.html">
+                <a href="../../juegoMosqueta/juegoMosqueta.html">
                     <span>Juego de la mosqueta</span>
                 </a>
             </button>
 
             <!-- Botón de configuración que lleva a las opciones de cuenta -->
-            <a href="../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none; width: 100%;">
+            <a href="../../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none; width: 100%;">
                 <button class="juego opcionesCuenta">Configuración</button>
             </a>
         </div>

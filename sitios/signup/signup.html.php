@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +28,7 @@ session_start();
 
             <div class="dato">
                 <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" required placeholder="Mínimo 8 caracteres"
-                    minlength="8">
+                <input type="password" id="contrasena" name="contrasena" required placeholder="Mínimo 8 caracteres" minlength="8">
             </div>
         </div>
 
@@ -76,7 +73,7 @@ session_start();
         <div class="quote">¡Bienvenido! Soy <b>ZAPPY</b>.<br> Crea una cuenta para que podamos jugar juntos</div>
         <div class="zappyContainer">
             <h2>ZAPPY</h2>
-            <img src="../img/ZappyConCara.png" alt="Imagen de zappy" class="zappyTV" style="width: 25vw;">
+            <img src="../../img/ZappyConCara.png" alt="Imagen de zappy" class="zappyTV" style="width: 25vw;">
         </div>
     </div>
 </body>

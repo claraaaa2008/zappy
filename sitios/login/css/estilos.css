@@ -7,12 +7,12 @@
 
 @font-face /*Estilo normal*/ {
     font-family: 'Cutta', sans-serif;
-    src: url('../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
+    src: url('../../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
 } @font-face /*Estilo negrita*/ {
     font-family: 'Cutta', sans-serif;
-    src: url('../../fonts/cutta/Cutta-Black.otf') format('truetype');
+    src: url('../../../fonts/cutta/Cutta-Black.otf') format('truetype');
     font-style: normal;
     font-weight: bolder;
 }
@@ -52,7 +52,7 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0.5em;
 } .iconUser {
-    background-image: url('../../img/login/addUserblanco.png');
+    background-image: url('../../../img/login/addUserblanco.png');
     width: 9vw;
     height: 16vw;
     background-size:contain;

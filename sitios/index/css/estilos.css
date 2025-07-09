@@ -10,13 +10,13 @@
 /* Definición de la fuente personalizada 'Cutta' en dos estilos */
 @font-face /*Estilo normal*/ {
     font-family: 'Cutta', sans-serif; /* Nombrar la fuente */
-    src: url('../../fonts/cutta/Cutta-Medium.ttf') format('truetype'); /* donde está el archivo de la fuente */
+    src: url('../../../fonts/cutta/Cutta-Medium.ttf') format('truetype'); /* donde está el archivo de la fuente */
     font-style: normal; /* asignarle un estilo */
     font-weight: normal; /* asignarle un grosor */
 }
 @font-face /*Estilo negrita*/ {
     font-family: 'Cutta', sans-serif;
-    src: url('../../fonts/cutta/Cutta-Black.otf') format('truetype');
+    src: url('../../../fonts/cutta/Cutta-Black.otf') format('truetype');
     font-style: normal;
     font-weight: bolder;
 }

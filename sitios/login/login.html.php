@@ -51,7 +51,7 @@
         <!-- Contenedor con el nombre del personaje y su imagen -->
         <div class="zappyContainer">
             <h2>ZAPPY</h2>
-            <img src="../img/ZappyConCara.png" alt="Imagen de zappy" class="zappyTV" style="width: 25vw;">
+            <img src="../../img/ZappyConCara.png" alt="Imagen de zappy" class="zappyTV" style="width: 25vw;">
         </div>
     </div>
 </body>
