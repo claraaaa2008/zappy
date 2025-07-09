@@ -56,12 +56,16 @@
         <div class="botones">
             <!-- Botón para el juego "Piedra, papel o tijera" -->
             <button class="juego">
-                <span>Piedra papel o tijera</span>
+                <a href="../juegoPiedraPapelTijera/index.html">
+                    <span>Piedra papel o tijera</span>
+                </a>
             </button>
 
             <!-- Botón para el juego "Memory" -->
             <button class="juego">
-                <span>Memory</span>
+                <a href="../Memory/index.html">
+                    <span>Memory</span>
+                </a>
             </button>
 
             <!-- Botón para abrir la ventana modal de selección de trivia -->
@@ -86,12 +90,16 @@
 
             <!-- Botón para el juego "Adivina la puerta" -->
             <button class="juego">
-                <span>Adivina la puerta</span>
+                <a href="../juegoPuertas/index.html">
+                    <span>Adivina la puerta</span>
+                </a>
             </button>
 
             <!-- Botón para el juego "Juego de la mosqueta" -->
             <button class="juego">
-                <span>Juego de la mosqueta</span>
+                <a href="../juegoMosqueta/juegoMosqueta.html">
+                    <span>Juego de la mosqueta</span>
+                </a>
             </button>
 
             <!-- Botón de configuración que lleva a las opciones de cuenta -->
