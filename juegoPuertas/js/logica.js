@@ -44,13 +44,13 @@ function elegirPuerta(eleccion) { // abre una puerta que no sea la con premio ni
 function cambiarAbierta(abierta) { // cambia la imagen de abierta
     switch (abierta) {
         case 0:
-            document.getElementById("0").src = "img/puertaPerder.png";
+            document.getElementById("0").src = "../img/juegoPuertas/puertaPerder.png";
             break;
         case 1:
-            document.getElementById("1").src = "img/puertaPerder.png";
+            document.getElementById("1").src = "../img/juegoPuertas/puertaPerder.png";
             break;
         case 2:
-            document.getElementById("2").src = "img/puertaPerder.png";
+            document.getElementById("2").src = "../img/juegoPuertas/puertaPerder.png";
             break;
     }
 }
@@ -74,8 +74,8 @@ function decisionFinal(eleccionFinal) {
             ganar = i;
         }
     };
-    document.getElementById(ganar).src = "img/puertaPremio.png";
-    document.getElementById(perder).src = "img/puertaPerder.png";
+    document.getElementById(ganar).src = "../img/juegoPuertas/puertaPremio.png";
+    document.getElementById(perder).src = "../img/juegoPuertas/puertaPerder.png";
 
     const mensaje = document.getElementById("mensaje");
     if (eleccionFinal == ganar) {

@@ -56,14 +56,14 @@
         <div class="botones">
             <!-- Botón para el juego "Piedra, papel o tijera" -->
             <button class="juego">
-                <a href="../juegoPiedraPapelTijera/index.html">
+                <a href="../juegoPiedraPapelTijera/piedraPapelaTijera.html">
                     <span>Piedra papel o tijera</span>
                 </a>
             </button>
 
             <!-- Botón para el juego "Memory" -->
             <button class="juego">
-                <a href="../Memory/index.html">
+                <a href="../Memory/memory.html">
                     <span>Memory</span>
                 </a>
             </button>
@@ -72,15 +72,14 @@
             <button class="juego" onclick="abrir()">
                 <span>Trivia</span>
             </button>
-
             <!-- Modal con opciones de trivia -->
             <div id="modal01" class="modal">
                 <div class="modal-contenido">
                     <h3 class="tituloModal">Elija un tipo de trivia</h3>
                     <div class="opcionesTrivia">
                         <!-- Opciones de trivia con enlaces -->
-                        <a class="opcionTrivia" href="../TriviaMates/index.html">Matemática</a>
-                        <a class="opcionTrivia" href="../Trivia/trivia.html.php">HTML</a>
+                        <a class="opcionTrivia" href="../trivias/TriviaMates/triviaMates.html">Matemática</a>
+                        <a class="opcionTrivia" href="../trivias/TriviaHTML/triviaHTML.html.php">HTML</a>
 
                         <!-- Botón para cerrar el modal y volver al menú -->
                         <button class="cerrarBoton" onclick="volver()">← Volver</button>
@@ -90,7 +89,7 @@
 
             <!-- Botón para el juego "Adivina la puerta" -->
             <button class="juego">
-                <a href="../juegoPuertas/index.html">
+                <a href="../juegoPuertas/juegoPuertas.html">
                     <span>Adivina la puerta</span>
                 </a>
             </button>

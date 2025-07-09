@@ -107,13 +107,13 @@ function cambiarMano(aCambiar, queCambiar) {
         // Dependiendo de la elección del sistema, asigna la imagen correspondiente
         switch (aCambiar.toString()) {
             case "1,0,0":
-                valor = "img/ZappyConPiedra.png";
+                valor = "../img/piedraPapelTijera/ZappyConPiedra.png";
                 break;
             case "0,1,0":
-                valor = "img/ZappyConPapel.png";
+                valor = "../img/piedraPapelTijera/ZappyConPapel.png";
                 break;
             case "0,0,1":
-                valor = "img/ZappyConTijera.png";
+                valor = "../img/piedraPapelTijera/ZappyConTijera.png";
                 break;
         }
         document.getElementById("zappy").src = valor; // Cambia la imagen de zappy
@@ -121,13 +121,13 @@ function cambiarMano(aCambiar, queCambiar) {
         // Lo mismo pero para el usuario
         switch (aCambiar.toString()) {
             case "1,0,0":
-                valor = "img/manoPiedra.png";
+                valor = "../img/piedraPapelTijera/manoPiedra.png";
                 break;
             case "0,1,0":
-                valor = "img/manoPapel.png";
+                valor = "../img/piedraPapelTijera/manoPapel.png";
                 break;
             case "0,0,1":
-                valor = "img/manoTijera.png";
+                valor = "../img/piedraPapelTijera/manoTijera.png";
                 break;
         }
         document.getElementById("mano").src = valor; // Cambia la imagen de la mano del usuario

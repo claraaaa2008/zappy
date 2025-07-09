@@ -61,7 +61,7 @@ body {
 }
 
 .card .back {
-    background-image: url(../imagenes/fondoCarta.png); /* Imagen de fondo para el reverso de la carta */
+    background-image: url(../../img/memory/fondoCarta.png); /* Imagen de fondo para el reverso de la carta */
     background-position: center; /* Centrar la imagen */
     background-size: cover; /* Cubrir todo el fondo */
     background-repeat: no-repeat; /* No repetir imagen */
