@@ -1,0 +1,130 @@
+/* El fondo de la pagina */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+
+    /* Fondo con degradado en tonos azules oscuros */
+    background: linear-gradient(270deg, #000050, #001a66, #000050);
+    background-size: 600% 600%;
+    /* Amplía el fondo para animarlo */
+    animation: fondoAnimado 20s ease infinite;
+    /* Movimiento suave e infinito del fondo */
+}
+
+/* Título principal */
+h1 {
+    color: turquoise;
+    margin-top: 30px;
+    font-size: 3em;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px cyan, 0 0 10px #00cfff;
+} h1 span {
+    color: gold;
+    text-shadow: 0 0 10px orange;
+}
+
+/* Texto descriptivo */
+p {
+    color: white;
+}
+
+/* Contenedor que organiza los vasos horizontalmente */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    margin-top: 50px;
+    position: relative;
+    height: 250px;
+}
+
+/* Vasos: estilo visual y animaciones para simular objetos físicos */
+.vaso {
+    width: 110px;
+    height: 150px;
+
+    /* Bordes redondeados para simular la forma  de un vaso */
+    border-radius: 70% 70% 70% 70% / 70% 70% 10% 10%;
+
+    /* Los colores del vaso, en este caso representamos el de zappy que es naranja y celeste */
+    background: linear-gradient(to bottom, orange 80%, #00cfff 80%);
+    border: 4px solid #00cfff;
+
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+
+    /* Animaciones al levantar o pasar el mouse */
+    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease;
+    animation: aparecer 0.8s ease-out;
+}
+
+/* Efecto al pasar el mouse: hace brillar el vaso */
+.vaso:hover {
+    box-shadow: 0 0 20px cyan;
+    transform: scale(1.05);
+    /* Lo agranda ligeramente */
+}
+
+/* Esto hace que se levante el vaso cuando es seleccionado */
+.vaso.levantado {
+    transform: translateY(-100px) rotate(-5deg);
+    /* Mueve el vaso hacia arriba y lo gira un poco */
+}
+
+/* Pelota oculta que aparece solo si se acierta */
+.pelota {
+    width: 50px;
+    height: 50px;
+    /* ancho y alto de la pelota */
+    border-radius: 50%;
+    /* La hace redonda */
+    background: url(./mosqueta/pelota.jpg) no-repeat center/cover;
+    /* Imagen como pelota */
+    position: absolute;
+    /*posicion absoluta */
+    bottom: 0;
+    z-index: 1;
+    display: none;
+    /* Inicialmente no visible */
+}
+
+/* Contenedor de botones */
+.botones {
+    margin-top: 20px;
+}
+
+/* Botón de reinicio */
+.botones button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: aqua;
+    border: 4px solid #00cfff;
+    transition: background-color 0.3s;
+}
+
+.botones button:hover {
+    background-color: #00ffff;
+    /* Cambio de color al pasar el mouse */
+}
+
+/* Mensaje de resultado */
+#mensaje {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #fff;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+/* Cuando se acierta o falla, se muestra el mensaje con animación */
+#mensaje.mostrar {
+    opacity: 1;
+    transform: scale(1.1);
+}
