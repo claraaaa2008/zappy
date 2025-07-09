@@ -1,0 +1,86 @@
+var puertas = asignacionPrimaria(); // genera un array con la funcion asignacionprimaria
+console.log(puertas); // imprime las puertas en la consola mostrando la que tiene premio
+var contEleccion = 0; // contador para ver si es la primer eleccion o la segunda
+var eleccionPrimaria; // variable que guarda la eleccion del usuario
+
+function asignacionPrimaria() { // funcion que devuelve array
+    var puertas = [1, 0, 0]; // definir el array de las puertas
+    puertas.sort(function (a, b) { return 0.5 - Math.random() }); // elegir cual va a ser la que tiene el premio
+    return puertas;
+}
+
+
+function elegirPuerta(eleccion) { // abre una puerta que no sea la con premio ni la que eligio el usr
+    const mensaje = document.getElementById("mensaje");
+
+    if (contEleccion == 0) {
+        eleccionPrimaria = eleccion; // la puerta que eligio el usr
+        do {
+            var abro = Math.floor(Math.random() * 3); //numero random entre 0 y 2
+            a = puertas[abro]; // a es el valor de puertas que esta en la posicion abro
+            if (abro == eleccion) { // si la puerta que toco es la que el usr eligio
+                a = 1;
+            }
+            var abierta = abro; // abierta es la posicion de la puerta
+        } while (a == 1);
+
+        puertas[abierta] = 2;
+        document.getElementById(abierta).disabled = true;
+        document.getElementById(abierta).removeAttribute("onclick");
+        document.getElementById(abierta).setAttribute("class", "puerta puertaAbierta");
+        document.getElementById(eleccion).setAttribute("class", "puerta primeraEleccion");
+
+        cambiarAbierta(abierta);
+        console.log(puertas);
+        contEleccion = 1;
+
+        mensaje.textContent = `Elegiste la puerta ${eleccion + 1}. ¿Seguro que está ahí?`;
+    } else {
+        decisionFinal(eleccion);
+    }
+
+}
+
+function cambiarAbierta(abierta) { // cambia la imagen de abierta
+    switch (abierta) {
+        case 0:
+            document.getElementById("0").src = "img/puertaPerder.png";
+            break;
+        case 1:
+            document.getElementById("1").src = "img/puertaPerder.png";
+            break;
+        case 2:
+            document.getElementById("2").src = "img/puertaPerder.png";
+            break;
+    }
+}
+
+function decisionFinal(eleccionFinal) {
+    var perder;
+    var ganar;
+    for (var i = 0; i < 3; i++) { // define cual es la que no elegiste al principio ni es el premio
+        if (puertas[i] == 0) {
+            perder = i;
+        }
+    };
+    /* if (puertas[eleccionFinal] == 1) { // si la puerta que elegiste tiene premio
+        ganar = eleccionFinal; // entonces ganar es la que elegiste
+    } else {
+        ganar = perder;
+    };
+    */
+    for (var i = 0; i < 3; i++) { // define cual es la que no elegiste al principio ni es el premio
+        if (puertas[i] == 1) {
+            ganar = i;
+        }
+    };
+    document.getElementById(ganar).src = "img/puertaPremio.png";
+    document.getElementById(perder).src = "img/puertaPerder.png";
+
+    const mensaje = document.getElementById("mensaje");
+    if (eleccionFinal == ganar) {
+        mensaje.textContent = "¡Felicidades! encontraste a Zappy en la puerta " + (ganar + 1) + ".";
+    } else {
+        mensaje.textContent = `Qué lástima... Zappy estaba en la puerta ${ganar + 1}.`;
+    }
+}
