@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos.css">
+    <title>Trivia de Matemática</title>
+</head>
+
+<body>
+    <div class="centradoGOD"></div>
+    <div class="marcoAfuera">
+        <div class="marcoDentro">
+            <div class="principio">
+                <button onclick="preguntaFacil()" id="Facil" class="botoncito">Facil</button>
+                <button onclick="preguntaMedio()" id="Medio" class="botoncito">Medio</button>
+                <button onclick="preguntaDificil()" id="Dificil" class="botoncito">Dificil</button>
+            </div>
+
+            <div class="preguntitas">
+                <p id="txtPregunta" class="LaPregunta"></p>
+            </div>
+
+            <input type="text" name="txtRespuesta" id="txtRespuesta" class="inputchulo" required autofocus><br>
+            <button onclick="respuesta()" id="respuesta" class="botoncito">Enviar</button>
+
+            <div class="resultados">
+                <p class="correctas">Correctas:</p>
+                <p id="txtCorrectas" class="correctas">0</p>
+                <p class="correctas">Incorrectas:</p>
+                <p id="txtIncorrectas" class="correctas">0</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="logica.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+
+@font-face /*Estilo normal*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+} @font-face /*Estilo negrita*/ {
+    font-family: 'Cutta', sans-serif;
+    src: url('../../../fonts/cutta/Cutta-Black.otf') format('truetype');
+    font-style: normal;
+    font-weight: bolder;
+}
+
+/************************************************************************/
+
+body {
+    height: 100dvh;
+    margin: 0;
+    
+    background-color: #f5a503;
+    font-family: 'Roboto', sans-serif;
+    
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+section {
+    width: 70%;
+    height: 80vh;
+    margin: 4vw;
+    margin-left: 0;
+    
+    overflow: auto;
+    overflow-y: scroll;
+
+    padding: 2rem;
+    border: 8px solid #25858F;
+    border-radius: 40px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    
+    background-color: #2e2e2e;
+    color: white;
+} .screen-content {
+    width: 100%;
+    height: 100%;
+    padding-block: 1rem;
+} section::-webkit-scrollbar {
+    width: 0.5rem;
+} section::-webkit-scrollbar-thumb {
+    background-color: #25858F;
+} section::-webkit-scrollbar-track {
+    background-color: #9cffff;
+}
+
+h1 {
+    margin-bottom: 0;
+    font-family: 'Cutta', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f5a503;
+} h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    font-family: 'Cutta', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #f5a503;
+} h3 {
+    font-family: 'Cutta', sans-serif;
+    font-size: 1.5rem;
+} h4 {
+    font-size: 1.2rem;
+    text-align: center;
+} h5 {
+    font-size: 1rem;
+    text-align: center;
+} h6 {
+    font-size: 0.8rem;
+    text-align: center;
+} p {
+    font-family: 'Roboto', sans-serif;
+}
+
+article {
+    width: 100%;
+    height: fit-content;
+
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/******************************************************************/
+aside {
+    width: fit-content;
+    height: 80vh;
+    padding: 4vw;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+    align-content: flex-start;
+} aside a {
+    cursor: pointer;
+    color: #2e2e2e;
+    
+    font-family: 'Cutta', sans-serif;
+    text-decoration: none;
+    font-weight: bolder;
+    transition: 0.15s ease-in-out;
+} aside a:hover {
+    color: #36a9a9;
+} aside a:active{
+    color: #25858F;
+}
+/******************************************************************/
+
+/** Estilos para las opciones de cuenta **/
+.cambiar {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+} .cambiar label {
+    margin-bottom: 1vh;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vh;
+    color: #f5a503;
+} .cambiar input {
+    background-color: white;
+    color: #2e2e2e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1.1rem;
+
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+
+    border: none;
+    margin-bottom: 4vh;
+    
+    transition: 0.1s ease-in-out;
+} .cambiar input:focus {
+    outline: #4ad9d9 solid 2px;
+    background-color: white;
+    color: #2e2e2e;
+    box-shadow: 0px 0px 10px #9cffff;
+} .cambiar button {
+    margin-bottom: 2vh;
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+
+    background-color: #9cffff;
+    color: #2e2e2e;
+    font-family: 'Cutta', sans-serif;
+    font-weight: bolder;
+    font-size: 1.1rem;
+
+    border: none;
+    cursor: pointer;
+
+    transition: 0.15s ease-in-out;
+} .cambiar button:hover {
+    background-color: #36a9a9;
+    color: white;
+    box-shadow: 0px 0px 10px #9cffff;
+}
+
+.eliminar {
+    margin-bottom: 48px;
+    margin-top: 24px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} .eliminar button {
+    width: 100%;
+    height: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+
+    background-color: #ff4d4d;
+    color: #2e2e2e;
+    font-family: 'Cutta', sans-serif;
+    font-weight: bolder;
+    font-size: 1.1rem;
+
+    border: none;
+    cursor: pointer;
+
+    transition: 0.15s ease-in-out;
+} .eliminar button:hover {
+    background-color: #ff0000;
+    box-shadow: 0px 0px 10px #ff8080;
+}
