@@ -56,14 +56,14 @@
         <div class="botones">
             <!-- Botón para el juego "Piedra, papel o tijera" -->
             <button class="juego">
-                <a href="../../juegoPiedraPapelTijera/piedraPapelaTijera.html">
+                <a href="../../juegos/juegoPiedraPapelTijera/piedraPapelaTijera.html">
                     <span>Piedra papel o tijera</span>
                 </a>
             </button>
 
             <!-- Botón para el juego "Memory" -->
             <button class="juego">
-                <a href="../../Memory/memory.html">
+                <a href="../../juegos/memory/memory.html">
                     <span>Memory</span>
                 </a>
             </button>
@@ -78,8 +78,8 @@
                     <h3 class="tituloModal">Elija un tipo de trivia</h3>
                     <div class="opcionesTrivia">
                         <!-- Opciones de trivia con enlaces -->
-                        <a class="opcionTrivia" href="../../trivias/TriviaMates/triviaMates.html">Matemática</a>
-                        <a class="opcionTrivia" href="../../trivias/TriviaHTML/triviaHTML.html.php">HTML</a>
+                        <a class="opcionTrivia" href="../../juegos/trivias/TriviaMates/triviaMates.html">Matemática</a>
+                        <a class="opcionTrivia" href="../../juegos/trivias/TriviaHTML/triviaHTML.html.php">HTML</a>
 
                         <!-- Botón para cerrar el modal y volver al menú -->
                         <button class="cerrarBoton" onclick="volver()">← Volver</button>
@@ -89,20 +89,20 @@
 
             <!-- Botón para el juego "Adivina la puerta" -->
             <button class="juego">
-                <a href="../../juegoPuertas/juegoPuertas.html">
+                <a href="../../juegos/juegoPuertas/juegoPuertas.html">
                     <span>Adivina la puerta</span>
                 </a>
             </button>
 
             <!-- Botón para el juego "Juego de la mosqueta" -->
             <button class="juego">
-                <a href="../../juegoMosqueta/juegoMosqueta.html">
+                <a href="../../juegos/juegoMosqueta/juegoMosqueta.html">
                     <span>Juego de la mosqueta</span>
                 </a>
             </button>
 
             <!-- Botón de configuración que lleva a las opciones de cuenta -->
-            <a href="../../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none; width: 100%;">
+            <a href="../opcionesCuenta/opcionesCuenta.html.php" style="color: inherit; text-decoration: none; width: 100%;">
                 <button class="juego opcionesCuenta">Configuración</button>
             </a>
         </div>
