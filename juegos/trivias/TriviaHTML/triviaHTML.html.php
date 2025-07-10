@@ -1,7 +1,7 @@
 <?php
 
 /************************* TRAER LA BD DE LA TRIVIA *************************/
-require_once("./persistencia/BaseDatos.php");
+require_once("./persistenciaTrivia/BaseDatos.php");
 $traerBD = new BaseDatos();
 
 // Se obtienen todas las preguntas junto con sus opciones de respuesta desde la base de datos.
@@ -66,7 +66,7 @@ $pidActual = $clavePreguntas[$preguntaActual];
         La sentencia de time permite que el navegador descargue el CSS actualizado.
         Esto soluciona el problema de la imposibilidad de cargar los cambios realizados
     -->
-    <link rel="website icon" href="../../img/triviaHTML/ZappyConCara.png"></link>
+    <link rel="website icon" href="../../../img/triviaHTML/ZappyConCara.png"></link>
     <link rel="stylesheet" href="css/Estilos.css?v=<?= time() ?>">
 </head>
 
@@ -74,7 +74,7 @@ $pidActual = $clavePreguntas[$preguntaActual];
     <!-- Contenedor del título y la imagen de Zappy -->
     <div class="tituloContainer">
         <h1 class="titulo">Cuestionario De Html</h1>
-        <img src="../../img/triviaHTML/ZappyConCara.png" alt="TV personaje" class="zappy">
+        <img src="../../../img/triviaHTML/ZappyConCara.png" alt="TV personaje" class="zappy">
         <?php
         // Si se ha enviado el formulario (POST), calcula el puntaje y muestra el resultado.
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -93,21 +93,21 @@ $pidActual = $clavePreguntas[$preguntaActual];
         if ($puntos == $total) {
             echo "<script>
                 window.alert('¡Felicitaciones! Has acertado todo ¿Desea volver a la página principal?');
-                window.location.href = '../index/index.html.php';
+                window.location.href = '../../../sitios/index/index.html.php';
             </script>";
         } else if (isset($_POST['enviar'])) {
             switch ($puntos) {
                 case 1:
                     echo "<script>
                         window.alert('¡Oh! Has obtenido: $puntos punto. Se le redireccionará a Inicio');
-                        window.location.href = '../index/index.html.php';
+                        window.location.href = '../../../sitios/index/index.html.php';
                     </script>";
                     break;
                 default:
                     // Muestra el resultado del usuario (puntos obtenidos sobre el total).
                     echo "<script>
                     window.alert('¡Oh! Has obtenido: $puntos puntos. Se le redireccionará a Inicio');
-                    window.location.href = '../index/index.html.php';
+                    window.location.href = '../../../sitios/index/index.html.php';
                     </script>";
                     break;
             }

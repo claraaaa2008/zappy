@@ -1,146 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos.css">
-    <title>Document</title>
+    <title>Trivia de Matemática</title>
 </head>
 
 <body>
     <div class="centradoGOD"></div>
-        <div class="marcoAfuera">
-            <div class="marcoDentro">
-                <div class="principio">
-                    <button onclick="preguntaFacil()" id="Facil" class="botoncito">Facil</button>
-                    <button onclick="preguntaMedio()" id="Medio" class="botoncito">Medio</button>
-                    <button onclick="preguntaDificil()" id="Dificil" class="botoncito">Dificil</button>
-                </div>
-                <div class="preguntitas">
-                    <p id="txtPregunta" class="LaPregunta"></p>
-                </div>
+    <div class="marcoAfuera">
+        <div class="marcoDentro">
+            <div class="principio">
+                <button onclick="preguntaFacil()" id="Facil" class="botoncito">Facil</button>
+                <button onclick="preguntaMedio()" id="Medio" class="botoncito">Medio</button>
+                <button onclick="preguntaDificil()" id="Dificil" class="botoncito">Dificil</button>
+            </div>
 
-                    <input type="text" name="txtRespuesta" id="txtRespuesta" class="inputchulo" required autofocus><br>
-                    <button onclick="respuesta()" id="respuesta" class="botoncito">Enviar</button>
+            <div class="preguntitas">
+                <p id="txtPregunta" class="LaPregunta"></p>
+            </div>
 
-                <div class="resultados">
-                    <p class="correctas">Correctas:</p>
-                    <p id="txtCorrectas" class="correctas">0</p>
-                    <p class="correctas">Incorrectas:</p>
-                    <p id="txtIncorrectas" class="correctas">0</p>
-                </div>
+            <input type="text" name="txtRespuesta" id="txtRespuesta" class="inputchulo" required autofocus><br>
+            <button onclick="respuesta()" id="respuesta" class="botoncito">Enviar</button>
+
+            <div class="resultados">
+                <p class="correctas">Correctas:</p>
+                <p id="txtCorrectas" class="correctas">0</p>
+                <p class="correctas">Incorrectas:</p>
+                <p id="txtIncorrectas" class="correctas">0</p>
             </div>
         </div>
     </div>
-    <script>
-         // Variable global para guardar el resultado correcto de la pregunta actual
-        let resultado = 0;
-        // Contadores de respuestas correctas e incorrectas
-        let contadorCorrectas = 0;
-        let contadorIncorrectas = 0;
-
-        /* Esta función se ejecuta cuando el usuario hace clic en "Enviar"
-        Compara la respuesta del usuario con el resultado correcto
-        Si es correcta, suma uno al contador de correctas; si no, suma uno al de incorrectas
-        Luego actualiza los textos en pantalla con los nuevos valores */
-        function respuesta() {
-            let respuesta = document.getElementById("txtRespuesta").value;
-            document.getElementById("txtCorrectas").innerHTML = contadorCorrectas;
-            document.getElementById("txtIncorrectas").innerHTML = contadorIncorrectas;
-
-        }
-        /* Genera una pregunta fácil (números del 1 al 9, suma, resta o multiplicación)
-        Muestra la pregunta y guarda el resultado correcto */
-        function preguntaFacil() {
-            let min = 1;
-            let max = 9;
-            let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
-            let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
-
-            let operacion = Math.floor(Math.random() * 3) + 1;
-
-            let pregunta = "";
-
-            switch (operacion) {
-                case 1:
-                    pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
-                    resultado = numero1 + numero2;
-                    break;
-                case 2:
-                    pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
-                    resultado = numero1 - numero2;
-                    break;
-                case 3:
-                    pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
-                    resultado = numero1 * numero2;
-                    break;
-            }
-            // Muestra la pregunta en pantalla
-            document.getElementById("txtPregunta").innerHTML = pregunta;
-        }
-
-        /* Genera una pregunta de dificultad media (números del 10 al 99)
-        Muestra la pregunta y guarda el resultado correcto */
-        function preguntaMedio() {
-            let min = 10;
-            let max = 99;
-            let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
-            let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
-
-            let operacion = Math.floor(Math.random() * 3) + 1;
-            let resultado = 0;
-            let pregunta = "";
-
-            switch (operacion) {
-                case 1:
-                    pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
-                    resultado = numero1 + numero2;
-                    break;
-                case 2:
-                    pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
-                    resultado = numero1 - numero2;
-                    break;
-                case 3:
-                    pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
-                    resultado = numero1 * numero2;
-                    break;
-            }
-            // Muestra la pregunta en pantalla
-            document.getElementById("txtPregunta").innerHTML = pregunta;
-        }
-
-        /* Genera una pregunta difícil (números del 100 al 999)
-        Muestra la pregunta y guarda el resultado correcto */
-        function preguntaDificil() {
-            let min = 100;
-            let max = 999;
-            let numero1 = Math.floor(Math.random() * (max - min + 1)) + min;
-            let numero2 = Math.floor(Math.random() * (max - min + 1)) + min;
-
-            let operacion = Math.floor(Math.random() * 3) + 1;
-            let resultado = 0;
-            let pregunta = "";
-
-            switch (operacion) {
-                case 1:
-                    pregunta = `¿Cuánto es ${numero1} + ${numero2}?`;
-                    resultado = numero1 + numero2;
-                    break;
-                case 2:
-                    pregunta = `¿Cuánto es ${numero1} - ${numero2}?`;
-                    resultado = numero1 - numero2;
-                    break;
-                case 3:
-                    pregunta = `¿Cuánto es ${numero1} * ${numero2}?`;
-                    resultado = numero1 * numero2;
-                    break;
-            }
-            // Muestra la pregunta en pantalla
-            document.getElementById("txtPregunta").innerHTML = pregunta;
-        }
-
-    </script>
+    </div>
+    <script src="logica.js"></script>
 </body>
 
 </html>

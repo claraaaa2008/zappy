@@ -1,7 +1,6 @@
 <?php
 class BaseDatos
 {
-
     private $servidor;      // En Xampp es "localhost"
     private $usuario;       // En Xampp es "root"
     private $password;      // En Xampp es ""
