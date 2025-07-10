@@ -56,7 +56,7 @@
         <div class="botones">
             <!-- Botón para el juego "Piedra, papel o tijera" -->
             <button class="juego">
-                <a href="../../juegos/juegoPiedraPapelTijera/piedraPapelaTijera.html">
+                <a href="../../juegos/juegoPiedraPapelTijera/piedraPapelTijera.html">
                     <span>Piedra papel o tijera</span>
                 </a>
             </button>

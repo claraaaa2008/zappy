@@ -61,7 +61,7 @@ body {
 }
 
 .card .back {
-    background-image: url(../../img/memory/fondoCarta.png); /* Imagen de fondo para el reverso de la carta */
+    background-image: url(../../../img/memory/fondoCarta.png); /* Imagen de fondo para el reverso de la carta */
     background-position: center; /* Centrar la imagen */
     background-size: cover; /* Cubrir todo el fondo */
     background-repeat: no-repeat; /* No repetir imagen */
@@ -81,7 +81,7 @@ body {
 
 #play-music {
     position: absolute; /* Posición fija respecto a la ventana */
-    top: 10px; /* A 20px desde arriba */
+    top: 10px; /* A 10px desde arriba */
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
     right: 20px; /* A 20px desde la derecha */
     background-color: transparent; /* Fondo transparente */
