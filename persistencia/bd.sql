@@ -33,7 +33,7 @@ CREATE TABLE usuario (
   fecha_nacimiento DATE NOT NULL,                 -- Fecha de nacimiento
   email VARCHAR(50) NOT NULL,                     -- Correo electrónico
   sexo ENUM('masculino','femenino','otro','prefiero_no_decirlo') NOT NULL,
-  -- Para que el usuario pueda elegir su identidad de género
+  -- Para que el usuario pueda elegir su identidad de género(cambiar a tres opciones, femenino, masculino o prefiero no decirlo)
   permisos ENUM('Administrador','Jugador') NOT NULL DEFAULT 'Jugador'
   -- El tipo de cuenta (por defecto será Jugador)
 );
