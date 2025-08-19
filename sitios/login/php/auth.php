@@ -10,9 +10,12 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
         die("Error de conexión: " . $conexion->connect_error);
     }
 
-    // Consulta solo por el usuario
+    // Solo usuarios verificados pueden iniciar sesión
     $sql = "SELECT * FROM usuario WHERE nombre_usuario = ?";
     $stmt = $conexion->prepare($sql);
+    if (!$stmt) {
+        die("Error en prepare: " . $conexion->error);
+    }
     $stmt->bind_param("s", $usuario);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -20,9 +23,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     if ($resultado->num_rows === 1) {
         $usuarioBD = $resultado->fetch_assoc();
 
-        // Verificar contraseña con password_verify()
         if (password_verify($contrasena, $usuarioBD['contrasena'])) {
-            // Guardar datos completos en sesión (como en crear.php)
             $_SESSION['usuario'] = [
                 'id' => $usuarioBD['id'],
                 'nombre_usuario' => $usuarioBD['nombre_usuario'],
@@ -30,17 +31,15 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
                 'email' => $usuarioBD['email'],
                 'permisos' => $usuarioBD['permisos']
             ];
-
             header("Location: ../../index/index.html.php");
             exit();
         } else {
-            // Contraseña incorrecta
             header("Location: ../login.html.php?error=1");
             exit();
         }
     } else {
-        // Usuario no encontrado
-        header("Location: ../login.html.php?error=1");
+        // Usuario no encontrado o no verificado
+        header("Location: ../login.html.php?error=2");
         exit();
     }
 } else {

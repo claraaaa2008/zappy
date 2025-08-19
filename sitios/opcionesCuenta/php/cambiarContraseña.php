@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
     header("Location: ../../login/login.html.php");
     exit();
 }
@@ -12,44 +12,52 @@ $usuario = $_SESSION['usuario'];
 $bd = new BaseDatos();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $contrasenaActual = $_POST['contrasena'] ?? '';
-    $nuevaContrasena = $_POST['nuevaContrasena'] ?? '';
-    $confirmarContrasena = $_POST['confirmarContrasena'] ?? '';
+    $contrasenaActual = trim($_POST['contrasena'] ?? '');
+    $nuevaContrasena = trim($_POST['nuevaContrasena'] ?? '');
+    $confirmarContrasena = trim($_POST['confirmarContrasena'] ?? '');
 
-    // Validar que los campos no estén vacíos
     if (empty($contrasenaActual) || empty($nuevaContrasena) || empty($confirmarContrasena)) {
-        header("Location: ../opcionesCuenta.html.php?error=1");
+        $bd->cerrarConexion();
+        header("Location: ../opcionesCuenta.html.php?error=campos_vacios");
         exit();
     }
 
-    // Validar que la nueva contraseña y la confirmación coincidan
+    if (strlen($nuevaContrasena) < 8) {
+        $bd->cerrarConexion();
+        header("Location: ../opcionesCuenta.html.php?error=contrasena_corta");
+        exit();
+    }
+
     if ($nuevaContrasena !== $confirmarContrasena) {
-        header("Location: ../opcionesCuenta.html.php?error=1");
+        $bd->cerrarConexion();
+        header("Location: ../opcionesCuenta.html.php?error=no_coinciden");
         exit();
     }
 
-    // Obtener el hash actual desde la base de datos usando el método de la clase
     $hashActual = $bd->obtenerHashContrasena($usuario['id']);
-    if (!$hashActual || !password_verify($contrasenaActual, $hashActual)) {
-        // La contraseña actual no coincide
-        header("Location: ../opcionesCuenta.html.php?error=1");
+
+    if (!$hashActual) {
+        $bd->cerrarConexion();
+        header("Location: ../opcionesCuenta.html.php?error=cuenta_no_verificada");
         exit();
     }
 
-    // Hashear la nueva contraseña
-    $hashNuevaContrasena = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
+    if (!password_verify($contrasenaActual, $hashActual)) {
+        $bd->cerrarConexion();
+        header("Location: ../opcionesCuenta.html.php?error=incorrecta");
+        exit();
+    }
 
-    // Cambiar la contraseña usando el método de la clase
+    $hashNuevaContrasena = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
     $resultadoCambio = $bd->cambiarContrasena($usuario['id'], $hashNuevaContrasena);
+
+    $bd->cerrarConexion();
 
     if ($resultadoCambio) {
         header("Location: ../opcionesCuenta.html.php?success=1");
     } else {
-        header("Location: ../opcionesCuenta.html.php?error=1");
+        header("Location: ../opcionesCuenta.html.php?error=bd");
     }
-
-    $bd->cerrarConexion();
     exit();
 }
 ?>
-

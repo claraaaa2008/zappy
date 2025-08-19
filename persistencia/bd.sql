@@ -9,32 +9,30 @@ DROP TABLE IF EXISTS administrador;
 DROP TABLE IF EXISTS juego;
 DROP TABLE IF EXISTS usuario;
 
--- Creamos la tabla "administrador"
--- Aunque por ahora solo tiene un campo, puede usarse para manejar permisos especiales
+-- Tabla administrador
 CREATE TABLE administrador (
   permisos VARCHAR(13) DEFAULT NULL
 );
 
--- Tabla para los distintos juegos disponibles
+-- Tabla juego
 CREATE TABLE juego (
-  id INT(11) NOT NULL PRIMARY KEY, -- ID único de cada juego
-  nombre VARCHAR(30) NOT NULL,     -- Nombre del juego
-  recompensa VARCHAR(50) NOT NULL, -- Qué gana el jugador al completar el juego
+  id INT(11) NOT NULL PRIMARY KEY,
+  nombre VARCHAR(30) NOT NULL,
+  recompensa VARCHAR(50) NOT NULL,
   tipo ENUM('memoria','trivia','azaroso','puertaslocas','piedra_papel_o_tijera') NOT NULL
-  -- El tipo de juego (limitado a estas opciones)
 );
 
--- Tabla para registrar los usuarios que se crean en la plataforma
+-- Tabla usuario (actualizada)
 CREATE TABLE usuario (
-  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, -- ID único para cada usuario, se incrementa solo
-  nombre_usuario VARCHAR(20) NOT NULL,            -- El nombre que usa para iniciar sesión
-  contrasena VARCHAR(20) NOT NULL,                -- Su contraseña (sin tilde en el campo)
-  nombre VARCHAR(30) NOT NULL,                    -- Su nombre real
-  fecha_nacimiento DATE NOT NULL,                 -- Fecha de nacimiento
-  email VARCHAR(50) NOT NULL,                     -- Correo electrónico
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre_usuario VARCHAR(20) NOT NULL,
+  contrasena VARCHAR(255) NOT NULL, -- 255 para almacenar hashes seguros
+  nombre VARCHAR(30) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  verificado TINYINT(1) NOT NULL DEFAULT 0,
+  token_verificacion VARCHAR(64) DEFAULT NULL,
   sexo ENUM('masculino','femenino','otro','prefiero_no_decirlo') NOT NULL,
-  -- Para que el usuario pueda elegir su identidad de género
   permisos ENUM('Administrador','Jugador') NOT NULL DEFAULT 'Jugador'
-  -- El tipo de cuenta (por defecto será Jugador)
 );
 

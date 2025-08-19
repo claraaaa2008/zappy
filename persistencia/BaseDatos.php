@@ -86,7 +86,8 @@ public function obtenerHashContrasena($idUsuario) {
     $sql = "SELECT contrasena FROM usuario WHERE id = ?";
     $stmt = $this->conexion->prepare($sql);
     if (!$stmt) {
-        die("Error en prepare obtenerHashContrasena: " . $this->conexion->error);
+        error_log("Error en prepare obtenerHashContrasena: " . $this->conexion->error);
+        return null;
     }
     $stmt->bind_param("i", $idUsuario);
     $stmt->execute();
@@ -95,6 +96,7 @@ public function obtenerHashContrasena($idUsuario) {
     $stmt->close();
     return $fila ? $fila['contrasena'] : null;
 }
+
 
     public function eliminarCuenta($idUsuario) {
         $sql = "DELETE FROM usuario WHERE id = ?";
