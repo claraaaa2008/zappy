@@ -17,7 +17,7 @@
             <h1>Configuración</h1>
             <div class="loggedUsr">
                 <p>nombre_usuario</p>
-                <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png"/>
+                <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"/>
             </div>
         </header>
 
@@ -79,7 +79,7 @@
                     </div>
                     <div class="campo">
                         <label for="usuario">Género</label>
-                        <select name="genero" id="genero">
+                        <select name="genero" id="genero" title="Selecciona tu género">
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                             <option value="femenino">Prefiero no decirlo</option>
@@ -120,7 +120,7 @@
         <hr>
 
         <form class="eliminar" action="php/eliminarCuenta.php" method="post">
-            <button class="eliminarBtn" id="openModalDelete">Eliminar Cuenta</button>
+            <button type="button" class="eliminarBtn" id="openModalDelete">Eliminar Cuenta</button>
             <div class="modal" id="modal">
                 <div class="confirm-eliminar">
                     <span class="close" id="close">&times;</span>
