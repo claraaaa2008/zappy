@@ -1,40 +1,40 @@
-.material-symbols-outlined {
+.material-symbols-outlined { /* Iconos de Google */
     font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
+        'FILL' 0, /* 0 para contorno, 1 para relleno */
+        'wght' 400, /* Grosor del trazo */
+        'GRAD' 0, /* Gradiente */
+        'opsz' 24; /* Tamaño óptico */
 }
 /****/
 body {
-    margin: 0;
-    padding-inline: 143px;
-    padding-block: 35px;
-    background-color: #2e2e2e;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    display: block;
-    min-height: 200vh; /* Permite scroll suficiente */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding-inline: 143px; /* Espacio a los lados para ajustar el contenido en base al padding */
+    padding-block: 35px; /* Espacio arriba y abajo */
+    background-color: #2e2e2e; /* Color de fondo oscuro */
+    color: white; /* Color de texto claro para contraste */
+    font-family: 'Roboto', sans-serif; /* Fuente predeterminada Roboto */
+    display: block; /* Asegura que el body ocupe todo el ancho */
+    min-height: 200vh; /* Minimo de altura de la pagina */
 }
 
 /* Fija el h1 arriba de la pantalla */
 .fixed-title {
     position: fixed;
     left: 0;
-    width: 100vw;
-    z-index: 100;
+    width: 100vw; /* Abarca todo el ancho de la ventana */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
     background: #2e2e2e;
     padding-top: 100px;
     padding-bottom: 10px;
-    text-align: center;
+    text-align: center; /* Centra el texto */
 }
 
 h1 {
-    align-self: center;
-    text-transform: uppercase;
-    font-family: 'Cutta', sans-serif;
+    align-self: center; /* Centra horizontalmente */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-family: 'Cutta', sans-serif; /* Fuente Cutta para el título */
     color: #4ad9d9;
-    text-shadow: 0 0 10px #4ad9d9;
+    text-shadow: 0 0 10px #4ad9d9; /* Efecto de neón */
     font-size: 50px;
 }
 
@@ -42,24 +42,22 @@ h1 {
 /** Gráfica visual de puestos **/
 /*******************************/
 .puestos {
-    position: relative;
-    min-height: 100vh;
+    position: relative; /* Para posicionar elementos hijos relativamente */
+    min-height: 100vh; /* La sección de los puestos abarca toda la altura de la ventana */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /*background: linear-gradient(180deg, #2e2e2e 60%, #222 100%);*/
-    z-index: 1;
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
     /* Parallax efecto */
-    will-change: transform;
-    perspective: 1px;
-    transform-style: preserve-3d;
+    will-change: transform; /* Indica al navegador que este elemento cambiará de transform */
+    perspective: 1px; /* Crea un efecto de profundidad */
+    transform-style: preserve-3d; /* Mantiene el efecto 3D en la sección */
 }
 
 table {
-    border-collapse: separate;
-    margin-bottom: 0;
-    background: none;
+    border-collapse: separate; /* Separar bordes para personalización */
+    margin-bottom: 0; /* Elimina margen inferior */
+    background: none; /* Fondo transparente */
 }
 
 table tbody tr {
@@ -69,16 +67,16 @@ table tbody tr {
 }
 
 table tbody td {
-    position: relative;
+    position: relative; /* Para posicionar elementos hijos relativamente */
     
-    min-width: 120px;
+    min-width: 120px; /* Ancho mínimo de cada barra */
     
-    border: none;
-    padding: 0;
+    border: none; /* Sin bordes */
+    padding: 0; /* Sin padding */
     border-radius: 18px;
     box-shadow: none;
 
-    vertical-align: bottom;
+    vertical-align: bottom; /* Alinea el contenido hacia abajo verticalmente en la celda */
     
     text-align: center;
     color: #fff;
@@ -90,12 +88,12 @@ table tbody td {
     flex-direction: column;
 }
 
-/* Alturas y colores de cada puesto */
+/* Alturas, colores y tamaños de fuente de cada puesto */
 #puesto1 {
     height: 180px;
     background-color: #f5a503;
     font-size: 2.8rem;
-    margin-inline: 20px;
+    margin-inline: 20px; /* Espaciado entre barras de puestos */
 }
 
 #puesto2 {
@@ -112,39 +110,41 @@ table tbody td {
 
 table tfoot tr {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start; /* Alinea el contenido hacia arriba */
 }
 
 table tfoot td {
-    flex: 1;
-    text-align: center;
+    flex: 1; /* Cada celda ocupa el mismo espacio */
+    text-align: center; /* Centra el texto */
     font-size: 1.2rem;
     color: #fff;
-    padding-top: 18px;
+    padding-top: 18px; /* Espacio entre la barra y el texto */
     border: none;
     background: none;
     font-family: 'Roboto', sans-serif;
 }
 
-.rankingAll {
-    position: relative;
-    opacity: 0;
-    transform: translateY(80px) scale(0.98);
+.rankingAll { /* Estado oculto del contenedor principal de la tabla de posiciones*/
+    position: relative; /* Para posicionar elementos dentro de rankingAll de forma relativa */
+    opacity: 0; /* Hace invisible por defecto */
+    transform: translateY(80px) scale(0.98); /* Desplaza 80px hacia abajo y disminuye su tamaño un 2% para marcar */
     transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
-    pointer-events: none;
-    z-index: 2;
-    /*background: linear-gradient(180deg, #222 0%, #2e2e2e 100%);*/
+        /* opacity: transición de opacidad en 0.8s */
+        /* transform: transición de transformación en 0.8s */
+        /* cubic-bezier: eje x (0s a 1s), eje y (0.77 a 0.18 medidas de aceleración de efecto) */
+    pointer-events: none; /* Desactiva interacciones cuando está oculto */
+    z-index: 2; /* Asegura que esté por encima de otros elementos */
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Espacio entre los elementos que están dentro de .rankingAll */
     align-items: center;
     justify-content: center;
 }
 
-.rankingAll.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
+.rankingAll.visible { /* Estado visible del contenedor principal de la tabla de posiciones*/
+    opacity: 1; /* Hace visible el elemento */
+    transform: translateY(0) scale(1); /* Vuelve a su posición original y tamaño */
+    pointer-events: auto; /* Activa interacciones cuando está visible */
 }
 
 h4 {
@@ -165,32 +165,31 @@ span {
 /*******************************/
 .box {
     width: 100%;
-    max-width: 1135px;
-    max-height: 88px;
+    max-width: 1135px; /* Ancho máximo del box */
+    max-height: 88px; /* Altura máxima del box */
 
     padding: 5px;
     padding-inline: 20px;
     border: 2px solid #4ad9d9;
-    box-shadow: 0 0 10px #4ad9d9;
+    box-shadow: 0 0 10px #4ad9d9; /* Efecto de neón sobre cada contenedor del usuario*/
     border-radius: 13px;
     margin-inline: auto; /* Centra el box cuando el ancho máximo se alcanza */
     
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; /* Espacio entre los elementos a los extremos */
     align-items: center;
-
 }
 
 .derecha {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Espacio entre la imagen y el nombre */
 } .derecha img {
-    object-fit: cover;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
     height: 30px;
-    border-radius: 1000%;
+    border-radius: 100%;
     padding: 5px;
     background-color: white;
 }
