@@ -2,49 +2,41 @@
 
 Bienvenido a ZAPPY. Aquí podrá encontrar toda la ayuda que necesita para saber cómo funciona esta plataforma web.
 
-## Guía de instalación
+## Acceso al Sitio Web
+Este proyecto de software contiene incluido un menú de juegos accesible desarrollado para ser ejecutable a través de github, la distribución del sistema vendrá acompañada de los archivos de documentación para facilitar la instalación del sistema y su uso.  
 
-### Antes de instalar ZAPPY
-Zappy utiliza algunos de los servicios disponibles, tales como Apache y phpMyAdmin. Por lo tanto, se requiere tener instalado el software XAMPP con los servicios de MySQL y Apache corriendo antes de la instalación de nuestra plataforma para un correcto funcionamiento.  
+El nombre del proyecto final esta denominado como “Zappy”, su link aparece como: https://github.com/claraaaa2008/tree/2da-entrega donde encontrarás varios archivos, la página web completa, el README.md que es el archivo principal y el proyecto pagina.  
 
-Por ahora, la instalación se deberá realizar de esta forma. Estamos trabajando para mejorar la experiencia del usuario en las siguientes versiones.
+El lenguaje principal incluido dentro del proyecto final es CSS, ya que requiere mucho código dentro para hacer el GUI, y luego le siguen JavaScript y por último HTML.  
 
-### Instalar ZAPPY
-En la rama de la versión actual de GitHub podrá encontrar una gran cantidad de carpetas y archivos, los cuales son clave para el funcionamiento de ZAPPY.  
+Compatibilidad: Su compatibilidad es de Windows 10 y 11 con Visual Studio Code.
 
-En la interfaz de la web del repositorio, se puede apreciar un botón verde `<> code`.
-Haga click allí y podrá ver dos opciones fundamentales:  
-- Open with GitHub Desktop
-- Download ZIP
+## Introducción
+Zappy trata de una plataforma para minijuegos dirigida a un público menor de edad, fácil de entender y de usar, aquí se explicará su funcionamiento y un paso a paso para poder utilizarla sin mayor complicación.  
 
-#### Open with GitHub Desktop
-Si desea tener acceso al código desde su máquina para contribuir a la edición del repositorio y tiene el programa GitHub Desktop, le puede resultar útil abrir y clonar este repositorio localmente.
+### Página principal
+Nada más empezar se encontrará con la página principal en la que aparecerán varios botones con los que podrá interactuar, tales como los denominados “minijuegos” y otras opciones llamadas “configuración”, “Iniciar Sesión” o su variante “@(Usuario)”, etc. (se mencionarán los demás botones una vez la página esté finalizada).  
 
-#### Download ZIP
-Si no desea contribuir al repositorio y solamente quiere descargar los archivos necesarios para el funcionamiento apropiado de ZAPPY, es conveniente descargar el archivo ZIP el cual contiene todo lo necesario para entrar en nuestra experiencia lúdica.
+Los botones de minijuegos reconocidos por ser gris oscuro y estar al lado derecho de lo que sería el rostro de nuestra mascota Zappy, son llamados “Memoria”, “Monty Hall”, “Trivia”, “La Mosqueta”, y “Piedra, Papel o Tijera”, al ser seleccionados llevarán al usuario al juego en su respectiva página. A diferencia del resto, el botón de trivia primero llevará a una página de selección que pedirá que tipo de trivia quiere jugar, contando con dos tipos llamados “Preguntas” y “matemáticas”.  
 
-### Una vez descargado ...
-Primero aloje el ZIP en la ubicación donde esté la carpeta htdocs dentro de xampp. Probablemente esté alojado si no cambió la ubicación de los archivos de programa en `Program Files` o `Archivos de Programa`.   
+Por otro lado, el botón de configuración, cuya apariencia y posición es igual a la de los botones de los minijuegos, cuenta con varias opciones para que el usuario pueda personalizar su experiencia a gusto. Por el momento, el usuario estará habilitado para cambiar su nombre, sus sexo, fecha de nacimiento, su foto y su contraseña. Más adelante se especificarán las demás funciones que serán agregadas a la página de configuración.  
 
-Una vez colocado allí, descomprímalo haciendo click derecho en el archivo ZIP y acto seguido tocar el botón **Extraer todo** y haga click en **Extraer** si le aparece una ventana por encima del Explorador de Archivos.  
+Por último, está el botón de inicio de sesión, cuya apariencia varía dependiendo de si hay un usuario ingresado o si por el momento aún nadie intentó entrar con su cuenta a la página. Con un usuario logueado, al hacer click en éste botón se redirigirá a una página con la información de quién está actualmente “jugando” y al salir se verá cómo en lugar del logo genérico para usuario estará la foto elegida por el jugador al momento de crear su cuenta. Si no hay una cuenta logueada, el botón redirigirá al usuario a  la página titulada “iniciar sesión” donde se le pedirá su nombre de usuario y su contraseña, sin embargo, si dicha persona no cuenta con una cuenta preexistente o ingresa datos erróneos, se mostrará un aviso que diga que el usuario ingresado no existe, para eso está el botón más abajo que dice “¿No tienes una cuenta? registrate aquí”, así el usuario será redirigido a la página de “Sign in” donde ingresará los datos correspondientes (se definirán más adelante) y al terminar volverá a la página principal donde verá su foto y su nombre de usuario elegidos.  
 
-Antes de ejecutar el archivo `index\index.html.php`, active en XAMPP los botones **Start** de Apache y MySQL si no están activados los servicios.  
+### Juegos
+#### Memoria
+El juego de la memoria se basa en el emparejamiento de cartas con los mismos valores dadas vuelta boca abajo, solo se puede dar vuelta dos cartas a la vez, su mecánica se basa en recurrir a una buena memoria para recordar en qué posición está cada carta y darlas vuelta en el mismo turno para poder descartarlas, cuando se emparejan todas las cartas se da por finalizado el juego en victoria, pero si no se logra emparejar todas las cartas en el tiempo acordado entonces el juego termina en derrota.  
 
-Luego deberá ingresar en su navegador a [phpMyAdmin](http://localhost/phpmyadmin/index.php) ingresando el siguiente enlace: http://localhost/phpmyadmin/index.php.  
+En la página se ven distribuidos distintos actores que se mencionarán a continuación como el reloj, dedicado a señalar cuánto tiempo le lleva al jugador acabar con su partida, el contador de errores, que aumentará una unidad cada vez que el usuario no logre emparejar las cartas en un turno, obviamente las cartas, que están predeterminadas para ser 12 pares, todos éstos se encuentran centrados en la página a simple vista, por último un botón para activar y desactivar la música de fondo en la esquina superior derecha de la pantalla.  
 
-Luego haga click en el botón de arriba en la interfaz que dice **SQL**. Con este ingresaremos el código necesario, que está en la carpeta ZIP descomprimida en la subcarpeta `persistencia` y `Trivia/persistencia`, cuya función será crear la base de datos dentro de su máquina física.  
+#### Monty Hall
+En este juego se replica el famoso programa de televisión del señor Monty hall (ni idea de dónde salió, perdón), en este juego el usuario tendrá que elegir entre tres puertas que se le presentan con la excusa de encontrar a la mascota de la plataforma, Zappy, el usuario va a seleccionar una de éstas y otra que es errónea se abrirá, es responsabilidad del usuario entonces de decidir si va a quedarse con su apuesta inicial o cambiar de elección, después de elegir nuevamente puerta entre las dos que quedaban, se abrirán todas las puertas para revelar si el jugador logró encontrar a Zappy escondido o no.  
 
-#### Pasos para crear las bd necesarias:
-*Aclaración: todos los archivos mencionados a continuación están alojados en la carpeta descomprimida anteriormente.*
+La interfaz solo cuenta con tres agentes interactivos iguales, o sea las puertas, lo que rodean a éstas son mensajes de texto que le indican al jugador de qué va el juego y cómo sus decisiones afectan a su resultado.  
 
-- Copie el código del archivo ubicado en `persistencia/bd.sql`.
-- Péguelo en el [editor de código SQL en phpMyAdmin](http://localhost/phpmyadmin/index.php?route=/server/sql). Luego haga click en el botón **Continuar** una vez haya realizado este procedimiento.
-- Repita este procedimiento para el archivo que está en: `Trivia/persistencia/baseDatos.sql`.
+#### Trivia (Cuestionario).
+Después de atravesar la barrera en la que se pregunta qué clase de trivia le gustaría jugar al usuario, si selecciona la primera opción llamada “cuestionario” se encontrará con una lista de preguntas que podrá responder a su propio ritmo, teniendo la oportunidad de ir y volver entre preguntas, ya que el resultado se da una vez el usuario decida entregar su formulario completo.  
 
-Una vez realizados estos pasos, podemos usar la plataforma correctamente.  
+Del lado izquierdo de la pantalla se podrá ver a Zappy y a su derecha estarán las preguntas que tendrá que contestar el jugador dentro de un globo de texto color cyan, en la parte superior del globo se ubica la pregunta dada por el sistema y debajo de eso estarán las opciones clickeables, solo se podrá seleccionar una por pregunta, por último estaría el botón de entrega que se ve como una pequeña flecha del lado derecho inferior del globo. Después de contestar a las preguntas y entregar el formulario se llevará al usuario a la página de confirmación donde se le entregarán las respuestas y su resultado, señal de que el juego llegó a su final.  
 
-## Ejecutar ZAPPY
-
-Ingrese a la página principal de ZAPPY mediante el siguiente enlace: http://localhost/repositorio/proyecto1/zappy/index/index.html.php. Ahora puede disfrutar de toda la experiencia que le ofrecemos :3  
-
-_Nota: Si usted crea una cuenta o inicia sesión, notará que el nombre "Iniciar Sesión" no se cambia por el usuario que registró. Estamos trabajando para cambiar esto en próximas actualizaciones_.
+Se continuará con el manual más adelante.
