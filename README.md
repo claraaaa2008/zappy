@@ -1,6 +1,6 @@
 # ZAPPY
 
-Bienvenido a ZAPPY. Aquí podrá encontrar toda la ayuda que necesita para saber cómo funciona esta plataforma web.
+Bienvenido a ZAPPY. Aquí podrá encontrar toda la ayuda que necesita para saber cómo funciona esta plataforma web.  
 
 ## Acceso al Sitio Web
 Este proyecto de software contiene incluido un menú de juegos accesible desarrollado para ser ejecutable a través de github, la distribución del sistema vendrá acompañada de los archivos de documentación para facilitar la instalación del sistema y su uso.  
