@@ -1,0 +1,196 @@
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+/****/
+body {
+    margin: 0;
+    padding-inline: 143px;
+    padding-block: 35px;
+    background-color: #2e2e2e;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    min-height: 200vh; /* Permite scroll suficiente */
+}
+
+/* Fija el h1 arriba de la pantalla */
+.fixed-title {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+    background: #2e2e2e;
+    padding-top: 100px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+h1 {
+    align-self: center;
+    text-transform: uppercase;
+    font-family: 'Cutta', sans-serif;
+    color: #4ad9d9;
+    text-shadow: 0 0 10px #4ad9d9;
+    font-size: 50px;
+}
+
+/*******************************/
+/** Gráfica visual de puestos **/
+/*******************************/
+.puestos {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*background: linear-gradient(180deg, #2e2e2e 60%, #222 100%);*/
+    z-index: 1;
+    /* Parallax efecto */
+    will-change: transform;
+    perspective: 1px;
+    transform-style: preserve-3d;
+}
+
+table {
+    border-collapse: separate;
+    margin-bottom: 0;
+    background: none;
+}
+
+table tbody tr {
+    display: flex;
+    align-items: flex-end; /* Alinea las barras abajo */
+    height: 200px; /* Altura máxima del podio */
+}
+
+table tbody td {
+    position: relative;
+    
+    min-width: 120px;
+    
+    border: none;
+    padding: 0;
+    border-radius: 18px;
+    box-shadow: none;
+
+    vertical-align: bottom;
+    
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Alturas y colores de cada puesto */
+#puesto1 {
+    height: 180px;
+    background-color: #f5a503;
+    font-size: 2.8rem;
+    margin-inline: 20px;
+}
+
+#puesto2 {
+    height: 130px;
+    background-color: #919191;
+    font-size: 2.5rem;
+}
+
+#puesto3 {
+    height: 110px;
+    background-color: #e0a15f;
+    font-size: 2.3rem;
+}
+
+table tfoot tr {
+    display: flex;
+    align-items: flex-start;
+}
+
+table tfoot td {
+    flex: 1;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    padding-top: 18px;
+    border: none;
+    background: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.rankingAll {
+    position: relative;
+    opacity: 0;
+    transform: translateY(80px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+    pointer-events: none;
+    z-index: 2;
+    /*background: linear-gradient(180deg, #222 0%, #2e2e2e 100%);*/
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.rankingAll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+h4 {
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+span {
+    margin: 0;
+}
+
+/*******************************/
+/*** Tabla de las posiciones ***/
+/*******************************/
+.box {
+    width: 100%;
+    max-width: 1135px;
+    max-height: 88px;
+
+    padding: 5px;
+    padding-inline: 20px;
+    border: 2px solid #4ad9d9;
+    box-shadow: 0 0 10px #4ad9d9;
+    border-radius: 13px;
+    margin-inline: auto; /* Centra el box cuando el ancho máximo se alcanza */
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.derecha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+} .derecha img {
+    object-fit: cover;
+    height: 30px;
+    border-radius: 1000%;
+    padding: 5px;
+    background-color: white;
+}
