@@ -1,11 +1,11 @@
-.material-symbols-rounded {
+.material-symbols-rounded { /* Estilos de iconos por defecto */
     font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+        'FILL' 0, /* Relleno: 0 es sin relleno y 1 con relleno */
+        'wght' 400, /* Grosor de 400 */
+        'GRAD' 0, /* Gradiente: 0 es sin gradiente y 1 con gradiente */
+        'opsz' 24 /* Tamaño óptico: 24px */
     ;
-    font-size: 24px;
+    font-size: 24px; /* Tamaño del icono */
 }
 .zappy-con-cara-1 {
     height: 50px;
@@ -15,40 +15,40 @@
 /***********Header***********/
 /****************************/
 body {
-    padding: 0;
-    margin: 0;
+    padding: 0;              /* Elimina el padding por defecto del body */
+    margin: 0;               /* Elimina el margin por defecto del body */
 
     background-color: #2e2e2e;
     font-family: Roboto, sans-serif;
     color: white;
 
-    display: flex;
+    display: flex;          /* Usamos flex en el body para centrar el .box */
     flex-direction: column;
     align-items: center;
-} .box {
-    width: 100%;         /* Ocupa todo el ancho disponible */
-    max-width: 900px;    /* Establece el límite de ancho */
+} .box {                    /* Contenedor principal del contenido */
+    width: 100%;            /* Ocupa todo el ancho disponible */
+    max-width: 900px;       /* Establece el límite de ancho */
     padding-block: 45px;
 
-    display: flex;
+    display: flex;          /* Usamos flex para organizar el header y main */
     flex-direction: column;
-    align-items: stretch;
-    gap: 30px;
+    align-items: stretch;   /* Los elementos dentro de .box ocupan todo el ancho del contenedor */
+    gap: 30px;              /* Espacio entre header y main */
 }
 
 .headerMain{
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
+    display: inline-flex;           /* Usamos inline-flex para que ya quede todo alineado como row */
+    align-items: center;            /* Alineamos verticalmente los elementos */
+    justify-content: space-between; /* Alinear los elementos de un extremo a otro */
 } .headerMain .loggedUsr {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: flex;          /* Usamos flex para organizar los elementos dentro de loggedUsr */
+    flex-direction: row;    /* Alineamos los elementos en fila */
+    align-items: center;    /* Alineamos verticalmente los elementos */
     gap: 10px;
 } .headerMain h1 {
     font-family: Cutta, sans-serif;
     font-size: 24px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* Texto en mayúsculas */
     color: #f5a503;
 }
 
