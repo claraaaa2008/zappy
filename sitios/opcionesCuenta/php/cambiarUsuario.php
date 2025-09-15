@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['idUsr'])) {
     // Usuario no autenticado o sesión incorrecta
     header("Location: ../../login/login.html.php");
     exit();
@@ -22,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Intentar cambiar nombre de usuario
-    $resultado = $bd->cambiarNombreUsuario($usuario['id'], $nuevoUsuario);
+    $resultado = $bd->cambiarNombreUsuario($usuario['idUsr'], $nuevoUsuario);
 
     if ($resultado) {
         // Actualizar el nombre de usuario en sesión
-        $_SESSION['usuario']['nombre_usuario'] = $nuevoUsuario;
+        $_SESSION['usuario']['nom_usr'] = $nuevoUsuario;
         header("Location: ../opcionesCuenta.html.php?success=1");
     } else {
         // Error: usuario ya existe o fallo en la consulta

@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="es"> <!-- Indica que el contenido está en español -->
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -33,8 +33,11 @@
                 <img src="../../img/login/loginUser.png">
                 <h2>
                     <?php
-                    if (isset($_SESSION['usuario']) && isset($_SESSION['usuario']['nombre_usuario'])) {
-                        echo htmlspecialchars($_SESSION['usuario']['nombre_usuario']);
+                    if (isset($_SESSION['usuario'])) {
+                        // Mostrar nombre real
+                        echo htmlspecialchars($_SESSION['usuario']['nom_real']);
+                        // Si querés mostrar el nombre de usuario en vez del real, usa:
+                        // echo htmlspecialchars($_SESSION['usuario']['nom_usr']);
                     } else {
                         echo "Iniciar Sesión";
                     }

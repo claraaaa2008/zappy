@@ -3,7 +3,7 @@ session_start();
 
 require_once(__DIR__ . '/../../../persistencia/BaseDatos.php');
 
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['idUsr'])) {
     // Usuario no logueado
     header("Location: ../../login/login.html.php");
     exit();
@@ -15,7 +15,7 @@ $bd = new BaseDatos();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Aquí podrías agregar validaciones extra, como pedir la contraseña antes de borrar
 
-    $resultado = $bd->eliminarCuenta($usuario['id']);
+    $resultado = $bd->eliminarCuenta($usuario['idUsr']);
     $bd->cerrarConexion();
 
     if ($resultado) {
@@ -35,3 +35,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../opcionesCuenta.html.php");
     exit();
 }
+?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['idUsr'])) {
     header("Location: ../../login/login.html.php");
     exit();
 }
@@ -34,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $hashActual = $bd->obtenerHashContrasena($usuario['id']);
+    // Obtener hash de la contraseña actual usando idUsr
+    $hashActual = $bd->obtenerHashContrasena($usuario['idUsr']);
 
     if (!$hashActual) {
         $bd->cerrarConexion();
@@ -49,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $hashNuevaContrasena = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
-    $resultadoCambio = $bd->cambiarContrasena($usuario['id'], $hashNuevaContrasena);
+    $resultadoCambio = $bd->cambiarContrasena($usuario['idUsr'], $hashNuevaContrasena);
 
     $bd->cerrarConexion();
 
