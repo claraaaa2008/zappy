@@ -1,37 +1,49 @@
 <?php
 session_start();
 
-// Validar si los campos existen
 if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
 
-    // Conectar a la base de datos
-    $conexion = new mysqli("localhost", "root", "", "zappyMenuDeJuegos");
+    $conexion = new mysqli("localhost", "root", "", "zappymenu"); // Cambiado a la nueva DB
     if ($conexion->connect_error) {
         die("Error de conexión: " . $conexion->connect_error);
     }
 
-    // Buscar el usuario
-    $sql = "SELECT * FROM usuario WHERE nombre_usuario = ? AND contrasena = ?";
+    // Solo usuarios verificados pueden iniciar sesión
+    $sql = "SELECT * FROM Usuario WHERE nom_usr = ?";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("ss", $usuario, $contrasena);
+    if (!$stmt) {
+        die("Error en prepare: " . $conexion->error);
+    }
+    $stmt->bind_param("s", $usuario);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
-    // Si el usuario existe
     if ($resultado->num_rows === 1) {
-        $_SESSION['usuario'] = $usuario;
-        header("Location: ../../index/index.html.php");  // Redirige al menú
-        exit();
+        $usuarioBD = $resultado->fetch_assoc();
+
+        if (password_verify($contrasena, $usuarioBD['contrasena'])) {
+            $_SESSION['usuario'] = [
+                'idUsr' => $usuarioBD['idUsr'],
+                'nom_usr' => $usuarioBD['nom_usr'],
+                'nom_real' => $usuarioBD['nom_real'],
+                'correo' => $usuarioBD['correo'],
+                'idGrupo' => $usuarioBD['idGrupo']
+            ];
+            header("Location: ../../index/index.html.php");
+            exit();
+        } else {
+            header("Location: ../login.html.php?error=1"); // Contraseña incorrecta
+            exit();
+        }
     } else {
-        // Usuario o contraseña incorrectos
-        header("Location: ../login.html.php?error=1");
+        // Usuario no encontrado
+        header("Location: ../login.html.php?error=2");
         exit();
     }
 } else {
-    // Si no llegan los datos, redirigir al login
     header("Location: ../login.html.php");
     exit();
 }
-
+?>

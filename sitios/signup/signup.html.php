@@ -44,7 +44,6 @@ session_start();
                     <option value="" disabled selected>Seleccionar</option>
                     <option value="masculino">Masculino</option>
                     <option value="femenino">Femenino</option>
-                    <option value="otro">Otro</option>
                     <option value="prefiero_no_decirlo">Prefiero no decirlo</option>
                 </select>
             </div>
