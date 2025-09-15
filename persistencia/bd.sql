@@ -1,40 +1,84 @@
--- Creamos la base de datos solo si no existe todavía
-CREATE DATABASE IF NOT EXISTS zappyMenuDeJuegos;
+-- Crea la base de datos si no existe y la selecciona para trabajar
+CREATE DATABASE IF NOT EXISTS zappymenu;
+USE zappymenu;
 
--- Usamos la base de datos que acabamos de crear
-USE zappyMenuDeJuegos;
+-- Tabla Grupo: agrupa usuarios (ej: admin, jugador, moderador)
+CREATE TABLE Grupo (
+    idGrupo INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomGrupo VARCHAR(100) NOT NULL, -- Nombre del grupo
+    tipoUsr VARCHAR(50) NOT NULL    -- Tipo de usuario asociado
+) ENGINE=InnoDB;
 
--- Por si ya existen, eliminamos las tablas para evitar conflictos
-DROP TABLE IF EXISTS administrador;
-DROP TABLE IF EXISTS juego;
-DROP TABLE IF EXISTS usuario;
+-- Tabla Usuario: guarda la información de cada usuario
+CREATE TABLE Usuario (
+    idUsr INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom_usr VARCHAR(50) UNIQUE NOT NULL, -- Nombre de usuario único
+    nom_real VARCHAR(100),               -- Nombre real (opcional)
+    correo VARCHAR(100) UNIQUE NOT NULL, -- Correo único
+    contrasena VARCHAR(255) NOT NULL,    -- Contraseña (encriptada)
+    fecha_nac DATE,                      -- Fecha de nacimiento
+    genero ENUM('M','F','Otro'),         -- Género
+    idGrupo INT UNSIGNED,                -- Relación con Grupo
+    FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo)
+) ENGINE=InnoDB;
 
--- Creamos la tabla "administrador"
--- Aunque por ahora solo tiene un campo, puede usarse para manejar permisos especiales
-CREATE TABLE administrador (
-  permisos VARCHAR(13) DEFAULT NULL
-);
+-- Tabla Juego: almacena los distintos juegos
+CREATE TABLE Juego (
+    idJuego INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombreJuego VARCHAR(100) NOT NULL, -- Nombre del juego
+    puntos INT DEFAULT 0               -- Puntos base o iniciales
+) ENGINE=InnoDB;
 
--- Tabla para los distintos juegos disponibles
-CREATE TABLE juego (
-  id INT(11) NOT NULL PRIMARY KEY, -- ID único de cada juego
-  nombre VARCHAR(30) NOT NULL,     -- Nombre del juego
-  recompensa VARCHAR(50) NOT NULL, -- Qué gana el jugador al completar el juego
-  tipo ENUM('memoria','trivia','azaroso','puertaslocas','piedra_papel_o_tijera') NOT NULL
-  -- El tipo de juego (limitado a estas opciones)
-);
+-- Tabla Juega: relación N:M entre Usuario y Juego
+-- Guarda historial de partidas y puntajes acumulados
+CREATE TABLE Juega (
+    idJuega INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idUsr INT UNSIGNED NOT NULL,          -- Usuario que juega
+    idJuego INT UNSIGNED NOT NULL,        -- Juego jugado
+    fechaJugo DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha/hora de la partida
+    sumPuntos INT DEFAULT 0,              -- Puntos conseguidos
+    FOREIGN KEY (idUsr) REFERENCES Usuario(idUsr) ON DELETE CASCADE,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
 
--- Tabla para registrar los usuarios que se crean en la plataforma
-CREATE TABLE usuario (
-  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, -- ID único para cada usuario, se incrementa solo
-  nombre_usuario VARCHAR(20) NOT NULL,            -- El nombre que usa para iniciar sesión
-  contrasena VARCHAR(20) NOT NULL,                -- Su contraseña (sin tilde en el campo)
-  nombre VARCHAR(30) NOT NULL,                    -- Su nombre real
-  fecha_nacimiento DATE NOT NULL,                 -- Fecha de nacimiento
-  email VARCHAR(50) NOT NULL,                     -- Correo electrónico
-  sexo ENUM('masculino','femenino','otro','prefiero_no_decirlo') NOT NULL,
-  -- Para que el usuario pueda elegir su identidad de género(cambiar a tres opciones, femenino, masculino o prefiero no decirlo)
-  permisos ENUM('Administrador','Jugador') NOT NULL DEFAULT 'Jugador'
-  -- El tipo de cuenta (por defecto será Jugador)
-);
+-- Subtipos de Juego: cada tabla especializa a "Juego"
+-- (1:1 con la tabla Juego, porque heredan de ella)
 
+CREATE TABLE JuegoMosqueta (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE Memoria (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE JuegoPuertas (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE PiedraPapelTijera (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Subtipo de Juego específico: Trivia
+CREATE TABLE Trivia (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Subtipo de Trivia: TriviaHTML (ej: preguntas de programación web)
+CREATE TABLE TriviaHTML (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Subtipo de Trivia: TriviaMatematica (con campo adicional de dificultad)
+CREATE TABLE TriviaMatematica (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    dificultad VARCHAR(50), -- Nivel de dificultad de la trivia
+    FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
