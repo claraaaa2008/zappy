@@ -1,52 +1,58 @@
 <?php
-session_start(); // Iniciamos la sesión para poder guardar datos del usuario luego
+session_start();
 
-// Verificamos que se hayan enviado todos los datos requeridos desde el formulario
 if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
-    // Guardamos los datos que vienen del formulario en variables
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
-    $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
-    $fechaNacimiento = $_POST['fechaNacimiento'];
+    $nombre = $_POST['nombre']; // nom_real
+    $email = $_POST['email'];   // correo
+    $fechaNacimiento = date('Y-m-d', strtotime($_POST['fechaNacimiento'])); // Formato YYYY-MM-DD
     $sexo = $_POST['sexo'];
 
+    // Ajuste ENUM
+    if ($sexo === 'Masculino') $sexo = 'M';
+    elseif ($sexo === 'Femenino') $sexo = 'F';
+    else $sexo = 'Otro';
 
-    $conexion = new mysqli("localhost", "root", "", "zappyMenuDeJuegos");
+    $conexion = new mysqli("localhost", "root", "", "zappymenu");
+
     if ($conexion->connect_error) {
         die("Error de conexión: " . $conexion->connect_error);
     }
 
-    // Preparamos la consulta para insertar un nuevo usuario en la tabla
-    $sql = "INSERT INTO usuario (
-        nombre_usuario, contrasena, nombre, email, fecha_nacimiento, sexo
-    ) VALUES (?, ?, ?, ?, ?, ?)";
+    // Hashear la contraseña
+    $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Preparamos el statement para evitar inyecciones SQL
+    $sql = "INSERT INTO Usuario (nom_usr, contrasena, nom_real, correo, fecha_nac, genero)
+            VALUES (?, ?, ?, ?, ?, ?)";
+
     $stmt = $conexion->prepare($sql);
+    if (!$stmt) die("Error en prepare: " . $conexion->error);
 
-    // Asignamos los valores que vienen del formulario a los placeholders del SQL
-    $stmt->bind_param("ssssss", $usuario, $contrasena, $nombre, $email, $fechaNacimiento, $sexo);
+    $stmt->bind_param("ssssss", $usuario, $hash, $nombre, $email, $fechaNacimiento, $sexo);
 
-    // Intentamos ejecutar la consulta
     if ($stmt->execute()) {
-        // Si salió bien, guardamos el nombre de usuario en sesión (como si se hubiera logueado automáticamente)
-        $_SESSION['usuario'] = $usuario;
+        $_SESSION['usuario'] = [
+            'idUsr' => $conexion->insert_id,
+            'nom_usr' => $usuario,
+            'nom_real' => $nombre,
+            'correo' => $email,
+            'idGrupo' => null
+        ];
 
-        // Cerramos conexiones y redirigimos al inicio
         $stmt->close();
         $conexion->close();
         header("Location: ../../index/index.html.php");
         exit();
     } else {
-        // Si hubo un error al registrar, redirigimos a signup con un mensaje de error
         $stmt->close();
         $conexion->close();
         header("Location: ../../signup/signup.html.php?error=1");
         exit();
     }
 } else {
-    // Si no llegan datos, redirigir al signup
     header("Location: ../signup.html.php");
     exit();
 }
+
+?>
