@@ -1,34 +1,84 @@
--- Base de datos general
-CREATE DATABASE IF NOT EXISTS zappyMenuDeJuegos;
-USE zappyMenuDeJuegos;
+-- ==========================================================
+-- CREAR BASE DE DATOS zappymenu
+-- ==========================================================
 
--- Tabla de usuarios
-CREATE TABLE IF NOT EXISTS usuario (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre_usuario VARCHAR(20) NOT NULL UNIQUE,
-  contrasena VARCHAR(255) NOT NULL,
-  nombre VARCHAR(30) NOT NULL,
-  fecha_nacimiento DATE NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  sexo ENUM('masculino','femenino','otro','prefiero_no_decirlo') NOT NULL,
-  permisos ENUM('Administrador','Jugador') NOT NULL DEFAULT 'Jugador'
-);
+CREATE DATABASE IF NOT EXISTS zappymenu;
+USE zappymenu;
 
--- Tabla de juegos
-CREATE TABLE IF NOT EXISTS juego (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(30) NOT NULL,
-  tipo ENUM('memoria','trivia','azaroso','puertaslocas','piedra_papel_o_tijera') NOT NULL,
-  recompensa VARCHAR(50) NOT NULL
-);
+-- Tabla Grupo
+CREATE TABLE Grupo (
+    idGrupo INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomGrupo VARCHAR(100) NOT NULL,
+    tipoUsr VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
 
--- Tabla de partidas (puntajes de cualquier juego)
-CREATE TABLE IF NOT EXISTS partida (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  id_usuario INT NOT NULL,
-  id_juego INT NOT NULL,
-  puntaje INT NOT NULL,
-  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (id_usuario) REFERENCES usuario(id),
-  FOREIGN KEY (id_juego) REFERENCES juego(id)
-);
+-- Tabla Usuario
+CREATE TABLE Usuario (
+    idUsr INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom_usr VARCHAR(50) UNIQUE NOT NULL,
+    nom_real VARCHAR(100),
+    correo VARCHAR(100) UNIQUE NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
+    fecha_nac DATE,
+    genero ENUM('M','F','Otro'),
+    idGrupo INT UNSIGNED,
+    FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo)
+) ENGINE=InnoDB;
+
+-- Tabla Juego
+CREATE TABLE Juego (
+    idJuego INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombreJuego VARCHAR(100) NOT NULL,
+    puntos INT DEFAULT 0
+) ENGINE=InnoDB;
+
+-- Relación Usuario-Juego (Juega)
+CREATE TABLE Juega (
+    idJuega INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idUsr INT UNSIGNED NOT NULL,
+    idJuego INT UNSIGNED NOT NULL,
+    fechaJugo DATETIME DEFAULT CURRENT_TIMESTAMP,
+    sumPuntos INT DEFAULT 0,
+    FOREIGN KEY (idUsr) REFERENCES Usuario(idUsr) ON DELETE CASCADE,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Subtipos de Juego
+CREATE TABLE JuegoMosqueta (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE Memoria (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE JuegoPuertas (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE PiedraPapelTijera (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Tabla Trivia (subtipo de Juego)
+CREATE TABLE Trivia (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Juego(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Subtipo TriviaHTML
+CREATE TABLE TriviaHTML (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Subtipo TriviaMatematica
+CREATE TABLE TriviaMatematica (
+    idJuego INT UNSIGNED PRIMARY KEY,
+    dificultad VARCHAR(50),
+    FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
+) ENGINE=InnoDB;

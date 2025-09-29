@@ -1,0 +1,117 @@
+<style>
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    html {
+        overflow: hidden;
+    }
+
+    body {
+        margin: 0;
+        height: 100%;
+        overflow-y: scroll;
+        perspective: 1px;
+        transform-style: preserve-3d;
+    }
+
+    section {
+        position: relative;
+        min-height: 100vh;
+        width: 100vw;
+        transform-style: inherit;
+    }
+
+    section,
+    section:before {
+        background: 50% 50% / cover;
+    }
+
+    section:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    #hero-1:before {
+        background-image: url("http://cdn.bmwblog.com/wp-content/uploads/MINI-Rocketman-Concept-04.jpg");
+        transform: translateZ(-1px) scale(2);
+        z-index: -1;
+    }
+    #hero-2:before {
+        background-image: url("http://cdn.bmwblog.com/wp-content/uploads/MINI-Rocketman-Concept-10.jpg");
+        transform: translateZ(-1px) scale(2);
+        z-index: -2;
+    }
+
+    #hero-3:before {
+        background-image: url("http://cdn.bmwblog.com/wp-content/uploads/mini-rocketman-261.jpg");
+        background-attachment: fixed;
+        z-index: -3;
+    }
+
+    .normal-scroll {
+        background: #fff;
+        transform: translateZ(0);
+    }
+
+    .container {
+        color: #ccc;
+        font-size: 4vw;
+        margin: 0 auto;
+        padding: 25vh 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        #section-5:before {
+            background-attachment: scroll;
+        }
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="hero-1">
+        <div class="container">
+            Parallax section 1
+        </div>
+    </section>
+
+    <section class="normal-scroll">
+        <div class="container">
+            Content section 2
+        </div>
+    </section>
+
+    <section id="hero-2">
+        <div class="container">
+            Parallax section 2
+        </div>
+    </section>
+
+    <section class="normal-scroll">
+        <div class="container">
+            Content section 4
+        </div>
+    </section>
+
+    <section id="hero-3">
+        <div class="container">
+            Parallax section 5
+        </div>
+    </section>
+</body>
+
+</html>

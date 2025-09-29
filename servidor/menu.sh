@@ -12,6 +12,8 @@ color_option="\e[97m"
 # Esto permite dividir responsabilidades, facilitando el mantenimiento y el trabajo en equipo
 source ./usuarios.sh
 source ./grupos.sh
+source ./firewalld.sh
+source ./respaldos.sh
 
 # Inicializa la variable de opción con un valor distinto de 0 para entrar al bucle
 opc=5
@@ -25,6 +27,8 @@ while [[ $opc != 0 ]]; do
     echo -e "${color_menu}Menu ${color_predeterminado}"
     echo -e "${color_menu}1) ${color_predeterminado}Usuarios"
     echo -e "${color_menu}2) ${color_predeterminado}Grupos"
+    echo -e "${color_menu}3) ${color_predeterminado}Firewall"
+    echo -e "${color_menu}4) ${color_predeterminado}Respaldos"
     echo -e "${color_menu}0) ${color_predeterminado}Salir"
 
     # Lee la opción ingresada por el usuario
@@ -39,6 +43,12 @@ while [[ $opc != 0 ]]; do
         2)
             menuGrupos  # Llama a la función definida en grupos.sh
             ;;
+        3)
+            menuFirewall  # Llama a la función definida en firewalld.sh
+            ;;
+        4)
+            menuRespaldos  # Llama a la función definida en respaldos.sh
+            ;;
         0)
             echo "Saliendo..."  # Mensaje de despedida
             ;;
@@ -48,4 +58,3 @@ while [[ $opc != 0 ]]; do
             ;;
     esac
 done
-
