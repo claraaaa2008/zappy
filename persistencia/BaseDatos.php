@@ -1,4 +1,4 @@
-}<?php
+<?php
 class BaseDatos {
     private $conexion;
     private $servidor = "localhost";
