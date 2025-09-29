@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Juego Mosqueta</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <!-- el titulo del juego decorado-->
+    <h1>🎲 Juego de la <span>Mosqueta</span> 🎲</h1>
+    <p>Haz clic en un vaso para intentar adivinar dónde está la pelota.</p>
+
+    <div class="botones">
+        <button id="reiniciar">Reiniciar</button> <!-- Un boton util para reiniciar el juego -->
+    </div>
+
+    <div class="game-container" id="juego">
+        <div class="vaso" data-vaso="0"></div>
+        <div class="vaso" data-vaso="1"></div>
+        <div class="vaso" data-vaso="2"></div>
+        <div class="pelota" id="pelota"></div>
+    </div>
+
+    <div id="mensaje"></div>
+
+</body>
+<script src="js/logica.js"></script>
+</html>

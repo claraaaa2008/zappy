@@ -1,0 +1,111 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0;
+    width: 100vw;
+}
+
+.usuarioDatos {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.dato {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    margin-bottom: 0;
+    min-width: 0;
+}
+
+.dato label {
+    margin-bottom: 5px;
+    font-size: 2.5vh;
+}
+
+.dato input,
+.dato select {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 3vh;
+}
+
+.sexo {
+    width: 100%;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    background-color: white;
+    color: #2e2e2e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    border: none;
+    transition: 0.1s ease-in-out;
+} .sexo:focus {
+    outline: #4ad9d9 solid 2px;
+    background-color: white;
+    color: #2e2e2e;
+    box-shadow: 0px 0px 10px #9cffff;
+}
+
+@media screen and (max-width: 1070px) {
+    .usuarioDatos {
+        flex-direction: column;
+        gap: 0;
+    }
+    .dato input,
+    .dato select {
+        margin-bottom: 2vh;
+    }
+}
+@media screen and (min-width: 1070px) {
+    input {
+        margin-bottom: 3vh;
+    }
+    
+}
+@media screen and (min-width: 768px) and (max-width: 1085px) {
+    body {
+        padding-block: 5vh;
+        min-height: fit-content;
+    }
+    .usuarioDatos {
+        flex-direction: column;
+    }
+
+    .sexo {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-block: 5vh;
+        min-height: fit-content;
+    }
+    .usuarioDatos {
+        flex-direction: column;
+    }
+
+    .dato input,
+    .dato select {
+        margin-bottom: 2vh;
+    }
+
+    .sexo {
+        font-size: 1rem;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .usuarioDatos {
+        flex-direction: column;
+    }
+}
