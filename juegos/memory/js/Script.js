@@ -1,26 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Configuración inicial del juego ---
-    const totalCards = 24;           // Número total de cartas
-    const totalPairs = totalCards / 2; // Cantidad de pares (12 en este caso)
-    const maxScore = 100;            // Puntaje máximo posible
+    const totalCards = 24;
+    const totalPairs = totalCards / 2;
+    const maxScore = 100;
 
-    // Variables de estado del juego
-    let cards = [];                  // Array donde se guardan las cartas creadas
-    let selectedCards = [];          // Almacena las cartas seleccionadas temporalmente
-    let currentMove = 0;             // Movimientos dentro de un turno (máximo 2 cartas)
-    let currentAttempts = 0;         // Número de intentos realizados
-    let matchedPairs = 0;            // Pares encontrados correctamente
+    let cards = [];
+    let selectedCards = [];
+    let currentMove = 0;
+    let currentAttempts = 0;
+    let matchedPairs = 0;
 
-    // --- Control de música ---
-    document.getElementById('play-music').addEventListener('click', () => {
-        const music = document.getElementById('bg-music');
-        music.play(); // Inicia la música al hacer clic en el botón
-    });
+    // NUEVA variable de puntaje acumulado
+    let score = 0;
+    // puntos por par (distribuye maxScore entre todos los pares)
+    const pointsPerPair = Math.round(maxScore / totalPairs);
 
-    // Plantilla de carta en HTML
+    const scoreEl = document.querySelector('#score');
+    const statsEl = document.querySelector('#stats');
+    const gameEl = document.querySelector('#game');
+
+    // Inicializar UI
+    if (scoreEl) scoreEl.textContent = 'Puntaje: 0';
+    if (statsEl) statsEl.textContent = '0 intentos';
+
+    // Música (toggle con botón existente)
+    const playBtn = document.getElementById('play-music');
+    const audioEl = document.getElementById('bg-music');
+    if (playBtn && audioEl) {
+        let isMusicPlaying = !audioEl.paused && !audioEl.muted;
+
+        const updateMusicButtonUI = () => {
+            playBtn.setAttribute('aria-pressed', isMusicPlaying ? 'true' : 'false');
+            playBtn.title = isMusicPlaying
+                ? 'Música: encendida (clic para apagar)'
+                : 'Música: apagada (clic para encender)';
+            const img = playBtn.querySelector('img');
+            if (img) img.style.opacity = isMusicPlaying ? '1' : '0.5';
+        };
+
+        updateMusicButtonUI();
+
+        playBtn.addEventListener('click', () => {
+            if (audioEl.paused) {
+                audioEl.play().catch(() => { /* bloqueo automático */ });
+                isMusicPlaying = true;
+            } else {
+                audioEl.pause();
+                isMusicPlaying = false;
+            }
+            updateMusicButtonUI();
+        });
+    }
+
     const cardTemplate = '<div class="card"><div class="back"></div><div class="face"></div></div>';
 
-    // --- Función para mezclar aleatoriamente un array (Fisher-Yates shuffle) ---
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -29,75 +61,72 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
 
-    // --- Cálculo del puntaje ---
-    function calculateScore() {
-        let efficiency = totalPairs / currentAttempts;  // Eficiencia = pares totales / intentos
-        let score = Math.round(maxScore * efficiency);  // Puntaje proporcional a la eficiencia
-        return score > 0 ? score : 0; // Nunca retorna puntaje negativo
+    // Actualiza el puntaje mostrado usando la variable acumulada `score`
+    function updateScoreUI() {
+        if (!scoreEl) return;
+        scoreEl.textContent = 'Puntaje: ' + score;
     }
 
-    // --- Función que se activa al hacer clic en una carta ---
     function activate(e) {
-        const clicked = e.currentTarget; // La carta que se clickeó
+        const clicked = e.currentTarget;
 
-        // Solo permite girar 2 cartas y evita hacer clic en la misma carta
         if (currentMove < 2 && !clicked.classList.contains('active')) {
-            clicked.classList.add('active'); // Se voltea la carta
+            clicked.classList.add('active');
 
-            // Se agrega la carta seleccionada al array de seleccionadas
             if (!selectedCards[0] || selectedCards[0] !== clicked) {
                 selectedCards.push(clicked);
                 currentMove++;
 
-                // Si se seleccionaron 2 cartas...
                 if (currentMove === 2) {
-                    currentAttempts++; // Se incrementa el número de intentos
-                    document.querySelector('#stats').textContent = currentAttempts + ' intentos';
+                    currentAttempts++;
+                    if (statsEl) statsEl.textContent = currentAttempts + ' intentos';
 
-                    // Se comparan los valores de las dos cartas
                     const val1 = selectedCards[0].querySelector('.face').textContent.trim();
                     const val2 = selectedCards[1].querySelector('.face').textContent.trim();
 
-                    if (val1 === val2) { 
-                        // ¡Son iguales! Se confirma un par
+                    if (val1 === val2) {
                         matchedPairs++;
+
+                        // --- Aquí sumamos puntos por par y actualizamos UI ---
+                        score += pointsPerPair;
+                        if (score > maxScore) score = maxScore; // tope por si sobra
+                        updateScoreUI();
+                        // ----------------------------------------------------
+
                         selectedCards = [];
                         currentMove = 0;
 
-                        // Si encontró todos los pares, termina el juego
                         if (matchedPairs === totalPairs) {
-                            const finalScore = calculateScore(); // Calcula puntaje final
-                            document.querySelector('#score').textContent = 'Puntaje: ' + finalScore;
+                            // Si querés mostrar el puntaje final exacto (ya está en score)
+                            if (scoreEl) scoreEl.textContent = 'Puntaje: ' + score;
 
-                            // Se deshabilitan los clics en todas las cartas
+                            // Deshabilitar clicks después de ganar
                             cards.forEach(card => card.removeEventListener('click', activate));
 
-                            // --- Guardar puntaje en servidor vía PHP ---
-                            fetch('../../persistencia/guardarPuntaje.php', {
+                            // Enviar puntaje al servidor (si corresponde)
+                            fetch('guardarPuntaje.php', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
-                                    id_juego: 1,   // ID del juego (Memory = 1)
-                                    puntaje: finalScore
+                                    id_juego: 1,
+                                    puntaje: score
                                 })
                             })
                             .then(res => res.json())
                             .then(data => {
-                                if (data.success) {
+                                if (data && data.success) {
                                     console.log('Puntaje guardado correctamente');
                                 } else {
-                                    console.error('Error al guardar puntaje:', data.error);
+                                    console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
                                 }
                             })
                             .catch(err => console.error('Error en fetch:', err));
 
-                            // Mensaje de victoria
                             setTimeout(() => {
-                                alert('🎉 ¡Ganaste! Tu puntaje final es: ' + finalScore);
+                                alert('🎉 ¡Ganaste! Tu puntaje final es: ' + score);
                             }, 500);
                         }
                     } else {
-                        // Si no coinciden, se voltean otra vez después de 0.8 segundos
                         setTimeout(() => {
                             selectedCards[0].classList.remove('active');
                             selectedCards[1].classList.remove('active');
@@ -110,25 +139,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Generación de valores para las cartas ---
+    // Generar valores de las cartas (2 de cada uno)
     let values = [];
     for (let i = 0; i < totalPairs; i++) {
-        values.push(i); // Se agrega cada número dos veces (para formar pares)
+        values.push(i);
         values.push(i);
     }
 
-    values = shuffle(values); // Se mezclan los valores
+    values = shuffle(values);
 
-    // --- Creación de las cartas en el DOM ---
     for (let i = 0; i < totalCards; i++) {
         const div = document.createElement('div');
-        div.innerHTML = cardTemplate; // Se inserta la plantilla de carta
+        div.innerHTML = cardTemplate;
 
         const card = div.firstChild;
-        card.querySelector('.face').innerHTML = values[i]; // Se asigna valor a la carta
+        const face = card.querySelector('.face');
+        if (face) face.innerHTML = values[i];
 
-        card.addEventListener('click', activate); // Se activa la función al hacer clic
-        cards.push(card); // Se guarda en el array global
-        document.querySelector('#game').appendChild(card); // Se inserta en el tablero
+        card.addEventListener('click', activate);
+        cards.push(card);
+        if (gameEl) gameEl.appendChild(card);
     }
 });

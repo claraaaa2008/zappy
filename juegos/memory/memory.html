@@ -1,37 +1,29 @@
 <!DOCTYPE html>
-<html lang="es"> <!-- Documento HTML en español -->
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8" /> <!-- Codificación para soportar caracteres especiales como ñ y tildes -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace que la página sea responsive en móviles -->
-    <title>Juego de Memoria</title> <!-- Título de la pestaña del navegador -->
-    <link rel="stylesheet" href="css/estilos.css" /> <!-- Vincula la hoja de estilos CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de Memoria</title>
+    <link rel="stylesheet" href="css/estilos.css" />
 </head>
 
 <body>
-    <div id="wrapper"> <!-- Contenedor principal de todo el juego -->
-
-        <!-- Estadísticas de juego -->
-        <div id="stats">Intentos: 0</div> <!-- Muestra el número de intentos realizados -->
-        <div id="score">Puntaje: 0</div> <!-- Muestra el puntaje actual -->
-
-        <!-- Contenedor de cartas -->
-        <div id="game"></div> <!-- Aquí se van a generar las cartas con JavaScript -->
+    <div id="wrapper">
+        <div id="stats">0 Intentos</div>
+        <div id="score">Puntaje: 0</div>
+        <div id="game"></div>
     </div>
 
-    <!-- Música de fondo -->
     <audio id="bg-music" autoplay loop>
-        <!-- Archivo de audio en formato MP3 -->
-        <source src="audio/audio.mp3" type="audio/mpeg"/>
+        <source src="audio/audio.mp3" type="audio/mpeg" />
     </audio>
-
-    <!-- Botón para reproducir/pausar música -->
+    
     <button id="play-music">
-        <img src="../../img/memory/iconoSonido.png" alt="Audio"> <!-- Icono del botón -->
+        <img src="../../img/memory/iconoSonido.png" alt="Audio">
     </button>
 
-    <!-- JavaScript -->
-    <script src="js/Script.js"></script> <!-- Script principal que maneja la lógica del juego -->
+    <script src="js/Script.js"></script>
 </body>
 
 </html>
