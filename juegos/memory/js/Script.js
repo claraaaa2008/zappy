@@ -60,13 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Deshabilitar clicks después de ganar
                             cards.forEach(card => card.removeEventListener('click', activate));
 
-                            // Enviar puntaje al servidor
+                            // Enviar puntaje al servidor (usuario ya logueado en sesión)
                             fetch('guardarPuntaje.php', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
-                                    id_usuario: 1, // Cambiar al ID real del usuario
-                                    id_juego: 1,   // Cambiar al ID del juego
+                                    id_juego: 1,   // ID del juego Memory
                                     puntaje: finalScore
                                 })
                             })
