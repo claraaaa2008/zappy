@@ -5,6 +5,21 @@
         'GRAD' 0, /* Gradiente */
         'opsz' 24; /* Tamaño óptico */
 }
+
+/**************************************************/
+/***************** Importar fuentes ***************/
+/**************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+@import url('https://fonts.cdnfonts.com/css/cutta');
+
+
+/******************************/
+/******************************/
+/******************************/
 /****/
 body {
     margin: 0; /* Elimina márgenes por defecto */

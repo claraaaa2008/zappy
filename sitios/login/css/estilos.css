@@ -5,17 +5,7 @@
     font-optical-sizing: auto;
 }
 
-@font-face /*Estilo normal*/ {
-    font-family: 'Cutta', sans-serif;
-    src: url('../../../fonts/cutta/Cutta-Medium.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-} @font-face /*Estilo negrita*/ {
-    font-family: 'Cutta', sans-serif;
-    src: url('../../../fonts/cutta/Cutta-Black.otf') format('truetype');
-    font-style: normal;
-    font-weight: bolder;
-}
+@import url('https://fonts.cdnfonts.com/css/cutta');
 
 /**************************** Estilos *********************************/
 
