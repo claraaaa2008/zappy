@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/modoOscuro.css">
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Este tiene prioridad -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <title>Mi Grupo - Zappy</title>
+</head>
+
+<body class="div-column">
+    <header class="div-row align">
+        <div class="div-row">
+            <a href="index">
+                <h1 class="titulo glowTurquesa">ZAPPY</h1>
+            </a>
+            <div class="separador-vertical"></div>
+            <h2>Mi grupo</h2>
+        </div>
+        <div class="div-row">
+            <p>usuario123</p>
+            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"
+                style="width: 30px;" />
+        </div>
+    </header>
+    <main class="div-column">
+        <h5>¡Aún no perteneces a ningún grupo!</h5>
+        <h6>Es más divertido con amigos. Únete o crea un grupo con ellos</h6>
+
+        <div class="div-row align">
+            <div class="div-column box">
+                <h3>Crear un grupo</h3>
+                <label for="nombreGrupo">Nombre del grupo</label>
+                <input type="text" id="nombreGrupo" placeholder="grupo123">
+
+                <label for="descripcion">Descripción</label>
+                <input type="text" id="descripcion" placeholder="¡Hola mundo!">
+
+                <label for="buscarPersonas">Buscar personas</label>
+                <input type="text" id="buscarPersonas" placeholder="usuario1">
+
+                <button class="buttonTurquesa">
+                    <span class="material-symbols-rounded" id="search">group_add</span>
+                    Crear
+                </button>
+            </div>
+
+            <div class="div-column box">
+                <h3>Unirse a un grupo</h3>
+                <label for="nombreGrupo">Código del grupo</label>
+                <input type="text" id="nombreGrupo" placeholder="grupo123">
+
+                <button class="buttonTurquesa">
+                    <span class="material-symbols-rounded" id="search">search</span>
+                    Unirse
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

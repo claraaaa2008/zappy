@@ -1,0 +1,137 @@
+/* Importación de fuentes Roboto de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Clase para aplicar la fuente Roboto */
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+/* Definición de la fuente personalizada 'Cutta' en dos estilos */
+@import url('https://fonts.cdnfonts.com/css/cutta');
+
+/************************************************************************/
+/************************************************************************/
+body {
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    padding-inline: 40px;
+    margin: 0;
+    background-color: #2e2e2e;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Cutta', sans-serif;
+    font-size: 4rem;
+    color: #4ad9d9; /* Color turquesa */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.align {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.div-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} .div-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+} .grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.titulo {
+    font-family: 'Cutta', sans-serif;
+    font-size: 3rem;
+    color: #4ad9d9; /* Color turquesa */
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #9cffff;
+}
+
+.glowTurquesa {
+    text-shadow: 0 0 15px #9cffff;
+} .glowAmarillo {
+    text-shadow: 0 0 5px #f5a503;
+}
+
+.box {
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: 4px solid #4ad9d9;
+    padding: 20px;
+} .contenedorLlenar {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.buttonAmarillo {
+    padding: 8px;
+    border-radius: 16px;
+    background-color: #f5a503;
+    color: #2e2e2e;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+} .buttonRojo {
+    border-radius: 16px;
+    background-color: #f1385a;
+    color: #2e2e2e;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+} .buttonTurquesa {
+    border-radius: 16px;
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+    padding: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+input {
+    box-sizing: border-box;
+    border: 2px solid #d9d9d9;
+    border-radius: 16px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #d9d9d9;
+    color: #2e2e2e;
+} input::placeholder{
+    color: #919191;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    color: #d9d9d9;
+}
