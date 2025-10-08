@@ -22,14 +22,13 @@
 
     <div class="div-column align listaBotones">
         <div class="div-column perfil">
-            <a href="#miInfo">
+            <a href="#miInfo" onclick="abrirModal('miInfo', event)">
                 <div class="circulo"></div>
-                <!--<img src="../../img/ZappyConCara.png" alt="Perfil usuario" style="width: 100px;">-->
             </a>
             <h2>usuario123</h2>
         </div>
         <div class="div-column align botones">
-            <a href="#miInfo">
+            <a href="#miInfo" onclick="abrirModal('miInfo', event)">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">person</span>
                     Usuario
@@ -53,7 +52,7 @@
                     Ajustes
                 </button>
             </a>
-            <a href="">
+            <a href="#logout" onclick="abrirModal('logout', event)">
                 <button type="button" class="buttonAmarillo" style="color: #f1385a; font-weight: 500;">
                     <span class="material-symbols-rounded">logout</span>
                     Cerrar Sesión
@@ -62,22 +61,68 @@
         </div>
     </div>
 
-
-    <div class="miInfo" id="miInfo">
+    <!--------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------->
+    <div class="modal" id="miInfo">
         <div class="container">
-            <div class="box div-column">
-                <div class="div-row">
-                    <div class="div-row">
-                        <img src="" alt="">
+            <div class="box div-column" style="gap: 30px; background-color: #2e2e2e; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                <div class="div-row align content">
+                    <div class="div-row profile">
+                        <div class="circulito"></div>
                         <div class="div-column">
-                            <h3>nombre</h3>
+                            <h3>Nombre</h3>
                             <h6>usuario123</h6>
                         </div>
                     </div>
-                    <p class="atributo">xxxxx</p>
+                    <p class="puntaje">xxxxx</p>
+                </div>
+                
+                <div class="box div-column innerBox">
+                    <h3>Sobre mí</h3>
+                    <p class="atributo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam debitis, quisquam necessitatibus dignissimos voluptatibus expedita quidem odio commodi numquam nam officia ea delectus sequi excepturi pariatur repellendus voluptate qui!</p>
+
+                    <div class="div-row" style="justify-content: space-between;">
+                        <p style="width: 100%;">Edad</p>
+                        <p class="atributo div-row" style="width: 100%;">xxx</p>
+                    </div>
+                    <div class="div-row" style="justify-content: space-between;">
+                        <p style="width: 100%;">Cumpleaños</p>
+                        <p class="atributo div-row" style="width: 100%;">xx/xx/xxxx</p>
+                    </div>
+                </div>
+
+                <div class="box div-column innerBox" style="border-width: 1px; padding: 16px;">
+                    <h3>Juego</h3>
+
+                    <div class="div-row" style="justify-content: space-between;">
+                        <p style="width: 100%;">Mi grupo</p>
+                        <p class="atributo div-row" style="width: 100%;">grupo123</p>
+                    </div>
+                    <div class="div-row" style="justify-content: space-between;">
+                        <p style="width: 100%;">Ranking</p>
+                        <p class="atributo div-row" style="width: 100%;">№ xx</p>
+                    </div>
+                </div>
+                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para cerrar</p>
+            </div>
+        </div>
+    </div>
+    
+    <!--------------------------------------------------------------------------->
+    <div class="modal" id="logout">
+        <div class="container" style="width: 400px;">
+            <div class="box div-column" style="gap: 30px; background-color: #2e2e2e; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                <p style="text-align: center;">¿Estás seguro de que deseas <br>
+                    <b style="color: #f4a503;">Cerrar Sesión</b>?</p>
+                <div class="div-row align content" style="gap: 20px;">
+                    <button class="buttonRojo">Aceptar</button>
+                    <button class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <script src="js/logica.js"></script>
 </body>
 </html>

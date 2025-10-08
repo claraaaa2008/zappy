@@ -36,6 +36,12 @@ body {
 h2 {
     font-family: 'Roboto', sans-serif;
     color: #f4a503;
+} h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+} p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
 }
 
 .box {
@@ -64,10 +70,6 @@ h2 {
     box-shadow: 0px 0px 10px #9cffff;
 }
 
-.buttonTurquesa {
-    width: 100%
-}
-
 .listaBotones {
     width: calc(100% - 30%);
     display: flex;
@@ -89,5 +91,12 @@ h2 {
     border: 4px solid #f4a503;
 }
 
-.miInfo {
+/**********************************/
+/** Propiedades dentro del modal **/
+/**********************************/
+.circulito {
+    aspect-ratio: 1/1; /* Mantiene la proporción cuadrada */
+    width: 50px;
+    border-radius: 100%;
+    border: 4px solid #f5555f;
 }

@@ -35,6 +35,13 @@ h1 {
     margin-bottom: 20px;
 }
 
+button {
+    cursor: pointer;
+} button:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
 .align {
     display: flex;
     justify-content: space-between;
@@ -86,36 +93,43 @@ h1 {
     box-sizing: border-box;
 }
 
-.buttonAmarillo {
+.buttonAmarillo, .buttonRojo, .buttonTurquesa {
     padding: 8px;
     border-radius: 16px;
-    background-color: #f5a503;
-    color: #2e2e2e;
     width: 100%;
     border: none;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-} .buttonRojo {
-    border-radius: 16px;
+}
+
+.buttonAmarillo {
+    background-color: #f5a503;
+    color: #2e2e2e;
+} .buttonAmarillo:hover {
+    background-color: #f5a503;
+    color: #2e2e2e;
+    box-shadow: 0 0 10px #ffb703;
+}
+
+.buttonRojo {
     background-color: #f1385a;
     color: #2e2e2e;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-} .buttonTurquesa {
-    border-radius: 16px;
+} .buttonRojo:hover {
+    background-color: #f1385a;
+    color: #2e2e2e;
+    box-shadow: 0 0 10px #ff4c6d;
+}
+
+.buttonTurquesa {
     background-color: #4ad9d9;
     color: #2e2e2e;
-    padding: 8px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+} .buttonTurquesa:hover {
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+    box-shadow: 0 0 10px #9cffff;
 }
 
 input {
@@ -134,4 +148,43 @@ input {
 label {
     font-family: 'Roboto', sans-serif;
     color: #d9d9d9;
+}
+
+.modal {
+    position: fixed; /* Fijo sobre toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    align-items: center;    /* Centra verticalmente */
+    justify-content: center;/* Centra horizontalmente */
+    display: none;
+} .modal .container{
+    color: white;
+    width: 476px;
+    height: auto;
+} .atributo {
+    background-color: #404040;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 400;
+} .puntaje {
+    background-color: #404040;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+} .content {
+    justify-content: space-between;
+} .profile {
+    gap: 20px;
+} .innerBox {
+    gap: 15px;
+    border-width: 1px;
+    padding: 16px;
+    box-shadow: 0 0 6px #9cffff;
+} .innerBox:hover {
+    box-shadow: 0 0 12px #9cffff;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
 }
