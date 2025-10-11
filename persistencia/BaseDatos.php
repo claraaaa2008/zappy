@@ -142,6 +142,13 @@ class BaseDatos {
         return $resultado;
     }
 
+    public function cambiarInfoUsuario($idUsr, $nombre, $correo, $genero, $fecha) {
+    $sql = "UPDATE Usuario SET nom_usr=?, correo=?, genero=?, fecha_nacimiento=? WHERE idUsr=?";
+    $stmt = $this->conexion->prepare($sql);
+    $stmt->bind_param("ssssi", $nombre, $correo, $genero, $fecha, $idUsr);
+    return $stmt->execute();
+}
+
     /* =========================
        CERRAR CONEXIÓN
        ========================= */
@@ -149,4 +156,5 @@ class BaseDatos {
         $this->conexion->close();
     }
 }
+
 ?>

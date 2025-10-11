@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Llamar a tu método en BaseDatos (lo tenés que crear si no existe)
     $resultado = $bd->cambiarInfoUsuario(
         $usuario['idUsr'],
         $nombre,
