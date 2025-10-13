@@ -1,0 +1,41 @@
+body {
+    padding: 50px;
+    padding-inline: 100px;
+    color: white;
+}
+
+main {
+    display: grid;
+}
+
+.div-row {
+    justify-content: space-between;
+} .div-row h1 {
+    font-size: 2.5rem;
+}
+
+header .div-row {
+    gap: 20px;
+}
+
+.perfil {
+    align-items: center;
+}
+
+.circulo {
+    width: 180px;
+    height: 180px;
+    margin: 20px;
+    border-radius: 100%;
+    border: 4px solid #f4a503;
+}
+
+/**********************************/
+/** Propiedades dentro del modal **/
+/**********************************/
+.circulito {
+    aspect-ratio: 1/1; /* Mantiene la proporción cuadrada */
+    width: 50px;
+    border-radius: 100%;
+    border: 4px solid #f5555f;
+}
