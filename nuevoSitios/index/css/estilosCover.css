@@ -33,7 +33,9 @@ body {
     margin: auto;
 }
 
-h2 {
+h1 {
+    margin-bottom: 20px;
+} h2 {
     font-family: 'Roboto', sans-serif;
     color: #f4a503;
 } h6 {

@@ -76,27 +76,37 @@ button {
     gap: 20px;
 }
 
-.titulo {
+
+h1 {
+    text-shadow: #9cffff 0px 0px 15px;
     font-family: 'Cutta', sans-serif;
     font-size: 3rem;
     color: #4ad9d9; /* Color turquesa */
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 5px #9cffff;
 }
 
-.glowTurquesa {
-    text-shadow: 0 0 15px #9cffff;
+.glowTurquesaBox {
+    border: 4px solid #4ad9d9;
+    box-shadow: 0 0 15px #9cffff;
 } .glowAmarillo {
-    text-shadow: 0 0 5px #f5a503;
+    box-shadow: 0 0 8px 1px #f5a503;
+} .glowRojo {
+    box-shadow: 0 0 5px #f1385a;
 }
 
 .box {
     box-sizing: border-box;
     border-radius: 16px;
-    border: 4px solid #4ad9d9;
     padding: 20px;
-} .contenedorLlenar {
+} .boxTurquesa {
+    border: 4px solid #4ad9d9;
+} .boxAmarillo {
+    border: 4px solid #f5a503;
+} .boxRojo {
+    border: 4px solid #f1385a;
+}
+
+.contenedorLlenar {
     width: 100%;
     height: 100%;
     box-sizing: border-box;

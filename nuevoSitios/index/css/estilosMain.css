@@ -1,11 +1,64 @@
 body {
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
     padding: 50px;
     padding-inline: 100px;
     color: white;
+    height: 100vh;
+    gap: 30px;
+}
+
+section {
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+aside {
+    min-width: 250px;
+    height: 100%;
+    background-color: #393939; /* Color de fondo oscuro */
+    padding: 20px;
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    align-items: center;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+} aside h2 {
+    text-transform: uppercase;
+} aside div {
+    gap: 10px;
 }
 
 main {
+    width: 100%;
     display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    grid-template-rows: repeat(2, 1fr);    /* 2 filas iguales */
+    align-content: stretch;                /* Centra verticalmente cada item */
+    gap: 30px;
+}
+
+header .div-row {
+    gap: 20px;
+}
+
+header img {
+    width: 30px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+} .puntaje {
+    font-family: 'Cutta', sans-serif;
+}
+
+header .btn:hover {
+    .material-symbols-rounded {
+        color: #4ad9d9;
+        transform: scale(1.2);
+        transition: ease-in-out 0.1s;
+    }
 }
 
 .div-row {
@@ -14,8 +67,52 @@ main {
     font-size: 2.5rem;
 }
 
-header .div-row {
-    gap: 20px;
+.glowAmarillo {
+    min-width: 180px;
+    width: 100%;
+    height: 150px;
+    align-items: end;
+    justify-content: end;
+} .boxAmarillo {
+    display: flex;
+    background-image: url();
+    border: #f4a503 2px solid;
+    transition: ease-in-out 0.2s;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+} .boxAmarillo:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 32px 8px #f5a503cc;
+}
+
+.logout {
+    color: #f1385a;
+} .logout:hover {
+    color: #f1385a;
+    transform: scale(1.2);
+    transition: ease-in-out 0.1s;
+}
+
+.innerBox .div-row {
+    justify-content: space-between;
+} .innerBox .div-row p {
+    width: 100%;
+    text-align: center;
+} .boxTurquesa p {
+    font-size: x-small;
+    text-align: center;
+}
+
+/**********************************/
+/** Propiedades dentro del modal **/
+/**********************************/
+.modal .container .box {
+    padding: 40px;
+    gap: 30px;
+    background-color: #2e2e2e;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .perfil {
@@ -29,13 +126,22 @@ header .div-row {
     border-radius: 100%;
     border: 4px solid #f4a503;
 }
-
-/**********************************/
-/** Propiedades dentro del modal **/
-/**********************************/
 .circulito {
     aspect-ratio: 1/1; /* Mantiene la proporción cuadrada */
     width: 50px;
     border-radius: 100%;
     border: 4px solid #f5555f;
+}
+
+#logout .box {
+    width: 400px;
+} #logout .box p {
+    text-align: center;
+} #logout .box p b {
+    color: #f4a503;
+}
+#logout .box {
+    width: 400px;
+} #logout .box .div-row {
+    gap: 20px;
 }
