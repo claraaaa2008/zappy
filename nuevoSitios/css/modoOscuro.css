@@ -9,6 +9,14 @@
 /* Definición de la fuente personalizada 'Cutta' en dos estilos */
 @import url('https://fonts.cdnfonts.com/css/cutta');
 
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
 /************************************************************************/
 /************************************************************************/
 body {
@@ -16,10 +24,12 @@ body {
     padding-inline: 40px;
     margin: 0;
     background-color: #2e2e2e;
+    font-family: 'Cutta', sans-serif;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
@@ -32,7 +42,6 @@ h1 {
     font-size: 4rem;
     color: #4ad9d9; /* Color turquesa */
     text-align: center;
-    margin-bottom: 20px;
 }
 
 button {
@@ -179,6 +188,8 @@ label {
 } .profile {
     gap: 20px;
 } .innerBox {
+    border-radius: 16px;
+    box-sizing: border-box;
     gap: 15px;
     border-width: 1px;
     padding: 16px;
