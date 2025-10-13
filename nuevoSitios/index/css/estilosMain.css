@@ -95,15 +95,6 @@ header .btn:hover {
     transition: ease-in-out 0.1s;
 }
 
-.innerBox .div-row {
-    justify-content: space-between;
-} .innerBox .div-row p {
-    width: 100%;
-    text-align: center;
-} .boxTurquesa p {
-    font-size: x-small;
-    text-align: center;
-}
 
 /**********************************/
 /** Propiedades dentro del modal **/
@@ -113,6 +104,21 @@ header .btn:hover {
     gap: 30px;
     background-color: #2e2e2e;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.innerBox .div-row {
+    justify-content: space-between;
+} .innerBox .div-row p {
+    width: 100%;
+    text-align: start;
+} .innerBox .div-row .atributoField {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.boxTurquesa p {
+    font-size: medium;
+    align-content: center;
 }
 
 .perfil {

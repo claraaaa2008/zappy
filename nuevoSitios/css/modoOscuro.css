@@ -112,7 +112,7 @@ h1 {
     box-sizing: border-box;
 }
 
-.buttonAmarillo, .buttonRojo, .buttonTurquesa {
+.buttonAmarillo, .buttonRojo, .buttonTurquesa, .buttonGris {
     padding: 8px;
     border-radius: 16px;
     width: 100%;
@@ -151,6 +151,24 @@ h1 {
     box-shadow: 0 0 10px #9cffff;
 }
 
+.buttonGris {
+    background-color: #2e2e2e;
+    color: white;
+} .buttonGris:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+input {
+    box-sizing: border-box;
+    border: 2px solid #d9d9d9;
+    background-color: #2e2e2e;
+    color: white;
+} .buttonGris:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
 input {
     box-sizing: border-box;
     border: 2px solid #d9d9d9;
@@ -183,7 +201,7 @@ label {
     color: white;
     width: 476px;
     height: auto;
-} .atributo {
+} .atributoField {
     background-color: #404040;
     padding: 2px 8px;
     border-radius: 8px;

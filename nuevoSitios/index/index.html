@@ -20,6 +20,7 @@
             <div class="ojo"></div>
             <div class="ojo"></div>
         </div>
+        <a href="indexGame.html"><button class="buttonGris">Click Para Jugar</button></a>
     </div>
 
     <div class="div-column align listaBotones">
@@ -55,7 +56,7 @@
                 </button>
             </a>
             <a href="#logout" onclick="abrirModal('logout', event)">
-                <button type="button" class="buttonAmarillo" style="color: #f1385a; font-weight: 500;">
+                <button type="button" class="buttonAmarillo" style="color: #f1385a;">
                     <span class="material-symbols-rounded">logout</span>
                     Cerrar Sesión
                 </button>
@@ -67,8 +68,7 @@
     <!--------------------------------------------------------------------------->
     <div class="modal" id="miInfo">
         <div class="container">
-            <div class="box boxTurquesa div-column"
-                style="gap: 30px; background-color: #2e2e2e; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
                     <div class="div-row profile">
                         <div class="circulito"></div>
@@ -82,47 +82,45 @@
 
                 <div class="div-column innerBox">
                     <h3>Sobre mí</h3>
-                    <p class="atributo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam debitis,
+                    <p class="atributoField">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam debitis,
                         quisquam necessitatibus dignissimos voluptatibus expedita quidem odio commodi numquam nam
                         officia ea delectus sequi excepturi pariatur repellendus voluptate qui!</p>
 
-                    <div class="div-row" style="justify-content: space-between;">
-                        <p style="width: 100%;">Edad</p>
-                        <p class="atributo div-row" style="width: 100%;">xxx</p>
+                    <div class="div-row">
+                        <p>Edad</p>
+                        <p class="atributoField div-row">xxx</p>
                     </div>
-                    <div class="div-row" style="justify-content: space-between;">
-                        <p style="width: 100%;">Cumpleaños</p>
-                        <p class="atributo div-row" style="width: 100%;">xx/xx/xxxx</p>
+                    <div class="div-row">
+                        <p>Cumpleaños</p>
+                        <p class="atributoField div-row">xx/xx/xxxx</p>
                     </div>
                 </div>
 
                 <div class="div-column innerBox">
                     <h3>Juego</h3>
 
-                    <div class="div-row" style="justify-content: space-between;">
-                        <p style="width: 100%;">Mi grupo</p>
-                        <p class="atributo div-row" style="width: 100%;">grupo123</p>
+                    <div class="div-row">
+                        <p>Mi grupo</p>
+                        <p class="atributoField div-row">grupo123</p>
                     </div>
-                    <div class="div-row" style="justify-content: space-between;">
-                        <p style="width: 100%;">Ranking</p>
-                        <p class="atributo div-row" style="width: 100%;">№ xx</p>
+                    <div class="div-row">
+                        <p>Ranking</p>
+                        <p class="atributoField div-row">№ xx</p>
                     </div>
                 </div>
-                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para
-                    cerrar</p>
+                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para cerrar</p>
             </div>
         </div>
     </div>
 
     <!--------------------------------------------------------------------------->
     <div class="modal" id="logout">
-        <div class="container" style="width: 400px;">
-            <div class="box boxTurquesa div-column"
-                style="gap: 30px; background-color: #2e2e2e; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-                <p style="text-align: center;">¿Estás seguro de que deseas <br>
-                    <b style="color: #f4a503;">Cerrar Sesión</b>?
+        <div class="container">
+            <div class="box boxTurquesa div-column">
+                <p>¿Estás seguro de que deseas <br>
+                    <b>Cerrar Sesión</b>?
                 </p>
-                <div class="div-row align content" style="gap: 20px;">
+                <div class="div-row align content">
                     <button class="buttonRojo">Aceptar</button>
                     <button class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
                 </div>
