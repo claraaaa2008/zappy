@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/modoOscuro.css">
-    <link rel="stylesheet" href="css/estilos.css"> <!-- Este tiene prioridad -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <title>Mi Grupo - Zappy</title>
 </head>
@@ -27,11 +26,14 @@
                 style="width: 30px;" />
         </div>
     </header>
+
     <main class="div-column">
         <h5>¡Aún no perteneces a ningún grupo!</h5>
         <h6>Es más divertido con amigos. Únete o crea un grupo con ellos</h6>
 
         <div class="div-row align">
+
+            <!-- Crear grupo -->
             <div class="div-column box">
                 <h3>Crear un grupo</h3>
                 <label for="nombreGrupo">Nombre del grupo</label>
@@ -43,24 +45,31 @@
                 <label for="buscarPersonas">Buscar personas</label>
                 <input type="text" id="buscarPersonas" placeholder="usuario1">
 
-                <button class="buttonTurquesa">
-                    <span class="material-symbols-rounded" id="search">group_add</span>
+                <button class="buttonTurquesa" id="btnCrear">
+                    <span class="material-symbols-rounded">group_add</span>
                     Crear
                 </button>
             </div>
 
+            <!-- Unirse a grupo -->
             <div class="div-column box">
                 <h3>Unirse a un grupo</h3>
-                <label for="nombreGrupo">Código del grupo</label>
-                <input type="text" id="nombreGrupo" placeholder="grupo123">
+                <label for="codigoGrupo">Código del grupo</label>
+                <input type="text" id="codigoGrupo" placeholder="grupo123">
 
-                <button class="buttonTurquesa">
-                    <span class="material-symbols-rounded" id="search">search</span>
+                <button class="buttonTurquesa" id="btnUnirse">
+                    <span class="material-symbols-rounded">search</span>
                     Unirse
                 </button>
             </div>
+
         </div>
+
+        <h3>Grupos disponibles</h3>
+        <ul id="listaGrupos"></ul>
     </main>
+
+    <script src="miGrupo.js"></script>
 </body>
 
 </html>

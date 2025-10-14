@@ -1,36 +1,46 @@
-fetch("../grupos/apiGrupo.php?action=crear", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        nomGrupo: "Admins",
-        descripcionGrupo: "Grupo de administradores",
-        fechaCreacion: "2025-10-13",
-        estadoGrupo: "Activo",
-        tipoUsr: "Administrador"
+const btnCrear = document.querySelector(".buttonTurquesa");
+const inputNombre = document.getElementById("nombreGrupo");
+const inputDescripcion = document.getElementById("descripcion");
+
+btnCrear.addEventListener("click", () => {
+    const nomGrupo = inputNombre.value.trim();
+    const descripcion = inputDescripcion.value.trim();
+
+    if (!nomGrupo) {
+        alert("Ingrese el nombre del grupo");
+        return;
+    }
+
+    const codigoGrupo = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const tipoUsr = "Administrador";
+    const idCreador = 1; // cambiar al usuario logueado
+
+    fetch("../php/apiGrupo.php?action=crear", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            nomGrupo,
+            descripcion,
+            codigoGrupo,
+            tipoUsr,
+            idCreador
+        })
     })
-})
-    .then(r => r.json())
-    .then(console.log);
-fetch("../grupos/apiGrupo.php?action=listar")
-    .then(r => r.json())
-    .then(console.table);
-fetch("../grupos/apiGrupo.php?action=actualizar", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        idGrupo: 1,
-        nomGrupo: "Admins Update",
-        descripcionGrupo: "Actualizado",
-        estadoGrupo: "Inactivo",
-        tipoUsr: "Usuario"
-    })
-})
-    .then(r => r.json())
-    .then(console.log);
-fetch("../grupos/apiGrupo.php?action=eliminar", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idGrupo: 1 })
-})
-    .then(r => r.json())
-    .then(console.log);
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        listarGrupos();
+    });
+});
+
+// Función para listar grupos
+function listarGrupos() {
+    fetch("../php/apiGrupo.php?action=listar")
+        .then(res => res.json())
+        .then(grupos => {
+            console.table(grupos);
+        });
+}
+
+// Listar al cargar la página
+listarGrupos();
