@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const btnGris = document.querySelector('.buttonGris');
+    if (btnGris) {
+        btnGris.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'indexGame.html';
+            }, 500); // Debe coincidir con la duración de la animación
+        });
+    }
+});
+
 function abrirModal(id, e) {
     if (e) e.preventDefault();
     const modal = document.getElementById(id);
