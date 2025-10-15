@@ -1,6 +1,20 @@
 <?php
 session_start();
 
+/**** Solo puede loguearse con index si el usuario es logosofico y la contraseña es liceo y que se muestre el usuario en index.html.php *****/
+
+$usuario = $_POST['usuario'] ?? '';
+$contrasena = $_POST['contrasena'] ?? '';
+if ($usuario === "logosofico" && $contrasena === "liceo") {
+    $_SESSION['usuario'] = $usuario;
+    header("Location: ../../index/index.html.php");
+    exit();
+} else {
+    header("Location: ../login.html.php?error=1");
+    exit();
+}
+
+/*
 if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
@@ -46,4 +60,4 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     header("Location: ../login.html.php");
     exit();
 }
-?>
+*/

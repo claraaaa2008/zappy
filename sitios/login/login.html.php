@@ -11,7 +11,7 @@
 <body>
     <!-- Este formulario envía los datos al archivo PHP que maneja la autenticación -->
     <form action="php/auth.php" method="POST">
-        
+
         <!-- Sección superior del formulario con título e ícono -->
         <div class="header">
             <h1>Iniciar Sesión</h1>
@@ -23,11 +23,11 @@
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required autofocus>
 
-        <!-- Campo para ingresar la contraseña -->
+        <!-- Campo para ingresar la contraseña-->
         <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
-
+        <input type="text" id="contrasena" name="contrasena" required>
         <!-- Si hay un error (por ejemplo, credenciales incorrectas), se muestra un mensaje -->
+
         <?php
         if (isset($_GET['error'])) {
             echo "<p style='color:red;'>Usuario o contraseña incorrectos.</p>";
@@ -47,7 +47,7 @@
     <div class="bienvenida">
         <!-- Mensaje de saludo personalizado -->
         <div class="quote">¡Hola de nuevo! Soy <b>ZAPPY</b>. Inicia sesión para jugar</div>
-        
+
         <!-- Contenedor con el nombre del personaje y su imagen -->
         <div class="zappyContainer">
             <h2>ZAPPY</h2>

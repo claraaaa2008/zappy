@@ -35,9 +35,9 @@
                     <?php
                     if (isset($_SESSION['usuario'])) {
                         // Mostrar nombre real
-                        echo htmlspecialchars($_SESSION['usuario']['nom_real']);
+                        echo htmlspecialchars($_SESSION['usuario']);
                         // Si querés mostrar el nombre de usuario en vez del real, usa:
-                        // echo htmlspecialchars($_SESSION['usuario']['nom_usr']);
+                        // echo htmlspecialchars($_SESSION['usuario']);
                     } else {
                         echo "Iniciar Sesión";
                     }

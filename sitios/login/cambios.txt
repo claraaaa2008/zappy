@@ -1,0 +1,6 @@
+Defensa 2da entrega
+-------------------------------
+Cambios realizados:
+1. sitios/login/login.html.php/ -> línea 31
+2. sitios/login/php/auth.php  y también en sitios/index/index.html.php -> línea 38
+3. sitios/login/css/estilos.css -> línea 101
