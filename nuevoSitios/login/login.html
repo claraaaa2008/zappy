@@ -5,37 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regístrate</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="website icon" href="../../img/ZappyConCara.png">
+    <link rel="stylesheet" href="../css/modoOscuro.css">
+    <link rel="stylesheet" href="css/estilosLogin.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
 </head>
 
-<body>
+<body class="div-row">
     <!-- Este formulario envía los datos al archivo PHP que maneja la autenticación -->
-    <form action="php/auth.php" method="POST">
-        
+    <form action="php/auth.php" method="POST" class="div-column">
         <!-- Sección superior del formulario con título e ícono -->
-        <div class="header">
-            <h1>Iniciar Sesión</h1>
+        <header>
+            <h2>INICIAR SESIÓN</h2>
             <!-- Este div puede usarse para mostrar un ícono o imagen de usuario (parece decorativo) -->
-            <div class="iconUser" style="width: 40%;"></div>
+            <img class="iconUser" style="width: 40%;" src="../../img/login/addUserblanco.png" alt=""></img>
+        </header>
+
+        <div class="div-column">
+            <!-- Campo para ingresar el nombre de usuario -->
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required autofocus>
+        </div>
+        <div class="div-column">
+            <!-- Campo para ingresar la contraseña -->
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
         </div>
 
-        <!-- Campo para ingresar el nombre de usuario -->
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" required autofocus>
-
-        <!-- Campo para ingresar la contraseña -->
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
-
         <!-- Si hay un error (por ejemplo, credenciales incorrectas), se muestra un mensaje -->
-        <?php
-        if (isset($_GET['error'])) {
-            echo "<p style='color:red;'>Usuario o contraseña incorrectos.</p>";
-        }
-        ?>
-
+        
         <!-- Botón para enviar el formulario. El enlace dentro del botón no hace nada, podría eliminarse -->
-        <button type="submit">Iniciar Sesión <a href="../index/index.html"></a></button>
+        <a href="../index/index.html"><button type="submit" class="buttonTurquesa">Iniciar Sesión</button></a>
 
         <!-- Enlace para ir a la página de registro si el usuario no tiene cuenta -->
         <p class="registro" style="width: fit-content; align-self: center;">
@@ -44,15 +46,15 @@
     </form>
 
     <!-- Sección de bienvenida al costado o debajo del formulario -->
-    <div class="bienvenida">
+    <section class="div-column">
         <!-- Mensaje de saludo personalizado -->
         <div class="quote">¡Hola de nuevo! Soy <b>ZAPPY</b>. Inicia sesión para jugar</div>
         
         <!-- Contenedor con el nombre del personaje y su imagen -->
-        <div class="zappyContainer">
-            <h2>ZAPPY</h2>
+        <header class="zappyContainer">
+            <h1>ZAPPY</h1>
             <img src="../../img/ZappyConCara.png" alt="Imagen de zappy" class="zappyTV" style="width: 25vw;">
-        </div>
-    </div>
+        </header>
+    </section>
 </body>
 </html>

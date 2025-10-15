@@ -1,0 +1,116 @@
+body {
+    color: white;
+    padding-block: 40px;
+    height: 100vh;
+    max-width: 1100px;
+    margin: auto;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+header {
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    height: 100%;
+    gap: 2.5vh;
+    align-items: center;
+} form .div-column {
+    gap: 1vh;
+}
+
+h1 {
+    display: none;
+} h2 {
+    font-size: 3vw;
+} p {
+    font-family: 'Roboto', sans-serif;
+} form p a {
+    color: #f5a503;
+}
+
+body section {
+    align-items: center;
+}
+
+.iconUser {
+    width: 40px;
+}
+
+.buttonTurquesa {
+    font-family: 'Cutta', sans-serif;
+    font-weight: bolder;
+}
+
+/********/
+.quote {
+        /* tail dimension */
+        --b: 2em; /* base */
+        --h: 1.5em; /* height */
+
+        --p: 20%; /* main position (0%:left 100%:right) */
+        --x: 12%; /* 0% es el medio */
+        --r: 1.2em; /* the radius */
+
+        --_e: max(0%, -1*var(--x) - var(--p), var(--x) + var(--p) - 100%);
+        
+        padding: 1em;
+        border-radius: 1.5rem;
+
+        background:
+            50% calc(100% + var(--h))
+            repeating-linear-gradient(
+                90deg,
+                #4ECDC4
+            );
+            
+        position: relative;
+        
+    } .quote:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0 calc(-1*var(--_e)) calc(-1*var(--h));
+        background-image: inherit;
+        clip-path: polygon(
+            clamp(var(--b), var(--p) + var(--b)/2, 100%) calc(100% - var(--h)),
+            calc(var(--p) + var(--x)) 100%,
+            clamp(0%, var(--p) - var(--b)/2, 100% - var(--b)) calc(100% - var(--h))) content-box;
+            
+    } .quote {
+        font-family: 'Cutta', sans-serif;
+        font-size: larger;
+        max-width: 30vw;
+        text-wrap: balance;
+        color: #2e2e2e;
+        text-align: center;
+        padding: 1em;
+    }
+
+.zappyTV {
+    animation-name: jump;
+    animation-duration: 0.55s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    margin-bottom: 0;
+} @keyframes jump {
+    0% {
+        transform: translateY(-1vh);
+    }
+    50% {
+        transform: translateY(-3vh);
+        transform: scaleY(1.1em);
+        rotate: -3deg;
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
+@media screen (aspect-ratio: 3/4) {
+    body {
+        flex-direction: 
+    }
+}
