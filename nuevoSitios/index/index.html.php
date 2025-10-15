@@ -1,11 +1,25 @@
+<?php
+session_start();
+
+// Verificar si el usuario inició sesión
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
+    header("Location: ../login/login.html.php");
+    exit;
+}
+
+// Guardar los datos de sesión en variables
+$nombreReal = $_SESSION['usuario']['nom_real'];
+$nombreUsuario = $_SESSION['usuario']['nom_usr'];
+$idGrupo = $_SESSION['usuario']['idGrupo'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Zappy</title>
-    <link rel="website icon" href="../../img/ZappyConCara.png">
+    <title>Zappy - Inicio</title>
+    <link rel="icon" href="../../img/ZappyConCara.png">
     <link rel="stylesheet" href="../css/modoOscuro.css">
     <link rel="stylesheet" href="css/estilosCover.css">
     <link
@@ -14,22 +28,25 @@
 </head>
 
 <body class="div-row">
+    <!-- Panel izquierdo con ZAPPY -->
     <div class="box boxTurquesa div-column">
         <h1>ZAPPY</h1>
         <div class="ojos">
             <div class="ojo"></div>
             <div class="ojo"></div>
         </div>
-        <a href="indexGame.html"><button class="buttonGris">Click Para Jugar</button></a>
+        <a href="../juegos/indexGame.html"><button class="buttonGris">Click para jugar</button></a>
     </div>
 
+    <!-- Panel derecho con opciones -->
     <div class="div-column align listaBotones">
         <div class="div-column perfil">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
                 <div class="circulo"></div>
             </a>
-            <h2>usuario123</h2>
+            <h2><?php echo htmlspecialchars($nombreReal); ?></h2>
         </div>
+
         <div class="div-column align botones">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
                 <button type="button" class="buttonAmarillo">
@@ -37,19 +54,19 @@
                     Usuario
                 </button>
             </a>
-            <a href="../grupos/grupos.html">
+            <a href="../grupos/grupos.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">group</span>
                     Grupos
                 </button>
             </a>
-            <a href="../ranking/ranking.html">
+            <a href="../ranking/ranking.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">leaderboard</span>
                     Ranking
                 </button>
             </a>
-            <a href="../ajustes/ajustes.html">
+            <a href="../configuracion/configuracion.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">settings</span>
                     Ajustes
@@ -64,8 +81,7 @@
         </div>
     </div>
 
-    <!--------------------------------------------------------------------------->
-    <!--------------------------------------------------------------------------->
+    <!-- MODAL: Información del usuario -->
     <div class="modal" id="miInfo">
         <div class="container">
             <div class="box boxTurquesa div-column">
@@ -73,62 +89,38 @@
                     <div class="div-row profile">
                         <div class="circulito"></div>
                         <div class="div-column">
-                            <h3>Nombre</h3>
-                            <h6>usuario123</h6>
+                            <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
+                            <p>@<?php echo htmlspecialchars($nombreUsuario); ?></p>
                         </div>
                     </div>
-                    <p class="puntaje">xxxxx</p>
+                    <p>ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                 </div>
-
-                <div class="div-column innerBox">
-                    <h3>Sobre mí</h3>
-                    <p class="atributoField">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam debitis,
-                        quisquam necessitatibus dignissimos voluptatibus expedita quidem odio commodi numquam nam
-                        officia ea delectus sequi excepturi pariatur repellendus voluptate qui!</p>
-
-                    <div class="div-row">
-                        <p>Edad</p>
-                        <p class="atributoField div-row">xxx</p>
-                    </div>
-                    <div class="div-row">
-                        <p>Cumpleaños</p>
-                        <p class="atributoField div-row">xx/xx/xxxx</p>
-                    </div>
-                </div>
-
-                <div class="div-column innerBox">
-                    <h3>Juego</h3>
-
-                    <div class="div-row">
-                        <p>Mi grupo</p>
-                        <p class="atributoField div-row">grupo123</p>
-                    </div>
-                    <div class="div-row">
-                        <p>Ranking</p>
-                        <p class="atributoField div-row">№ xx</p>
-                    </div>
-                </div>
-                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para cerrar</p>
+                <button onclick="cerrarModal('miInfo')" class="buttonGris">Cerrar</button>
             </div>
         </div>
     </div>
 
-    <!--------------------------------------------------------------------------->
+    <!-- MODAL: Cerrar sesión -->
     <div class="modal" id="logout">
         <div class="container">
-            <div class="box boxTurquesa div-column">
-                <p>¿Estás seguro de que deseas <br>
-                    <b>Cerrar Sesión</b>?
-                </p>
-                <div class="div-row align content">
-                    <button class="buttonRojo">Aceptar</button>
-                    <button class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
+            <div class="box boxTurquesa div-column align">
+                <h3>¿Seguro que deseas cerrar sesión?</h3>
+                <div class="div-row" style="gap: 10px;">
+                    <a href="../login/php/logout.php"><button class="buttonAmarillo">Sí, salir</button></a>
+                    <button onclick="cerrarModal('logout')" class="buttonGris">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function abrirModal(id, event) {
+            event.preventDefault();
+            document.getElementById(id).style.display = "flex";
+        }
+        function cerrarModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
 </body>
-
-<script src="js/logica.js"></script>
-
 </html>

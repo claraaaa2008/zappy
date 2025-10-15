@@ -42,7 +42,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
 
         $stmt->close();
         $conexion->close();
-        header("Location: ../../index/index.html");
+        header("Location: ../../index/index.html.php");
         exit();
     } else {
         $stmt->close();

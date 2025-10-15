@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="box" id="usuario">
+        <header class="headerMain">
+            <h1>Configuración</h1>
+            <div class="loggedUsr">
+                <p>nombre_usuario</p>
+                <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"/>
+            </div>
+        </header>
+
+        <header class="headerNav">
+            <a href="#usuario">
+                <button class="iconHeader">
+                    <span class="material-symbols-rounded" id="icon-person" onclick="fill_icons(event)">person</span>
+                </button>
+            </a>
+            <a href="#grupo">
+                <button class="iconHeader">
+                    <span class="material-symbols-rounded" id="icon-groups" onclick="fill_icons(event)">groups</span>
+                </button>
+            </a>
+            <a href="#ui">
+                <button class="iconHeader">
+                    <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">desktop_mac</span>
+                </button>
+            </a>
+            <a href="#logout">
+                <button class="iconHeader">
+                    <span class="material-symbols-rounded" id="icon-logout" onclick="fill_icons(event)">logout</span>
+                </button>
+            </a>
+            <!-- Modal para cerrar sesión -->
+            <div class="modal">
+                <div class="confirm-eliminar">
+                    <span class="close">&times;</span>
+                    <h4>¿Está seguro que desea Cerrar Sesión?</h4>
+                    <p>Volverás a la pantalla de inicio de sesión.</p>
+                    <form action="php/logout.php" method="post">
+                        <button type="submit" class="eliminarBtn">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+
+        </header>
+
+        <main>
+            <h2>Usuario</h2>
+            <!------------------------------------------------>
+            <form class="infoUsuario" action="php/cambiarInfoUsuario.php" method="post">
+                <div class="profile">
+                    <div class="profilePicture"></div>
+                    <div class="userName_change">
+                        <p>nombre_usuario</p>
+                        <span class="material-symbols-rounded">border_color</span>
+                    </div>
+                </div>
+
+                <div class="container-info">
+                    <div class="campo">
+                        <label for="usuario">Nombre</label>
+                        <input type="text" placeholder="Cambia tu nombre">
+                    </div>
+                    <div class="campo">
+                        <label for="usuario">Correo</label>
+                        <input type="email" placeholder="Cambia tu correo">
+                    </div>
+                    <div class="campo">
+                        <label for="usuario">Género</label>
+                        <select name="genero" id="genero" title="Selecciona tu género">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="femenino">Prefiero no decirlo</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="usuario">¿Cuándo naciste</label>
+                        <input type="date" placeholder="Cambia tu correo">
+                    </div>
+                </div>
+            </form>
+            <!------------------------------------------------>
+            <!--
+            -->
+            <form class="cambiarContraseña" action="php/cambiarContraseña.php" method="post">
+                <h3>Cambiar Contraseña</h3>
+                <div class="campo">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Introduce tu contraseña actual">
+                </div>
+
+                <div class="campo">
+                    <label for="nuevaContrasena">Nueva contraseña</label>
+                    <input type="password" name="nuevaContrasena" id="nuevaContrasena"
+                        placeholder="Introduce tu nueva contraseña">
+                </div>
+
+                <div class="campo">
+                    <label for="confirmarContrasena">Confirmar nueva contraseña</label>
+                    <input type="password" name="confirmarContrasena" id="confirmarContrasena"
+                        placeholder="Confirma tu nueva contraseña">
+                </div>
+            </form>
+
+            <button type="submit">Guardar cambios</button>
+        </main>
+
+        <hr>
+
+        <form class="eliminar" action="php/eliminarCuenta.php" method="post">
+            <button type="button" class="eliminarBtn" id="openModalDelete">Eliminar Cuenta</button>
+            <div class="modal" id="modal">
+                <div class="confirm-eliminar">
+                    <span class="close" id="close">&times;</span>
+                    <h4>¿Está seguro que desea ELIMINAR su cuenta?</h4>
+                    <p>Todo su progreso se perderá y no podrá recuperarla.</p>
+                    <button type="submit" class="eliminarBtn">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="js/logica.js"></script>
+</html>

@@ -1,0 +1,269 @@
+.material-symbols-rounded {     /* Estilos de iconos por defecto */
+    font-variation-settings:
+        'FILL' 0,               /* Relleno: 0 es sin relleno y 1 con relleno */
+        'wght' 400,             /* Grosor de 400 */
+        'GRAD' 0,               /* Gradiente: 0 es sin gradiente y 1 con gradiente */
+        'opsz' 24               /* Tamaño óptico: 24px */
+    ;
+    font-size: 24px;            /* Tamaño del icono */
+}
+
+.zappy-con-cara-1 {
+    height: 50px; /* Altura fija para el icono de usuario */
+}
+
+/****************************/
+/***********Header***********/
+/****************************/
+
+/* Estilos de body para centrar todo */
+body {
+    padding: 0;                         /* Elimina el padding por defecto del body */
+    margin: 0;                          /* Elimina el margin por defecto del body */
+    background-color: #2e2e2e;        /* Fondo oscuro */
+    font-family: Roboto, sans-serif;    /* Fuente principal */
+    color: white;                     /* Color de texto */
+    display: flex;                      /* Centra el .box verticalmente */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor para ajustar anchos de elementos */
+.box {
+    width: 100%;            /* Ocupa todo el ancho disponible */
+    max-width: 900px;       /* Límite de ancho */
+    padding-block: 45px;    /* Espaciado vertical interno */
+    display: flex;          /* Organiza header y main en columna */
+    flex-direction: column;
+    align-items: stretch;   /* Elementos ocupan todo el ancho */
+    gap: 30px;              /* Espacio entre header y main */
+}
+
+.headerMain{
+    display: inline-flex;           /* Elementos alineados en fila */
+    align-items: center;            /* Centra verticalmente */
+    justify-content: space-between; /* Extremos separados */
+}
+
+.headerMain .loggedUsr {
+    display: flex;          /* Elementos en fila */
+    flex-direction: row;
+    align-items: center;    /* Centra verticalmente */
+    gap: 10px;              /* Espacio entre nombre e imagen */
+}
+
+.headerMain h1 {
+    font-family: Cutta, sans-serif;   /* Fuente personalizada */
+    font-size: 24px;                  /* Tamaño de fuente */
+    text-transform: uppercase;        /* Mayúsculas */
+    color: #f5a503;                 /* Color amarillo */
+}
+
+.headerNav {
+    width: 100%;                    /* Ocupa todo el ancho */
+    padding-block: 7px;             /* Espaciado vertical */
+    border-radius: 100px;           /* Bordes redondeados */
+    background-color: #4ad9d9;    /* Fondo celeste */
+    display: flex;                  /* Organiza los iconos */
+    justify-content: space-around;  /* Espacio uniforme */
+    align-items: center;            /* Centra verticalmente */
+}
+
+a {
+    text-decoration: none;    /* Sin subrayado */
+    color: #2e2e2e;         /* Color del texto */
+}
+
+.iconHeader {
+    background-color: transparent;  /* Fondo transparente */
+    border: none;                   /* Sin borde */
+    cursor: pointer;                /* Cursor de mano */
+} .iconHeader:hover {
+    .material-symbols-rounded {         /* Cambia color y subraya al pasar el cursor */
+        color: #005955;               /* Color al hacer hover */
+        text-decoration: underline;     /* Subraya el icono */
+        transition: ease-out 0.175s;    /* Transición suave */
+    }
+} #icon-logout {
+    color: #742100;
+} #icon-logout:hover {
+    color: #a60000;
+}
+
+/****************************/
+/***********Main*************/
+/****************************/
+
+/* Contenedor principal del contenido de la sección */
+main {
+    display: flex;              /* Organiza el contenido en columna */
+    flex-direction: column;
+    align-items: stretch;       /* Elementos ocupan todo el ancho */
+    justify-content: center;    /* Centra verticalmente */
+    gap: 45px;                  /* Espacio entre elementos */
+}
+
+h2 {
+    font-family: Cutta, sans-serif; /* Fuente personalizada */
+    text-transform: uppercase;      /* Mayúsculas */
+    font-weight:900;                /* Negrita */
+    font-size: 32px;                /* Tamaño grande */
+    color: white;                 /* Color blanco */
+    margin: 16px 0;                 /* Margen vertical */
+}
+
+.infoUsuario {
+    display: flex;                  /* Organiza en fila */
+    flex-direction: row;
+    align-items: flex-start;        /* Alinea arriba */
+    gap: 76px;                      /* Espacio entre perfil y datos */
+}
+
+.profile {
+    width: 174px;               /* Ancho fijo */
+    display: flex;              /* Organiza en columna */
+    flex-direction: column;
+    align-items: center;        /* Centra horizontalmente */
+    gap: 18px;                  /* Espacio entre elementos */
+}
+
+.profilePicture {
+    width: inherit;                 /* Mismo ancho que el contenedor */
+    height: 174px;                  /* Altura fija */
+    background-color: white;      /* Fondo blanco */
+    border-radius: 50%;             /* Imagen circular */
+}
+
+.userName_change {
+    display: flex;         /* Organiza en fila */
+    flex-direction: row;
+    align-items: center;   /* Centra verticalmente */
+    gap: 10px;             /* Espacio entre nombre e icono */
+    font-size: 20px;       /* Tamaño de fuente */
+} .userName_change p {
+    margin: 0;
+} .userName_change {
+    .material-symbols-rounded { /* Estilos para el icono */
+        cursor: pointer;        /* Cursor de mano */
+        color: white;         /* Color blanco */
+    }
+}
+
+.container-info {
+    width: 100%;            /* Ocupa todo el ancho */
+    display: flex;          /* Organiza en columna */
+    flex-direction: column;
+    gap: 20px;              /* Espacio entre campos */
+}
+
+/* Campo de formulario */
+.campo {
+    width: 100%;                /* Ocupa todo el ancho */
+    display: flex;              /* Organiza en columna */
+    flex-direction: column;
+    gap: 12px;                  /* Espacio entre elementos */
+    justify-content: stretch;   /* Ocupa todo el ancho */
+} .campo label {
+    font-size: 16px;        /* Tamaño de fuente */
+    color: white;         /* Color blanco */
+} .campo input {
+    padding: 10px;          /* Espaciado interno */
+    border: none;           /* Sin borde */
+    border-radius: 10px;    /* Bordes redondeados */
+}
+.campo select {
+    padding: 10px;          /* Espaciado interno */
+    border: none;           /* Sin borde */
+    border-radius: 10px;    /* Bordes redondeados */
+}
+.campo input[type="date"] {
+    color: gray;                      /* Color del texto */
+    font-family: Roboto, sans-serif;    /* Fuente */
+}
+
+.cambiarContraseña {
+    max-width: 1100px;        /* Ancho máximo */
+    display: flex;            /* Organiza en columna */
+    flex-direction: column;
+    gap: 37px;                /* Espacio entre elementos */
+} .cambiarContraseña h3 {
+    margin: 0;
+    font-size: x-large;
+}
+
+main button[type="submit"] {
+    cursor: pointer;                    /* Cursor de mano */
+    padding-block: 10px;                /* Espaciado vertical */
+    border: 8px transparent;            /* Sin borde visible */
+    border-radius: 10px;                /* Bordes redondeados */
+    background-color: #4ad9d9;        /* Fondo celeste */
+    color: #2e2e2e;                   /* Texto oscuro */
+    font-family: Cutta, sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s;  /* Transición de color */
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #e50000; /* Línea roja */
+}
+
+.eliminar{
+    padding-bottom: 62px;      /* Espaciado inferior */
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.eliminarBtn {
+    cursor: pointer;
+    padding-block: 10px;
+    border: 8px transparent;
+    border-radius: 10px;
+    background-color: #e50000; /* Fondo rojo */
+    color: #2e2e2e;            /* Texto oscuro */
+    font-family: Cutta, sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.modal {
+    display: none;                      /* Oculto por defecto */
+    position: fixed;                    /* Fijo en pantalla */
+    z-index: 1000;                      /* Encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);      /* Fondo semitransparente */
+    align-items: center;                /* Centra verticalmente */
+    justify-content: center;            /* Centra horizontalmente */
+}
+
+.confirm-eliminar {
+    background: #2e2e2e;                      /* Fondo oscuro */
+    padding: 20px;                              /* Espaciado interno */
+    width: 400px;                               /* Ancho fijo */
+    border-radius: 12px;                        /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);   /* Sombra */
+    animation: aparecer 0.3s ease;              /* Animación de entrada (llama a variable aparecer) */
+}
+
+.close {
+    float: right;              /* Alinea a la derecha */
+    font-size: 24px;           /* Tamaño grande */
+    font-weight: bold;         /* Negrita */
+    cursor: pointer;           /* Cursor de mano */
+}
+
+/* Animación (nombre de variable: aparecer) para mostrar el modal */
+@keyframes aparecer {
+    from {
+        transform: scale(0.7); /* Comienza pequeño */
+        opacity: 0;            /* Comienza invisible */
+    } to {
+        transform: scale(1);   /* Termina en tamaño normal */
+        opacity: 1;            /* Termina visible */
+    }
+}

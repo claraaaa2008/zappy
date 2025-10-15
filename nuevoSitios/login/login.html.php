@@ -35,7 +35,7 @@
         ?>
 
         <!-- Botón para enviar el formulario. El enlace dentro del botón no hace nada, podría eliminarse -->
-        <button type="submit">Iniciar Sesión <a href="../index/index.html"></a></button>
+        <button type="submit">Iniciar Sesión <a href="../index/index.html.php"></a></button>
 
         <!-- Enlace para ir a la página de registro si el usuario no tiene cuenta -->
         <p class="registro" style="width: fit-content; align-self: center;">
