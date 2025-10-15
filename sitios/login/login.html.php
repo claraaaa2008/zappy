@@ -25,7 +25,7 @@
 
         <!-- Campo para ingresar la contraseña -->
         <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
+        <input type="text" id="contrasena" name="contrasena" required>
 
         <!-- Si hay un error (por ejemplo, credenciales incorrectas), se muestra un mensaje -->
         <?php
