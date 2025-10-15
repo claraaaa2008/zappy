@@ -11,6 +11,7 @@ session_start();
     <title>Regístrate</title>
     <link rel="stylesheet" href="../login/css/estilos.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
 </head>
 
 <body>
