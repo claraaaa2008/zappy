@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-/**** Solo puede loguearse con index si el usuario es logosofico y la contraseña es liceo y que se muestre el usuario en index.html.php *****/
-
 $usuario = $_POST['usuario'] ?? '';
 $contrasena = $_POST['contrasena'] ?? '';
 if ($usuario === "logosofico" && $contrasena === "liceo") {
