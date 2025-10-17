@@ -5,7 +5,8 @@
         'GRAD' 0, /* Gradiente */
         'opsz' 24; /* Tamaño óptico */
 }
-/****/
+
+/**********************************************************/
 body {
     margin: 0; /* Elimina márgenes por defecto */
     padding-inline: 143px; /* Espacio a los lados para ajustar el contenido en base al padding */
@@ -21,7 +22,7 @@ body {
 .fixed-title {
     position: fixed;
     left: 0;
-    width: 100vw; /* Abarca todo el ancho de la ventana */
+    width: 100dvw; /* Abarca todo el ancho de la ventana */
     z-index: 100; /* Asegura que esté por encima de otros elementos */
     background: #2e2e2e;
     padding-top: 100px;
@@ -31,10 +32,6 @@ body {
 
 h1 {
     align-self: center; /* Centra horizontalmente */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    font-family: 'Cutta', sans-serif; /* Fuente Cutta para el título */
-    color: #4ad9d9;
-    text-shadow: 0 0 10px #4ad9d9; /* Efecto de neón */
     font-size: 50px;
 }
 
@@ -43,7 +40,7 @@ h1 {
 /*******************************/
 .puestos {
     position: relative; /* Para posicionar elementos hijos relativamente */
-    min-height: 100vh; /* La sección de los puestos abarca toda la altura de la ventana */
+    min-height: 100dvh; /* La sección de los puestos abarca toda la altura de la ventana */
     display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
     align-items: center; /* Centra los elementos horizontalmente */
@@ -148,12 +145,32 @@ table tfoot td {
 }
 
 h4 {
+    font-size: 1.3rem;
     text-align: center;
     margin: 0;
     margin-top: 20px;
     margin-bottom: 15px;
     font-weight: bold;
     color: white;
+    font-family: 'Pixelify Sans', sans-serif;
+    text-shadow: 0 0 2px white;
+} .upAndDown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: upAndDown 1s infinite ease-in-out;
+}
+
+@keyframes upAndDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 span {
@@ -168,17 +185,9 @@ span {
     max-width: 1135px; /* Ancho máximo del box */
     max-height: 88px; /* Altura máxima del box */
 
-    padding: 5px;
-    padding-inline: 20px;
-    border: 2px solid #4ad9d9;
-    box-shadow: 0 0 10px #4ad9d9; /* Efecto de neón sobre cada contenedor del usuario*/
-    border-radius: 13px;
     margin-inline: auto; /* Centra el box cuando el ancho máximo se alcanza */
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Espacio entre los elementos a los extremos */
-    align-items: center;
+} .boxTurquesa {
+    border: 2px solid #4ad9d9;
 }
 
 .derecha {
