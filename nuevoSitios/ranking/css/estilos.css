@@ -145,7 +145,7 @@ table tfoot td {
 }
 
 h4 {
-    font-size: 1.3rem;
+    font-size: 1.3rem; /* Tamaño de fuente 1.3 veces más grande que el tamaño de la fuente predeterminada en <html> */
     text-align: center;
     margin: 0;
     margin-top: 20px;
@@ -158,18 +158,23 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: upAndDown 1s infinite ease-in-out;
+    animation: upAndDown 1s infinite ease-out; /* 
+        upAndDown: declaración de variable de animación,
+        1s: tiempo establecido para realizar toda la animación por iteración,
+        infinite: cantidad de iteraciones,
+        ease-out: fluidez de la animación (empieza desde 0% acelerando, y luego desacelera hasta llegar al punto clave en 100%).
+    */
 }
 
-@keyframes upAndDown {
+@keyframes upAndDown { /* Establecer puntos (o fotogramas) clave de la animación upAndDown */
     0% {
-        transform: translateY(0);
+        transform: translateY(0); /* Empieza en la posición inicial donde está actualmente */
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-10px); /* Se traslada 10px hacia arriba */
     }
     100% {
-        transform: translateY(0);
+        transform: translateY(0); /* Vuelve a la posición inicial */
     }
 }
 
