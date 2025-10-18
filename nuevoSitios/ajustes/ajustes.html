@@ -7,6 +7,7 @@
     <title>Ajustes - ZAPPY</title>
     <link rel="website icon" href="../../img/ZappyConCara.png">
     <link rel="stylesheet" href="../css/modoOscuro.css">
+    <link rel="stylesheet" href="css/estilosAjustes.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
@@ -14,43 +15,58 @@
 </head>
 
 <body>
-    <header class="div-row main">
-        <div class="div-row">
-            <span class="material-symbols-rounded">arrow_back</span>
+    <header class="div-row headerMain content">
+        <div class="div-row titlePage">
+            <h1>ZAPPY</h1>
+            <div class="separador-vertical"></div>
             <h2>Ajustes</h2>
         </div>
-        <div class="div-row">
+        <div class="div-row currentUsr">
             <p>usuario123</p>
             <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"
                 style="width: 20px;" />
         </div>
     </header>
-    <header class="div-row nav">
-        <a href="#usuario"><span class="material-symbols-rounded">person</span></a>
-        <a href="#interfaz"><span class="material-symbols-rounded">computer</span></a>
-        <a href="#logout"><span class="material-symbols-rounded">logout</span></a>
+    <header class="div-row headerNav content">
+        <span class="material-symbols-rounded">
+            person <a href="#usuario"></a>
+        </span>
+        <span class="material-symbols-rounded">
+            computer <a href="#interfaz"></a>
+        </span>
+        <span class="material-symbols-rounded">
+            logout <a href="#logout"></a>
+        </span>
     </header>
 
     <main>
-        <section id="usuario">
+        <section id="usuario" class="div-column">
             <h3>Usuario</h3>
 
-            <form action="">
+            <form action="" class="div-column">
                 <div class="div-row">
-                    <div class="div-column">
+                    <div class="div-column perfil" style="align-items: center; gap: 10px;">
                         <div class="circle"></div>
-                        <p>nombre_usuario<span class="material-symbols-rounded">edit</span></p>
+                        <div class="div-row align content" style="gap: 5px;">
+                            <p>nombre_usuario</p>
+                            <span class="material-symbols-rounded">edit</span>
+                        </div>
                     </div>
 
-                    <div class="div-column">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Cambia tu nombre">
+                    <div class="div-column campos">
+                        <div class="div-column campo">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Cambia tu nombre">
+                        </div>
 
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" placeholder="Cambia tu nombre">
+                        <div class="div-column campo">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="Cambia tu nombre">
+                        </div>
 
-                        <div class="div-row">
-                            <div class="div-column">
+
+                        <div class="div-row content align">
+                            <div class="div-column campo">
                                 <label for="genero">Género</label>
                                 <select name="genero" id="genero">
                                     <option value="" disabled selected>Selecciona tu género</option>
@@ -59,7 +75,7 @@
                                     <option value="otro">Otro</option>
                                 </select>
                             </div>
-                            <div class="div-column">
+                            <div class="div-column campo">
                                 <label for="fecha_nacimiento">¿Cuándo naciste?</label>
                                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
                             </div>
@@ -67,23 +83,26 @@
                     </div>
                 </div>
 
-                <div class="div-column">
+                <div class="div-column campos">
                     <h4>Cambiar contraseña</h4>
-                    <div class="div-column">
+                    <div class="div-column campo">
                         <label for="contraseña_actual">Contraseña Actual</label>
                         <input type="password" id="contraseña_actual" name="contraseña_actual"
                             placeholder="Ingresa tu contraseña actual">
+                    </div>
 
+                    <div class="div-column campo">
                         <label for="nueva_contraseña">Nueva Contraseña</label>
                         <input type="password" id="nueva_contraseña" name="nueva_contraseña"
                             placeholder="Ingresa tu nueva contraseña">
+                    </div>
 
+                    <div class="div-column campo">
                         <label for="confirmar_contraseña">Confirmar Nueva Contraseña</label>
                         <input type="password" id="confirmar_contraseña" name="confirmar_contraseña"
                             placeholder="Confirma tu nueva contraseña">
                     </div>
                 </div>
-                <br>
                 <button type="submit" class="buttonTurquesa">Guardar cambios</button>
             </form>
             <hr>
@@ -98,9 +117,11 @@
                     <h4>Tema</h4>
                     <div class="div-row">
                         <div class="div-column">
-                            <svg width="100%" height="100%" viewBox="0 0 404 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="100%" viewBox="0 0 404 195" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <rect x="1" y="1" width="402" height="193" rx="15" fill="#F4A503" />
-                                <rect x="1" y="1" width="402" height="193" rx="15" stroke="#49D9D9" stroke-width="2" class="border"/>
+                                <rect x="1" y="1" width="402" height="193" rx="15" stroke="#49D9D9" stroke-width="2"
+                                    class="border" />
                                 <rect x="64" y="27.5" width="149" height="140" rx="14.5" fill="#404040" stroke="#25858F"
                                     stroke-width="3" />
                                 <circle cx="290" cy="61.5" r="23" stroke="#2E2E2E" stroke-width="2" />
@@ -113,9 +134,10 @@
                             </svg>
                             <caption>Claro</caption>
                         </div>
-        
+
                         <div class="div-column">
-                            <svg width="100%" height="100%" viewBox="0 0 404 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="100%" viewBox="0 0 404 195" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <rect x="1" y="1" width="402" height="193" rx="15" fill="#2E2E2E" />
                                 <rect x="1" y="1" width="402" height="193" rx="15" stroke="#49D9D9" stroke-width="2" />
                                 <rect x="64" y="27.5" width="149" height="140" rx="14.5" fill="#404040" stroke="#25858F"
@@ -141,6 +163,8 @@
                         <img src="../../img/ajustes/agregarColor.png" alt="">
                     </div>
                 </div>
+
+                <button type="submit" class="buttonTurquesa">Guardar Cambios</button>
             </form>
         </section>
     </main>

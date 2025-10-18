@@ -178,6 +178,15 @@ h1 {
     transition: transform 0.2s ease-in-out;
 }
 
+.separador-vertical {
+    width: 1.5px;              /* Grosor de la línea */
+    height: 40px;            /* Altura de la línea, ajústala según tu header */
+    background: #fff;        /* Color de la línea */
+    margin: 0 30px;          /* Espacio a los lados */
+    border-radius: 2px;      /* Bordes redondeados (opcional) */
+    align-self: center;      /* Centra verticalmente en el flex */
+}
+
 input, select {
     box-sizing: border-box;
     border: 2px solid #d9d9d9;
