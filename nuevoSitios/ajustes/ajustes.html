@@ -17,14 +17,16 @@
 <body>
     <header class="div-row headerMain content">
         <div class="div-row titlePage">
-            <h1>ZAPPY</h1>
+            <a href="../index/index.html">
+                <h1>ZAPPY</h1>
+            </a>
             <div class="separador-vertical"></div>
             <h2>Ajustes</h2>
         </div>
         <div class="div-row currentUsr">
             <p>usuario123</p>
             <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"
-                style="width: 20px;" />
+                style="width: 25px;" />
         </div>
     </header>
     <header class="div-row headerNav content">
@@ -49,7 +51,7 @@
                         <div class="circle"></div>
                         <div class="div-row align content" style="gap: 5px;">
                             <p>nombre_usuario</p>
-                            <span class="material-symbols-rounded">edit</span>
+                            <span class="material-symbols-rounded"onclick="abrirModal('cambiarNombre', event)">edit</span>
                         </div>
                     </div>
 
@@ -107,6 +109,17 @@
             </form>
             <hr>
             <button type="submit" class="buttonRojo">Eliminar cuenta</button>
+
+            <!--------------------------------------------->
+            <div class="modal" id="cambiarNombre">
+                <div class="container">
+                    <div class="box boxTurquesa div-column campo" style="max-height: none;">
+                        <label for="usuario">Introduzca el nuevo usuario:</label>
+                        <input type="text" name="usuario" id="usuario">
+                        <button type="submit" class="buttonTurquesa">Guardar</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="interfaz">
@@ -169,5 +182,6 @@
         </section>
     </main>
 </body>
+<script src="js/logica.js"></script>
 
 </html>
