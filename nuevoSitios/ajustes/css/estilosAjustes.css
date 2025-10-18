@@ -56,26 +56,28 @@ button {
     font-weight: bold;
 }
 
-.headerMain {
+header {
     color: #f5a503;
-} .headerMain .titlePage h2 {
+} header .titlePage h2 {
     text-transform: uppercase;
     font-weight: 800;
 } .currentUsr {
     gap: 20px;
 } .titlePage {
     gap: 1dvw;
-} .headerNav {
+} .currentUsr p {
+    color: white;
+}
+
+nav {
     box-sizing: border-box;
     background-color: #4ad9d9;
     border-radius: 100px;
     padding: 8px;
     padding-inline: 32px;
-} .headerNav span {
+} nav span {
     color: black;
-} .currentUsr p {
-    color: white;
-} #logoutBtn {
+} #icon-logout {
     color: #b90000;
 }
 
@@ -117,4 +119,7 @@ form .div-row {
     text-align: center;
 } #logout .box {
     gap: 20px;
+} #logout button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }

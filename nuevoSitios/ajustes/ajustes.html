@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header class="div-row headerMain content">
+    <header class="div-row content">
         <div class="div-row titlePage">
             <a href="../index/index.html">
                 <h1>ZAPPY</h1>
@@ -29,17 +29,17 @@
                 style="width: 25px;" />
         </div>
     </header>
-    <header class="div-row headerNav content">
-        <span class="material-symbols-rounded">
+    <nav class="div-row content">
+        <span class="material-symbols-rounded" id="icon-person" onclick="fill_icons(event)">
             person <a href="#usuario"></a>
         </span>
-        <span class="material-symbols-rounded">
+        <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">
             computer <a href="#interfaz"></a>
         </span>
-        <span class="material-symbols-rounded" id="logoutBtn" onclick="abrirModal('logout', event)">
+        <span class="material-symbols-rounded" id="icon-logout" onclick="abrirModal('logout', event)">
             logout <a href="#logout"></a>
         </span>
-    </header>
+    </nav>
 
     <main>
         <section id="usuario" class="div-column">
@@ -197,5 +197,4 @@
     </div>
 </body>
 <script src="js/logica.js"></script>
-
 </html>
