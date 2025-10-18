@@ -200,7 +200,9 @@ input, select {
 } input::placeholder{
     color: #919191;
 } input:focus, select:focus {
-    border: 2px solid #4ad9d9;
+    outline: none;
+    border: 1px solid #4ad9d9;
+    box-shadow: #4ad9d9 0px 0px 8px;
 }
 
 label {

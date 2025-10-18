@@ -4,12 +4,20 @@
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
-} .material-symbols-rounded:focus, .material-symbols-rounded:hover {
+} .material-symbols-rounded:focus {
     font-variation-settings:
         'FILL' 1,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
+} .material-symbols-rounded:hover {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    text-decoration: underline;
+    transition: all 0.05s ease-in-out;
 }
 
 body {
@@ -43,6 +51,11 @@ span {
     cursor: pointer;
 }
 
+button {
+    font-family: 'Cutta', sans-serif;
+    font-weight: bold;
+}
+
 .headerMain {
     color: #f5a503;
 } .headerMain .titlePage h2 {
@@ -51,7 +64,7 @@ span {
 } .currentUsr {
     gap: 20px;
 } .titlePage {
-    gap: 5px;
+    gap: 1dvw;
 } .headerNav {
     box-sizing: border-box;
     background-color: #4ad9d9;
@@ -62,6 +75,8 @@ span {
     color: black;
 } .currentUsr p {
     color: white;
+} #logoutBtn {
+    color: #b90000;
 }
 
 
@@ -94,4 +109,12 @@ form .div-row {
     background-color: #2e2e2e;
     padding: 20px;
     box-sizing: border-box;
+}
+
+#logout .botones {
+    gap: 10px;
+} #logout p {
+    text-align: center;
+} #logout .box {
+    gap: 20px;
 }
