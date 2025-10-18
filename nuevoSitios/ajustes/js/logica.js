@@ -41,7 +41,7 @@ function fill_icons(event) {
     // Para logout, las secciones permanecen ocultas
 }
 
-// Establecer por defecto el ícono de usuario lleno al cargar la página y mostrar la sección usuario
+// Establece por defecto el ícono de usuario lleno al cargar la página y mostrar la sección usuario
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('icon-person').style.fontVariationSettings = "'FILL' 1";
     document.getElementById('usuario').style.display = 'block';
