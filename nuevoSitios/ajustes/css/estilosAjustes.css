@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     color: white;
-    max-width: 1300px;
+    max-width: 1100px;
     margin: auto;
     padding-block: 50px;
     padding-inline: 100px;
@@ -105,6 +105,41 @@ form .div-row {
     width: fit-content;
 }
 
+/**********Interfaz*********/
+#interfaz {
+    gap: 15px;
+}
+
+.boxTurquesa {
+    border-width: 1px;
+} .glowTurquesa {
+    box-shadow: 0 0 8px #4ad9d9;
+}
+
+#interfaz .boxTurquesa {
+    gap: 2dvh;
+} #interfaz .boxTurquesa .div-row  {
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 20px;
+} #interfaz .boxTurquesa .div-row img {
+    width: 8dvh;
+    min-width: 80px;
+} #interfaz .boxTurquesa .div-row {
+    font-family: 'Roboto', sans-serif;
+} #interfaz .boxTurquesa .div-row .div-column {
+    gap: 1dvh;
+} .tema-svg {
+    transition: all 0.3s ease;
+    cursor: pointer;
+} .tema-svg:hover {
+    filter:
+        drop-shadow(0 0 1dvw #49D9D9);
+} #interfaz h4 {
+    font-size: larger;
+} h5 {
+    font-family: 'Roboto', sans-serif;
+}
 
 /******* Estilos de modal ******/
 .box {
