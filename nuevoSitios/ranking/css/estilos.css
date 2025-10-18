@@ -20,6 +20,7 @@ body {
 
 /* Fija el h1 arriba de la pantalla */
 .fixed-title {
+    box-sizing: border-box;
     position: fixed;
     left: 0;
     width: 100dvw; /* Abarca todo el ancho de la ventana */
@@ -28,11 +29,18 @@ body {
     padding-top: 100px;
     padding-bottom: 10px;
     text-align: center; /* Centra el texto */
+    padding-inline: inherit;
+    gap: 20px;
 }
 
 h1 {
     align-self: center; /* Centra horizontalmente */
     font-size: 50px;
+} h2 {
+    font-family: 'Cutta', sans-serif;
+    font-size: xx-large;
+} .separador-vertical {
+    min-width: 1.5px;
 }
 
 /*******************************/
