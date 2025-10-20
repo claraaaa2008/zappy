@@ -45,13 +45,14 @@
         <section id="usuario" class="div-column">
             <h3>Usuario</h3>
 
-            <form action="" class="div-column">
+            <form action="php/cambiarInfoUsuario.php" class="div-column">
                 <div class="div-row">
                     <div class="div-column perfil" style="align-items: center; gap: 10px;">
                         <div class="circle"></div>
                         <div class="div-row align content" style="gap: 5px;">
                             <p>nombre_usuario</p>
-                            <span class="material-symbols-rounded" onclick="abrirModal('cambiarNombre', event)">edit</span>
+                            <span class="material-symbols-rounded"
+                                onclick="abrirModal('cambiarNombre', event)">edit</span>
                         </div>
                     </div>
 
@@ -84,33 +85,37 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="div-column campos">
-                    <h4>Cambiar contraseña</h4>
-                    <div class="div-column campo">
-                        <label for="contraseña_actual">Contraseña Actual</label>
-                        <input type="password" id="contraseña_actual" name="contraseña_actual"
-                            placeholder="Ingresa tu contraseña actual">
-                    </div>
-
-                    <div class="div-column campo">
-                        <label for="nueva_contraseña">Nueva Contraseña</label>
-                        <input type="password" id="nueva_contraseña" name="nueva_contraseña"
-                            placeholder="Ingresa tu nueva contraseña">
-                    </div>
-
-                    <div class="div-column campo">
-                        <label for="confirmar_contraseña">Confirmar Nueva Contraseña</label>
-                        <input type="password" id="confirmar_contraseña" name="confirmar_contraseña"
-                            placeholder="Confirma tu nueva contraseña">
-                    </div>
-                </div>
-                <button type="submit" class="buttonTurquesa">Guardar cambios</button>
             </form>
+
+            <form class="div-column campos" action="php/cambiarContraseña.php" method="post">
+                <h4>Cambiar contraseña</h4>
+                <div class="div-column campo">
+                    <label for="contraseña_actual">Contraseña Actual</label>
+                    <input type="password" id="contraseña_actual" name="contraseña_actual"
+                        placeholder="Ingresa tu contraseña actual">
+                </div>
+
+                <div class="div-column campo">
+                    <label for="nueva_contraseña">Nueva Contraseña</label>
+                    <input type="password" id="nueva_contraseña" name="nueva_contraseña"
+                        placeholder="Ingresa tu nueva contraseña">
+                </div>
+
+                <div class="div-column campo">
+                    <label for="confirmar_contraseña">Confirmar Nueva Contraseña</label>
+                    <input type="password" id="confirmar_contraseña" name="confirmar_contraseña"
+                        placeholder="Confirma tu nueva contraseña">
+                </div>
+            </form>
+            <button type="submit" class="buttonTurquesa">Guardar cambios</button>
+            
             <hr>
-            <button type="submit" class="buttonRojo">Eliminar cuenta</button>
+
+            <form action="php/eliminarCuenta.php" method="post">
+                <button type="submit" class="buttonRojo">Eliminar cuenta</button>
+            </form>
         </section>
-        
+
         <section id="interfaz">
             <form class="div-column">
                 <h3>Interfaz</h3>
@@ -189,7 +194,9 @@
                 <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
                 <div class="div-row align content botones">
                     <button class="buttonRojo">Aceptar</button>
-                    <button class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
+                    <form action="php/logout" method="post">
+                        <button class="buttonTurquesa" onclick="cerrarModal('logout')" type="submit">Cancelar</button>
+                    </form>
                 </div>
             </div>
         </div>
