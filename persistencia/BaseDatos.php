@@ -180,5 +180,12 @@ class BaseDatos {
     public function cerrarConexion() {
         $this->conexion->close();
     }
+
+    /* =========================
+       OBTENER CONEXIÓN (nuevo)
+       ========================= */
+    public function getConexion() {
+        return $this->conexion;
+    }
 }
 ?>

@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Verificar si el usuario inició sesión
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
+    header("Location: ../login/login.html.php");
+    exit;
+}
+
+// Guardar los datos de sesión en variables
+$nombreReal = $_SESSION['usuario']['nom_real'];
+$nombreUsuario = $_SESSION['usuario']['nom_usr'];
+$idGrupo = $_SESSION['usuario']['idGrupo'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,7 +45,7 @@
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
                 <div class="circulo"></div>
             </a>
-            <h2>usuario123</h2>
+            <h2><?php echo htmlspecialchars($nombreReal); ?></h2>
         </div>
         <div class="div-column align botones">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
@@ -75,8 +90,8 @@
                     <div class="div-row profile">
                         <div class="circulito"></div>
                         <div class="div-column">
-                            <h3>Nombre</h3>
-                            <h6>usuario123</h6>
+                            <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
+                            <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
                         </div>
                     </div>
                     <p class="puntaje">xxxxx</p>
@@ -103,7 +118,7 @@
 
                     <div class="div-row">
                         <p>Mi grupo</p>
-                        <p class="atributoField div-row">grupo123</p>
+                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?>3</p>
                     </div>
                     <div class="div-row">
                         <p>Ranking</p>
