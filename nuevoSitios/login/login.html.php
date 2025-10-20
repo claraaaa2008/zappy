@@ -36,7 +36,11 @@
         </div>
 
         <!-- Si hay un error (por ejemplo, credenciales incorrectas), se muestra un mensaje -->
-        
+        <?php
+        if (isset($_GET['error'])) {
+            echo "<p style='color:red;'>Usuario o contraseña incorrectos.</p>";
+        }
+        ?>
         <!-- Botón para enviar el formulario. El enlace dentro del botón no hace nada, podría eliminarse -->
         <a href="../index/index.html"><button type="submit" class="buttonTurquesa">Iniciar Sesión</button></a>
 
@@ -50,7 +54,7 @@
     <section class="div-column">
         <!-- Mensaje de saludo personalizado -->
         <div class="quote">¡Hola de nuevo! Soy <b>ZAPPY</b>. Inicia sesión para jugar</div>
-        
+
         <!-- Contenedor con el nombre del personaje y su imagen -->
         <header class="zappyContainer">
             <h1>ZAPPY</h1>
@@ -58,4 +62,5 @@
         </header>
     </section>
 </body>
+
 </html>
