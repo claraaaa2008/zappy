@@ -8,6 +8,10 @@
 }
 /* Definición de la fuente personalizada 'Cutta' en dos estilos */
 @import url('https://fonts.cdnfonts.com/css/cutta');
+.cutta-uniquifier {
+    font-family: 'Cutta', sans-serif;
+    font-optical-sizing: auto;
+}
 
 .material-symbols-rounded {
     font-variation-settings:
@@ -15,6 +19,15 @@
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
+}
+
+/* <weight>: Use a value from 400 to 700 */
+/* <uniquifier>: Use a unique and descriptive class name */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+.pixelify-sans-uniquifier {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 /************************************************************************/
@@ -42,6 +55,7 @@ h1 {
     font-size: 4rem;
     color: #4ad9d9; /* Color turquesa */
     text-align: center;
+    text-transform: uppercase;
 }
 
 button {
@@ -85,7 +99,7 @@ h1 {
     text-align: center;
 }
 
-.glowTurquesaBox {
+.glowTurquesa {
     border: 4px solid #4ad9d9;
     box-shadow: 0 0 15px #9cffff;
 } .glowAmarillo {
@@ -159,17 +173,21 @@ h1 {
     transition: transform 0.2s ease-in-out;
 }
 
-input {
-    box-sizing: border-box;
-    border: 2px solid #d9d9d9;
-    background-color: #2e2e2e;
-    color: white;
-} .buttonGris:hover {
+.buttonGris:hover {
     transform: scale(1.02);
     transition: transform 0.2s ease-in-out;
 }
 
-input {
+.separador-vertical {
+    width: 1.5px;              /* Grosor de la línea */
+    height: 40px;            /* Altura de la línea, ajústala según tu header */
+    background: #fff;        /* Color de la línea */
+    margin: 0 30px;          /* Espacio a los lados */
+    border-radius: 2px;      /* Bordes redondeados (opcional) */
+    align-self: center;      /* Centra verticalmente en el flex */
+}
+
+input, select {
     box-sizing: border-box;
     border: 2px solid #d9d9d9;
     border-radius: 16px;
@@ -178,8 +196,13 @@ input {
     width: 100%;
     background-color: #d9d9d9;
     color: #2e2e2e;
+    font-family: 'Roboto', sans-serif;
 } input::placeholder{
     color: #919191;
+} input:focus, select:focus {
+    outline: none;
+    border: 1px solid #4ad9d9;
+    box-shadow: #4ad9d9 0px 0px 8px;
 }
 
 label {
@@ -187,6 +210,8 @@ label {
     color: #d9d9d9;
 }
 
+
+/************ Estilos de modal ************/
 .modal {
     position: fixed; /* Fijo sobre toda la pantalla */
     top: 0;
