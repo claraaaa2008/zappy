@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // =============================
     // Guardar cambios de usuario (AJAX)
     // =============================
     const formUsuario = document.getElementById("form-usuario");
-    formUsuario.addEventListener("submit", function(e){
+    formUsuario.addEventListener("submit", function (e) {
         e.preventDefault();
         const data = new FormData(formUsuario);
 
@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: data
         })
-        .then(res => res.json())
-        .then(res => alert(res.message))
-        .catch(err => console.error(err));
+            .then(res => res.json())
+            .then(res => alert(res.message))
+            .catch(err => console.error(err));
     });
 
     // =============================
     // Cambiar contraseña (AJAX)
     // =============================
     const formContrasena = document.getElementById("form-contrasena");
-    formContrasena.addEventListener("submit", function(e){
+    formContrasena.addEventListener("submit", function (e) {
         e.preventDefault();
         const data = new FormData(formContrasena);
 
@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: data
         })
-        .then(res => res.json())
-        .then(res => alert(res.message))
-        .catch(err => console.error(err));
+            .then(res => res.json())
+            .then(res => alert(res.message))
+            .catch(err => console.error(err));
     });
 
     // =============================
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     botonCambiarFoto.addEventListener("click", () => inputFotoPerfil.click());
 
-    inputFotoPerfil.addEventListener("change", function() {
+    inputFotoPerfil.addEventListener("change", function () {
         const file = this.files[0];
         if (file) {
             const formData = new FormData();
@@ -61,19 +61,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: "POST",
                 body: formData
             })
-            .then(res => res.json())
-            .then(res => {
-                if(res.success){
-                    // Para evitar cache del navegador
-                    const nuevaFoto = "../../img/perfiles/" + res.foto + "?t=" + new Date().getTime();
-                    fotoPerfil.src = nuevaFoto;
-                    fotoHeader.src = nuevaFoto;
-                    alert("Foto de perfil actualizada!");
-                } else {
-                    alert(res.message);
-                }
-            })
-            .catch(err => console.error(err));
+                .then(res => res.json())
+                .then(res => {
+                    if (res.success) {
+                        // Para evitar cache del navegador
+                        const nuevaFoto = "../../img/perfiles/" + res.foto + "?t=" + new Date().getTime();
+                        fotoPerfil.src = nuevaFoto;
+                        fotoHeader.src = nuevaFoto;
+                        alert("Foto de perfil actualizada!");
+                    } else {
+                        alert(res.message);
+                    }
+                })
+                .catch(err => console.error(err));
         }
     });
 });
@@ -86,21 +86,21 @@ function abrirModal(id, e) {
     const modal = document.getElementById(id);
     if (modal) {
         modal.style.display = 'flex';
-        modal.onclick = function(ev){
-            if(ev.target === modal) modal.style.display = 'none';
+        modal.onclick = function (ev) {
+            if (ev.target === modal) modal.style.display = 'none';
         }
     }
 }
 
-function cerrarModal(id){
+function cerrarModal(id) {
     const modal = document.getElementById(id);
-    if(modal) modal.style.display = 'none';
+    if (modal) modal.style.display = 'none';
 }
 
 // =============================
 // Navegación entre secciones
 // =============================
-function fill_icons(event){
+function fill_icons(event) {
     document.querySelectorAll('.material-symbols-rounded').forEach(icon => {
         icon.style.fontVariationSettings = "'FILL' 0";
     });
@@ -110,6 +110,29 @@ function fill_icons(event){
         section.style.display = 'none';
     });
 
-    if(event.target.id === 'icon-person') document.getElementById('usuario').style.display = 'block';
-    if(event.target.id === 'icon-ui') document.getElementById('interfaz').style.display = 'block';
+    if (event.target.id === 'icon-person') document.getElementById('usuario').style.display = 'block';
+    if (event.target.id === 'icon-ui') document.getElementById('interfaz').style.display = 'block';
 }
+
+
+/**************************************************/
+/***************** Cambio de tema *****************/
+/**************************************************/
+// Theme switching with persistence
+const svgClaro = document.getElementById('svg-claro');
+const svgOscuro = document.getElementById('svg-oscuro');
+
+// Function to apply theme
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+// Event listeners for theme switching
+svgClaro.addEventListener('click', () => {
+    applyTheme('light');
+});
+
+svgOscuro.addEventListener('click', () => {
+    applyTheme('dark');
+});

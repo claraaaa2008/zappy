@@ -1,18 +1,3 @@
-<?php
-session_start();
-
-// Verificar si el usuario inició sesión
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
-    header("Location: ../login/login.html.php");
-    exit;
-}
-
-// Guardar los datos de sesión en variables
-$nombreReal = $_SESSION['usuario']['nom_real'];
-$nombreUsuario = $_SESSION['usuario']['nom_usr'];
-$idGrupo = $_SESSION['usuario']['idGrupo'];
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -45,7 +30,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
                 <div class="circulo"></div>
             </a>
-            <h2><?php echo htmlspecialchars($nombreReal); ?></h2>
+            <h2>usuario123</h2>
         </div>
         <div class="div-column align botones">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
@@ -66,7 +51,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     Ranking
                 </button>
             </a>
-            <a href="../ajustes/ajustes.html.php">
+            <a href="../ajustes/ajustes.html">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">settings</span>
                     Ajustes
@@ -90,8 +75,8 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     <div class="div-row profile">
                         <div class="circulito"></div>
                         <div class="div-column">
-                            <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
-                            <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
+                            <h3>Nombre</h3>
+                            <h6>usuario123</h6>
                         </div>
                     </div>
                     <p class="puntaje">xxxxx</p>
@@ -118,7 +103,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
 
                     <div class="div-row">
                         <p>Mi grupo</p>
-                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?>3</p>
+                        <p class="atributoField div-row">grupo123</p>
                     </div>
                     <div class="div-row">
                         <p>Ranking</p>
@@ -146,7 +131,6 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
     </div>
 </body>
 
-    <script src="../js/theme.js"></script>
-    <script src="js/logica.js"></script>
+<script src="js/logica.js"></script>
 
 </html>
