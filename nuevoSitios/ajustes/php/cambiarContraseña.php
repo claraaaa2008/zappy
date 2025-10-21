@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once "../../persistencia/BaseDatos.php";
+require_once "../../../persistencia/BaseDatos.php";
+
+header("Content-Type: application/json; charset=utf-8");
 
 if (!isset($_SESSION['usuario']['idUsr'])) {
     echo json_encode(["success" => false, "message" => "Sesión no iniciada"]);
@@ -8,9 +10,14 @@ if (!isset($_SESSION['usuario']['idUsr'])) {
 }
 
 $idUsr = $_SESSION['usuario']['idUsr'];
-$contrasena = $_POST['contrasena'] ?? "";
-$nueva = $_POST['nuevaContrasena'] ?? "";
-$confirmar = $_POST['confirmarContrasena'] ?? "";
+$actual = $_POST['contraseña_actual'] ?? '';
+$nueva = $_POST['nueva_contraseña'] ?? '';
+$confirmar = $_POST['confirmar_contraseña'] ?? '';
+
+if (!$actual || !$nueva || !$confirmar) {
+    echo json_encode(["success" => false, "message" => "Complete todos los campos"]);
+    exit;
+}
 
 if ($nueva !== $confirmar) {
     echo json_encode(["success" => false, "message" => "Las contraseñas no coinciden"]);
@@ -18,29 +25,15 @@ if ($nueva !== $confirmar) {
 }
 
 $db = new BaseDatos();
-$conn = $db->getConexion();
 
-// Obtener contraseña actual
-$sql = "SELECT contrasena FROM Usuario WHERE idUsr = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $idUsr);
-$stmt->execute();
-$resultado = $stmt->get_result();
-
-if ($resultado->num_rows === 1) {
-    $usuario = $resultado->fetch_assoc();
-    if (password_verify($contrasena, $usuario['contrasena'])) {
-        $nuevaHash = password_hash($nueva, PASSWORD_DEFAULT);
-        $sqlUpdate = "UPDATE Usuario SET contrasena = ? WHERE idUsr = ?";
-        $stmtUpdate = $conn->prepare($sqlUpdate);
-        $stmtUpdate->bind_param("si", $nuevaHash, $idUsr);
-        if ($stmtUpdate->execute()) {
-            echo json_encode(["success" => true, "message" => "Contraseña actualizada correctamente"]);
-        } else {
-            echo json_encode(["success" => false, "message" => "Error al guardar la nueva contraseña"]);
-        }
-    } else {
-        echo json_encode(["success" => false, "message" => "Contraseña actual incorrecta"]);
-    }
+if (!$db->verificarContrasena($idUsr, $actual)) {
+    echo json_encode(["success" => false, "message" => "Contraseña actual incorrecta"]);
+    exit;
 }
+
+// Hasheamos la nueva contraseña
+$nuevaHasheada = password_hash($nueva, PASSWORD_DEFAULT);
+$db->cambiarContrasena($idUsr, $nuevaHasheada);
+
+echo json_encode(["success" => true, "message" => "Contraseña cambiada correctamente"]);
 ?>

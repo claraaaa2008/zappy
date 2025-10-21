@@ -1,25 +1,28 @@
-.material-symbols-rounded {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-} .material-symbols-rounded:focus {
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-} .material-symbols-rounded:hover {
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-    text-decoration: underline;
-    transition: all 0.05s ease-in-out;
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: transparent;
+    border: 2px solid #4ad9d9;
+    overflow: hidden;
+    display: block;
 }
 
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.material-symbols-rounded:hover, .material-symbols-rounded:focus {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    cursor: pointer;
+}
 body {
     display: flex;
     flex-direction: column;

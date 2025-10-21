@@ -89,3 +89,5 @@ CREATE TABLE TriviaMatematica (
     dificultad VARCHAR(50),
     FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+ALTER TABLE Usuario ADD COLUMN fotoPerfil VARCHAR(255) DEFAULT 'default.png';

@@ -66,7 +66,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     Ranking
                 </button>
             </a>
-            <a href="../ajustes/ajustes.html">
+            <a href="../ajustes/ajustes.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">settings</span>
                     Ajustes

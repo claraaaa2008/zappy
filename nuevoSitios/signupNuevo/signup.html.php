@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +20,7 @@
 
 <body class="div-row">
     <!-- Este formulario envía los datos al archivo PHP que maneja la autenticación -->
-    <form action="php/auth.php" method="POST" class="div-column">
+    <form action="php/crear.php" method="POST" class="div-column">
         <!-- Sección superior del formulario con título e ícono -->
         <div class="div-column" style="align-items: center;">
             <h2>REGISTRARSE</h2>
@@ -65,11 +69,11 @@
         <!-- Si hay un error (por ejemplo, credenciales incorrectas), se muestra un mensaje -->
 
         <!-- Botón para enviar el formulario. El enlace dentro del botón no hace nada, podría eliminarse -->
-        <a href="../index/index.html"><button type="submit" class="buttonTurquesa">Iniciar Sesión</button></a>
+        <a href="../index/index.html.php"><button type="submit" class="buttonTurquesa">Iniciar Sesión</button></a>
 
         <!-- Enlace para ir a la página de registro si el usuario no tiene cuenta -->
         <p class="registro" style="width: fit-content; align-self: center;">
-            ¿Ya tienes una cuenta? <a href="../login/login.html">Inicia Sesión aquí</a>
+            ¿Ya tienes una cuenta? <a href="../login/login.html.php">Inicia Sesión aquí</a>
         </p>
     </form>
 

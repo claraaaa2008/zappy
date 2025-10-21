@@ -24,37 +24,29 @@
             <h2>Ajustes</h2>
         </div>
         <div class="div-row currentUsr">
-            <p>usuario123</p>
-            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"
-                style="width: 25px;" />
-        </div>
+    <p id="nombre-header">usuario123</p>
+    <img id="foto-perfil-header" src="../../img/perfiles/default.png" alt="Imagen de usuario Zappy" style="width: 25px;" />
+</div>
     </header>
+
     <nav class="div-row content">
-        <span class="material-symbols-rounded" id="icon-person" onclick="fill_icons(event)">
-            person <a href="#usuario"></a>
-        </span>
-        <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">
-            computer <a href="#interfaz"></a>
-        </span>
-        <span class="material-symbols-rounded" id="icon-logout" onclick="abrirModal('logout', event)">
-            logout <a href="#logout"></a>
-        </span>
+        <span class="material-symbols-rounded" id="icon-person" onclick="fill_icons(event)">person</span>
+        <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">computer</span>
+        <span class="material-symbols-rounded" id="icon-logout" onclick="abrirModal('logout', event)">logout</span>
     </nav>
 
     <main>
+        <!-- Sección Usuario -->
         <section id="usuario" class="div-column">
             <h3>Usuario</h3>
 
-            <form action="php/cambiarInfoUsuario.php" class="div-column">
+            <form id="form-usuario" action="php/cambiarInfoUsuario.php" class="div-column" enctype="multipart/form-data">
                 <div class="div-row">
                     <div class="div-column perfil" style="align-items: center; gap: 10px;">
-                        <div class="circle"></div>
-                        <div class="div-row align content" style="gap: 5px;">
-                            <p>nombre_usuario</p>
-                            <span class="material-symbols-rounded"
-                                onclick="abrirModal('cambiarNombre', event)">edit</span>
-                        </div>
-                    </div>
+    <img id="foto-perfil-ajustes" class="circle" src="../../img/perfiles/default.png" alt="Foto de perfil">
+    <button type="button" id="boton-cambiar-foto">Cambiar foto</button>
+    <input type="file" id="input-foto-perfil" style="display:none;" accept="image/*">
+</div>
 
                     <div class="div-column campos">
                         <div class="div-column campo">
@@ -64,9 +56,8 @@
 
                         <div class="div-column campo">
                             <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" placeholder="Cambia tu nombre">
+                            <input type="email" id="email" name="email" placeholder="Cambia tu correo">
                         </div>
-
 
                         <div class="div-row content align">
                             <div class="div-column campo">
@@ -85,9 +76,14 @@
                         </div>
                     </div>
                 </div>
+
+                <button type="submit" class="buttonTurquesa">Guardar cambios</button>
             </form>
 
-            <form class="div-column campos" action="php/cambiarContraseña.php" method="post">
+            <hr>
+
+            <!-- Formulario cambiar contraseña -->
+            <form id="form-contrasena" action="php/cambiarContraseña.php" method="post" class="div-column campos">
                 <h4>Cambiar contraseña</h4>
                 <div class="div-column campo">
                     <label for="contraseña_actual">Contraseña Actual</label>
@@ -106,22 +102,27 @@
                     <input type="password" id="confirmar_contraseña" name="confirmar_contraseña"
                         placeholder="Confirma tu nueva contraseña">
                 </div>
+
+                <button type="submit" class="buttonTurquesa">Cambiar contraseña</button>
             </form>
-            <button type="submit" class="buttonTurquesa">Guardar cambios</button>
-            
+
             <hr>
 
+            <!-- Eliminar cuenta -->
             <form action="php/eliminarCuenta.php" method="post">
                 <button type="submit" class="buttonRojo">Eliminar cuenta</button>
             </form>
         </section>
 
+        <!-- Sección Interfaz -->
         <section id="interfaz">
             <form class="div-column">
                 <h3>Interfaz</h3>
+
                 <div class="div-column box boxTurquesa glowTurquesa">
                     <h4>Tema</h4>
                     <div class="div-row">
+                        <!-- Claro -->
                         <div class="div-column">
                             <svg class="tema-svg" width="100%" height="100%" viewBox="0 0 404 195" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -141,6 +142,7 @@
                             <caption>Claro</caption>
                         </div>
 
+                        <!-- Oscuro -->
                         <div class="div-column">
                             <svg class="tema-svg" width="100%" height="100%" viewBox="0 0 404 195" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -175,9 +177,7 @@
         </section>
     </main>
 
-
-    <!--------------------------------------------->
-    <!--------------------------------------------->
+    <!-- Modal cambiar nombre -->
     <div class="modal" id="cambiarNombre">
         <div class="container">
             <div class="box boxTurquesa div-column campo" style="max-height: none;">
@@ -187,7 +187,8 @@
             </div>
         </div>
     </div>
-    <!--------------------------------------------->
+
+    <!-- Modal logout -->
     <div class="modal" id="logout">
         <div class="container">
             <div class="box boxTurquesa div-column" style="max-height: none;">
@@ -201,6 +202,8 @@
             </div>
         </div>
     </div>
+
+    <script src="js/logica.js"></script>
 </body>
-<script src="js/logica.js"></script>
+
 </html>
