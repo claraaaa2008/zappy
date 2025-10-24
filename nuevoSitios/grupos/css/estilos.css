@@ -19,8 +19,9 @@
     font-size: 20px;
     vertical-align: middle;
 }
+
 /************************************************************************/
-/************************************************************************/
+/* ESTILOS GENERALES */
 header {
     margin-bottom: 20px;
     width: 100%;
@@ -35,28 +36,33 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
-} .titulo {
+} 
+.titulo {
     margin: 0;
 }
 
 h2 {
     text-transform: uppercase;
     font-size: x-large;
-} h3 {
+} 
+h3 {
     text-transform: uppercase;
     font-size: x-large;
     margin-bottom: 10px;
-} h5 {
+} 
+h5 {
     text-transform: uppercase;
     font-size: larger;
     text-align: center;
-} h6 {
+} 
+h6 {
     font-family: 'Roboto', sans-serif;
     font-size: small;
     text-align: center;
     margin-bottom: 20px;
     font-weight: 400;
-} p {
+} 
+p {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -66,9 +72,11 @@ main {
     height: 100%;
     align-self: center;
 }
+
 .div-row {
     gap: 20px;
-} .div-column {
+} 
+.div-column {
     gap: 8px;
     justify-content: flex-start;
 }
@@ -83,18 +91,60 @@ main {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    background-color: #4ad9d9;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.buttonTurquesa:hover {
+    background-color: #36baba;
 }
 
 input {
     margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .separador-vertical {
-    width: 1px;              /* Grosor de la línea */
-    height: calc(100% - 20%);            /* Altura de la línea, ajústala según tu header */
-    background: #fff;        /* Color de la línea */
-    margin: 0 30px;          /* Espacio a los lados */
-    border-radius: 2px;      /* Bordes redondeados (opcional) */
-    align-self: center;      /* Centra verticalmente en el flex */
+    width: 1px;
+    height: calc(100% - 20%);
+    background: #fff;
+    margin: 0 30px;
+    border-radius: 2px;
+    align-self: center;
+}
+
+/************************************************************************/
+/* ESTILOS PARA GRUPOS */
+#misGruposContainer {
+    margin-top: 30px;
+}
+
+.grupo-item {
+    background-color: rgba(74, 217, 217, 0.1);
+    border: 1px solid #4ad9d9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.grupo-item h4 {
+    margin-bottom: 5px;
+    color: #4ad9d9;
+}
+
+.grupo-item p {
+    margin-bottom: 5px;
+}
+
+.grupo-item strong {
+    display: block;
+    margin-bottom: 5px;
 }

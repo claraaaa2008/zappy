@@ -1,11 +1,9 @@
 <?php
+session_start();
 require_once "../../../persistencia/BaseDatos.php";
-
 header("Content-Type: application/json; charset=utf-8");
 
 $db = new BaseDatos();
-
-// Verificamos acción
 $action = $_GET["action"] ?? $_POST["action"] ?? null;
 
 if (!$action) {
@@ -13,83 +11,138 @@ if (!$action) {
     exit;
 }
 
-switch ($action) {
+$data = json_decode(file_get_contents("php://input"), true);
 
-    // =========================
+switch ($action) {
+    // =====================================================
     // CREAR GRUPO
-    // =========================
+    // =====================================================
     case "crear":
-        $data = json_decode(file_get_contents("php://input"), true);
-        if (
-            isset($data["nomGrupo"]) &&
-            isset($data["descripcionGrupo"]) &&
-            isset($data["fechaCreacion"]) &&
-            isset($data["estadoGrupo"]) &&
-            isset($data["tipoUsr"])
-        ) {
-            $ok = $db->crearGrupo(
-                $data["nomGrupo"],
-                $data["descripcionGrupo"],
-                $data["fechaCreacion"],
-                $data["estadoGrupo"],
-                $data["tipoUsr"]
-            );
+        if (isset($data["nomGrupo"], $data["descripcionGrupo"])) {
+            $nomGrupo = $data["nomGrupo"];
+            $descripcion = $data["descripcionGrupo"];
+            $idCreador = $_SESSION['usuario']['idUsr'] ?? null;
+
+            if (!$idCreador) {
+                echo json_encode(["success" => false, "message" => "Sesión no iniciada"]);
+                break;
+            }
+
+            $codigoGrupo = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"), 0, 6);
+
+            $conexion = $db->getConexion();
+            $stmt = $conexion->prepare("
+                INSERT INTO Grupo (nomGrupo, descripcion, codigoGrupo, idCreador)
+                VALUES (?, ?, ?, ?)
+            ");
+            $stmt->bind_param("sssi", $nomGrupo, $descripcion, $codigoGrupo, $idCreador);
+            $ok = $stmt->execute();
+
             echo json_encode([
                 "success" => $ok,
-                "message" => $ok ? "Grupo creado correctamente" : "Error al crear el grupo"
+                "message" => $ok ? "Grupo creado correctamente" : "Error al crear el grupo",
+                "codigo" => $ok ? $codigoGrupo : null
             ]);
         } else {
             echo json_encode(["success" => false, "message" => "Faltan datos"]);
         }
         break;
 
-    // =========================
-    // LISTAR GRUPOS
-    // =========================
+    // =====================================================
+    // LISTAR TODOS LOS GRUPOS CON MIEMBROS
+    // =====================================================
     case "listar":
-        $grupos = $db->obtenerGrupos();
+        $conexion = $db->getConexion();
+        $resultado = $conexion->query("SELECT * FROM Grupo");
+        $grupos = $resultado->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($grupos as &$grupo) {
+            $stmt = $conexion->prepare("SELECT nom_usr FROM Usuario WHERE idGrupo = ?");
+            $stmt->bind_param("i", $grupo['idGrupo']);
+            $stmt->execute();
+            $res = $stmt->get_result();
+            $miembros = $res->fetch_all(MYSQLI_ASSOC);
+            $grupo['miembros'] = array_map(fn($m) => $m['nom_usr'], $miembros);
+        }
+
         echo json_encode($grupos);
         break;
 
-    // =========================
-    // ACTUALIZAR GRUPO
-    // =========================
-    case "actualizar":
-        $data = json_decode(file_get_contents("php://input"), true);
-        if (
-            isset($data["idGrupo"]) &&
-            isset($data["nomGrupo"]) &&
-            isset($data["descripcionGrupo"]) &&
-            isset($data["estadoGrupo"]) &&
-            isset($data["tipoUsr"])
-        ) {
-            $ok = $db->actualizarGrupo(
-                $data["idGrupo"],
-                $data["nomGrupo"],
-                $data["descripcionGrupo"],
-                $data["estadoGrupo"],
-                $data["tipoUsr"]
-            );
-            echo json_encode([
-                "success" => $ok,
-                "message" => $ok ? "Grupo actualizado correctamente" : "Error al actualizar el grupo"
-            ]);
+    // =====================================================
+    // LISTAR GRUPOS DEL USUARIO
+    // =====================================================
+    case "misGrupos":
+        $idUsr = $_SESSION['usuario']['idUsr'] ?? null;
+        if (!$idUsr) {
+            echo json_encode(["success" => false, "message" => "Sesión no iniciada"]);
+            break;
+        }
+
+        $conexion = $db->getConexion();
+        $stmt = $conexion->prepare("
+            SELECT g.idGrupo, g.nomGrupo, g.descripcion, g.codigoGrupo
+            FROM Grupo g
+            JOIN Usuario u ON u.idGrupo = g.idGrupo
+            WHERE u.idUsr = ?
+        ");
+        $stmt->bind_param("i", $idUsr);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        $grupos = $res->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($grupos as &$grupo) {
+            $stmt2 = $conexion->prepare("SELECT nom_usr FROM Usuario WHERE idGrupo = ?");
+            $stmt2->bind_param("i", $grupo['idGrupo']);
+            $stmt2->execute();
+            $res2 = $stmt2->get_result();
+            $miembros = $res2->fetch_all(MYSQLI_ASSOC);
+            $grupo['miembros'] = array_map(fn($m) => $m['nom_usr'], $miembros);
+        }
+
+        echo json_encode(["success" => true, "grupos" => $grupos]);
+        break;
+
+    // =====================================================
+    // UNIRSE A GRUPO
+    // =====================================================
+    case "unirse":
+        if (isset($data["codigoGrupo"])) {
+            $idUsr = $_SESSION['usuario']['idUsr'] ?? null;
+            if (!$idUsr) {
+                echo json_encode(["success" => false, "message" => "Sesión no iniciada"]);
+                break;
+            }
+
+            $conexion = $db->getConexion();
+            $stmt = $conexion->prepare("SELECT idGrupo FROM Grupo WHERE codigoGrupo = ?");
+            $stmt->bind_param("s", $data["codigoGrupo"]);
+            $stmt->execute();
+            $res = $stmt->get_result();
+            $grupo = $res->fetch_assoc();
+
+            if ($grupo) {
+                $stmt2 = $conexion->prepare("UPDATE Usuario SET idGrupo = ? WHERE idUsr = ?");
+                $stmt2->bind_param("ii", $grupo['idGrupo'], $idUsr);
+                $ok = $stmt2->execute();
+                echo json_encode(["success" => $ok, "message" => $ok ? "Te uniste al grupo" : "Error al unirse"]);
+            } else {
+                echo json_encode(["success" => false, "message" => "Código de grupo inválido"]);
+            }
         } else {
-            echo json_encode(["success" => false, "message" => "Faltan datos"]);
+            echo json_encode(["success" => false, "message" => "Falta código de grupo"]);
         }
         break;
 
-    // =========================
+    // =====================================================
     // ELIMINAR GRUPO
-    // =========================
+    // =====================================================
     case "eliminar":
-        $data = json_decode(file_get_contents("php://input"), true);
         if (isset($data["idGrupo"])) {
-            $ok = $db->eliminarGrupo($data["idGrupo"]);
-            echo json_encode([
-                "success" => $ok,
-                "message" => $ok ? "Grupo eliminado correctamente" : "Error al eliminar el grupo"
-            ]);
+            $conexion = $db->getConexion();
+            $stmt = $conexion->prepare("DELETE FROM Grupo WHERE idGrupo = ?");
+            $stmt->bind_param("i", $data["idGrupo"]);
+            $ok = $stmt->execute();
+            echo json_encode(["success" => $ok, "message" => $ok ? "Grupo eliminado" : "Error al eliminar"]);
         } else {
             echo json_encode(["success" => false, "message" => "Falta idGrupo"]);
         }

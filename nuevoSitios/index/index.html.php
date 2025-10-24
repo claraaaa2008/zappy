@@ -54,7 +54,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     Usuario
                 </button>
             </a>
-            <a href="../grupos/grupos.html">
+            <a href="../grupos/grupos.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">group</span>
                     Grupos
