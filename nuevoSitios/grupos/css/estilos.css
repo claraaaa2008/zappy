@@ -21,9 +21,7 @@
 }
 
 /************************************************************************/
-/* ESTILOS GENERALES */
 header {
-    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -36,34 +34,24 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
-} 
-.titulo {
-    margin: 0;
 }
 
 h2 {
     text-transform: uppercase;
     font-size: x-large;
-} 
-h3 {
+} h3 {
     text-transform: uppercase;
     font-size: x-large;
-    margin-bottom: 10px;
-} 
-h5 {
+} h5 {
     text-transform: uppercase;
     font-size: larger;
     text-align: center;
-} 
-h6 {
+} h6 {
     font-family: 'Roboto', sans-serif;
     font-size: small;
     text-align: center;
     margin-bottom: 20px;
     font-weight: 400;
-} 
-p {
-    font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -75,41 +63,16 @@ main {
 
 .div-row {
     gap: 20px;
-} 
+}
+
 .div-column {
-    gap: 8px;
+    gap: 12px;
     justify-content: flex-start;
 }
 .align {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-}
-
-.buttonTurquesa {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #4ad9d9;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    cursor: pointer;
-    color: #000;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-.buttonTurquesa:hover {
-    background-color: #36baba;
-}
-
-input {
-    margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;
-    padding: 5px 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
 }
 
 .separador-vertical {
