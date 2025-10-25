@@ -204,6 +204,7 @@
     </div>
 
     <script src="js/logica.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 
 </html>
