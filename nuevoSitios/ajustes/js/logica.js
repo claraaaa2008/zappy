@@ -113,26 +113,3 @@ function fill_icons(event) {
     if (event.target.id === 'icon-person') document.getElementById('usuario').style.display = 'block';
     if (event.target.id === 'icon-ui') document.getElementById('interfaz').style.display = 'block';
 }
-
-
-/**************************************************/
-/***************** Cambio de tema *****************/
-/**************************************************/
-// Theme switching with persistence
-const svgClaro = document.getElementById('svg-claro');
-const svgOscuro = document.getElementById('svg-oscuro');
-
-// Function to apply theme
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-// Event listeners for theme switching
-svgClaro.addEventListener('click', () => {
-    applyTheme('light');
-});
-
-svgOscuro.addEventListener('click', () => {
-    applyTheme('dark');
-});
