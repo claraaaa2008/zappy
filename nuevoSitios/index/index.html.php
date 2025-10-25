@@ -118,7 +118,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
 
                     <div class="div-row">
                         <p>Mi grupo</p>
-                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?>3</p>
+                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">
                         <p>Ranking</p>
