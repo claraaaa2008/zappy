@@ -19,7 +19,7 @@
     font-size: 20px;
     vertical-align: middle;
 }
-/************************************************************************/
+
 /************************************************************************/
 header {
     margin-bottom: 20px;
@@ -34,8 +34,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-} .titulo {
     margin: 0;
 }
 
@@ -60,6 +58,11 @@ h2 {
     font-family: 'Roboto', sans-serif;
 }
 
+input {
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
 main {
     box-sizing: border-box;
     max-width: 900px;
@@ -72,11 +75,6 @@ main {
     gap: 8px;
     justify-content: flex-start;
 }
-.align {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-}
 
 .buttonTurquesa {
     display: flex;
@@ -85,16 +83,42 @@ main {
     gap: 10px;
 }
 
-input {
-    margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;
+.align {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
 }
 
-.separador-vertical {
-    width: 1px;              /* Grosor de la línea */
-    height: calc(100% - 20%);            /* Altura de la línea, ajústala según tu header */
-    background: #fff;        /* Color de la línea */
-    margin: 0 30px;          /* Espacio a los lados */
-    border-radius: 2px;      /* Bordes redondeados (opcional) */
-    align-self: center;      /* Centra verticalmente en el flex */
+/************************************************************************/
+/* ESTILOS PARA GRUPOS */
+#misGruposContainer {
+    margin-top: 30px;
+}
+
+.grupo-item {
+    background-color: rgba(74, 217, 217, 0.1);
+    border: 1px solid #4ad9d9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.grupo-item h4 {
+    margin-bottom: 5px;
+    color: #4ad9d9;
+}
+
+.grupo-item p {
+    margin-bottom: 5px;
+}
+
+.grupo-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+[data-theme="light"] {
+    body {
+        color: #2e2e2e;
+    }
 }

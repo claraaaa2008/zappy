@@ -143,3 +143,21 @@ body section {
         max-width: 90vw;
     }
 }
+
+[data-theme="light"] {
+    body {
+        color: #2e2e2e;
+    }
+
+    form p a {
+        color: #f5a503;
+    }
+
+    .genero {
+        border: 2px solid #d9d9d9;
+        background-color: #d9d9d9;
+        color: #2e2e2e;
+    } .genero::placeholder{
+        color: #919191;
+    }
+}

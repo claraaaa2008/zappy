@@ -126,3 +126,9 @@ body section {
         max-width: 90vw;
     }
 }
+
+[data-theme="light"] {
+    body {
+        color: #2e2e2e;
+    }
+}

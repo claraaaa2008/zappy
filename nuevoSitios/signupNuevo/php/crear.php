@@ -47,11 +47,11 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     } else {
         $stmt->close();
         $conexion->close();
-        header("Location: ../../signup/signup.html.php?error=1");
+        header("Location: ../../signupNuevo/signup.html.php?error=1");
         exit();
     }
 } else {
-    header("Location: ../signup.html.php");
+    header("Location: ../signupNuevo/signup.html.php");
     exit();
 }
 ?>

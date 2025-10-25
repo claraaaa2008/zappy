@@ -176,3 +176,20 @@ h1 {
 } #logout .box .div-row {
     gap: 20px;
 }
+
+[data-theme="light"] {
+    body {
+        background-color: #f4a503;
+    }
+
+    h1 {
+        color: #4ad9d9;
+    } h2 {
+        font-family: 'Roboto', sans-serif;
+        color: #2e2e2e;
+    }
+
+    .circulo {
+        border: 4px solid #2e2e2e;
+    }
+}

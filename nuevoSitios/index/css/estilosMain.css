@@ -151,3 +151,27 @@ header .btn:hover {
 } #logout .box .div-row {
     gap: 20px;
 }
+
+[data-theme="light"] {
+    body {
+        color: #2e2e2e;
+        background-color: #f4a503;
+    }
+
+    aside {
+        background-color: #FFAE0B;
+    }
+
+    h1 {
+        color: #25858F;
+        text-shadow: #4ad9d9 0 0 5px;
+    }
+    
+    .glowAmarillo {
+        box-shadow: #36B1C0 0 0 5px;
+    } .boxAmarillo {
+        border: #74adb4 2px solid;
+    } .boxAmarillo:hover {
+        box-shadow: 0 0 32px 8px #74adb4cc;
+    }
+}

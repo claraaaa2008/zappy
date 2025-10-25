@@ -46,7 +46,7 @@
 
         <!-- Enlace para ir a la página de registro si el usuario no tiene cuenta -->
         <p class="registro" style="width: fit-content; align-self: center;">
-            ¿No tienes una cuenta? <a href="../signup/signup.html">Regístrate aquí</a>
+            ¿No tienes una cuenta? <a href="../signupNuevo/signup.html.php">Regístrate aquí</a>
         </p>
     </form>
 
@@ -62,5 +62,7 @@
         </header>
     </section>
 </body>
+
+    <script src="../js/theme.js"></script>
 
 </html>

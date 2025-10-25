@@ -5,11 +5,12 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
 
-    $conexion = new mysqli("localhost", "root", "", "zappymenu");
+    $conexion = new mysqli("localhost", "root", "", "zappymenu"); // Cambiado a la nueva DB
     if ($conexion->connect_error) {
         die("Error de conexión: " . $conexion->connect_error);
     }
 
+    // Solo usuarios verificados pueden iniciar sesión
     $sql = "SELECT * FROM Usuario WHERE nom_usr = ?";
     $stmt = $conexion->prepare($sql);
     if (!$stmt) {
@@ -28,8 +29,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
                 'nom_usr' => $usuarioBD['nom_usr'],
                 'nom_real' => $usuarioBD['nom_real'],
                 'correo' => $usuarioBD['correo'],
-                'idGrupo' => $usuarioBD['idGrupo'],
-                'fotoPerfil' => $usuarioBD['fotoPerfil'] 
+                'idGrupo' => $usuarioBD['idGrupo']
             ];
             header("Location: ../../index/index.html.php");
             exit();
@@ -38,7 +38,8 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
             exit();
         }
     } else {
-        header("Location: ../login.html.php?error=2"); // Usuario no encontrado
+        // Usuario no encontrado
+        header("Location: ../login.html.php?error=2");
         exit();
     }
 } else {

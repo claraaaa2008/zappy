@@ -54,7 +54,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     Usuario
                 </button>
             </a>
-            <a href="../grupos/grupos.html">
+            <a href="../grupos/grupos.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">group</span>
                     Grupos
@@ -66,7 +66,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     Ranking
                 </button>
             </a>
-            <a href="../ajustes/ajustes.html">
+            <a href="../ajustes/ajustes.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">settings</span>
                     Ajustes
@@ -118,7 +118,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
 
                     <div class="div-row">
                         <p>Mi grupo</p>
-                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?>3</p>
+                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">
                         <p>Ranking</p>
@@ -146,6 +146,7 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
     </div>
 </body>
 
-<script src="js/logica.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="js/logica.js"></script>
 
 </html>

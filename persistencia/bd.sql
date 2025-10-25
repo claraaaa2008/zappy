@@ -14,7 +14,6 @@ CREATE TABLE Grupo (
     nomGrupo VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255),
     codigoGrupo VARCHAR(10) UNIQUE NOT NULL,
-    tipoUsr VARCHAR(50) NOT NULL,
     idCreador INT UNSIGNED NOT NULL,
     FOREIGN KEY (idCreador) REFERENCES Usuario(idUsr) ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -89,3 +88,5 @@ CREATE TABLE TriviaMatematica (
     dificultad VARCHAR(50),
     FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+ALTER TABLE Usuario ADD COLUMN fotoPerfil VARCHAR(255) DEFAULT 'default.png';
