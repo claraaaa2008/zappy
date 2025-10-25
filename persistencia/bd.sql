@@ -6,10 +6,16 @@ CREATE DATABASE IF NOT EXISTS zappymenu;
 USE zappymenu;
 
 -- Tabla Grupo
+DROP TABLE IF EXISTS Grupo;
+
+-- Crear tabla Grupo actualizada
 CREATE TABLE Grupo (
     idGrupo INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nomGrupo VARCHAR(100) NOT NULL,
-    tipoUsr VARCHAR(50) NOT NULL
+    descripcion VARCHAR(255),
+    codigoGrupo VARCHAR(10) UNIQUE NOT NULL,
+    idCreador INT UNSIGNED NOT NULL,
+    FOREIGN KEY (idCreador) REFERENCES Usuario(idUsr) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 -- Tabla Usuario
@@ -82,3 +88,5 @@ CREATE TABLE TriviaMatematica (
     dificultad VARCHAR(50),
     FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+ALTER TABLE Usuario ADD COLUMN fotoPerfil VARCHAR(255) DEFAULT 'default.png';

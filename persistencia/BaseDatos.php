@@ -4,7 +4,7 @@ class BaseDatos {
     private $servidor = "localhost";
     private $usuario = "root";
     private $password = "";
-    private $base_datos = "zappymenu"; // Cambiado a la nueva DB
+    private $base_datos = "zappymenu"; // Base de datos
 
     public function __construct() {
         $this->conexion = $this->nuevaConexion(
@@ -143,10 +143,49 @@ class BaseDatos {
     }
 
     /* =========================
+       MÉTODOS PARA GRUPOS
+       ========================= */
+    public function crearGrupo($nomGrupo, $descripcionGrupo, $fechaCreacion, $estadoGrupo, $tipoUsr) {
+        $sql = "INSERT INTO Grupo (nomGrupo, descripcionGrupo, fechaCreacion, estadoGrupo, tipoUsr)
+                VALUES (?, ?, ?, ?, ?)";
+        return $this->ejecutar($sql, "sssss", $nomGrupo, $descripcionGrupo, $fechaCreacion, $estadoGrupo, $tipoUsr);
+    }
+
+    public function obtenerGrupos() {
+        $sql = "SELECT * FROM Grupo ORDER BY idGrupo DESC";
+        return $this->consultar($sql);
+    }
+
+    public function obtenerGrupoPorId($idGrupo) {
+        $sql = "SELECT * FROM Grupo WHERE idGrupo = ?";
+        $resultado = $this->consultar($sql, "i", $idGrupo);
+        return $resultado ? $resultado[0] : null;
+    }
+
+    public function actualizarGrupo($idGrupo, $nomGrupo, $descripcionGrupo, $estadoGrupo, $tipoUsr) {
+        $sql = "UPDATE Grupo 
+                SET nomGrupo = ?, descripcionGrupo = ?, estadoGrupo = ?, tipoUsr = ?
+                WHERE idGrupo = ?";
+        return $this->ejecutar($sql, "ssssi", $nomGrupo, $descripcionGrupo, $estadoGrupo, $tipoUsr, $idGrupo);
+    }
+
+    public function eliminarGrupo($idGrupo) {
+        $sql = "DELETE FROM Grupo WHERE idGrupo = ?";
+        return $this->ejecutar($sql, "i", $idGrupo);
+    }
+
+    /* =========================
        CERRAR CONEXIÓN
        ========================= */
     public function cerrarConexion() {
         $this->conexion->close();
+    }
+
+    /* =========================
+       OBTENER CONEXIÓN (nuevo)
+       ========================= */
+    public function getConexion() {
+        return $this->conexion;
     }
 }
 ?>
