@@ -161,3 +161,44 @@ form .div-row {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
+
+[data-theme="light"] {
+    .circle {
+        border: 2px solid #4ad9d9;
+    }
+
+    .separador-vertical {
+        background-color: #2e2e2e;
+    }
+
+    header {
+        color: #f5a503;
+    } .currentUsr p {
+        color: #2e2e2e;
+    }
+
+    nav {
+        background-color: #4ad9d9;
+    } nav span {
+        color: black;
+    } #icon-logout {
+        color: #b90000;
+    }
+
+    .circle {
+        background-color: white;
+    }
+    
+    .glowTurquesa {
+        box-shadow: 0 0 8px #4ad9d9;
+    }
+
+    #interfaz .box {
+        background-color: white;
+    }
+
+    .tema-svg:hover {
+        filter:
+            drop-shadow(0 0 1dvw #49D9D9);
+    }
+}

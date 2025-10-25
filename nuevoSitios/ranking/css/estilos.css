@@ -215,3 +215,46 @@ span {
     padding: 5px;
     background-color: white;
 }
+
+[data-theme="light"] {
+    .fixed-title {
+        background: #fff;
+    }
+
+    table tbody td {
+        color: #2e2e2e;
+    }
+
+    /* Alturas, colores y tamaños de fuente de cada puesto */
+    #puesto1 {
+        background-color: #E29801;
+    }
+
+    #puesto2 {
+        background-color: #919191;
+    }
+
+    #puesto3 {
+        background-color: #BE7629;
+    }
+
+    table tfoot td {
+        color: #2e2e2e;
+    }
+
+    h4 {
+        color: #2e2e2e;
+        text-shadow: none;
+    }
+
+    /*******************************/
+    /*** Tabla de las posiciones ***/
+    /*******************************/
+    .boxTurquesa {
+        border: 2px solid #4ad9d9;
+    }
+
+    .derecha img {
+        background-color: rgb(236, 236, 236);
+    }
+}

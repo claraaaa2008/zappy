@@ -257,6 +257,7 @@ label {
 [data-theme="light"] {
     body {
         background-color: white;
+        color: #2e2e2e;
     }
 
     h1 {
@@ -322,95 +323,7 @@ label {
     }
 
     label {
-        color: #d9d9d9;
-    }
-
-    /************ Estilos de modal ************/
-    .modal {
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-    } .modal .container{
-        color: white;
-    } .atributoField {
-        background-color: #404040;
-    } .puntaje {
-        background-color: #404040;
-    } .innerBox {
-        box-shadow: 0 0 6px #9cffff;
-    } .innerBox:hover {
-        box-shadow: 0 0 12px #9cffff;
-    }
-}
-
-/* Fallback to system preference if no data-theme is set */
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: white;
-    }
-
-    h1 {
-        color: #25858F; /* Color turquesa */
-        text-shadow: #36B1C0 0px 0px 15px;
-    }
-
-    .glowTurquesa {
-        box-shadow: 0 0 15px #36B1C0;
-    } .glowAmarillo {
-        box-shadow: 0 0 8px 1px #f5a503;
-    } .glowRojo {
-        box-shadow: 0 0 5px #f1385a;
-    }
-
-    .box {
-        box-sizing: border-box;
-        border-radius: 16px;
-        padding: 20px;
-    } .boxTurquesa {
-        border: 4px solid #4ad9d9;
-    } .boxAmarillo {
-        border: 4px solid #f5a503;
-    } .boxRojo {
-        border: 4px solid #f1385a;
-    }
-
-    .buttonAmarillo {
-        color: #f5a503;
-        background-color: #2e2e2e;
-    } .buttonAmarillo:hover {
-        box-shadow: 0 0 10px #2e2e2e;
-    }
-
-    .buttonRojo {
-        background-color: #f1385a;
         color: #2e2e2e;
-    } .buttonRojo:hover {
-        box-shadow: 0 0 10px #ff4c6d;
-    }
-
-    .buttonTurquesa {
-        background-color: #4ad9d9;
-        color: #2e2e2e;
-    } .buttonTurquesa:hover {
-        box-shadow: 0 0 10px #9cffff;
-    }
-
-    .buttonGris {
-        background-color: #f5a503;
-        color: #2e2e2e;
-    }
-
-    input, select {
-        border: 2px solid #d9d9d9;
-        background-color: #d9d9d9;
-        color: #2e2e2e;
-    } input::placeholder{
-        color: #919191;
-    } input:focus, select:focus {
-        border: 1px solid #4ad9d9;
-        box-shadow: #4ad9d9 0px 0px 8px;
-    }
-
-    label {
-        color: #d9d9d9;
     }
 
     /************ Estilos de modal ************/
