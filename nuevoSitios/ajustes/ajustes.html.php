@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// Si el usuario no está logueado, redirigir al login
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../login/login.html.php");
+    exit;
+}
+
+// Guardamos los datos del usuario en variables
+$usuario = $_SESSION['usuario'];
+$nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
+$fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+    ? "../img/" . htmlspecialchars($usuario['fotoPerfil'])
+    : "../../img/perfiles/default.png";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,8 +41,9 @@
             <h2>Ajustes</h2>
         </div>
         <div class="div-row currentUsr">
-            <p id="nombre-header">usuario123</p>
-            <img id="foto-perfil-header" src="../../img/perfiles/default.png" alt="Imagen de usuario Zappy" style="width: 25px;" />
+            <p><?php echo htmlspecialchars($nombre); ?></p>
+            <img class="zappy-con-cara-1" src="<?php echo $fotoPerfil; ?>" alt="Imagen de perfil" style="width: 30px; border-radius: 50%;" />
+        </div>
         </div>
     </header>
 
