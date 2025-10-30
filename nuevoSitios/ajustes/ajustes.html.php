@@ -32,6 +32,7 @@
     <nav class="div-row content">
         <span class="material-symbols-rounded" id="icon-person" onclick="fill_icons(event)">person</span>
         <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">computer</span>
+        <span class="material-symbols-rounded" id="icon-admin" onclick="fill_icons(event)">shield_person</span>
         <span class="material-symbols-rounded" id="icon-logout" onclick="abrirModal('logout', event)">logout</span>
     </nav>
 
@@ -173,6 +174,34 @@
                 </div>
 
                 <button type="submit" class="buttonTurquesa">Guardar Cambios</button>
+            </form>
+        </section>
+
+        <section class="div-column" id="admin">
+            <h3>Administracion de plataforma</h3>
+            <div class="div-column">
+                <h4>Agrega un juego</h4>
+                <p></p>
+                <button class="buttonTurquesa"></button>
+            </div>
+            <form class="div-column">
+                <h4>Gestion de usuarios</h4>
+                <p>Ingrese un usuario para gestionar</p>
+                <input type="text" name="usuario" id="usuario">
+                <!--Por defecto que se desplieguen todos los usuarios y cuando busca un usuario que aparezca solo ese usuario-->
+                
+                <div class="box glowTurquesa div-column">
+                    <div class="div-row align">
+                        <div class="div-row">
+                            <img src="" alt="">
+                            <p>usuario123</p>
+                        </div>
+                        <p class="puntaje">xxxxx</p>
+                    </div>
+                    <div class="div-row">
+                        <!--Atributos de usuario-->
+                    </div>
+                </div>
             </form>
         </section>
     </main>
