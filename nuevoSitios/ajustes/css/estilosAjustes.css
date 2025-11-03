@@ -144,6 +144,48 @@ form .div-row {
     font-family: 'Roboto', sans-serif;
 }
 
+/********* Administrador *********/
+.classAdmin {
+    gap: 2dvh;
+} .classAdmin form {
+    text-align: center;
+    gap: 2.5dvh;
+} .classAdmin form .titleUsrs {
+    gap: 15px;
+} .classAdmin h4 {
+    font-size: larger;
+} .classAdmin .grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 15px;
+} .classAdmin .campos {
+    background-color: #404040;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.usuario:hover .campos, .usuario:focus .campos {
+    display: flex;
+    opacity: 1;
+}
+
+.classAdmin form .box {
+    gap: 2dvh;
+
+} .classAdmin form .box .div-row .div-column {
+    gap: 5px;
+} .classAdmin form #tipoUsr {
+    font-size: smaller;
+} .classAdmin form #nomUsr {
+    font-weight: bold;
+}form .box .grid .div-column {
+    gap: 1.5dvh;
+}
+
+
 /******* Estilos de modal ******/
 .box {
     background-color: #2e2e2e;
