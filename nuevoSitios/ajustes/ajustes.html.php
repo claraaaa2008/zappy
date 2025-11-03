@@ -195,7 +195,7 @@
                     <!--Por defecto que se desplieguen todos los usuarios y cuando busca un usuario que aparezca solo ese usuario-->
                 </div>
 
-                <div class="box glowTurquesa div-column">
+                <div class="box glowTurquesa div-column usuario">
                     <div class="div-row align content">
                         <div class="div-row">
                             <img src="" alt="">
