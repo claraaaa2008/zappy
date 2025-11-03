@@ -177,29 +177,52 @@
             </form>
         </section>
 
-        <section class="div-column" id="admin">
+        <section class="div-column classAdmin" id="admin">
             <h3>Administracion de plataforma</h3>
-            <div class="div-column">
+            <form class="div-column box boxTurquesa glowTurquesa" method="post" id="agregarJuegos">
                 <h4>Agrega un juego</h4>
-                <p></p>
-                <button class="buttonTurquesa"></button>
-            </div>
-            <form class="div-column">
-                <h4>Gestion de usuarios</h4>
-                <p>Ingrese un usuario para gestionar</p>
-                <input type="text" name="usuario" id="usuario">
-                <!--Por defecto que se desplieguen todos los usuarios y cuando busca un usuario que aparezca solo ese usuario-->
-                
+                <p>Formatos disponibles: .html, .php</p>
+                <button class="buttonTurquesa">Inserta tu juego</span></button>
+            </form>
+            <form class="div-column box boxTurquesa glowTurquesa" method="post" id="gestiónUsuarios">
+                <div class="div-column titleUsrs">
+                    <h4>Gestión de usuarios</h4>
+                    <fieldset class="div-row">
+                        <span class="material-symbols-rounded">search</span>
+                        <input type="text" name="usuario" id="usuario" placeholder="Ingrese un usuario para gestionar">
+                        <span class="material-symbols-rounded">close</span>
+                    </fieldset>
+                    <!--Por defecto que se desplieguen todos los usuarios y cuando busca un usuario que aparezca solo ese usuario-->
+                </div>
+
                 <div class="box glowTurquesa div-column">
-                    <div class="div-row align">
+                    <div class="div-row align content">
                         <div class="div-row">
                             <img src="" alt="">
-                            <p>usuario123</p>
+                            <div class="div-column" style="align-items: flex-start;">
+                                <p id="nomUsr">usuario123</p> <!-- Si no está activo, se activa un tachado en el texto y un texto al lado diciendo: inactivo -->
+                                <p id="tipoUsr">Admin</p> <!-- Desaparece esta etiqueta si no es administrador en el sistema -->
+                            </div>
                         </div>
                         <p class="puntaje">xxxxx</p>
                     </div>
-                    <div class="div-row">
-                        <!--Atributos de usuario-->
+                    <div class="div-column campos">
+                        <div class="grid">
+                            <div class="div-column">
+                                <label for="text">Modificar el nombre</label>
+                                <input type="text">
+                            </div>
+                            <div class="div-column">
+                                <label for="text">Modificar contraseña</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <button class="buttonTurquesa">Guardar Cambios</button>
+                        <hr>
+                        <div class="grid">
+                            <button class="buttonTurquesa">Hacer admin</button> <!-- Si el usuario ya es admin, que aparezca en cursiva y medio transparente el boton-->
+                            <button class="buttonRojo">Desactivar</button>
+                        </div>
                     </div>
                 </div>
             </form>
