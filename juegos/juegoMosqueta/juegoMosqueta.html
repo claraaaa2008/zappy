@@ -5,29 +5,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Juego Mosqueta</title>
+    <link rel="website icon" href="../../img/ZappyConCara.png">
     <link rel="stylesheet" href="css/estilos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../nuevoSitios/css/modoOscuro.css">
+    <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
 </head>
 
 <body>
-    <!-- el titulo del juego decorado-->
-    <h1>🎲 Juego de la <span>Mosqueta</span> 🎲</h1>
-    <p>Haz clic en un vaso para intentar adivinar dónde está la pelota.</p>
-    <div id="puntaje">Puntaje: 0</div>
+    <nav class="div-row align content">
+        <a href="../../nuevoSitios/index/index.html.php">
+            <h1>ZAPPY</h1>
+        </a>
+        <div class="div-row" style="gap: 20px;">
+            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"
+                style="width: 30px;" />
+            <p>usuario123</p>
+        </div>
+    </nav>
+    <main class="div-column">
+        <!-- el titulo del juego decorado-->
+        <h2>Juego de la Mosqueta</h2>
+        <p>Haz clic en un vaso para intentar adivinar dónde está la pelota.</p>
+        <div class="puntaje">Puntaje: 0</div>
 
+        <button id="reiniciar" class="buttonTurquesa">Reiniciar</button> <!-- Un boton util para reiniciar el juego -->
 
-    <div class="botones">
-        <button id="reiniciar">Reiniciar</button> <!-- Un boton util para reiniciar el juego -->
-    </div>
+        <div class="game-container" id="juego">
+            <div class="vaso" data-vaso="0"></div>
+            <div class="vaso" data-vaso="1"></div>
+            <div class="vaso" data-vaso="2"></div>
+            <div class="pelota" id="pelota"></div>
+        </div>
 
-    <div class="game-container" id="juego">
-        <div class="vaso" data-vaso="0"></div>
-        <div class="vaso" data-vaso="1"></div>
-        <div class="vaso" data-vaso="2"></div>
-        <div class="pelota" id="pelota"></div>
-    </div>
-
-    <div id="mensaje"></div>
+        <div id="mensaje"></div>
+    </main>
 
 </body>
 <script src="js/logica.js"></script>
+
 </html>
