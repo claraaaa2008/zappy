@@ -66,7 +66,7 @@ $conexion->close();
                     ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
                     : "../../img/perfiles/default.png"; // imagen por defecto
                 ?>
-                 <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                 <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle" style="width: 10px; height: 50px;">
             <p><?php echo htmlspecialchars($nombreReal); ?></p>
         </div>
         <a href="index.html.php">

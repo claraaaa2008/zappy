@@ -10,9 +10,7 @@ if (!isset($_SESSION['usuario'])) {
 // Guardamos los datos del usuario en variables
 $usuario = $_SESSION['usuario'];
 $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
-$fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-    ? "../img/" . htmlspecialchars($usuario['fotoPerfil'])
-    : "../../img/perfiles/default.png";
+$fotoPerfil = "../../img/perfiles/default.png";
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +40,8 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
         </div>
         <div class="div-row currentUsr">
             <p><?php echo htmlspecialchars($nombre); ?></p>
-            <img class="zappy-con-cara-1" src="<?php echo $fotoPerfil; ?>" alt="Imagen de perfil" style="width: 30px; border-radius: 50%;" />
+
+                 <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle">
         </div>
         </div>
     </header>
@@ -62,7 +61,7 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
                 <div class="div-row">
                     <div class="div-column perfil" style="align-items: center; gap: 10px;">
                         <img id="foto-perfil-ajustes" class="circle" src="../../img/perfiles/default.png" alt="Foto de perfil">
-                        <button type="button" id="boton-cambiar-foto">Cambiar foto</button>
+                        <button type="button" id="boton-cambiar-foto" class="buttonTurquesa">Cambiar foto</button>
                         <input type="file" id="input-foto-perfil" style="display:none;" accept="image/*">
                     </div>
 
