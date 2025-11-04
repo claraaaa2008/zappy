@@ -40,7 +40,7 @@ $fotoPerfil = "../../img/perfiles/default.png";
         </div>
         <div class="div-row currentUsr">
             <p id="nombre-header">usuario123</p>
-            <img id="foto-perfil-header" src="<?php echo $fotoPerfil; ?>" alt="Imagen de usuario Zappy" style="width: 25px;" />
+            <img class="zappy-con-cara-1" src="<?php echo $fotoPerfil; ?>" alt="Imagen de perfil" style="width: 30px; border-radius: 50%;" />
         </div>
     </header>
 
