@@ -261,10 +261,10 @@ $fotoPerfil = "../../img/perfiles/default.png";
             <div class="box boxTurquesa div-column" style="max-height: none;">
                 <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
                 <div class="div-row align content botones">
-                    <button class="buttonRojo">Aceptar</button>
-                    <form action="php/logout" method="post">
-                        <button class="buttonTurquesa" onclick="cerrarModal('logout')" type="submit">Cancelar</button>
+                    <form action="../login/php/logout.php" method="post">
+                        <button class="buttonRojo">Aceptar</button>
                     </form>
+                    <button class="buttonTurquesa" onclick="cerrarModal('logout')" type="submit">Cancelar</button>
                 </div>
             </div>
         </div>
