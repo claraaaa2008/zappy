@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+// Verificar si el usuario inició sesión
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
+    header("Location: ../login/login.html.php");
+    exit;
+}
+// Guardar datos básicos
+$nombreReal = $_SESSION['usuario']['nom_real'];
+$nombreUsuario = $_SESSION['usuario']['nom_usr'];
+$idGrupo = $_SESSION['usuario']['idGrupo'];
+$idUsr = $_SESSION['usuario']['idUsr']; // 👈 asegurate que exista en la sesión
+
+// ==============================
+// Conexión a la base de datos
+// ==============================
+$conexion = new mysqli("localhost", "root", "", "zappymenu");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Traer fecha de nacimiento del usuario
+$sql = "SELECT fecha_nac FROM Usuario WHERE idUsr = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("i", $idUsr);
+$stmt->execute();
+$resultado = $stmt->get_result();
+$fechaNac = null;
+if ($fila = $resultado->fetch_assoc()) {
+    $fechaNac = $fila['fecha_nac'];
+}
+
+// Calcular edad
+$edad = null;
+if ($fechaNac) {
+    $fechaNacimiento = new DateTime($fechaNac);
+    $hoy = new DateTime();
+    $edad = $hoy->diff($fechaNacimiento)->y;
+}
+
+$stmt->close();
+$conexion->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +61,12 @@
 <body class="div-column">
     <header class="div-row">
         <div class="div-row">
-            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"/>
+            <?php
+                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    : "../../img/perfiles/default.png"; // imagen por defecto
+                ?>
+            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy" class="circle" style="width: 10px; height: 50px;"/>
             <p>usuario123</p>
         </div>
         <a href="../index/index.html">
@@ -86,8 +136,8 @@
                     <div class="div-row profile">
                         <div class="circulito"></div>
                         <div class="div-column">
-                            <h3>Nombre</h3>
-                            <h6>usuario123</h6>
+                            <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
+                            <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
                         </div>
                     </div>
                     <p class="puntaje">xxxxx</p>
@@ -101,11 +151,11 @@
 
                     <div class="div-row">
                         <p class="atributo">Edad</p>
-                        <p class="atributoField div-row">xxx</p>
+                        <p class="atributoField div-row"><?php echo htmlspecialchars($edad ?? 'Sin datos'); ?></p>
                     </div>
                     <div class="div-row">
                         <p class="atributo">Cumpleaños</p>
-                        <p class="atributoField div-row">xx/xx/xxxx</p>
+                        <p class="atributoField div-row"><?php echo $fechaNac ? date('d/m/Y', strtotime($fechaNac)) : 'Sin datos'; ?></p>
                     </div>
                 </div>
 
@@ -114,7 +164,7 @@
 
                     <div class="div-row">
                         <p class="atributo">Mi grupo</p>
-                        <p class="atributoField div-row">grupo123</p>
+                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">
                         <p class="atributo">Ranking</p>
