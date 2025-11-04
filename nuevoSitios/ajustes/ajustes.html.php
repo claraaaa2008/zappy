@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Si el usuario no está logueado, redirigir al login
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../login/login.html.php");
+    exit;
+}
+
+// Guardamos los datos del usuario en variables
+$usuario = $_SESSION['usuario'];
+$nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
+$fotoPerfil = "../../img/perfiles/default.png";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,7 +40,7 @@
         </div>
         <div class="div-row currentUsr">
             <p id="nombre-header">usuario123</p>
-            <img id="foto-perfil-header" src="../../img/perfiles/default.png" alt="Imagen de usuario Zappy" style="width: 25px;" />
+            <img id="foto-perfil-header" src="<?php echo $fotoPerfil; ?>" alt="Imagen de usuario Zappy" style="width: 25px;" />
         </div>
     </header>
 
@@ -45,7 +60,7 @@
                 <div class="div-row">
                     <div class="div-column perfil" style="align-items: center; gap: 10px;">
                         <img id="foto-perfil-ajustes" class="circle" src="../../img/perfiles/default.png" alt="Foto de perfil">
-                        <button type="button" id="boton-cambiar-foto">Cambiar foto</button>
+                        <button type="button" id="boton-cambiar-foto" class="buttonTurquesa">Cambiar foto</button>
                         <input type="file" id="input-foto-perfil" style="display:none;" accept="image/*">
                     </div>
 
