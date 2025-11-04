@@ -4,31 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../nuevoSitios/css/modoOscuro.css">
     <link rel="stylesheet" href="css/Estilos.css">
     <title>MountyHall</title>
 </head>
 
-<body>
-    <div class="marcoAfuera">
-        <div class="marcoDentro">
-            <div class="contenedor">
-                <h1>¡Zappy se ha escondido!</h1>
-                <div class="puertas">
-                    <img src="../../img/juegoPuertas/puertaCerrada.png" id="0" class="puerta" alt="Puerta cerrada 1" onclick="elegirPuerta(0)">
-                    <img src="../../img/juegoPuertas/puertaCerrada.png" id="1" class="puerta" alt="Puerta cerrada 2" onclick="elegirPuerta(1)">
-                    <img src="../../img/juegoPuertas/puertaCerrada.png" id="2" class="puerta" alt="Puerta cerrada 3" onclick="elegirPuerta(2)">
-                </div>
-                <div class="numeros">
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                </div>
-                <div class="mensajes" id="mensaje">
-                    ¡Elige una puerta y encuentra a Zappy!
-                </div>
+<body class="div-column">
+    <nav class="div-row align content">
+        <a href="../../nuevoSitios/index/index.html.php">
+            <h1>ZAPPY</h1>
+        </a>
+        <div class="div-row" style="gap: 20px;">
+            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"
+                style="width: 30px;" />
+            <p>usuario123</p>
+        </div>
+    </nav>
+    <main class="marcoDentro div-column align content">
+        <h2>¡Zappy se ha escondido!</h2>
+        <div class="puertas">
+            <div class="div-column puerta">
+                <img src="../../img/juegoPuertas/puertaCerrada.png" id="0" class="puerta" alt="Puerta cerrada 1"
+                    onclick="elegirPuerta(0)">
+                <span class="numeros">1</span>
+            </div>
+            <div class="div-column puerta">
+                <img src="../../img/juegoPuertas/puertaCerrada.png" id="1" class="puerta" alt="Puerta cerrada 2"
+                    onclick="elegirPuerta(1)">
+                <span class="numeros">2</span>
+            </div>
+            <div class="div-column puerta">
+                <img src="../../img/juegoPuertas/puertaCerrada.png" id="2" class="puerta" alt="Puerta cerrada 3"
+                    onclick="elegirPuerta(2)">
+                <span class="numeros">3</span>
             </div>
         </div>
-    </div>
+        <p class="mensajes" id="mensaje">
+            ¡Elige una puerta y encuentra a Zappy!
+        </p>
+    </main>
 </body>
 <script src="js/logica.js"></script>
+
 </html>
