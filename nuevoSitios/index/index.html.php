@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../../persistencia/BaseDatos.php"; // Asegurate de incluir tu clase BaseDatos
 
 // Verificar si el usuario inició sesión
 if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
@@ -7,11 +8,40 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
     exit;
 }
 
-// Guardar los datos de sesión en variables
 $nombreReal = $_SESSION['usuario']['nom_real'];
 $nombreUsuario = $_SESSION['usuario']['nom_usr'];
 $idGrupo = $_SESSION['usuario']['idGrupo'];
+$idUsr = $_SESSION['usuario']['idUsr'];
+
+// ==============================
+// Conexión con tu clase
+// ==============================
+$bd = new BaseDatos();
+
+// Obtener datos del usuario (fecha y foto)
+$sql = "SELECT fecha_nac, fotoPerfil FROM Usuario WHERE idUsr = ?";
+$resultado = $bd->consultar($sql, "i", $idUsr);
+
+$fechaNac = null;
+$fotoPerfil = null;
+if ($resultado && count($resultado) > 0) {
+    $fechaNac = $resultado[0]['fecha_nac'];
+    $fotoPerfil = $resultado[0]['fotoPerfil'];
+}
+
+// Asignar imagen por defecto si no hay
+if (!$fotoPerfil || $fotoPerfil === "") {
+    $fotoPerfil = "default.png";
+}
+
+$edad = null;
+if ($fechaNac) {
+    $fechaNacimiento = new DateTime($fechaNac);
+    $hoy = new DateTime();
+    $edad = $hoy->diff($fechaNacimiento)->y;
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -37,13 +67,22 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
             <div class="ojo"></div>
             <div class="ojo"></div>
         </div>
-        <a href="indexGame.html"><button class="buttonGris">Click Para Jugar</button></a>
+        <button class="buttonGris" onclick="window.location.href='indexGame.html.php'">Click Para Jugar</button>
     </div>
 
     <div class="div-column align listaBotones">
         <div class="div-column perfil">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
-                <div class="circulo"></div>
+
+                <?php
+                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    : "../../img/perfiles/default.png"; // imagen por defecto
+                ?>
+                <div class="circulo">
+                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                </div>
+
             </a>
             <h2><?php echo htmlspecialchars($nombreReal); ?></h2>
         </div>
@@ -88,7 +127,17 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
             <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
                     <div class="div-row profile">
-                        <div class="circulito"></div>
+                       <?php
+                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    : "../../img/perfiles/default.png"; // imagen por defecto
+                ?>
+
+                        <!-- Círculo pequeño -->
+                        <div class="circulito">
+                           <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                        </div>
+
                         <div class="div-column">
                             <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
                             <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
@@ -97,21 +146,19 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                     <p class="puntaje">xxxxx</p>
                 </div>
 
-                <div class="div-column innerBox">
-                    <h3>Sobre mí</h3>
-                    <p class="atributoField">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam debitis,
-                        quisquam necessitatibus dignissimos voluptatibus expedita quidem odio commodi numquam nam
-                        officia ea delectus sequi excepturi pariatur repellendus voluptate qui!</p>
-
-                    <div class="div-row">
-                        <p>Edad</p>
-                        <p class="atributoField div-row">xxx</p>
-                    </div>
-                    <div class="div-row">
-                        <p>Cumpleaños</p>
-                        <p class="atributoField div-row">xx/xx/xxxx</p>
-                    </div>
+                <div class="div-row">
+                    <p>Edad</p>
+                    <p class="atributoField div-row">
+                        <?php echo htmlspecialchars($edad ?? 'Sin datos'); ?>
+                    </p>
                 </div>
+                <div class="div-row">
+                    <p>Cumpleaños</p>
+                    <p class="atributoField div-row">
+                        <?php echo $fechaNac ? date('d/m/Y', strtotime($fechaNac)) : 'Sin datos'; ?>
+                    </p>
+                </div>
+
 
                 <div class="div-column innerBox">
                     <h3>Juego</h3>
@@ -125,7 +172,8 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
                         <p class="atributoField div-row">№ xx</p>
                     </div>
                 </div>
-                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para cerrar</p>
+                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para
+                    cerrar</p>
             </div>
         </div>
     </div>
@@ -134,19 +182,22 @@ $idGrupo = $_SESSION['usuario']['idGrupo'];
     <div class="modal" id="logout">
         <div class="container">
             <div class="box boxTurquesa div-column">
-                <p>¿Estás seguro de que deseas <br>
-                    <b>Cerrar Sesión</b>?
-                </p>
+                <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
                 <div class="div-row align content">
-                    <button class="buttonRojo">Aceptar</button>
-                    <button class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
+                    <!-- ✅ Este formulario envía al logout.php -->
+                    <form action="../login/php/logout.php" method="post">
+                        <button type="submit" class="buttonRojo">Aceptar</button>
+                    </form>
+                    <!-- ❌ Este solo cierra el modal -->
+                    <button type="button" class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
-    <script src="../js/theme.js"></script>
-    <script src="js/logica.js"></script>
+<script src="../js/theme.js"></script>
+<script src="js/logica.js"></script>
 
 </html>

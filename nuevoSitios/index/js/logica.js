@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             document.body.classList.add('fade-out');
             setTimeout(() => {
-                window.location.href = 'indexGame.html';
+                window.location.href = 'indexGame.html.php';
             }, 500); // Debe coincidir con la duración de la animación
         });
     }

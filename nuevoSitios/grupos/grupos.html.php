@@ -35,7 +35,12 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
         </div>
         <div class="div-row">
             <p><?php echo htmlspecialchars($nombre); ?></p>
-            <img class="zappy-con-cara-1" src="<?php echo $fotoPerfil; ?>" alt="Imagen de perfil" style="width: 30px; border-radius: 50%;" />
+              <?php
+                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    : "../../img/perfiles/default.png"; // imagen por defecto
+                ?>
+             <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
         </div>
     </header>
 

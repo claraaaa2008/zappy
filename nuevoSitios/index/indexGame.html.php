@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+// Verificar si el usuario inició sesión
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
+    header("Location: ../login/login.html.php");
+    exit;
+}
+// Guardar datos básicos
+$nombreReal = $_SESSION['usuario']['nom_real'];
+$nombreUsuario = $_SESSION['usuario']['nom_usr'];
+$idGrupo = $_SESSION['usuario']['idGrupo'];
+$idUsr = $_SESSION['usuario']['idUsr']; // 👈 asegurate que exista en la sesión
+
+// ==============================
+// Conexión a la base de datos
+// ==============================
+$conexion = new mysqli("localhost", "root", "", "zappymenu");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Traer fecha de nacimiento del usuario
+$sql = "SELECT fecha_nac FROM Usuario WHERE idUsr = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("i", $idUsr);
+$stmt->execute();
+$resultado = $stmt->get_result();
+$fechaNac = null;
+if ($fila = $resultado->fetch_assoc()) {
+    $fechaNac = $fila['fecha_nac'];
+}
+
+// Calcular edad
+$edad = null;
+if ($fechaNac) {
+    $fechaNacimiento = new DateTime($fechaNac);
+    $hoy = new DateTime();
+    $edad = $hoy->diff($fechaNacimiento)->y;
+}
+
+$stmt->close();
+$conexion->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,10 +61,15 @@
 <body class="div-column">
     <header class="div-row">
         <div class="div-row">
-            <img class="zappy-con-cara-1" src="../../img/ZappyConCara.png" alt="Imagen de usuario Zappy"/>
-            <p>usuario123</p>
+               <?php
+                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    : "../../img/perfiles/default.png"; // imagen por defecto
+                ?>
+                 <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+            <p><?php echo htmlspecialchars($nombreReal); ?></p>
         </div>
-        <a href="../index/index.html">
+        <a href="index.html.php">
             <h1>ZAPPY</h1>
         </a>
         <div class="div-row">
@@ -79,45 +129,43 @@
 
     <!--------------------------------------------------------------------------->
     <!--------------------------------------------------------------------------->
-    <div class="modal" id="miInfo">
+     <div class="modal" id="miInfo">
         <div class="container">
             <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
                     <div class="div-row profile">
                         <div class="circulito"></div>
                         <div class="div-column">
-                            <h3>Nombre</h3>
-                            <h6>usuario123</h6>
+                            <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
+                            <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
                         </div>
                     </div>
                     <p class="puntaje">xxxxx</p>
                 </div>
 
-                <div class="div-column innerBox">
-                    <h3>Sobre mí</h3>
-                    <p class="atributoField">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam debitis,
-                        quisquam necessitatibus dignissimos voluptatibus expedita quidem odio commodi numquam nam
-                        officia ea delectus sequi excepturi pariatur repellendus voluptate qui!</p>
+           <div class="div-row">
+    <p>Edad</p>
+    <p class="atributoField div-row">
+        <?php echo htmlspecialchars($edad ?? 'Sin datos'); ?>
+    </p>
+</div>
+<div class="div-row">
+    <p>Cumpleaños</p>
+    <p class="atributoField div-row">
+        <?php echo $fechaNac ? date('d/m/Y', strtotime($fechaNac)) : 'Sin datos'; ?>
+    </p>
+</div>
 
-                    <div class="div-row">
-                        <p class="atributo">Edad</p>
-                        <p class="atributoField div-row">xxx</p>
-                    </div>
-                    <div class="div-row">
-                        <p class="atributo">Cumpleaños</p>
-                        <p class="atributoField div-row">xx/xx/xxxx</p>
-                    </div>
-                </div>
 
                 <div class="div-column innerBox">
                     <h3>Juego</h3>
 
                     <div class="div-row">
-                        <p class="atributo">Mi grupo</p>
-                        <p class="atributoField div-row">grupo123</p>
+                        <p>Mi grupo</p>
+                        <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">
-                        <p class="atributo">Ranking</p>
+                        <p>Ranking</p>
                         <p class="atributoField div-row">№ xx</p>
                     </div>
                 </div>
@@ -126,20 +174,23 @@
         </div>
     </div>
 
+
     <!--------------------------------------------------------------------------->
     <div class="modal" id="logout">
-        <div class="container">
-            <div class="box boxTurquesa div-column">
-                <p>¿Estás seguro de que deseas <br>
-                    <b>Cerrar Sesión</b>?
-                </p>
-                <div class="div-row align content">
-                    <button class="buttonRojo">Aceptar</button>
-                    <button class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="box boxTurquesa div-column">
+      <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
+      <div class="div-row align content">
+        <!-- ✅ Este formulario envía al logout.php -->
+        <form action="../login/php/logout.php" method="post">
+          <button type="submit" class="buttonRojo">Aceptar</button>
+        </form>
+        <!-- ❌ Este solo cierra el modal -->
+        <button type="button" class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
+      </div>
     </div>
+  </div>
+</div>
 </body>
 <script src="js/logica.js"></script>
 <script src="../js/theme.js"></script>

@@ -207,19 +207,19 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
     </div>
 
     <!-- Modal logout -->
-    <div class="modal" id="logout">
-        <div class="container">
-            <div class="box boxTurquesa div-column" style="max-height: none;">
-                <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
-                <div class="div-row align content botones">
-                    <button class="buttonRojo">Aceptar</button>
-                    <form action="php/logout" method="post">
-                        <button class="buttonTurquesa" onclick="cerrarModal('logout')" type="submit">Cancelar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+ <div class="modal" id="logout">
+  <div class="container">
+    <div class="box boxTurquesa div-column" style="max-height: none;">
+      <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
+      <div class="div-row align content botones">
+        <form action="../login/php/logout.php" method="post">
+          <button class="buttonRojo" type="submit">Aceptar</button>
+        </form>
+        <button class="buttonTurquesa" type="button" onclick="cerrarModal('logout')">Cancelar</button>
+      </div>
     </div>
+  </div>
+</div>
 
     <script src="js/logica.js"></script>
     <script src="../js/theme.js"></script>
