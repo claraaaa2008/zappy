@@ -67,9 +67,18 @@ session_start();
 
 
         <!-- Si hay un error (por ejemplo, credenciales incorrectas), se muestra un mensaje -->
+        <?php
+        if (isset($_GET['error'])) {
+            if ($_GET['error'] == 'duplicate') {
+                echo '<p style="color: red;">El usuario o email ya existe. Por favor, elige otro.</p>';
+            } else {
+                echo '<p style="color: red;">Error al registrar. Inténtalo de nuevo.</p>';
+            }
+        }
+        ?>
 
         <!-- Botón para enviar el formulario. El enlace dentro del botón no hace nada, podría eliminarse -->
-        <a href="../index/index.html.php"><button type="submit" class="buttonTurquesa">Iniciar Sesión</button></a>
+        <button type="submit" class="buttonTurquesa">Registrarse</button>
 
         <!-- Enlace para ir a la página de registro si el usuario no tiene cuenta -->
         <p class="registro" style="width: fit-content; align-self: center;">
