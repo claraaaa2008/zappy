@@ -198,5 +198,9 @@ $conexion->close();
 </body>
 <script src="js/logica.js"></script>
 <script src="../js/theme.js"></script>
+<<<<<<<< HEAD:nuevoSitios/index/indexGame.html.php
 
 </html>
+========
+</html>
+>>>>>>>> returnBtns:nuevoSitios/index/indexGame.html
