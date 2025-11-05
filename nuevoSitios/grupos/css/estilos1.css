@@ -88,6 +88,26 @@ main {
     align-items: stretch;
     justify-content: space-between;
 }
+.circulo {
+    width: 50px;                /* Tamaño del círculo (podés cambiar a 80px, 120px, etc.) */
+    height: 50px;
+    border-radius: 50%;          /* Hace que el contenedor sea redondo */
+    overflow: hidden;            /* Oculta las partes de la imagen que sobresalen del círculo */
+    border: 2px solid #4ad9d9;   /* Borde turquesa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.circulo img {
+    width: 100%;                 /* Ocupa todo el círculo */
+    height: 100%;
+    object-fit: cover;           /* Ajusta la imagen sin deformarla */
+    border-radius: 50%;          /* Por si acaso, refuerza la forma redonda */
+}
+
+
 
 /************************************************************************/
 /* ESTILOS PARA GRUPOS */

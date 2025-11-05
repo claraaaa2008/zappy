@@ -21,7 +21,7 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/modoOscuro.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos1.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <title>Mi Grupo - Zappy</title>
 </head>
@@ -35,12 +35,15 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
         </div>
         <div class="div-row">
             <p><?php echo htmlspecialchars($nombre); ?></p>
-              <?php
+               <?php
                 $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
                     : "../../img/perfiles/default.png"; // imagen por defecto
                 ?>
-             <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                <div class="circulo">
+                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                </div>
+
         </div>
     </header>
 

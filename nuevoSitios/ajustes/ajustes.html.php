@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario'])) {
 // Guardamos los datos del usuario en variables
 $usuario = $_SESSION['usuario'];
 $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
-$fotoPerfil = "../../img/perfiles/default.png";
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $fotoPerfil = "../../img/perfiles/default.png";
     <title>Ajustes - ZAPPY</title>
     <link rel="website icon" href="../../img/ZappyConCara.png">
     <link rel="stylesheet" href="../css/modoOscuro.css">
-    <link rel="stylesheet" href="css/estilosAjustes.css">
+    <link rel="stylesheet" href="css/estilosAjustes1.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
@@ -40,8 +40,14 @@ $fotoPerfil = "../../img/perfiles/default.png";
         </div>
         <div class="div-row currentUsr">
             <p><?php echo htmlspecialchars($nombre); ?></p>
-
-                 <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle">
+ <?php
+                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                    ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    : "../../img/perfiles/default.png"; // imagen por defecto
+                ?>
+                <div class="circulo">
+                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                </div>
         </div>
         </div>
     </header>

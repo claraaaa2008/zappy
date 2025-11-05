@@ -1,18 +1,20 @@
-.circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+.circulo {
+    width: 50px;                /* Tamaño del círculo (podés cambiar a 80px, 120px, etc.) */
+    height: 50px;
+    border-radius: 50%;          /* Hace que el contenedor sea redondo */
+    overflow: hidden;            /* Oculta las partes de la imagen que sobresalen del círculo */
+    border: 2px solid #4ad9d9;   /* Borde turquesa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: transparent;
-    border: 2px solid #4ad9d9;
-    overflow: hidden;
-    display: block;
 }
 
-.circle img {
+.circulo img {
+    width: 100%;                 /* Ocupa todo el círculo */
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+    object-fit: cover;           /* Ajusta la imagen sin deformarla */
+    border-radius: 50%;          /* Por si acaso, refuerza la forma redonda */
 }
 
 .material-symbols-rounded {
@@ -23,23 +25,6 @@
     cursor: pointer;
 }
 
-.circulo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: white;
-    border: 2px solid #4ad9d9;
-    overflow: hidden;
-    display: block;
-}
-
-.circulo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
 
 body {
     display: flex;

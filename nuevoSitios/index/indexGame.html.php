@@ -52,7 +52,7 @@ $conexion->close();
     <link rel="website icon" href="../../img/ZappyConCara.png">
     <link rel="stylesheet" href="css/transicion.css">
     <link rel="stylesheet" href="../css/modoOscuro.css">
-    <link rel="stylesheet" href="css/estilosMain.css">
+    <link rel="stylesheet" href="css/estilosMain1.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
@@ -61,12 +61,14 @@ $conexion->close();
 <body class="div-column">
     <header class="div-row">
         <div class="div-row">
-               <?php
+            <?php
                 $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                    ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
                     : "../../img/perfiles/default.png"; // imagen por defecto
                 ?>
-                 <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle" style="width: 10px; height: 50px;">
+                <div class="circulo">
+                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                </div>
             <p><?php echo htmlspecialchars($nombreReal); ?></p>
         </div>
         <a href="index.html.php">
