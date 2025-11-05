@@ -220,13 +220,15 @@ $esAdmin = $bd->esAdmin($idUsuario);
                     <h4>Gestión de usuarios</h4>
                     <fieldset class="div-row">
                         <span class="material-symbols-rounded">search</span>
-                        <input type="text" name="usuario" id="usuario" placeholder="Ingrese un usuario para gestionar">
+                        <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
                         <span class="material-symbols-rounded">close</span>
                     </fieldset>
                 </div>
 
-                <!-- Este include trae la lista de usuarios -->
-                <?php include "php/listarUsuarios.php"; ?>
+                <!-- Contenedor para la lista -->
+                <div id="listaUsuarios">
+                    <?php include "php/listarUsuarios.php"; ?>
+                </div>
             </form>
 
         </section>
@@ -260,6 +262,26 @@ $esAdmin = $bd->esAdmin($idUsuario);
 
     <script src="js/logica.js"></script>
     <script src="../js/theme.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const inputBuscar = document.getElementById("usuarioBuscar");
+            const usuarios = document.querySelectorAll(".usuario");
+
+            inputBuscar.addEventListener("input", function() {
+                const filtro = inputBuscar.value.toLowerCase();
+
+                usuarios.forEach(usuario => {
+                    const nombreEl = usuario.querySelector(".nomUsr");
+                    if (!nombreEl) return; // por si acaso
+                    const nombre = nombreEl.textContent.toLowerCase();
+                    usuario.style.display = nombre.includes(filtro) ? "flex" : "none";
+                });
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

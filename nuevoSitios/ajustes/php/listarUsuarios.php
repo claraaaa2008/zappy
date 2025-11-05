@@ -14,10 +14,11 @@ foreach ($usuarios as $usr):
         <div class="div-row align content">
             <div class="div-row">
                 <div class="div-column" style="align-items: flex-start;">
-                    <p id="nomUsr" <?php if (!$usr['activo']) echo 'style="text-decoration: line-through;"'; ?>>
+                    <p class="nomUsr" <?php if (!$usr['activo']) echo 'style="text-decoration: line-through;"'; ?>>
                         <?php echo htmlspecialchars($usr['nom_usr']); ?>
                         <?php if (!$usr['activo']) echo '<span style="color:red; font-size:0.9em;"> (inactivo)</span>'; ?>
                     </p>
+
                     <?php if ($usr['esAdmin'] == 1): ?>
                         <p id="tipoUsr">Admin</p>
                     <?php endif; ?>
