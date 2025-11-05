@@ -43,6 +43,8 @@ CREATE TABLE Usuario (
     fecha_nac DATE,
     genero ENUM('M','F','Otro'),
     idGrupo INT UNSIGNED,
+    activo TINYINT(1) DEFAULT 1,
+    esAdmin TINYINT(1) DEFAULT 0,
     fotoPerfil VARCHAR(255) DEFAULT 'default.png'
 ) ENGINE=InnoDB;
 

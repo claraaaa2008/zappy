@@ -163,7 +163,7 @@ $conexion->close();
                     <h3>Juego</h3>
 
                     <div class="div-row">
-                        <p>Mi grupo</p>
+                        <p class="atributo">Mi grupo</p>
                         <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">

@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('icon-person').style.fontVariationSettings = "'FILL' 1";
     document.getElementById('usuario').style.display = 'block';
     document.getElementById('interfaz').style.display = 'none';
+    document.getElementById('admin').style.display = 'none';
 
     // =============================
     // Foto de perfil
@@ -112,4 +113,5 @@ function fill_icons(event) {
 
     if (event.target.id === 'icon-person') document.getElementById('usuario').style.display = 'block';
     if (event.target.id === 'icon-ui') document.getElementById('interfaz').style.display = 'block';
+    if (event.target.id === 'icon-admin') document.getElementById('admin').style.display = 'flex';
 }
