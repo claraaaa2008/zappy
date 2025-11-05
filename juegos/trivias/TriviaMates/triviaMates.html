@@ -4,36 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" href="../../img/ZappyConCara.png">
+    <link rel="stylesheet" href="../../../nuevoSitios/css/modoOscuro.css">
     <link rel="stylesheet" href="Estilos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
     <title>Trivia de Matemática</title>
 </head>
 
-<body>
-    <div class="centradoGOD"></div>
-    <div class="marcoAfuera">
-        <div class="marcoDentro">
-            <div class="principio">
-                <button onclick="preguntaFacil()" id="Facil" class="botoncito">Facil</button>
-                <button onclick="preguntaMedio()" id="Medio" class="botoncito">Medio</button>
-                <button onclick="preguntaDificil()" id="Dificil" class="botoncito">Dificil</button>
-            </div>
-
-            <div class="preguntitas">
-                <p id="txtPregunta" class="LaPregunta"></p>
-            </div>
-
-            <input type="text" name="txtRespuesta" id="txtRespuesta" class="inputchulo" required autofocus><br>
-            <button onclick="respuesta()" id="respuesta" class="botoncito">Enviar</button>
-
-            <div class="resultados">
-                <p class="correctas">Correctas:</p>
-                <p id="txtCorrectas" class="correctas">0</p>
-                <p class="correctas">Incorrectas:</p>
-                <p id="txtIncorrectas" class="correctas">0</p>
-            </div>
+<body class="div-column">
+    <section class="marco box glowTurquesa div-column">
+        <a href="../../../nuevoSitios/index/indexGame.html.php" class="div-row">
+            <span class="material-symbols-rounded">arrow_back</span>
+            <h1>ZAPPY</h1>
+        </a>
+        <div class="div-row">
+            <button onclick="preguntaFacil()" id="Facil" class="botoncito buttonTurquesa">Facil</button>
+            <button onclick="preguntaMedio()" id="Medio" class="botoncito buttonTurquesa">Medio</button>
+            <button onclick="preguntaDificil()" id="Dificil" class="botoncito buttonTurquesa">Dificil</button>
         </div>
-    </div>
-    </div>
+
+        <p id="txtPregunta" class="LaPregunta"></p>
+
+        <input type="text" name="txtRespuesta" id="txtRespuesta" class="inputchulo" required autofocus>
+        <button onclick="respuesta()" id="respuesta" class="botoncito buttonTurquesa">Enviar</button>
+
+        <div class="div-row">
+            <div class="div-row correctas">Correctas: <p id="txtCorrectas" class="correctas">0</p></div>
+            <div class="div-row correctas">Incorrectas: <p id="txtIncorrectas" class="correctas">0</p></div>
+        </div>
+    </section>
     <script src="logica.js"></script>
 </body>
 
