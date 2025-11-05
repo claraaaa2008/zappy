@@ -187,5 +187,30 @@ class BaseDatos {
     public function getConexion() {
         return $this->conexion;
     }
+
+    /* =========================
+       Metodos para admin
+       ========================= */
+    public function esAdmin($idUsuario) {
+        $sql = "SELECT esAdmin FROM Usuario WHERE idUsr = ?";
+        $stmt = $this->conexion->prepare($sql);
+        if (!$stmt) {
+            die("Error en prepare esAdmin: " . $this->conexion->error);
+        }
+        $stmt->bind_param("i", $idUsuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $usuario = $result->fetch_assoc();
+        $stmt->close();
+
+        return $usuario ? $usuario['esAdmin'] == 1 : false;
+    }
+
+    public function obtenerTodosLosUsuarios() {
+    $sql = "SELECT idUsr, nom_usr, correo, activo, esAdmin FROM Usuario";
+    $result = $this->conexion->query($sql);
+    return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>
