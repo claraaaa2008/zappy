@@ -45,6 +45,7 @@ $conexion->close();
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,17 +59,18 @@ $conexion->close();
         rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
 </head>
+
 <body class="div-column">
     <header class="div-row">
         <div class="div-row">
             <?php
-                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
-                    : "../../img/perfiles/default.png"; // imagen por defecto
-                ?>
-                <div class="circulo">
-                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
-                </div>
+            $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                : "../../img/perfiles/default.png"; // imagen por defecto
+            ?>
+            <div class="circulo">
+                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+            </div>
             <p><?php echo htmlspecialchars($nombreReal); ?></p>
         </div>
         <a href="index.html.php">
@@ -101,7 +103,7 @@ $conexion->close();
                 </div>
             </div>
         </aside>
-    
+
         <main>
             <a href="../../juegos/memory/memory.html">
                 <div class="box boxAmarillo glowAmarillo">Memory</div>
@@ -131,7 +133,7 @@ $conexion->close();
 
     <!--------------------------------------------------------------------------->
     <!--------------------------------------------------------------------------->
-     <div class="modal" id="miInfo">
+    <div class="modal" id="miInfo">
         <div class="container">
             <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
@@ -145,18 +147,18 @@ $conexion->close();
                     <p class="puntaje">xxxxx</p>
                 </div>
 
-           <div class="div-row">
-    <p>Edad</p>
-    <p class="atributoField div-row">
-        <?php echo htmlspecialchars($edad ?? 'Sin datos'); ?>
-    </p>
-</div>
-<div class="div-row">
-    <p>Cumpleaños</p>
-    <p class="atributoField div-row">
-        <?php echo $fechaNac ? date('d/m/Y', strtotime($fechaNac)) : 'Sin datos'; ?>
-    </p>
-</div>
+                <div class="div-row">
+                    <p>Edad</p>
+                    <p class="atributoField div-row">
+                        <?php echo htmlspecialchars($edad ?? 'Sin datos'); ?>
+                    </p>
+                </div>
+                <div class="div-row">
+                    <p>Cumpleaños</p>
+                    <p class="atributoField div-row">
+                        <?php echo $fechaNac ? date('d/m/Y', strtotime($fechaNac)) : 'Sin datos'; ?>
+                    </p>
+                </div>
 
 
                 <div class="div-column innerBox">
@@ -179,21 +181,22 @@ $conexion->close();
 
     <!--------------------------------------------------------------------------->
     <div class="modal" id="logout">
-  <div class="container">
-    <div class="box boxTurquesa div-column">
-      <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
-      <div class="div-row align content">
-        <!-- ✅ Este formulario envía al logout.php -->
-        <form action="../login/php/logout.php" method="post">
-          <button type="submit" class="buttonRojo">Aceptar</button>
-        </form>
-        <!-- ❌ Este solo cierra el modal -->
-        <button type="button" class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
-      </div>
+        <div class="container">
+            <div class="box boxTurquesa div-column">
+                <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
+                <div class="div-row align content">
+                    <!-- ✅ Este formulario envía al logout.php -->
+                    <form action="../login/php/logout.php" method="post">
+                        <button type="submit" class="buttonRojo">Aceptar</button>
+                    </form>
+                    <!-- ❌ Este solo cierra el modal -->
+                    <button type="button" class="buttonTurquesa" onclick="cerrarModal('logout')">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </body>
 <script src="js/logica.js"></script>
 <script src="../js/theme.js"></script>
+
 </html>

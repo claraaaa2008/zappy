@@ -39,14 +39,14 @@ $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
         </div>
         <div class="div-row currentUsr">
             <p><?php echo htmlspecialchars($nombre); ?></p>
- <?php
-                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
-                    : "../../img/perfiles/default.png"; // imagen por defecto
-                ?>
-                <div class="circulo">
-                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
-                </div>
+            <?php
+            $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                : "../../img/perfiles/default.png"; // imagen por defecto
+            ?>
+            <div class="circulo">
+                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+            </div>
         </div>
         </div>
     </header>
@@ -263,19 +263,19 @@ $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
     </div>
 
     <!-- Modal logout -->
- <div class="modal" id="logout">
-  <div class="container">
-    <div class="box boxTurquesa div-column" style="max-height: none;">
-      <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
-      <div class="div-row align content botones">
-        <form action="../login/php/logout.php" method="post">
-          <button class="buttonRojo" type="submit">Aceptar</button>
-        </form>
-        <button class="buttonTurquesa" type="button" onclick="cerrarModal('logout')">Cancelar</button>
-      </div>
+    <div class="modal" id="logout">
+        <div class="container">
+            <div class="box boxTurquesa div-column" style="max-height: none;">
+                <p>¿Estás seguro de que deseas <br><b>Cerrar Sesión</b>?</p>
+                <div class="div-row align content botones">
+                    <form action="../login/php/logout.php" method="post">
+                        <button class="buttonRojo" type="submit">Aceptar</button>
+                    </form>
+                    <button class="buttonTurquesa" type="button" onclick="cerrarModal('logout')">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <script src="js/logica.js"></script>
     <script src="../js/theme.js"></script>

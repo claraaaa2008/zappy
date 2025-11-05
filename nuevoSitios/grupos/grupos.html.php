@@ -17,6 +17,7 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,20 +30,22 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
 <body class="div-column">
     <header class="div-row align">
         <div class="div-row">
-            <a href="../index/index.html.php"><h1>ZAPPY</h1></a>
+            <a href="../index/index.html.php">
+                <h1>ZAPPY</h1>
+            </a>
             <div class="separador-vertical"></div>
             <h2>Mi grupo</h2>
         </div>
         <div class="div-row">
             <p><?php echo htmlspecialchars($nombre); ?></p>
-               <?php
-                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
-                    : "../../img/perfiles/default.png"; // imagen por defecto
-                ?>
-                <div class="circulo">
-                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
-                </div>
+            <?php
+            $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                : "../../img/perfiles/default.png"; // imagen por defecto
+            ?>
+            <div class="circulo">
+                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+            </div>
 
         </div>
     </header>
@@ -92,4 +95,5 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
     <script src="../js/theme.js"></script>
     <script src="js/logica.js"></script>
 </body>
+
 </html>
