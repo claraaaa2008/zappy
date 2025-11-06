@@ -7,11 +7,11 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     $nombre = $_POST['nombre']; // nom_real
     $email = $_POST['email'];   // correo
     $fechaNacimiento = date('Y-m-d', strtotime($_POST['fechaNacimiento'])); // Formato YYYY-MM-DD
-    $sexo = $_POST['sexo'];
+    $sexo = $_POST['genero'];
 
     // Ajuste ENUM
-    if ($sexo === 'Masculino') $sexo = 'M';
-    elseif ($sexo === 'Femenino') $sexo = 'F';
+    if ($sexo === 'masculino') $sexo = 'M';
+    elseif ($sexo === 'femenino') $sexo = 'F';
     else $sexo = 'Otro';
 
     $conexion = new mysqli("localhost", "root", "", "zappymenu");
@@ -19,6 +19,21 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     if ($conexion->connect_error) {
         die("Error de conexión: " . $conexion->connect_error);
     }
+
+    // Verificar si el usuario o email ya existen
+    $checkSql = "SELECT idUsr FROM Usuario WHERE nom_usr = ? OR correo = ?";
+    $checkStmt = $conexion->prepare($checkSql);
+    $checkStmt->bind_param("ss", $usuario, $email);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+
+    if ($checkStmt->num_rows > 0) {
+        $checkStmt->close();
+        $conexion->close();
+        header("Location: ../../signupNuevo/signup.html.php?error=duplicate");
+        exit();
+    }
+    $checkStmt->close();
 
     // Hashear la contraseña
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
