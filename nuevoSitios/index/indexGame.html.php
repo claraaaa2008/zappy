@@ -7,10 +7,11 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
     exit;
 }
 // Guardar datos básicos
-$nombreReal = $_SESSION['usuario']['nom_real'];
-$nombreUsuario = $_SESSION['usuario']['nom_usr'];
-$idGrupo = $_SESSION['usuario']['idGrupo'];
-$idUsr = $_SESSION['usuario']['idUsr']; // 👈 asegurate que exista en la sesión
+$usuario = $_SESSION['usuario'];
+$nombreReal = $usuario['nom_real'];
+$nombreUsuario = $usuario['nom_usr'];
+$idGrupo = $usuario['idGrupo'];
+$idUsr = $usuario['idUsr']; // 👈 asegurate que exista en la sesión
 
 // ==============================
 // Conexión a la base de datos

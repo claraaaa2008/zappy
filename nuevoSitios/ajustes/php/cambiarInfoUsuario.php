@@ -61,6 +61,7 @@ if (!empty($_FILES['fotoPerfil']['name'])) {
     if (move_uploaded_file($tmp, $ruta.$nuevoNombre)) {
         $sql = "UPDATE Usuario SET fotoPerfil = ? WHERE idUsr = ?";
         $db->ejecutar($sql, "si", $nuevoNombre, $idUsr);
+        $_SESSION['usuario']['fotoPerfil'] = $nuevoNombre;
     } else {
         echo json_encode(["success" => false, "message" => "Error al subir la foto"]);
         exit;
