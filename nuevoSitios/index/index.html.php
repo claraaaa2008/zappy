@@ -36,11 +36,6 @@ if ($fechaNac) {
     $hoy = new DateTime();
     $edad = $hoy->diff($fechaNacimiento)->y;
 }
-
-
-$fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-    ? "../img/" . htmlspecialchars($usuario['fotoPerfil'])
-    : "../../img/perfiles/default.png";
 ?>
 
 
