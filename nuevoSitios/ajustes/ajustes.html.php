@@ -63,7 +63,7 @@ $esAdmin = $bd->esAdmin($idUsuario);
         <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">computer</span>
         <?php if ($esAdmin): ?>
             <span class="material-symbols-rounded" id="icon-admin" onclick="fill_icons(event)">shield_person</span>
-        <?php endif; ?> // Si es admin, mostrar el icono de administración
+        <?php endif; ?> <!-- Si es admin, mostrar el icono de administración -->
         <span class="material-symbols-rounded" id="icon-logout" onclick="abrirModal('logout', event)">logout</span>
     </nav>
 
