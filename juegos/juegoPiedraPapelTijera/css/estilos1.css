@@ -27,6 +27,22 @@ body {
   height: 0px;            /* Altura mínima, para evitar espacio extra */
   /* Puedes ajustar esta altura para dar un tamaño fijo */
 }
+.btnVolver {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4ad9d9;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.btnVolver:hover {
+    background-color: #39b7b7;
+}
 
 /* Puntos del usuario ubicados de forma absoluta en la pantalla */
 .usuarioPuntos {

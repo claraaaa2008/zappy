@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Juego Mosqueta</title>
     <link rel="website icon" href="../../img/ZappyConCara.png">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos1.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
@@ -20,13 +20,16 @@
             <h1>ZAPPY</h1>
         </a>
     </nav>
+
     <main class="div-column">
-        <!-- el titulo del juego decorado-->
+
         <h2>Juego de la Mosqueta</h2>
         <p>Haz clic en un vaso para intentar adivinar dónde está la pelota.</p>
-        <div class="puntaje">Puntaje: 0</div>
 
-        <button id="reiniciar" class="buttonTurquesa">Reiniciar</button> <!-- Un boton util para reiniciar el juego -->
+        <!-- AHORA SÍ tiene id="puntaje" -->
+        <div id="puntaje" class="puntaje">Puntaje: 0</div>
+
+        <button id="reiniciar" class="buttonTurquesa">Reiniciar</button>
 
         <div class="game-container" id="juego">
             <div class="vaso" data-vaso="0"></div>
@@ -36,9 +39,10 @@
         </div>
 
         <div id="mensaje"></div>
+
     </main>
 
 </body>
-<script src="js/logica.js"></script>
 
+<script src="js/logica.js"></script>
 </html>

@@ -5,40 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../nuevoSitios/css/modoOscuro.css">
-    <link rel="stylesheet" href="css/Estilos.css">
+    <link rel="stylesheet" href="css/Estilos1.css">
     <title>MountyHall</title>
 </head>
 
-<body class="div-column">
-    <nav class="div-row align content">
-        <a href="../../nuevoSitios/index/index.html.php">
-            <h1>ZAPPY</h1>
-        </a>
-    </nav>
-    <main class="marcoDentro div-column align content">
-        <h2>¡Zappy se ha escondido!</h2>
-        <div class="puertas">
-            <div class="div-column puerta">
-                <img src="../../img/juegoPuertas/puertaCerrada.png" id="0" class="puerta" alt="Puerta cerrada 1"
-                    onclick="elegirPuerta(0)">
-                <span class="numeros">1</span>
-            </div>
-            <div class="div-column puerta">
-                <img src="../../img/juegoPuertas/puertaCerrada.png" id="1" class="puerta" alt="Puerta cerrada 2"
-                    onclick="elegirPuerta(1)">
-                <span class="numeros">2</span>
-            </div>
-            <div class="div-column puerta">
-                <img src="../../img/juegoPuertas/puertaCerrada.png" id="2" class="puerta" alt="Puerta cerrada 3"
-                    onclick="elegirPuerta(2)">
-                <span class="numeros">3</span>
+<body>
+    <button class="btnVolver" onclick="history.back()">Volver</button>
+    <div class="marcoAfuera">
+        <div class="marcoDentro">
+            
+            <div class="contenedor">
+
+                <h1>¡Zappy se ha escondido!</h1>
+
+                <!-- ✅ ACA AGREGO EL PUNTAJE -->
+                <div id="puntaje" class="puntaje">Puntaje: 0</div>
+
+                <div class="puertas">
+                    <img src="../../img/juegoPuertas/puertaCerrada.png" id="0" class="puerta" onclick="elegirPuerta(0)">
+                    <img src="../../img/juegoPuertas/puertaCerrada.png" id="1" class="puerta" onclick="elegirPuerta(1)">
+                    <img src="../../img/juegoPuertas/puertaCerrada.png" id="2" class="puerta" onclick="elegirPuerta(2)">
+                </div>
+
+                <div class="numeros">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+
+                <!-- ✅ ESTE ES EL ÚNICO MENSAJE QUE QUEDA -->
+                <div class="mensajes" id="mensaje">¡Elige una puerta y encuentra a Zappy!</div>
+
             </div>
         </div>
-        <p class="mensajes" id="mensaje">
-            ¡Elige una puerta y encuentra a Zappy!
-        </p>
-    </main>
+    </div>
+
+    <script src="js/logica.js">
+
+    console.log("HTML sí carga JS INLINE");
+
+
+
+    </script>
 </body>
-<script src="js/logica.js"></script>
 
 </html>
