@@ -3,6 +3,8 @@ let resultado = 0;
 // Contadores de respuestas correctas e incorrectas
 let contadorCorrectas = 0;
 let contadorIncorrectas = 0;
+// Contador de puntaje
+let puntaje = 0;
 
 /* Esta función se ejecuta cuando el usuario hace clic en "Enviar"
 Compara la respuesta del usuario con el resultado correcto
@@ -15,6 +17,16 @@ function respuesta() {
         document.getElementById("txtRespuesta").value = "";
         document.getElementById("txtRespuesta").focus();
         document.getElementById("txtCorrectas").innerHTML = contadorCorrectas;
+        // Incrementar puntaje basado en dificultad
+        let dificultad = document.querySelector('.botoncito:active') || document.querySelector('.botoncito');
+        if (dificultad.id === 'Facil') {
+            puntaje += 1;
+        } else if (dificultad.id === 'Medio') {
+            puntaje += 2;
+        } else if (dificultad.id === 'Dificil') {
+            puntaje += 3;
+        }
+        document.getElementById("txtPuntaje").innerHTML = puntaje;
     } else {
         contadorIncorrectas++;
         document.getElementById("txtRespuesta").value = "";
