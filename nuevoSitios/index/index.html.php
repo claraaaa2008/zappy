@@ -30,9 +30,7 @@ if ($resultado && count($resultado) > 0) {
 }
 
 // Asignar imagen por defecto si no hay
-if (!$fotoPerfil || $fotoPerfil === "") {
-    $fotoPerfil = "default.png";
-}
+
 
 $edad = null;
 if ($fechaNac) {
@@ -40,6 +38,11 @@ if ($fechaNac) {
     $hoy = new DateTime();
     $edad = $hoy->diff($fechaNacimiento)->y;
 }
+
+
+$fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+    ? "../img/" . htmlspecialchars($usuario['fotoPerfil'])
+    : "../../img/perfiles/default.png";
 ?>
 
 
@@ -74,14 +77,14 @@ if ($fechaNac) {
         <div class="div-column perfil">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
 
-                <?php
-                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
-                    : "../../img/perfiles/default.png"; // imagen por defecto
-                ?>
-                <div class="circulo">
-                    <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
-                </div>
+                 <?php
+            $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
+                ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
+                : "../../img/perfiles/default.png"; // imagen por defecto
+            ?>
+            <div class="circulo">
+                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+            </div>
 
             </a>
             <h2><?php echo htmlspecialchars($nombreReal); ?></h2>

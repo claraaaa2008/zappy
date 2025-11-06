@@ -11,7 +11,7 @@ if (!isset($_SESSION['usuario'])) {
 $usuario = $_SESSION['usuario'];
 $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
 $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-    ? "../img/" . htmlspecialchars($usuario['fotoPerfil'])
+    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
     : "../../img/perfiles/default.png";
 ?>
 
