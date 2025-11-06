@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const vaso = vasos[indice];
         const rect = vaso.getBoundingClientRect();
         const juegoRect = document.getElementById('juego').getBoundingClientRect();
+
         pelota.style.left = (rect.left - juegoRect.left + vaso.offsetWidth / 2 - 25) + 'px';
         pelota.style.display = 'block';
     }
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje.textContent = texto;
         mensaje.style.color = correcto ? 'lime' : 'red';
         mensaje.classList.add('mostrar');
+
         setTimeout(() => {
             mensaje.classList.remove('mostrar');
         }, 2000);
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("Puntaje actualizado:", puntaje);
                 actualizarPuntaje();
                 juegoActivo = false;
+
             } else {
                 mostrarMensaje('¡Incorrecto! Intenta de nuevo.', false);
             }
@@ -62,9 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     reiniciar.addEventListener('click', () => {
-        // Comentamos para no reiniciar el puntaje
-        // puntaje = 0;
-        // actualizarPuntaje();
         limpiarJuego();
         posicionPelota = Math.floor(Math.random() * 3);
     });

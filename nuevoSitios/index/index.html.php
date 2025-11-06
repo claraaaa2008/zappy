@@ -8,29 +8,27 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
     exit;
 }
 
-$nombreReal = $_SESSION['usuario']['nom_real'];
-$nombreUsuario = $_SESSION['usuario']['nom_usr'];
-$idGrupo = $_SESSION['usuario']['idGrupo'];
-$idUsr = $_SESSION['usuario']['idUsr'];
+$usuario = $_SESSION['usuario'];
+$nombreReal = $usuario['nom_real'];
+$nombreUsuario = $usuario['nom_usr'];
+$idGrupo = $usuario['idGrupo'];
+$idUsr = $usuario['idUsr'];
 
 // ==============================
 // Conexión con tu clase
 // ==============================
 $bd = new BaseDatos();
 
-// Obtener datos del usuario (fecha y foto)
-$sql = "SELECT fecha_nac, fotoPerfil FROM Usuario WHERE idUsr = ?";
+// Obtener datos del usuario (fecha)
+$sql = "SELECT fecha_nac FROM Usuario WHERE idUsr = ?";
 $resultado = $bd->consultar($sql, "i", $idUsr);
 
 $fechaNac = null;
-$fotoPerfil = null;
 if ($resultado && count($resultado) > 0) {
     $fechaNac = $resultado[0]['fecha_nac'];
-    $fotoPerfil = $resultado[0]['fotoPerfil'];
 }
 
-// Asignar imagen por defecto si no hay
-
+$fotoPerfil = $usuario['fotoPerfil'] ?? "default.png";
 
 $edad = null;
 if ($fechaNac) {
@@ -77,14 +75,9 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
         <div class="div-column perfil">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)">
 
-                 <?php
-            $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                ? "../../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
-                : "../../img/perfiles/default.png"; // imagen por defecto
-            ?>
-            <div class="circulo">
-                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
-            </div>
+                <div class="circulo">
+                    <img src="<?php echo "../../img/perfiles/" . htmlspecialchars($fotoPerfil); ?>" alt="Foto de perfil" class="circle-img">
+                </div>
 
             </a>
             <h2><?php echo htmlspecialchars($nombreReal); ?></h2>
@@ -130,15 +123,9 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
             <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
                     <div class="div-row profile">
-                       <?php
-                $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
-                    ? "../img/perfiles/" . htmlspecialchars($usuario['fotoPerfil'])
-                    : "../../img/perfiles/default.png"; // imagen por defecto
-                ?>
-
                         <!-- Círculo pequeño -->
                         <div class="circulito">
-                           <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" class="circle-img">
+                           <img src="<?php echo "../../img/perfiles/" . htmlspecialchars($fotoPerfil); ?>" alt="Foto de perfil" class="circle-img">
                         </div>
 
                         <div class="div-column">
