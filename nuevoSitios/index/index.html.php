@@ -28,6 +28,9 @@ if ($resultado && count($resultado) > 0) {
     $fechaNac = $resultado[0]['fecha_nac'];
 }
 
+// Obtener puntaje total del usuario
+$puntajeTotal = $bd->obtenerPuntajeTotalUsuario($idUsr);
+
 $fotoPerfil = $usuario['fotoPerfil'] ?? "default.png";
 
 $edad = null;
@@ -90,7 +93,7 @@ if ($fechaNac) {
                     Grupos
                 </button>
             </a>
-            <a href="../ranking/ranking.html">
+            <a href="../ranking/ranking.html.php">
                 <button type="button" class="buttonAmarillo">
                     <span class="material-symbols-rounded">leaderboard</span>
                     Ranking
@@ -128,7 +131,7 @@ if ($fechaNac) {
                             <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
                         </div>
                     </div>
-                    <p class="puntaje">xxxxx</p>
+                    <p class="puntaje"><?php echo htmlspecialchars($puntajeTotal); ?></p>
                 </div>
 
                 <div class="div-row">

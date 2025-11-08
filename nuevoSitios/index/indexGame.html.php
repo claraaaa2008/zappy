@@ -42,6 +42,14 @@ if ($fechaNac) {
 
 $stmt->close();
 $conexion->close();
+
+// ==============================
+// Obtener puntaje total y ranking
+// ==============================
+require_once "../../persistencia/BaseDatos.php";
+$bd = new BaseDatos();
+$puntajeTotal = $bd->obtenerPuntajeTotalUsuario($idUsr);
+$topUsuarios = $bd->obtenerTopUsuarios(10);
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +88,7 @@ $conexion->close();
         <div class="div-row">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)" class="btn"><span class="material-symbols-rounded">person</span></a>
             <a href="../grupos/grupos.html.php" class="btn"><span class="material-symbols-rounded">group</span></a>
-            <a href="../ranking/ranking.html" class="btn"><span class="material-symbols-rounded">leaderboard</span></a>
+            <a href="../ranking/ranking.html.php" class="btn"><span class="material-symbols-rounded">leaderboard</span></a>
             <a href="../ajustes/ajustes.html.php" class="btn"><span class="material-symbols-rounded">settings</span></a>
             <a href="#logout" onclick="abrirModal('logout', event)" class="logout"><span class="material-symbols-rounded">logout</span></a>
         </div>
@@ -90,18 +98,16 @@ $conexion->close();
         <aside>
             <h2>Ranking</h2>
             <div class="div-column">
-                <div class="div-row">
-                    <p><b>1.</b> usuario123</p>
-                    <p class="puntaje">xxxxx</p>
-                </div>
-                <div class="div-row">
-                    <p><b>1.</b> usuario123</p>
-                    <p class="puntaje">xxxxx</p>
-                </div>
-                <div class="div-row">
-                    <p><b>1.</b> usuario123</p>
-                    <p class="puntaje">xxxxx</p>
-                </div>
+                <?php
+                $posicion = 1;
+                foreach ($topUsuarios as $usuarioRanking) {
+                    echo '<div class="div-row">';
+                    echo '<p><b>' . $posicion . '.</b> ' . htmlspecialchars($usuarioRanking['nom_usr']) . '</p>';
+                    echo '<p class="puntaje">' . htmlspecialchars($usuarioRanking['totalPuntos']) . '</p>';
+                    echo '</div>';
+                    $posicion++;
+                }
+                ?>
             </div>
         </aside>
 
@@ -145,7 +151,7 @@ $conexion->close();
                             <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
                         </div>
                     </div>
-                    <p class="puntaje">xxxxx</p>
+                    <p class="puntaje"><?php echo htmlspecialchars($puntajeTotal); ?></p>
                 </div>
 
                 <div class="div-row">
