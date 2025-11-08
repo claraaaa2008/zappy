@@ -7,17 +7,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verificar usuario autenticado
-    if (!isset($_SESSION["id_usuario"])) {
+    if (!isset($_SESSION['usuario']['idUsr'])) {
         http_response_code(401);
         echo json_encode(["error" => "Usuario no autenticado"]);
         exit;
     }
 
-    $id_usuario = $_SESSION["id_usuario"];
+    $id_usuario = $_SESSION['usuario']['idUsr'];
     $id_juego   = $data["id_juego"] ?? null;
     $puntaje    = $data["puntaje"] ?? null;
 
     // Validar datos
+    echo "guardar puntaje";
     if ($id_juego && $puntaje !== null) {
         $db = new BaseDatos();
 

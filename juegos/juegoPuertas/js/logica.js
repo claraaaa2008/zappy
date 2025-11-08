@@ -2,13 +2,24 @@
 
 console.log("LOGICA.JS CARGÓ PERFECTAMENTE");
 
-var puertas = asignacionPrimaria(); 
+var puertas = asignacionPrimaria();
 console.log(puertas);
 
 var contEleccion = 0;
 var eleccionPrimaria;
- 
+
 var puntaje = 0; // puntaje total
+
+// Cargar puntaje acumulado del usuario para este juego
+fetch('../../../persistencia/obtenerPuntaje.php?id_juego=4')
+    .then(res => res.json())
+    .then(data => {
+        if (data && data.puntaje !== undefined) {
+            puntaje = data.puntaje;
+            document.querySelector("#puntaje").textContent = "Puntaje: " + puntaje;
+        }
+    })
+    .catch(err => console.error('Error al cargar puntaje:', err));
 
 function asignacionPrimaria() {
     var puertas = [1, 0, 0];
@@ -73,6 +84,24 @@ function decisionFinal(eleccionFinal) {
     if (eleccionFinal == ganar) {
         puntaje += 10;
         mensaje.textContent = `¡Felicidades! Encontraste a Zappy en la puerta ${ganar + 1}.`;
+        // Enviar puntaje al servidor si gana
+        fetch('../../../persistencia/guardarPuntaje.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id_juego: 4,
+                puntaje: puntaje
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.success) {
+                console.log('Puntaje guardado correctamente');
+            } else {
+                console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+            }
+        })
+        .catch(err => console.error('Error en fetch:', err));
     } else {
         puntaje += 2;
         mensaje.textContent = `Qué lástima... Zappy estaba en la puerta ${ganar + 1}.`;

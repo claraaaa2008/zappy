@@ -102,21 +102,75 @@ $pidActual = $clavePreguntas[$preguntaActual];
         if ($puntos == $total) {
             echo "<script>
                 window.alert('¡Felicitaciones! Has acertado todo ¿Desea volver a la página principal?');
-                window.location.href = '../../../sitios/index/index.html.php';
+                // Enviar puntaje al servidor
+                fetch('../../../persistencia/guardarPuntaje.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id_juego: 6,
+                        puntaje: $puntos * 10
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.success) {
+                        console.log('Puntaje guardado correctamente');
+                    } else {
+                        console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+                    }
+                })
+                .catch(err => console.error('Error en fetch:', err));
+                window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
             </script>";
         } else if (isset($_POST['enviar'])) {
             switch ($puntos) {
                 case 1:
                     echo "<script>
                         window.alert('¡Oh! Has obtenido: $puntos punto. Se le redireccionará a Inicio');
-                        window.location.href = '../../../sitios/index/index.html.php';
+                        // Enviar puntaje al servidor
+                        fetch('../../../persistencia/guardarPuntaje.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                id_juego: 6,
+                                puntaje: $puntos * 10
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data && data.success) {
+                                console.log('Puntaje guardado correctamente');
+                            } else {
+                                console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+                            }
+                        })
+                        .catch(err => console.error('Error en fetch:', err));
+                        window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
                     </script>";
                     break;
                 default:
                     // Muestra el resultado del usuario (puntos obtenidos sobre el total).
                     echo "<script>
                     window.alert('¡Oh! Has obtenido: $puntos puntos. Se le redireccionará a Inicio');
-                    window.location.href = '../../../sitios/index/index.html.php';
+                    // Enviar puntaje al servidor
+                    fetch('../../../persistencia/guardarPuntaje.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            id_juego: 6,
+                            puntaje: $puntos * 10
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data && data.success) {
+                            console.log('Puntaje guardado correctamente');
+                        } else {
+                            console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+                        }
+                    })
+                    .catch(err => console.error('Error en fetch:', err));
+                    window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
                     </script>";
                     break;
             }

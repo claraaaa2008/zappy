@@ -4,6 +4,17 @@ let resultado = 0;
 let contadorCorrectas = 0;
 let contadorIncorrectas = 0;
 
+// Cargar puntaje acumulado del usuario para este juego
+fetch('../../../persistencia/obtenerPuntaje.php?id_juego=3')
+    .then(res => res.json())
+    .then(data => {
+        if (data && data.puntaje !== undefined) {
+            contadorCorrectas = data.puntaje;
+            document.getElementById("txtCorrectas").innerHTML = contadorCorrectas;
+        }
+    })
+    .catch(err => console.error('Error al cargar puntaje:', err));
+
 /* Esta función se ejecuta cuando el usuario hace clic en "Enviar"
 Compara la respuesta del usuario con el resultado correcto
 Si es correcta, suma uno al contador de correctas; si no, suma uno al de incorrectas
@@ -21,6 +32,30 @@ function respuesta() {
         document.getElementById("txtRespuesta").focus();
         document.getElementById("txtIncorrectas").innerHTML = contadorIncorrectas;
     }
+
+    // Si llega a 10 correctas, enviar puntaje
+    if (contadorCorrectas >= 10) {
+        const puntaje = contadorCorrectas * 5; // 5 puntos por correcta
+        fetch('../../../persistencia/guardarPuntaje.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id_juego: 3,
+                puntaje: puntaje
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.success) {
+                console.log('Puntaje guardado correctamente');
+                alert('¡Felicitaciones! Has alcanzado 10 correctas. Puntaje guardado.');
+            } else {
+                console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+            }
+        })
+        .catch(err => console.error('Error en fetch:', err));
+    }
+
     // Genera una nueva pregunta según la dificultad seleccionada
     let dificultad = document.querySelector('input.botoncito:checked');
     if (dificultad) {

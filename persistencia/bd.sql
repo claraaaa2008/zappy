@@ -121,3 +121,25 @@ CREATE TABLE TriviaMatematica (
     dificultad VARCHAR(50),
     FOREIGN KEY (idJuego) REFERENCES Trivia(idJuego) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+-- ==========================================================
+-- INSERTAR DATOS INICIALES
+-- ==========================================================
+
+-- Insertar juegos
+INSERT INTO Juego (idJuego, nombreJuego, puntos) VALUES
+(1, 'Memory', 0),
+(2, 'Piedra Papel Tijera', 0),
+(3, 'Trivia Matemática', 0),
+(4, 'Monty Hall', 0),
+(5, 'Juego de la Mosqueta', 0),
+(6, 'Trivia HTML', 0);
+
+-- Insertar subtipos de juegos
+INSERT INTO Memoria (idJuego) VALUES (1);
+INSERT INTO PiedraPapelTijera (idJuego) VALUES (2);
+INSERT INTO Trivia (idJuego) VALUES (3), (6);
+INSERT INTO JuegoPuertas (idJuego) VALUES (4);
+INSERT INTO JuegoMosqueta (idJuego) VALUES (5);
+INSERT INTO TriviaMatematica (idJuego, dificultad) VALUES (3, 'Fácil');
+INSERT INTO TriviaHTML (idJuego) VALUES (6);

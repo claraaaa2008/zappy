@@ -175,6 +175,30 @@ class BaseDatos {
     }
 
     /* =========================
+       MÉTODOS PARA PUNTAJES
+       ========================= */
+    public function obtenerPuntajeTotalUsuario($idUsr, $idJuego = null) {
+        if ($idJuego !== null) {
+            $sql = "SELECT SUM(sumPuntos) AS totalPuntos FROM Juega WHERE idUsr = ? AND idJuego = ?";
+            $resultado = $this->consultar($sql, "ii", $idUsr, $idJuego);
+        } else {
+            $sql = "SELECT SUM(sumPuntos) AS totalPuntos FROM Juega WHERE idUsr = ?";
+            $resultado = $this->consultar($sql, "i", $idUsr);
+        }
+        return $resultado ? ($resultado[0]['totalPuntos'] ?? 0) : 0;
+    }
+
+    public function obtenerTopUsuarios($limite = 10) {
+        $sql = "SELECT u.nom_usr, SUM(j.sumPuntos) AS totalPuntos
+                FROM Usuario u
+                LEFT JOIN Juega j ON u.idUsr = j.idUsr
+                GROUP BY u.idUsr, u.nom_usr
+                ORDER BY totalPuntos DESC
+                LIMIT ?";
+        return $this->consultar($sql, "i", $limite);
+    }
+
+    /* =========================
        CERRAR CONEXIÓN
        ========================= */
     public function cerrarConexion() {
