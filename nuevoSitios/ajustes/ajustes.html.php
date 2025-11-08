@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once('../../persistencia/BaseDatos.php');
+
 
 // Si el usuario no está logueado, redirigir al login
 if (!isset($_SESSION['usuario'])) {
@@ -10,6 +12,11 @@ if (!isset($_SESSION['usuario'])) {
 // Guardamos los datos del usuario en variables
 $usuario = $_SESSION['usuario'];
 $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
+
+// Traemos el valor de esAdmin desde la base
+$bd = new BaseDatos();
+$idUsuario = $usuario['idUsr'];
+$esAdmin = $bd->esAdmin($idUsuario);
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +61,9 @@ $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
     <nav class="div-row content">
         <span class="material-symbols-rounded" id="icon-person" onclick="fill_icons(event)">person</span>
         <span class="material-symbols-rounded" id="icon-ui" onclick="fill_icons(event)">computer</span>
-        <span class="material-symbols-rounded" id="icon-admin" onclick="fill_icons(event)">shield_person</span>
+        <?php if ($esAdmin): ?>
+            <span class="material-symbols-rounded" id="icon-admin" onclick="fill_icons(event)">shield_person</span>
+        <?php endif; ?> <!-- Si es admin, mostrar el icono de administración -->
         <span class="material-symbols-rounded" id="icon-logout" onclick="abrirModal('logout', event)">logout</span>
     </nav>
 
@@ -211,43 +220,17 @@ $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
                     <h4>Gestión de usuarios</h4>
                     <fieldset class="div-row">
                         <span class="material-symbols-rounded">search</span>
-                        <input type="text" name="usuario" id="usuario" placeholder="Ingrese un usuario para gestionar">
+                        <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
                         <span class="material-symbols-rounded">close</span>
                     </fieldset>
-                    <!--Por defecto que se desplieguen todos los usuarios y cuando busca un usuario que aparezca solo ese usuario-->
                 </div>
 
-                <div class="box glowTurquesa div-column usuario">
-                    <div class="div-row align content">
-                        <div class="div-row">
-                            <img src="" alt="">
-                            <div class="div-column" style="align-items: flex-start;">
-                                <p id="nomUsr">usuario123</p> <!-- Si no está activo, se activa un tachado en el texto y un texto al lado diciendo: inactivo -->
-                                <p id="tipoUsr">Admin</p> <!-- Desaparece esta etiqueta si no es administrador en el sistema -->
-                            </div>
-                        </div>
-                        <p class="puntaje">xxxxx</p>
-                    </div>
-                    <div class="div-column campos">
-                        <div class="grid">
-                            <div class="div-column">
-                                <label for="text">Modificar el nombre</label>
-                                <input type="text">
-                            </div>
-                            <div class="div-column">
-                                <label for="text">Modificar contraseña</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <button class="buttonTurquesa">Guardar Cambios</button>
-                        <hr>
-                        <div class="grid">
-                            <button class="buttonTurquesa">Hacer admin</button> <!-- Si el usuario ya es admin, que aparezca en cursiva y medio transparente el boton-->
-                            <button class="buttonRojo">Desactivar</button>
-                        </div>
-                    </div>
+                <!-- Contenedor para la lista -->
+                <div id="listaUsuarios">
+                    <?php include "php/listarUsuarios.php"; ?>
                 </div>
             </form>
+
         </section>
     </main>
 
@@ -279,6 +262,26 @@ $nombre = $usuario['nom_real'] ?: $usuario['nom_usr'];
 
     <script src="js/logica.js"></script>
     <script src="../js/theme.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const inputBuscar = document.getElementById("usuarioBuscar");
+            const usuarios = document.querySelectorAll(".usuario");
+
+            inputBuscar.addEventListener("input", function() {
+                const filtro = inputBuscar.value.toLowerCase();
+
+                usuarios.forEach(usuario => {
+                    const nombreEl = usuario.querySelector(".nomUsr");
+                    if (!nombreEl) return; // por si acaso
+                    const nombre = nombreEl.textContent.toLowerCase();
+                    usuario.style.display = nombre.includes(filtro) ? "flex" : "none";
+                });
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
