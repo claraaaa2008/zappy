@@ -75,7 +75,7 @@ $esAdmin = $bd->esAdmin($idUsuario);
             <form id="form-usuario" action="php/cambiarInfoUsuario.php" class="div-column" enctype="multipart/form-data">
                 <div class="div-row">
                     <div class="div-column perfil" style="align-items: center; gap: 10px;">
-                        <img id="foto-perfil-ajustes" class="circle" src="../../img/perfiles/default.png" alt="Foto de perfil">
+                        <span class="material-symbols-rounded circle">add_a_photo</span>
                         <button type="button" id="boton-cambiar-foto" class="buttonTurquesa">Cambiar foto</button>
                         <input type="file" id="input-foto-perfil" style="display:none;" accept="image/*">
                     </div>
@@ -218,11 +218,11 @@ $esAdmin = $bd->esAdmin($idUsuario);
             <form class="div-column box boxTurquesa glowTurquesa" method="post" id="gestiónUsuarios">
                 <div class="div-column titleUsrs">
                     <h4>Gestión de usuarios</h4>
-                    <fieldset class="div-row">
-                        <span class="material-symbols-rounded">search</span>
-                        <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
-                        <span class="material-symbols-rounded">close</span>
-                    </fieldset>
+                        <fieldset class="div-row">
+                            <span class="material-symbols-rounded">search</span>
+                            <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
+                            <span class="material-symbols-rounded" id="clearSearch">close</span>
+                        </fieldset>
                 </div>
 
                 <!-- Contenedor para la lista -->

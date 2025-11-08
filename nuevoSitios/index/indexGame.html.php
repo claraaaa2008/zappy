@@ -145,7 +145,11 @@ $topUsuarios = $bd->obtenerTopUsuarios(10);
             <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
                     <div class="div-row profile">
-                        <div class="circulito"></div>
+                        <!-- Círculo pequeño -->
+                        <div class="circulito">
+                           <img src="<?php echo "../../img/perfiles/" . htmlspecialchars($fotoPerfil); ?>" alt="Foto de perfil" class="circle-img">
+                        </div>
+
                         <div class="div-column">
                             <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
                             <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
@@ -172,7 +176,7 @@ $topUsuarios = $bd->obtenerTopUsuarios(10);
                     <h3>Juego</h3>
 
                     <div class="div-row">
-                        <p class="atributo">Mi grupo</p>
+                        <p>Mi grupo</p>
                         <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">
@@ -180,7 +184,8 @@ $topUsuarios = $bd->obtenerTopUsuarios(10);
                         <p class="atributoField div-row">№ xx</p>
                     </div>
                 </div>
-                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para cerrar</p>
+                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para
+                    cerrar</p>
             </div>
         </div>
     </div>

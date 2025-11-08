@@ -115,3 +115,22 @@ function fill_icons(event) {
     if (event.target.id === 'icon-ui') document.getElementById('interfaz').style.display = 'block';
     if (event.target.id === 'icon-admin') document.getElementById('admin').style.display = 'flex';
 }
+
+// =============================
+// Limpiar búsqueda de usuarios
+// =============================
+document.addEventListener('DOMContentLoaded', function() {
+    const clearSearchBtn = document.getElementById('clearSearch');
+    const inputBuscar = document.getElementById('usuarioBuscar');
+    const usuarios = document.querySelectorAll('.usuario');
+
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', function() {
+            inputBuscar.value = '';
+            // Mostrar todos los usuarios nuevamente
+            usuarios.forEach(usuario => {
+                usuario.style.display = 'flex';
+            });
+        });
+    }
+});
