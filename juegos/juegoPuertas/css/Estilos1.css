@@ -46,16 +46,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* Estilo del título */
-h1 {
-    color: #288686;
+    gap: 15px;
 }
 
 /* PUNTAJE */
 .puntaje {
-    margin-top: 10px;
     font-size: 26px;
     font-family: monospace;
     color: #4ad9d9;
@@ -87,7 +82,6 @@ h1 {
 .numeros {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
     gap: 215px;
     font-size: 30px;
     font-family: monospace;

@@ -210,11 +210,12 @@ $esAdmin = $bd->esAdmin($idUsuario);
 
         <section class="div-column classAdmin" id="admin">
             <h3>Administracion de plataforma</h3>
+            <!--
             <form class="div-column box boxTurquesa glowTurquesa" method="post" id="agregarJuegos">
                 <h4>Agrega un juego</h4>
                 <p>Formatos disponibles: .html, .php</p>
                 <button class="buttonTurquesa">Inserta tu juego</span></button>
-            </form>
+            </form>-->
             <form class="div-column box boxTurquesa glowTurquesa" method="post" id="gestiónUsuarios">
                 <div class="div-column titleUsrs">
                     <h4>Gestión de usuarios</h4>

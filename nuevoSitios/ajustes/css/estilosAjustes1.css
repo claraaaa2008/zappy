@@ -230,6 +230,10 @@ form .div-row {
     font-weight: 500;
 }
 
+#logout form {
+    width: 100%;
+}
+
 [data-theme="light"] {
     .circle {
         border: 2px solid #4ad9d9;
