@@ -195,14 +195,7 @@ $esAdmin = $bd->esAdmin($idUsuario);
                     </div>
                 </div>
 
-                <div class="div-column box boxTurquesa glowTurquesa">
-                    <h4>Juego</h4>
-                    <h5>Fondo de pantalla</h5>
-                    <div class="div-row">
-                        <img src="../../img/ajustes/agregarImg.png" alt="">
-                        <img src="../../img/ajustes/agregarColor.png" alt="">
-                    </div>
-                </div>
+                
 
                 <button type="submit" class="buttonTurquesa">Guardar Cambios</button>
             </form>
