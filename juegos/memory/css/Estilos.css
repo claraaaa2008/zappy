@@ -19,7 +19,7 @@ body {
 
 #game {
     display: grid; /* Usar grid para las cartas */
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Columnas automáticas con mínimo 80px, se ajustan al contenedor */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas automáticas con mínimo 80px, se ajustan al contenedor */
     gap: 1rem; /* Espacio entre filas y columnas */
     max-width: 800px; /* Máximo ancho del contenedor */
     width: 100%; /* Ancho total disponible */

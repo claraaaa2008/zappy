@@ -18,7 +18,6 @@ $puntos = 0;
 // Calcula el total de preguntas (usando la cantidad de respuestas correctas).
 $total = count($respuestasCorrectas);
 
-
 /********************* LÓGICA DE NAVEGACIÓN Y RESPUESTAS ********************/
 // Determina el índice de la pregunta actual a mostrar. Si no se ha enviado nada, comienza en 0.
 $preguntaActual = isset($_POST['preguntaActual']) ? intval($_POST['preguntaActual']) : 0;

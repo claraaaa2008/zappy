@@ -5,6 +5,7 @@ var cantPartidas = 1;      // Contador de partidas jugadas
 var ganadas = 0;           // Cantidad de partidas ganadas por el usuario
 var perdidas = 0;          // Cantidad de partidas ganadas por el sistema
 
+/*
 // Cargar puntaje acumulado del usuario para este juego
 fetch('../../../persistencia/obtenerPuntaje.php?id_juego=2')
     .then(res => res.json())
@@ -14,7 +15,7 @@ fetch('../../../persistencia/obtenerPuntaje.php?id_juego=2')
             document.getElementById("contUsr").textContent = ganadas;
         }
     })
-    .catch(err => console.error('Error al cargar puntaje:', err));
+    .catch(err => console.error('Error al cargar puntaje:', err));*/
 
 // Función que genera la elección aleatoria del sistema
 function asignacionSist() {
@@ -154,7 +155,7 @@ function finJuego(quienGano) {
             document.getElementById("modal-titulo").textContent = "¡¡¡Felicitaciones ganaste!!! 🎉";
             // Enviar puntaje al servidor si gana el usuario
             const puntaje = ganadas * 10; // Ejemplo: 10 puntos por ronda ganada
-            fetch('../../../persistencia/guardarPuntaje.php', {
+            fetch('../../persistencia/guardarPuntaje.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -172,6 +173,7 @@ function finJuego(quienGano) {
             })
             .catch(err => console.error('Error en fetch:', err));
         };
+        cantPartidas--; // Ajusta el contador de partidas para el display correcto
         // Muestra los puntajes finales y cantidad de rondas jugadas
         document.getElementById("resultado").textContent = "Tú: " + ganadas + " | Zappy: " + perdidas;
         document.getElementById("jugadas").textContent = "Rondas jugadas: " + cantPartidas;

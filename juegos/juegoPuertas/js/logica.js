@@ -1,5 +1,3 @@
-
-
 console.log("LOGICA.JS CARGÓ PERFECTAMENTE");
 
 var puertas = asignacionPrimaria();
@@ -11,6 +9,7 @@ var eleccionPrimaria;
 var puntaje = 0; // puntaje total
 
 // Cargar puntaje acumulado del usuario para este juego
+/*
 fetch('../../../persistencia/obtenerPuntaje.php?id_juego=4')
     .then(res => res.json())
     .then(data => {
@@ -19,7 +18,7 @@ fetch('../../../persistencia/obtenerPuntaje.php?id_juego=4')
             document.querySelector("#puntaje").textContent = "Puntaje: " + puntaje;
         }
     })
-    .catch(err => console.error('Error al cargar puntaje:', err));
+    .catch(err => console.error('Error al cargar puntaje:', err));*/
 
 function asignacionPrimaria() {
     var puertas = [1, 0, 0];
@@ -85,7 +84,7 @@ function decisionFinal(eleccionFinal) {
         puntaje += 10;
         mensaje.textContent = `¡Felicidades! Encontraste a Zappy en la puerta ${ganar + 1}.`;
         // Enviar puntaje al servidor si gana
-        fetch('../../../persistencia/guardarPuntaje.php', {
+        fetch('../../persistencia/guardarPuntaje.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
