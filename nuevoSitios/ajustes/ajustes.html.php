@@ -195,7 +195,7 @@ $esAdmin = $bd->esAdmin($idUsuario);
                     </div>
                 </div>
 
-                
+
 
                 <button type="submit" class="buttonTurquesa">Guardar Cambios</button>
             </form>
@@ -212,15 +212,15 @@ $esAdmin = $bd->esAdmin($idUsuario);
             <form class="div-column box boxTurquesa glowTurquesa" method="post" id="gestiónUsuarios">
                 <div class="div-column titleUsrs">
                     <h4>Gestión de usuarios</h4>
-                        <fieldset class="div-row">
-                            <span class="material-symbols-rounded">search</span>
-                            <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
-                            <span class="material-symbols-rounded" id="clearSearch">close</span>
-                        </fieldset>
+                    <fieldset class="div-row">
+                        <span class="material-symbols-rounded">search</span>
+                        <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
+                        <span class="material-symbols-rounded" id="clearSearch">close</span>
+                    </fieldset>
                 </div>
 
                 <!-- Contenedor para la lista -->
-                <div id="listaUsuarios">
+                <div id="listaUsuarios" style="gap: 20px;">
                     <?php include "php/listarUsuarios.php"; ?>
                 </div>
             </form>

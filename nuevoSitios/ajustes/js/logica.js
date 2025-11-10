@@ -236,3 +236,20 @@ document.addEventListener("click", async (e) => {
     }
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const clearSearchBtn = document.getElementById('clearSearch');
+    const inputBuscar = document.getElementById('usuarioBuscar');
+    const usuarios = document.querySelectorAll('.usuario');
+
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', function() {
+            inputBuscar.value = '';
+            // Mostrar todos los usuarios nuevamente
+            usuarios.forEach(usuario => {
+                usuario.style.display = 'flex';
+            });
+        });
+    }
+});
