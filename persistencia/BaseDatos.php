@@ -236,5 +236,32 @@ class BaseDatos {
     return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+        /* =========================
+       MÉTODOS NUEVOS PARA ADMIN Y ACTIVACIÓN
+       ========================= */
+    public function hacerAdmin($idUsuario) {
+        $sql = "UPDATE Usuario SET esAdmin = 1 WHERE idUsr = ?";
+        $stmt = $this->conexion->prepare($sql);
+        if (!$stmt) {
+            die("Error en prepare hacerAdmin: " . $this->conexion->error);
+        }
+        $stmt->bind_param("i", $idUsuario);
+        $resultado = $stmt->execute();
+        $stmt->close();
+        return $resultado;
+    }
+
+    public function cambiarEstadoUsuario($idUsuario, $activo) {
+        $sql = "UPDATE Usuario SET activo = ? WHERE idUsr = ?";
+        $stmt = $this->conexion->prepare($sql);
+        if (!$stmt) {
+            die("Error en prepare cambiarEstadoUsuario: " . $this->conexion->error);
+        }
+        $stmt->bind_param("ii", $activo, $idUsuario);
+        $resultado = $stmt->execute();
+        $stmt->close();
+        return $resultado;
+    }
+
 }
 ?>
