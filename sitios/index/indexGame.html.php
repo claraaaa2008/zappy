@@ -62,7 +62,7 @@ $topUsuarios = $bd->obtenerTopUsuarios(10);
     <title>Inicio - Zappy</title>
     <link rel="website icon" href="../../img/ZappyConCara.png">
     <link rel="stylesheet" href="css/transicion.css">
-    <link rel="stylesheet" href="../css/modoOscuro.css">
+    <link rel="stylesheet" href="../../css/modoOscuro.css">
     <link rel="stylesheet" href="css/estilosMain1.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"

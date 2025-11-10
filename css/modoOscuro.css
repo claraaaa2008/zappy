@@ -360,6 +360,10 @@ fieldset {
         border: none;
     }
 
+    .separador-vertical {
+        color: #2e2e2e;
+    }
+
     /************ Estilos de modal ************/
     .modal {
         background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */

@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regístrate</title>
     <link re l="website icon" href="../../img/ZappyConCara.png">
-    <link rel="stylesheet" href="../css/modoOscuro.css">
+    <link rel="stylesheet" href="../../css/modoOscuro.css">
     <link rel="stylesheet" href="css/estilosSignup.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
