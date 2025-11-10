@@ -49,6 +49,8 @@ function respaldoManual(){
 
     # Envía el archivo comprimido al equipo remoto mediante SCP
     scp -r "$nombreArchivo" "$usuarioRemoto@$ipRemota:~"
+
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Se realizo un respaldo manual del directorio $rutaRespaldo" >> /var/log/zappy.log
 }
 
 # ==============================

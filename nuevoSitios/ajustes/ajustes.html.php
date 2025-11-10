@@ -263,23 +263,6 @@ $esAdmin = $bd->esAdmin($idUsuario);
     <script src="js/logica.js"></script>
     <script src="../js/theme.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const inputBuscar = document.getElementById("usuarioBuscar");
-            const usuarios = document.querySelectorAll(".usuario");
-
-            inputBuscar.addEventListener("input", function() {
-                const filtro = inputBuscar.value.toLowerCase();
-
-                usuarios.forEach(usuario => {
-                    const nombreEl = usuario.querySelector(".nomUsr");
-                    if (!nombreEl) return; // por si acaso
-                    const nombre = nombreEl.textContent.toLowerCase();
-                    usuario.style.display = nombre.includes(filtro) ? "flex" : "none";
-                });
-            });
-        });
-    </script>
 
 
 </body>

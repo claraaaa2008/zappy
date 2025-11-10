@@ -1,7 +1,7 @@
 <?php
-require_once "../../persistencia/BaseDatos.php";
+require_once "../../persistencia/BaseDatos.php";  // Ajustá ruta si es necesario
 $db = new BaseDatos();
-$usuarios = $db->obtenerTodosLosUsuarios(); // Asegúrate de tener este método en tu clase BaseDatos
+$usuarios = $db->obtenerTodosLosUsuarios();
 
 if (empty($usuarios)) {
     echo "<p>No hay usuarios registrados.</p>";
@@ -27,27 +27,44 @@ foreach ($usuarios as $usr):
         </div>
 
         <div class="div-column campos">
-            <div class="grid">
-                <div class="div-column">
-                    <label>Modificar el nombre</label>
-                    <input type="text" name="nuevoNombre_<?php echo $usr['idUsr']; ?>" value="<?php echo htmlspecialchars($usr['nom_usr']); ?>">
-                </div>
-                <div class="div-column">
-                    <label>Modificar contraseña</label>
-                    <input type="password" name="nuevaPass_<?php echo $usr['idUsr']; ?>">
-                </div>
-            </div>
+            <!-- Formulario para modificar datos del usuario -->
+            <form class="form-admin-usuario" action="php/actualizarUsuarioAdmin.php" method="post">
+                <input type="hidden" name="idUsr" value="<?php echo $usr['idUsr']; ?>">
 
-            <button class="buttonTurquesa">Guardar Cambios</button>
+                <div class="grid">
+                    <div class="div-column">
+                        <label>Modificar el nombre</label>
+                        <input type="text" name="nombre" value="<?php echo htmlspecialchars($usr['nom_usr']); ?>">
+                    </div>
+                    <div class="div-column">
+                        <label>Modificar contraseña</label>
+                        <input type="password" name="contrasena" placeholder="Dejar vacío si no se cambia">
+                    </div>
+                </div>
+
+                <button type="submit" class="buttonTurquesa">Guardar Cambios</button>
+            </form>
+
             <hr>
 
+            <!-- Botones para hacer admin o desactivar/reactivar -->
             <div class="grid">
-                <button class="buttonTurquesa" <?php if ($usr['esAdmin']) echo 'style="opacity:0.6; font-style:italic;" disabled'; ?>>
-                    <?php echo $usr['esAdmin'] ? 'Ya es admin' : 'Hacer admin'; ?>
-                </button>
-                <button class="buttonRojo">
-                    <?php echo $usr['activo'] ? 'Desactivar' : 'Reactivar'; ?>
-                </button>
+                <!-- 🔹 Hacer admin -->
+                <form action="php/hacerAdmin.php" method="post" style="display:inline;">
+                    <input type="hidden" name="idUsr" value="<?php echo $usr['idUsr']; ?>">
+                    <button type="submit" class="buttonTurquesa"
+                        <?php if ($usr['esAdmin']) echo 'style="opacity:0.6; font-style:italic;" disabled'; ?>>
+                        <?php echo $usr['esAdmin'] ? 'Ya es admin' : 'Hacer admin'; ?>
+                    </button>
+                </form>
+
+                <!-- 🔹 Desactivar / Reactivar -->
+                <form action="php/desactivarUsuario.php" method="post" style="display:inline;">
+                    <input type="hidden" name="idUsr" value="<?php echo $usr['idUsr']; ?>">
+                    <button type="submit" class="buttonRojo">
+                        <?php echo $usr['activo'] ? 'Desactivar' : 'Reactivar'; ?>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
