@@ -64,6 +64,9 @@ function crearGrupo(){
         groupadd $nombreGrupo
         echo -e "${verde}Grupo $nombreGrupo creado.${color_predeterminado}"
     fi
+
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Se creó el grupo $nombreGrupo" >> /var/log/zappy.log
+
     echo "Presione Enter para volver al menú..."
     read
     clear
@@ -78,6 +81,9 @@ function eliminarGrupo(){
     else
         echo -e "${rojo}El grupo $nombreGrupo no existe.${color_predeterminado}"
     fi
+
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Se eliminó el grupo $nombreGrupo" >> /var/log/zappy.log
+
     echo "Presione Enter para volver al menú..."
     read
     clear

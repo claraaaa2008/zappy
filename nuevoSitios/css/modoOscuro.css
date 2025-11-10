@@ -1,0 +1,377 @@
+/* Importación de fuentes Roboto de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Clase para aplicar la fuente Roboto */
+.roboto-uniquifier {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+}
+/* Definición de la fuente personalizada 'Cutta' en dos estilos */
+@import url('https://fonts.cdnfonts.com/css/cutta');
+.cutta-uniquifier {
+    font-family: 'Cutta', sans-serif;
+    font-optical-sizing: auto;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+/* <weight>: Use a value from 400 to 700 */
+/* <uniquifier>: Use a unique and descriptive class name */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+.pixelify-sans-uniquifier {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/************************************************************************/
+/************************************************************************/
+body {
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    padding-inline: 40px;
+    margin: 0;
+    background-color: #2e2e2e;
+    font-family: 'Cutta', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Cutta', sans-serif;
+    font-size: 4rem;
+    color: #4ad9d9; /* Color turquesa */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button {
+    cursor: pointer;
+} button:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+.align {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.div-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} .div-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+} .grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+
+h1 {
+    text-shadow: #9cffff 0px 0px 15px;
+    font-family: 'Cutta', sans-serif;
+    font-size: 3rem;
+    color: #4ad9d9; /* Color turquesa */
+    text-align: center;
+}
+
+.glowTurquesa {
+    border: 4px solid #4ad9d9;
+    box-shadow: 0 0 15px #9cffff;
+} .glowAmarillo {
+    box-shadow: 0 0 8px 1px #f5a503;
+} .glowRojo {
+    box-shadow: 0 0 5px #f1385a;
+}
+
+.box {
+    box-sizing: border-box;
+    border-radius: 16px;
+    padding: 20px;
+} .boxTurquesa {
+    border: 4px solid #4ad9d9;
+} .boxAmarillo {
+    border: 4px solid #f5a503;
+} .boxRojo {
+    border: 4px solid #f1385a;
+}
+
+.contenedorLlenar {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.buttonAmarillo, .buttonRojo, .buttonTurquesa, .buttonGris {
+    padding: 8px;
+    border-radius: 16px;
+    width: 100%;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttonAmarillo {
+    background-color: #f5a503;
+    color: #2e2e2e;
+} .buttonAmarillo:hover {
+    background-color: #f5a503;
+    color: #2e2e2e;
+    box-shadow: 0 0 10px #ffb703;
+}
+
+.buttonRojo {
+    background-color: #f1385a;
+    color: #2e2e2e;
+} .buttonRojo:hover {
+    background-color: #f1385a;
+    color: #2e2e2e;
+    box-shadow: 0 0 10px #ff4c6d;
+}
+
+.buttonTurquesa {
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+} .buttonTurquesa:hover {
+    background-color: #4ad9d9;
+    color: #2e2e2e;
+    box-shadow: 0 0 10px #9cffff;
+}
+
+.buttonGris {
+    background-color: #2e2e2e;
+    color: white;
+} .buttonGris:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+.buttonGris:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+.separador-vertical {
+    width: 1.5px;              /* Grosor de la línea */
+    height: 40px;            /* Altura de la línea, ajústala según tu header */
+    background: #fff;        /* Color de la línea */
+    margin: 0 30px;          /* Espacio a los lados */
+    border-radius: 2px;      /* Bordes redondeados (opcional) */
+    align-self: center;      /* Centra verticalmente en el flex */
+}
+
+input, select {
+    box-sizing: border-box;
+    border: 2px solid #d9d9d9;
+    border-radius: 16px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #d9d9d9;
+    color: #2e2e2e;
+    font-family: 'Roboto', sans-serif;
+} input::placeholder{
+    color: #919191;
+} input:focus, select:focus {
+    outline: none;
+    border: 1px solid #4ad9d9;
+    box-shadow: #4ad9d9 0px 0px 8px;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    color: #d9d9d9;
+}
+
+fieldset {
+    border-radius: 100px;
+    padding: 10px;
+    background-color: #d9d9d9;
+    color: #919191;
+    margin: 0;
+    border: none;
+} fieldset .material-symbols-rounded {
+    color: #919191;
+} fieldset input {
+    border: none;
+    background-color: transparent;
+    color: #2e2e2e;
+    box-shadow: none;
+    padding: 0;
+} fieldset input:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+/************ Estilos de modal ************/
+.modal {
+    position: fixed; /* Fijo sobre toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    align-items: center;    /* Centra verticalmente */
+    justify-content: center;/* Centra horizontalmente */
+    display: none;
+} .modal .container{
+    color: white;
+    width: 476px;
+    height: auto;
+} .atributoField {
+    background-color: #404040;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 400;
+} .puntaje {
+    background-color: #404040;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+} .content {
+    justify-content: space-between;
+} .profile {
+    gap: 20px;
+} .innerBox {
+    border-radius: 16px;
+    box-sizing: border-box;
+    gap: 15px;
+    border-width: 1px;
+    padding: 16px;
+    box-shadow: 0 0 6px #9cffff;
+} .innerBox:hover {
+    box-shadow: 0 0 12px #9cffff;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Default dark theme */
+[data-theme="light"] {
+    body {
+        background-color: white;
+        color: #2e2e2e;
+    }
+
+    h1 {
+        color: #25858F; /* Color turquesa */
+        text-shadow: #36B1C0 0px 0px 15px;
+    }
+
+    .glowTurquesa {
+        box-shadow: 0 0 15px #36B1C0;
+    } .glowAmarillo {
+        box-shadow: 0 0 8px 1px #f5a503;
+    } .glowRojo {
+        box-shadow: 0 0 5px #f1385a;
+    }
+
+    .box {
+        box-sizing: border-box;
+        border-radius: 16px;
+        padding: 20px;
+        background-color: transparent;
+    } .boxTurquesa {
+        border: 4px solid #4ad9d9;
+    } .boxAmarillo {
+        border: 4px solid #f5a503;
+    } .boxRojo {
+        border: 4px solid #f1385a;
+    }
+
+    .buttonAmarillo {
+        color: #f5a503;
+        background-color: #2e2e2e;
+    } .buttonAmarillo:hover {
+        box-shadow: 0 0 10px #2e2e2e;
+    }
+
+    .buttonRojo {
+        background-color: #f1385a;
+        color: #2e2e2e;
+    } .buttonRojo:hover {
+        box-shadow: 0 0 10px #ff4c6d;
+    }
+
+    .buttonTurquesa {
+        background-color: #4ad9d9;
+        color: #2e2e2e;
+    } .buttonTurquesa:hover {
+        box-shadow: 0 0 10px #9cffff;
+    }
+
+    .buttonGris {
+        background-color: #f5a503;
+        color: #2e2e2e;
+    }
+
+    input, select {
+        border: 2px solid #d9d9d9;
+        background-color: #d9d9d9;
+        color: #2e2e2e;
+    } input::placeholder{
+        color: #919191;
+    } input:focus, select:focus {
+        border: 1px solid #4ad9d9;
+        box-shadow: #4ad9d9 0px 0px 8px;
+    }
+
+    label {
+        color: #2e2e2e;
+    }
+
+    fieldset {
+        background-color: #d9d9d9;
+        color: #919191;
+    } fieldset .material-symbols-rounded {
+        color: #919191;
+    } fieldset input {
+        color: #2e2e2e;
+    } fieldset input:focus {
+        outline: none;
+        box-shadow: none;
+        border: none;
+    }
+
+    /************ Estilos de modal ************/
+    .modal {
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    } .modal .container{
+        color: white;
+    } .atributoField {
+        background-color: #404040;
+    } .puntaje {
+        background-color: #404040;
+    } .innerBox {
+        box-shadow: 0 0 6px #9cffff;
+    } .innerBox:hover {
+        box-shadow: 0 0 12px #9cffff;
+    }
+}

@@ -1,0 +1,104 @@
+/* Fondo general */
+html, body{
+    background-color: #f5a503;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centrado del contenido */
+body {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Botón Volver */
+.btnVolver {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4ad9d9;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.btnVolver:hover {
+    background-color: #39b7b7;
+}
+
+/* Marco */
+.marcoDentro {
+    box-sizing: border-box;
+    border: #093b41 20px solid;
+    border-radius: 16px;
+    padding: 40px;
+    background-color: #2e2e2e;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Contenedor del juego */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* PUNTAJE */
+.puntaje {
+    font-size: 26px;
+    font-family: monospace;
+    color: #4ad9d9;
+    text-shadow: 0 0 8px #4ad9d9, 0 0 2px #4ad9d9, 0 0 3px #4ad9d9;
+}
+
+/* Puertas */
+.puertas {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+}
+.puertas img {
+    width: 15dvh;
+    height: 30dvh;
+}
+
+.puerta {
+    cursor: pointer;
+}
+.puerta:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 3px 3px #4ad9d9, 0 2px 2px rgba(0,0,0,0.1);
+}
+
+/* Números debajo */
+.numeros {
+    display: flex;
+    justify-content: center;
+    gap: 215px;
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #4ad9d9;
+    text-shadow: 0 0 8px #4ad9d9, 0 0 2px #4ad9d9, 0 0 3px #4ad9d9;
+}
+
+/* Mensajes */
+.mensajes {
+    font-size: 30px;
+    font-family: monospace;
+    color: #4ad9d9;
+    text-shadow: 0 0 8px #4ad9d9, 0 0 2px #4ad9d9, 0 0 3px #4ad9d9;
+}
+
+/* Resaltar puerta elegida */
+.primeraEleccion {
+    box-shadow: 0 0 3px 3px #4ad9d9, 0 2px 2px rgba(0,0,0,0.1);
+}

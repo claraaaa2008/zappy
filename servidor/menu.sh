@@ -14,6 +14,7 @@ source ./usuarios.sh
 source ./grupos.sh
 source ./firewalld.sh
 source ./respaldos.sh
+source ./logs.sh
 
 # Inicializa la variable de opción con un valor distinto de 0 para entrar al bucle
 opc=5
@@ -29,6 +30,7 @@ while [[ $opc != 0 ]]; do
     echo -e "${color_menu}2) ${color_predeterminado}Grupos"
     echo -e "${color_menu}3) ${color_predeterminado}Firewall"
     echo -e "${color_menu}4) ${color_predeterminado}Respaldos"
+    echo -e "${color_menu}5) ${color_predeterminado}Logs"
     echo -e "${color_menu}0) ${color_predeterminado}Salir"
 
     # Lee la opción ingresada por el usuario
@@ -48,6 +50,9 @@ while [[ $opc != 0 ]]; do
             ;;
         4)
             menuRespaldos  # Llama a la función definida en respaldos.sh
+            ;;
+        5)
+            menuLogs  # Llama a la función definida en logs.sh
             ;;
         0)
             echo "Saliendo..."  # Mensaje de despedida

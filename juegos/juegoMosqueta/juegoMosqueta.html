@@ -5,29 +5,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Juego Mosqueta</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="website icon" href="../../img/ZappyConCara.png">
+    <link rel="stylesheet" href="css/estilos1.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../nuevoSitios/css/modoOscuro.css">
+    <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
 </head>
 
 <body>
-    <!-- el titulo del juego decorado-->
-    <h1>🎲 Juego de la <span>Mosqueta</span> 🎲</h1>
-    <p>Haz clic en un vaso para intentar adivinar dónde está la pelota.</p>
-    <div id="puntaje">Puntaje: 0</div>
+    <nav class="div-row align content">
+        <a href="../../nuevoSitios/index/indexGame.html.php">
+            <h1>ZAPPY</h1>
+        </a>
+    </nav>
 
+    <main class="div-column">
 
-    <div class="botones">
-        <button id="reiniciar">Reiniciar</button> <!-- Un boton util para reiniciar el juego -->
-    </div>
+        <h2>Juego de la Mosqueta</h2>
+        <p>Haz clic en un vaso para intentar adivinar dónde está la pelota.</p>
 
-    <div class="game-container" id="juego">
-        <div class="vaso" data-vaso="0"></div>
-        <div class="vaso" data-vaso="1"></div>
-        <div class="vaso" data-vaso="2"></div>
-        <div class="pelota" id="pelota"></div>
-    </div>
+        <!-- AHORA SÍ tiene id="puntaje" -->
+        <div id="puntaje" class="puntaje">Puntaje: 0</div>
 
-    <div id="mensaje"></div>
+        <button id="reiniciar" class="buttonTurquesa">Reiniciar</button>
+
+        <div class="game-container" id="juego">
+            <div class="vaso" data-vaso="0"></div>
+            <div class="vaso" data-vaso="1"></div>
+            <div class="vaso" data-vaso="2"></div>
+            <div class="pelota" id="pelota"></div>
+        </div>
+
+        <div id="mensaje"></div>
+
+    </main>
 
 </body>
+
 <script src="js/logica.js"></script>
 </html>

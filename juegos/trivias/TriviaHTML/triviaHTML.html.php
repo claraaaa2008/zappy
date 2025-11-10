@@ -18,7 +18,6 @@ $puntos = 0;
 // Calcula el total de preguntas (usando la cantidad de respuestas correctas).
 $total = count($respuestasCorrectas);
 
-
 /********************* LÓGICA DE NAVEGACIÓN Y RESPUESTAS ********************/
 // Determina el índice de la pregunta actual a mostrar. Si no se ha enviado nada, comienza en 0.
 $preguntaActual = isset($_POST['preguntaActual']) ? intval($_POST['preguntaActual']) : 0;
@@ -61,19 +60,28 @@ $pidActual = $clavePreguntas[$preguntaActual];
 
 <head>
     <meta charset="UTF-8">
-    <title>Cuestionario De Html</title>
+    <title>Zappy - Cuestionario De HTML</title>
     <!--
         La sentencia de time permite que el navegador descargue el CSS actualizado.
         Esto soluciona el problema de la imposibilidad de cargar los cambios realizados
     -->
     <link rel="website icon" href="../../../img/triviaHTML/ZappyConCara.png"></link>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
+    <link rel="stylesheet" href="../../../nuevoSitios/css/modoOscuro.css">
     <link rel="stylesheet" href="css/Estilos.css?v=<?= time() ?>">
 </head>
 
 <body>
     <!-- Contenedor del título y la imagen de Zappy -->
     <div class="tituloContainer">
-        <h1 class="titulo">Cuestionario De Html</h1>
+        <a href="../../../nuevoSitios/index/indexGame.html.php" class="div-row">
+            <span class="material-symbols-rounded">arrow_back</span>
+            <h1>ZAPPY</h1>
+        </a>
+        <h2 class="titulo">Cuestionario De Html</h2>
         <img src="../../../img/triviaHTML/ZappyConCara.png" alt="TV personaje" class="zappy">
         <?php
         // Si se ha enviado el formulario (POST), calcula el puntaje y muestra el resultado.
@@ -93,21 +101,75 @@ $pidActual = $clavePreguntas[$preguntaActual];
         if ($puntos == $total) {
             echo "<script>
                 window.alert('¡Felicitaciones! Has acertado todo ¿Desea volver a la página principal?');
-                window.location.href = '../../../sitios/index/index.html.php';
+                // Enviar puntaje al servidor
+                fetch('../../../persistencia/guardarPuntaje.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id_juego: 6,
+                        puntaje: $puntos * 10
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.success) {
+                        console.log('Puntaje guardado correctamente');
+                    } else {
+                        console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+                    }
+                })
+                .catch(err => console.error('Error en fetch:', err));
+                window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
             </script>";
         } else if (isset($_POST['enviar'])) {
             switch ($puntos) {
                 case 1:
                     echo "<script>
                         window.alert('¡Oh! Has obtenido: $puntos punto. Se le redireccionará a Inicio');
-                        window.location.href = '../../../sitios/index/index.html.php';
+                        // Enviar puntaje al servidor
+                        fetch('../../../persistencia/guardarPuntaje.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                id_juego: 6,
+                                puntaje: $puntos * 10
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data && data.success) {
+                                console.log('Puntaje guardado correctamente');
+                            } else {
+                                console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+                            }
+                        })
+                        .catch(err => console.error('Error en fetch:', err));
+                        window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
                     </script>";
                     break;
                 default:
                     // Muestra el resultado del usuario (puntos obtenidos sobre el total).
                     echo "<script>
                     window.alert('¡Oh! Has obtenido: $puntos puntos. Se le redireccionará a Inicio');
-                    window.location.href = '../../../sitios/index/index.html.php';
+                    // Enviar puntaje al servidor
+                    fetch('../../../persistencia/guardarPuntaje.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            id_juego: 6,
+                            puntaje: $puntos * 10
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data && data.success) {
+                            console.log('Puntaje guardado correctamente');
+                        } else {
+                            console.error('Error al guardar puntaje:', data && data.error ? data.error : data);
+                        }
+                    })
+                    .catch(err => console.error('Error en fetch:', err));
+                    window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
                     </script>";
                     break;
             }

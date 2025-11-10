@@ -85,6 +85,8 @@ function crearUsuario() {
             ;;
     esac
 
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Se creó el usuario $usuario" >> /var/log/zappy.log
+
     echo "Presione Enter para volver al menú..."
     read
     clear
@@ -102,6 +104,9 @@ function eliminarUsuario() {
 
     userdel -r $usuario  # -r también borra el directorio home
     echo "Usuario $usuario eliminado."
+    
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Se eliminó el usuario $usuario" >> /var/log/zappy.log
+
     echo "Presione Enter para volver al menú..."
     read
     clear

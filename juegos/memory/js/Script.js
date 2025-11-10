@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsEl = document.querySelector('#stats');
     const gameEl = document.querySelector('#game');
 
+    /*
+    // Cargar puntaje acumulado del usuario para este juego
+    fetch('../../persistencia/obtenerPuntaje.php?id_juego=1')
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.puntaje !== undefined) {
+                score = data.puntaje;
+                updateScoreUI();
+            }
+        })
+        .catch(err => console.error('Error al cargar puntaje:', err));*/
+
     // Inicializar UI
     if (scoreEl) scoreEl.textContent = 'Puntaje: 0';
     if (statsEl) statsEl.textContent = '0 intentos';
@@ -104,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             cards.forEach(card => card.removeEventListener('click', activate));
 
                             // Enviar puntaje al servidor (si corresponde)
-                            fetch('guardarPuntaje.php', {
+                            fetch('../../persistencia/guardarPuntaje.php', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
