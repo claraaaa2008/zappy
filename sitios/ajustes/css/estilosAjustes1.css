@@ -277,6 +277,10 @@ form .div-row {
         filter:
             drop-shadow(0 0 1dvw #49D9D9);
     }
+
+    #listaUsuarios .campos {
+        background-color: #40404012;
+    }
 }
 
 @media screen and (max-width: 800px) {
