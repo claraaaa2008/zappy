@@ -63,6 +63,6 @@
     </section>
 </body>
 
-    <script src="../js/theme.js"></script>
+    <script src="../../js/theme.js"></script>
 
 </html>

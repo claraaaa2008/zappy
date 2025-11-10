@@ -78,7 +78,7 @@ $topUsuarios = $bd->obtenerTopUsuarios(50); // Top 50 usuarios
         }
         ?>
     </section>
-    <script src="../js/theme.js"></script>
+    <script src="../../js/theme.js"></script>
     <script src="js/logica.js"></script>
 </body>
 

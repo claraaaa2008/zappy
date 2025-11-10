@@ -92,7 +92,7 @@ $fotoPerfil = isset($usuario['fotoPerfil']) && $usuario['fotoPerfil'] !== ""
         </div>
     </main>
 
-    <script src="../js/theme.js"></script>
+    <script src="../../js/theme.js"></script>
     <script src="js/logica.js"></script>
 </body>
 

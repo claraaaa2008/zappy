@@ -188,7 +188,7 @@ if ($fechaNac) {
 
 </body>
 
-<script src="../js/theme.js"></script>
+<script src="../../js/theme.js"></script>
 <script src="js/logica.js"></script>
 
 </html>

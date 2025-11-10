@@ -210,6 +210,6 @@ $topUsuarios = $bd->obtenerTopUsuarios(10);
     </div>
 </body>
 <script src="js/logica.js"></script>
-<script src="../js/theme.js"></script>
+<script src="../../js/theme.js"></script>
 
 </html>

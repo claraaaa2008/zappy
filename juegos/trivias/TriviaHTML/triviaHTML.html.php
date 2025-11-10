@@ -70,14 +70,14 @@ $pidActual = $clavePreguntas[$preguntaActual];
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/cutta" rel="stylesheet">
-    <link rel="stylesheet" href="../../../nuevoSitios/css/modoOscuro.css">
+    <link rel="stylesheet" href="../../../css/modoOscuro.css">
     <link rel="stylesheet" href="css/Estilos.css?v=<?= time() ?>">
 </head>
 
 <body>
     <!-- Contenedor del título y la imagen de Zappy -->
     <div class="tituloContainer">
-        <a href="../../../nuevoSitios/index/indexGame.html.php" class="div-row">
+        <a href="../../../sitios/index/indexGame.html.php" class="div-row">
             <span class="material-symbols-rounded">arrow_back</span>
             <h1>ZAPPY</h1>
         </a>
@@ -119,7 +119,7 @@ $pidActual = $clavePreguntas[$preguntaActual];
                     }
                 })
                 .catch(err => console.error('Error en fetch:', err));
-                window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
+                window.location.href = '../../../sitios/index/indexGame.html.php';
             </script>";
         } else if (isset($_POST['enviar'])) {
             switch ($puntos) {
@@ -144,7 +144,7 @@ $pidActual = $clavePreguntas[$preguntaActual];
                             }
                         })
                         .catch(err => console.error('Error en fetch:', err));
-                        window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
+                        window.location.href = '../../../sitios/index/indexGame.html.php';
                     </script>";
                     break;
                 default:
@@ -169,7 +169,7 @@ $pidActual = $clavePreguntas[$preguntaActual];
                         }
                     })
                     .catch(err => console.error('Error en fetch:', err));
-                    window.location.href = '../../../nuevoSitios/index/indexGame.html.php';
+                    window.location.href = '../../../sitios/index/indexGame.html.php';
                     </script>";
                     break;
             }
