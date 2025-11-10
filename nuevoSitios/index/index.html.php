@@ -31,6 +31,9 @@ if ($resultado && count($resultado) > 0) {
 // Obtener puntaje total del usuario
 $puntajeTotal = $bd->obtenerPuntajeTotalUsuario($idUsr);
 
+// Obtener ranking del usuario
+$rankingUsuario = $bd->obtenerRankingUsuario($idUsr);
+
 $fotoPerfil = $usuario['fotoPerfil'] ?? "default.png";
 
 $edad = null;
@@ -123,7 +126,7 @@ if ($fechaNac) {
                     <div class="div-row profile">
                         <!-- Círculo pequeño -->
                         <div class="circulito">
-                           <img src="<?php echo "../../img/perfiles/" . htmlspecialchars($fotoPerfil); ?>" alt="Foto de perfil" class="circle-img">
+                            <img src="<?php echo "../../img/perfiles/" . htmlspecialchars($fotoPerfil); ?>" alt="Foto de perfil" class="circle-img">
                         </div>
 
                         <div class="div-column">
@@ -157,7 +160,7 @@ if ($fechaNac) {
                     </div>
                     <div class="div-row">
                         <p>Ranking</p>
-                        <p class="atributoField div-row">№ xx</p>
+                        <p class="atributoField div-row"><?php echo htmlspecialchars($rankingUsuario); ?></p>
                     </div>
                 </div>
                 <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para

@@ -49,6 +49,7 @@ $conexion->close();
 require_once "../../persistencia/BaseDatos.php";
 $bd = new BaseDatos();
 $puntajeTotal = $bd->obtenerPuntajeTotalUsuario($idUsr);
+$rankingUsuario = $bd->obtenerRankingUsuario($idUsr);
 $topUsuarios = $bd->obtenerTopUsuarios(10);
 ?>
 
@@ -181,7 +182,7 @@ $topUsuarios = $bd->obtenerTopUsuarios(10);
                     </div>
                     <div class="div-row">
                         <p>Ranking</p>
-                        <p class="atributoField div-row">№ xx</p>
+                        <p class="atributoField div-row"><?php echo htmlspecialchars($rankingUsuario); ?></p>
                     </div>
                 </div>
                 <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para

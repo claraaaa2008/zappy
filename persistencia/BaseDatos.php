@@ -198,6 +198,23 @@ class BaseDatos {
         return $this->consultar($sql, "i", $limite);
     }
 
+    public function obtenerRankingUsuario($idUsr) {
+        $sql = "SELECT COUNT(*) + 1 AS ranking
+                FROM (
+                    SELECT u.idUsr, SUM(j.sumPuntos) AS totalPuntos
+                    FROM Usuario u
+                    LEFT JOIN Juega j ON u.idUsr = j.idUsr
+                    GROUP BY u.idUsr
+                    HAVING SUM(j.sumPuntos) > (
+                        SELECT SUM(j2.sumPuntos)
+                        FROM Juega j2
+                        WHERE j2.idUsr = ?
+                    )
+                ) AS superiores";
+        $resultado = $this->consultar($sql, "i", $idUsr);
+        return $resultado ? $resultado[0]['ranking'] : 1; // Si no hay superiores, es el primero
+    }
+
     /* =========================
        CERRAR CONEXIÓN
        ========================= */
