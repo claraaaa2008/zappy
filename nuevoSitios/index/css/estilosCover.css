@@ -255,3 +255,10 @@ p {
         border: 4px solid #2e2e2e;
     }
 }
+
+@media screen and (max-width: 900px){
+    body {
+        display: flex !important;
+        flex-direction: column;
+    }
+}
