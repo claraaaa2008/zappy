@@ -16,7 +16,7 @@ if (empty($_FILES['foto']['name'])) {
     exit;
 }
 
-$ruta = "../../../img/usuarios/";
+$ruta = "../../../img/perfiles/";
 if (!is_dir($ruta)) mkdir($ruta, 0777, true);
 
 $archivo = $_FILES['foto']['name'];

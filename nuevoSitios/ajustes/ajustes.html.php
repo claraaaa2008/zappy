@@ -75,7 +75,7 @@ $esAdmin = $bd->esAdmin($idUsuario);
             <form id="form-usuario" action="php/cambiarInfoUsuario.php" class="div-column" enctype="multipart/form-data">
                 <div class="div-row">
                     <div class="div-column perfil" style="align-items: center; gap: 10px;">
-                        <img id="foto-perfil-ajustes" class="circle" src="../../img/perfiles/default.png" alt="Foto de perfil">
+                        <span class="material-symbols-rounded circle">add_a_photo</span>
                         <button type="button" id="boton-cambiar-foto" class="buttonTurquesa">Cambiar foto</button>
                         <input type="file" id="input-foto-perfil" style="display:none;" accept="image/*">
                     </div>
@@ -195,14 +195,7 @@ $esAdmin = $bd->esAdmin($idUsuario);
                     </div>
                 </div>
 
-                <div class="div-column box boxTurquesa glowTurquesa">
-                    <h4>Juego</h4>
-                    <h5>Fondo de pantalla</h5>
-                    <div class="div-row">
-                        <img src="../../img/ajustes/agregarImg.png" alt="">
-                        <img src="../../img/ajustes/agregarColor.png" alt="">
-                    </div>
-                </div>
+                
 
                 <button type="submit" class="buttonTurquesa">Guardar Cambios</button>
             </form>
@@ -210,19 +203,20 @@ $esAdmin = $bd->esAdmin($idUsuario);
 
         <section class="div-column classAdmin" id="admin">
             <h3>Administracion de plataforma</h3>
+            <!--
             <form class="div-column box boxTurquesa glowTurquesa" method="post" id="agregarJuegos">
                 <h4>Agrega un juego</h4>
                 <p>Formatos disponibles: .html, .php</p>
                 <button class="buttonTurquesa">Inserta tu juego</span></button>
-            </form>
+            </form>-->
             <form class="div-column box boxTurquesa glowTurquesa" method="post" id="gestiónUsuarios">
                 <div class="div-column titleUsrs">
                     <h4>Gestión de usuarios</h4>
-                    <fieldset class="div-row">
-                        <span class="material-symbols-rounded">search</span>
-                        <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
-                        <span class="material-symbols-rounded">close</span>
-                    </fieldset>
+                        <fieldset class="div-row">
+                            <span class="material-symbols-rounded">search</span>
+                            <input type="text" name="usuario" id="usuarioBuscar" placeholder="Ingrese un usuario para gestionar">
+                            <span class="material-symbols-rounded" id="clearSearch">close</span>
+                        </fieldset>
                 </div>
 
                 <!-- Contenedor para la lista -->

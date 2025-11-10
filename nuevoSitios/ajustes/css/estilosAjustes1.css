@@ -18,8 +18,6 @@
 }
 
 .circulo {
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     background-color: white;
@@ -82,6 +80,10 @@ button {
 
 header {
     color: #f5a503;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
 } header .titlePage h2 {
     text-transform: uppercase;
     font-weight: 800;
@@ -118,11 +120,15 @@ nav {
 form .div-row {
     gap: 2dvw;
 } .circle {
-    width: 100%;
-    height: 100%;
     aspect-ratio: 1/1;
+    box-sizing: border-box;
+    padding: 60px;
     border-radius: 100%;
+    
     background-color: white;
+    color: #919191;
+    border: 2px solid #4ad9d9;
+
 }
 
 .perfil {
@@ -206,6 +212,9 @@ form .div-row {
     gap: 1.5dvh;
 }
 
+#listaUsuarios {
+    gap: 20px;
+}
 
 /******* Estilos de modal ******/
 .box {
@@ -223,6 +232,10 @@ form .div-row {
 } #logout button {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+}
+
+#logout form {
+    width: 100%;
 }
 
 [data-theme="light"] {
@@ -263,5 +276,73 @@ form .div-row {
     .tema-svg:hover {
         filter:
             drop-shadow(0 0 1dvw #49D9D9);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        width: 100vw;
+        max-width: 1100px;
+        margin: auto;
+        padding-inline: 40px;
+        font-size: 0.9rem;
+    }
+
+    header {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        gap: 20px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 0.7rem; /* Fuente más chica */
+    } h1 {
+        font-size: 1.2rem;
+    }
+
+    header .currentUsr {
+        flex-direction: row-reverse !important;
+    } header .currentUsr .circulo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .separador-vertical {
+        margin: 0 15px;
+        height: 15px;
+    }
+
+    nav span {
+        font-size: 20px;
+    }
+
+    input, select {
+        font-size: 0.9rem;
+    }
+
+    /** Sección usuario **/
+    #usuario #form-usuario .div-row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .circle {
+        padding: 50px;
+    }
+
+    /**Modal**/
+    #logout .box {
+        font-size: 0.9rem;
+    }
+
+    #logout .container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    nav {
+        padding-inline: 20px;
+    } nav span {
+        font-size: 20px !important;
     }
 }

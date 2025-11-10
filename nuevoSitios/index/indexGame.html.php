@@ -7,10 +7,11 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['nom_real'])) {
     exit;
 }
 // Guardar datos básicos
-$nombreReal = $_SESSION['usuario']['nom_real'];
-$nombreUsuario = $_SESSION['usuario']['nom_usr'];
-$idGrupo = $_SESSION['usuario']['idGrupo'];
-$idUsr = $_SESSION['usuario']['idUsr']; // 👈 asegurate que exista en la sesión
+$usuario = $_SESSION['usuario'];
+$nombreReal = $usuario['nom_real'];
+$nombreUsuario = $usuario['nom_usr'];
+$idGrupo = $usuario['idGrupo'];
+$idUsr = $usuario['idUsr']; // 👈 asegurate que exista en la sesión
 
 // ==============================
 // Conexión a la base de datos
@@ -41,6 +42,14 @@ if ($fechaNac) {
 
 $stmt->close();
 $conexion->close();
+
+// ==============================
+// Obtener puntaje total y ranking
+// ==============================
+require_once "../../persistencia/BaseDatos.php";
+$bd = new BaseDatos();
+$puntajeTotal = $bd->obtenerPuntajeTotalUsuario($idUsr);
+$topUsuarios = $bd->obtenerTopUsuarios(10);
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +88,7 @@ $conexion->close();
         <div class="div-row">
             <a href="#miInfo" onclick="abrirModal('miInfo', event)" class="btn"><span class="material-symbols-rounded">person</span></a>
             <a href="../grupos/grupos.html.php" class="btn"><span class="material-symbols-rounded">group</span></a>
-            <a href="../ranking/ranking.html" class="btn"><span class="material-symbols-rounded">leaderboard</span></a>
+            <a href="../ranking/ranking.html.php" class="btn"><span class="material-symbols-rounded">leaderboard</span></a>
             <a href="../ajustes/ajustes.html.php" class="btn"><span class="material-symbols-rounded">settings</span></a>
             <a href="#logout" onclick="abrirModal('logout', event)" class="logout"><span class="material-symbols-rounded">logout</span></a>
         </div>
@@ -89,18 +98,16 @@ $conexion->close();
         <aside>
             <h2>Ranking</h2>
             <div class="div-column">
-                <div class="div-row">
-                    <p><b>1.</b> usuario123</p>
-                    <p class="puntaje">xxxxx</p>
-                </div>
-                <div class="div-row">
-                    <p><b>1.</b> usuario123</p>
-                    <p class="puntaje">xxxxx</p>
-                </div>
-                <div class="div-row">
-                    <p><b>1.</b> usuario123</p>
-                    <p class="puntaje">xxxxx</p>
-                </div>
+                <?php
+                $posicion = 1;
+                foreach ($topUsuarios as $usuarioRanking) {
+                    echo '<div class="div-row">';
+                    echo '<p><b>' . $posicion . '.</b> ' . htmlspecialchars($usuarioRanking['nom_usr']) . '</p>';
+                    echo '<p class="puntaje">' . htmlspecialchars($usuarioRanking['totalPuntos']) . '</p>';
+                    echo '</div>';
+                    $posicion++;
+                }
+                ?>
             </div>
         </aside>
 
@@ -138,13 +145,17 @@ $conexion->close();
             <div class="box boxTurquesa div-column">
                 <div class="div-row align content">
                     <div class="div-row profile">
-                        <div class="circulito"></div>
+                        <!-- Círculo pequeño -->
+                        <div class="circulito">
+                           <img src="<?php echo "../../img/perfiles/" . htmlspecialchars($fotoPerfil); ?>" alt="Foto de perfil" class="circle-img">
+                        </div>
+
                         <div class="div-column">
                             <h3><?php echo htmlspecialchars($nombreReal); ?></h3>
                             <h6>@<?php echo htmlspecialchars($nombreUsuario); ?></h6>
                         </div>
                     </div>
-                    <p class="puntaje">xxxxx</p>
+                    <p class="puntaje"><?php echo htmlspecialchars($puntajeTotal); ?></p>
                 </div>
 
                 <div class="div-row">
@@ -165,7 +176,7 @@ $conexion->close();
                     <h3>Juego</h3>
 
                     <div class="div-row">
-                        <p class="atributo">Mi grupo</p>
+                        <p>Mi grupo</p>
                         <p class="atributoField div-row">ID Grupo: <?php echo htmlspecialchars($idGrupo); ?></p>
                     </div>
                     <div class="div-row">
@@ -173,7 +184,8 @@ $conexion->close();
                         <p class="atributoField div-row">№ xx</p>
                     </div>
                 </div>
-                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para cerrar</p>
+                <p style="font-size: x-small; text-align: center;">Presione en cualquier lado fuera del modal para
+                    cerrar</p>
             </div>
         </div>
     </div>

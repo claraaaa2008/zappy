@@ -4,15 +4,17 @@ body {
     background: #f5a503; /* Color de fondo inicial (amarillo) */
     font-family: sans-serif; /* Fuente sans-serif para todo el body */
     background: #2E2E2E; /* Sobrescribe el fondo anterior con un gris oscuro */
+    box-sizing: border-box;
+    height: 100dvh;
+    padding: 40px;
+    gap: 30px;
 }
 
 #wrapper {
-    min-height: 100vh; /* Altura mínima del wrapper para ocupar toda la ventana */
     display: flex; /* Usar flexbox para organizar elementos */
     flex-direction: column; /* Organizar elementos en columna */
     align-items: center; /* Centrar horizontalmente los elementos */
     justify-content: space-evenly; /* Distribuir espacio uniformemente entre elementos */
-    padding: 1rem; /* Espacio interno alrededor */
 }
 
 #game {
